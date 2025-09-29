@@ -1,32 +1,27 @@
-import { Smartphone, Video, FileText, MessageCircle, Calendar, CreditCard } from "lucide-react";
+import { Smartphone, Video, FileText, MessageCircle, Calendar, CreditCard, CheckCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 const cabinetFeatures = [
   {
     icon: Video,
-    title: "Видеонаблюдение",
-    description: "Смотрите трансляцию с объекта в любое время"
+    title: "Можно не ездить на объект",
+    description: "Вы можете смотреть видео ремонта в личном кабинете 24/7. Дважды в неделю прораб загружает подробный фотоотчет. Возникли вопросы? Ответы получаете прямо в кабинете."
   },
   {
     icon: FileText,
-    title: "Документооборот",
-    description: "Все документы, договоры и акты в одном месте"
-  },
-  {
-    icon: MessageCircle,
-    title: "Чат с бригадой",
-    description: "Прямое общение с прорабом и специалистами"
-  },
-  {
-    icon: Calendar,
-    title: "График работ",
-    description: "Планирование и контроль выполнения этапов"
+    title: "Все отчеты под рукой",
+    description: "Все документы в одном месте: дизайн-проект, смета на работы и материалы, план-график работ, статусы выполненных этапов, комментарии прораба, дизайнера."
   },
   {
     icon: CreditCard,
-    title: "Финансы",
-    description: "Контроль бюджета и оплата услуг онлайн"
+    title: "Финансовая прозрачность",
+    description: "Договор, план-график оплат, акты, счета. Возможность оплатить прямо из кабинета. Платите только после выполнения работ."
+  },
+  {
+    icon: CheckCircle,
+    title: "Экономия времени",
+    description: "Все вопросы решаются мгновенно. К личному кабинету подключаются технический директор, дизайнер и прораб."
   }
 ];
 
@@ -38,13 +33,12 @@ const PersonalCabinetSection = () => {
           {/* Left content */}
           <div className="animate-slide-in-left">
             <h2 className="text-display font-display font-bold text-foreground mb-6">
-              Личный кабинет с полным контролем
+              Контроль через мобильное приложение
             </h2>
             
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Следите за каждым этапом ремонта через персональный кабинет. 
-              Онлайн-камеры, документы, общение с бригадой и контроль бюджета — 
-              всё в одном приложении.
+              Для вашего удобства мы разработали приложение, которое позволит вам в режиме 
+              онлайн отслеживать весь процесс ремонта и контролировать все расходы.
             </p>
             
             <div className="space-y-6">
