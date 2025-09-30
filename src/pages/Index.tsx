@@ -2,11 +2,8 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import WorkStepsSection from "@/components/WorkStepsSection";
 import PersonalCabinetSection from "@/components/PersonalCabinetSection";
-import ReviewsSection from "@/components/ReviewsSection";
-import GallerySection from "@/components/GallerySection";
-import CalculatorSection from "@/components/CalculatorSection";
+import StatsSection from "@/components/StatsSection";
 import DesignDetailsSection from "@/components/DesignDetailsSection";
-import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -16,11 +13,8 @@ const Index = () => {
       <HeroSection />
       <WorkStepsSection />
       <PersonalCabinetSection />
-      <ReviewsSection />
-      <GallerySection />
-      <CalculatorSection />
+      <StatsSection />
       <DesignDetailsSection />
-      <CTASection />
       <Footer />
     </main>
   );

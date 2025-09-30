@@ -3,6 +3,9 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { FileText, Ruler, Calculator, Users, Palette, FileCheck, CheckCircle, Hammer, Home } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import workCalculation from "@/assets/work-calculation.jpg";
+import workDesign from "@/assets/work-design.jpg";
+import workRenovation from "@/assets/work-renovation.jpg";
 
 const workStages = [
   {
@@ -163,19 +166,14 @@ const WorkStepsSection = () => {
             }`}>
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                 {/* Image tile */}
-                <div className="h-48 bg-gradient-to-br from-primary/10 to-primary/20 rounded-xl overflow-hidden shadow-lg flex items-center justify-center">
-                  <div className="text-center text-primary">
-                    <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      {stageIndex === 0 ? <Calculator className="w-8 h-8" /> :
-                       stageIndex === 1 ? <Palette className="w-8 h-8" /> :
-                       <Hammer className="w-8 h-8" />}
-                    </div>
-                    <p className="text-sm font-medium">
-                      {stageIndex === 0 ? 'Расчеты' :
-                       stageIndex === 1 ? 'Дизайн' :
-                       'Ремонт'}
-                    </p>
-                  </div>
+                <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl overflow-hidden shadow-lg">
+                  <img 
+                    src={stageIndex === 0 ? workCalculation : 
+                         stageIndex === 1 ? workDesign : 
+                         workRenovation}
+                    alt={`${stage.title} процесс`}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 {stage.steps.map((step, stepIndex) => {
                   const IconComponent = step.icon;
