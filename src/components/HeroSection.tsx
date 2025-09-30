@@ -72,8 +72,7 @@ const HeroSection = () => {
               onClick={scrollToCalculator}
               className="bg-primary hover:bg-primary/90 text-white font-semibold text-lg px-8 py-6 rounded-lg shadow-glow transition-smooth"
             >
-              РАССЧИТАТЬ СТОИМОСТЬ<br />
-              <span className="text-sm font-normal">В ТРЕХ ВАРИАНТАХ</span>
+              РАССЧИТАТЬ СТОИМОСТЬ
             </Button>
           </div>
           
