@@ -171,7 +171,7 @@ const WorkStepsSection = () => {
             }`}>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 {/* Image tile */}
-                <div className="h-40 md:h-48 bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl overflow-hidden shadow-lg">
+                <div className="h-48 md:h-56 bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl overflow-hidden shadow-lg">
                   <img 
                     src={stageIndex === 0 ? workCalculation : 
                          stageIndex === 1 ? workDesign : 
@@ -185,7 +185,7 @@ const WorkStepsSection = () => {
                   return (
                     <Card 
                       key={stepIndex}
-                      className={`h-40 md:h-48 bg-white border-gray-200 hover:shadow-2xl hover:border-primary/30 transition-all duration-500 relative transform ${
+                      className={`h-48 md:h-56 bg-white border-gray-200 hover:shadow-2xl hover:border-primary/30 transition-all duration-500 relative transform ${
                         visibleCards[stageIndex]?.[stepIndex]
                           ? 'translate-y-0 opacity-100 scale-100'
                           : 'translate-y-12 opacity-0 scale-95'
@@ -198,16 +198,20 @@ const WorkStepsSection = () => {
                         </div>
                       )}
                       
-                      <CardContent className="p-4 md:p-5 h-full flex flex-col justify-center text-center">
-                        <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 shadow-sm">
-                          <IconComponent className="w-6 h-6 md:w-7 md:h-7 text-primary" />
+                      <CardContent className="p-4 md:p-5 h-full flex flex-col">
+                        {/* Icon and Title row */}
+                        <div className="flex items-start gap-3 mb-3">
+                          <div className="w-10 h-10 md:w-11 md:h-11 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
+                            <IconComponent className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                          </div>
+                          
+                          <h4 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 leading-tight flex-1">
+                            {step.title}
+                          </h4>
                         </div>
                         
-                        <h4 className="text-base md:text-lg lg:text-xl font-bold text-gray-900 mb-2 md:mb-3 leading-tight">
-                          {step.title}
-                        </h4>
-                        
-                        <p className="text-gray-600 text-xs md:text-sm leading-relaxed line-clamp-3 font-light">{step.description}</p>
+                        {/* Description */}
+                        <p className="text-gray-600 text-sm md:text-base leading-relaxed flex-1">{step.description}</p>
                       </CardContent>
                     </Card>
                   );
