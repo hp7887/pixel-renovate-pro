@@ -127,14 +127,14 @@ const WorkStepsSection = () => {
   }, []);
 
   return (
-    <section id="work-steps" className="py-20 bg-gradient-to-b from-slate-800 to-slate-900">
+    <section id="work-steps" className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
         {/* Main section header */}
         <div className="text-center mb-20">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             КАК МЫ РАБОТАЕМ
           </h2>
-          <p className="text-lg text-slate-300 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Прозрачный процесс от первичной консультации до сдачи объекта в три последовательных этапа
           </p>
         </div>
@@ -152,59 +152,62 @@ const WorkStepsSection = () => {
             <div className={`text-center mb-12 transform transition-all duration-700 ${
               visibleStages[stageIndex] ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}>
-              <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+              <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                 {stage.number}. {stage.title}
               </h3>
             </div>
             
-            {/* Stage steps - uniform grid */}
-            <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {stage.steps.map((step, stepIndex) => {
-                const IconComponent = step.icon;
-                return (
-                  <div
-                    key={stepIndex}
-                    className={`transform transition-all duration-700 ease-out ${
-                      visibleCards[stageIndex]?.[stepIndex]
-                        ? 'translate-y-0 opacity-100 scale-100'
-                        : 'translate-y-12 opacity-0 scale-95'
-                    }`}
-                  >
-                    <Card className="h-80 bg-slate-700/50 border-slate-600 backdrop-blur-sm hover:bg-slate-700/70 transition-all duration-300 relative">
+            {/* Stage steps in 2x2 grid format like original */}
+            <div className={`max-w-4xl mx-auto transform transition-all duration-1000 delay-300 ${
+              visibleStages[stageIndex] ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+            }`}>
+              <div className="grid grid-cols-2 gap-6">
+                {stage.steps.map((step, stepIndex) => {
+                  const IconComponent = step.icon;
+                  return (
+                    <Card 
+                      key={stepIndex}
+                      className={`aspect-square bg-white border-gray-200 hover:shadow-xl transition-all duration-300 relative transform ${
+                        visibleCards[stageIndex]?.[stepIndex]
+                          ? 'translate-y-0 opacity-100 scale-100'
+                          : 'translate-y-12 opacity-0 scale-95'
+                      }`}
+                      style={{ animationDelay: `${stepIndex * 200}ms` }}
+                    >
                       {step.isFree && (
                         <div className="absolute -top-3 -right-3 bg-yellow-400 text-black px-3 py-1 rounded-full text-xs font-bold z-10">
                           БЕСПЛАТНО
                         </div>
                       )}
                       
-                      <CardContent className="p-6 h-full flex flex-col">
-                        <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <CardContent className="p-6 h-full flex flex-col justify-center text-center">
+                        <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                           <IconComponent className="w-8 h-8 text-primary" />
                         </div>
                         
-                        <h4 className="text-xl font-bold text-white mb-4 text-center">
+                        <h4 className="text-xl font-bold text-gray-900 mb-4">
                           {step.title}
                         </h4>
                         
-                        <p className="text-slate-300 text-sm leading-relaxed flex-grow text-center">
+                        <p className="text-gray-600 text-sm leading-relaxed">
                           {step.description}
                         </p>
                       </CardContent>
                     </Card>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
         ))}
         
         {/* Bottom call to action */}
         <div className="mt-20 text-center">
-          <div className="bg-slate-700/30 rounded-3xl p-10 max-w-4xl mx-auto backdrop-blur-sm border border-slate-600">
-            <h3 className="text-3xl font-bold text-white mb-4">
+          <div className="bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 rounded-3xl p-10 max-w-4xl mx-auto">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">
               Готовы начать ваш проект?
             </h3>
-            <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
               Каждый этап контролируется профессионалами. Получите качественный результат в срок по фиксированной стоимости.
             </p>
             <button 
