@@ -66,8 +66,8 @@ const PersonalCabinetSection = () => {
       className="py-20 bg-gradient-to-br from-primary/5 via-white to-secondary/5 overflow-hidden"
     >
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left content */}
+        <div className="relative">
+          {/* Main content */}
           <div className={`transform transition-all duration-1000 ${
             isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
           }`}>
@@ -77,12 +77,12 @@ const PersonalCabinetSection = () => {
               <span className="text-primary">мобильное приложение</span>
             </h2>
             
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+            <p className="text-lg text-gray-600 mb-8 leading-relaxed max-w-2xl">
               Революционная система контроля ремонта в режиме реального времени. 
               Полная прозрачность процесса и финансов через удобное мобильное приложение.
             </p>
             
-            <div className="space-y-6 mb-10">
+            <div className="space-y-6 mb-10 max-w-2xl">
               {cabinetFeatures.map((feature, index) => (
                 <div 
                   key={index} 
@@ -101,14 +101,13 @@ const PersonalCabinetSection = () => {
                 </div>
               ))}
             </div>
-            
           </div>
           
-          {/* Right content - Animated phone mockup */}
-          <div className={`transform transition-all duration-1000 delay-300 ${
+          {/* Phone mockup - positioned bottom right */}
+          <div className={`absolute bottom-0 right-0 transform transition-all duration-1000 delay-300 ${
             isVisible ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
           }`}>
-            <div className="relative max-w-sm mx-auto">
+            <div className="relative w-64 mx-auto lg:mx-0">
               {/* Phone frame */}
               <div className="relative bg-gray-900 rounded-[3rem] p-2 shadow-2xl">
                 <div className="bg-black rounded-[2.5rem] overflow-hidden">
