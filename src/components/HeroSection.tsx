@@ -77,34 +77,46 @@ const HeroSection = () => {
             </Button>
           </div>
           
-          {/* Right content - Guide download */}
+          {/* Right content - Why choose us */}
           <div className="lg:col-span-5 flex justify-end">
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 max-w-sm border border-white/20">
-              <div className="text-center space-y-4">
-                <h3 className="text-white font-semibold text-lg">
-                  Скачайте бесплатный гайд
+              <div className="text-center space-y-6">
+                <h3 className="text-white font-semibold text-xl">
+                  ПОЧЕМУ ВЫБИРАЮТ НАС
                 </h3>
-                <p className="text-white/80 text-sm leading-relaxed">
-                  «КАК СДЕЛАТЬ КАЧЕСТВЕННЫЙ РЕМОНТ<br />
-                  В 2025 ГОДУ ПОД ВАШ БЮДЖЕТ»
-                </p>
                 
-                {/* Guide preview */}
-                <div className="relative mx-auto w-32 h-40 bg-gradient-to-b from-primary to-primary/80 rounded-lg shadow-lg">
-                  <div className="absolute inset-2 bg-white rounded text-xs p-2">
-                    <div className="space-y-1">
-                      <div className="h-2 bg-gray-200 rounded"></div>
-                      <div className="h-2 bg-gray-200 rounded w-3/4"></div>
-                      <div className="h-2 bg-gray-200 rounded w-1/2"></div>
-                    </div>
+                <div className="space-y-4 text-left">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-white/90 text-sm">Опыт работы более 10 лет</p>
+                  </div>
+                  
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-white/90 text-sm">Собственная бригада мастеров</p>
+                  </div>
+                  
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-white/90 text-sm">Контроль качества на каждом этапе</p>
+                  </div>
+                  
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-white/90 text-sm">Работаем с проверенными поставщиками</p>
+                  </div>
+                  
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-white/90 text-sm">Все документы и договоры официально</p>
                   </div>
                 </div>
                 
                 <Button 
-                  className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold"
+                  className="w-full bg-primary hover:bg-primary/90 text-white font-semibold"
                   size="lg"
                 >
-                  СКАЧАТЬ ГАЙД
+                  УЗНАТЬ ПОДРОБНЕЕ
                 </Button>
               </div>
             </div>
@@ -119,7 +131,7 @@ const HeroSection = () => {
           <div className="text-sm">
             <span className="font-semibold">При заказе ремонта </span>
             <span className="font-bold">дизайн-проект в подарок </span>
-            <span>(экономия 200 000 рублей)</span>
+            <span>(экономия 200 000 рублей<a href="#design-details" className="text-yellow-300 hover:text-yellow-100 ml-1">*</a>)</span>
           </div>
         </div>
       </div>
