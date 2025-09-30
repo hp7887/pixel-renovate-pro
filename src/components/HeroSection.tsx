@@ -78,23 +78,29 @@ const HeroSection = () => {
         </div>
       </div>
       
-      {/* Company info - positioned in top right corner OUTSIDE of content container */}
-      <div className="hidden xl:block absolute top-24 right-8 z-20 animate-fade-in">
-        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 w-80 border border-white/20 shadow-2xl">
-          <div className="text-center space-y-6">
-            <h3 className="text-white font-semibold text-xl">
-              О КОМПАНИИ
-            </h3>
-            
-            <div className="space-y-4 text-left">
-              <div className="text-white/90 text-sm leading-relaxed">
-                <p className="mb-3">Более 10 лет профессионального опыта в сфере ремонта и строительства</p>
-                <p className="mb-3">Собственные бригады квалифицированных мастеров</p>
-                <p className="mb-3">Более 500 успешно завершенных проектов</p>
-                <p className="mb-3">Работаем только с качественными материалами от проверенных поставщиков</p>
-                <p>Официальное оформление всех документов и гарантийных обязательств</p>
-              </div>
-            </div>
+      {/* Company info card - positioned in bottom right corner */}
+      <div className="hidden lg:block absolute bottom-24 right-6 z-20 animate-fade-in">
+        <div className="bg-white/95 backdrop-blur-sm rounded-xl p-5 w-72 shadow-2xl border border-gray-200">
+          <h3 className="text-primary font-bold text-lg mb-3 text-center">
+            О НАС
+          </h3>
+          <div className="space-y-2 text-xs text-gray-700 leading-relaxed">
+            <p className="flex items-start gap-2">
+              <span className="text-primary font-bold mt-0.5">✓</span>
+              <span>Более 10 лет опыта</span>
+            </p>
+            <p className="flex items-start gap-2">
+              <span className="text-primary font-bold mt-0.5">✓</span>
+              <span>500+ завершенных проектов</span>
+            </p>
+            <p className="flex items-start gap-2">
+              <span className="text-primary font-bold mt-0.5">✓</span>
+              <span>Собственные бригады мастеров</span>
+            </p>
+            <p className="flex items-start gap-2">
+              <span className="text-primary font-bold mt-0.5">✓</span>
+              <span>Гарантия 1 год на все работы</span>
+            </p>
           </div>
         </div>
       </div>

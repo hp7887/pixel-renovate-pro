@@ -70,9 +70,9 @@ const PersonalCabinetSection = () => {
       className="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary/5 via-white to-secondary/5 overflow-hidden"
     >
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">{/* Changed to grid for better control */}
-          {/* Main content */}
-          <div className={`transform transition-all duration-1000 ${
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
+          {/* Left side - Main content */}
+          <div className={`flex-1 transform transition-all duration-1000 ${
             isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
           }`}>
             
@@ -107,18 +107,18 @@ const PersonalCabinetSection = () => {
             </div>
           </div>
           
-          {/* Phone mockup */}
-          <div className={`flex justify-center lg:justify-start transform transition-all duration-1000 delay-300 ${
+          {/* Right side - Phone mockup in separate segment */}
+          <div className={`flex-shrink-0 w-full lg:w-auto flex justify-center transform transition-all duration-1000 delay-300 ${
             isVisible ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
           }`}>
-            <div className="relative w-56 sm:w-64 md:w-72">
+            <div className="relative w-56 sm:w-64 md:w-72 lg:w-80">
               <div className="relative bg-gray-900 rounded-[2rem] md:rounded-[2.5rem] p-2 md:p-3 shadow-2xl">
                 <div className="bg-black rounded-[1.5rem] md:rounded-[2rem] overflow-hidden">
                   <div className="bg-gray-900 h-5 md:h-6 flex items-center justify-center relative">
                     <div className="w-20 md:w-24 h-4 md:h-5 bg-black rounded-b-2xl absolute top-0"></div>
                   </div>
                   
-                  <div className="relative h-[400px] sm:h-[450px] md:h-[500px] bg-white overflow-hidden">
+                  <div className="relative h-[400px] sm:h-[450px] md:h-[500px] lg:h-[550px] bg-white overflow-hidden">
                     {appScreens.map((screen, index) => (
                       <img
                         key={index}
