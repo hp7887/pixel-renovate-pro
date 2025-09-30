@@ -10,10 +10,11 @@ const HeroSection = () => {
   };
 
   const animatedTexts = [
-    "гарантия на ремонт",
-    "контроль качества",
-    "прозрачные цены",
-    "работа под ключ"
+    "Контролируйте ремонт через мобильное приложение",
+    "Страховка всей стоимости ремонта на 1 000 000 руб. за наш счет",
+    "Максимально точная смета без закупа лишних материалов",
+    "Фиксированная цена ремонта по смете",
+    "Гарантия на ремонт 1 год"
   ];
 
   return (
@@ -29,7 +30,7 @@ const HeroSection = () => {
       </div>
       
       {/* Hero content */}
-      <div className="relative z-10 container mx-auto px-4 py-20">
+      <div className="relative z-10 container mx-auto px-4 py-20 pt-32">
         <div className="grid lg:grid-cols-12 gap-8 items-center min-h-[80vh]">
           {/* Left content */}
           <div className="lg:col-span-7 space-y-8">
@@ -51,12 +52,13 @@ const HeroSection = () => {
               </p>
               
               {/* Animated typewriter text */}
-              <div className="text-lg text-primary font-semibold">
+              <div className="text-lg text-white font-semibold min-h-[3rem] flex items-center">
                 <TypewriterText 
                   texts={animatedTexts}
-                  speed={120}
-                  deleteSpeed={80}
-                  pauseDuration={2000}
+                  speed={80}
+                  deleteSpeed={50}
+                  pauseDuration={3000}
+                  className="text-white"
                 />
               </div>
             </div>

@@ -1,16 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm transition-all duration-300">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="text-2xl font-bold text-white">
-              Digital<span className="text-primary">STROY</span>
-            </div>
+          <div className="flex items-center space-x-3">
+            <img src={logo} alt="DigitalSTROY" className="h-12 w-auto" />
           </div>
           
           {/* Navigation */}
