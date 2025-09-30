@@ -78,7 +78,7 @@ const HeroSection = () => {
         </div>
         
         {/* Company info - positioned in top right corner */}
-        <div className="hidden lg:block absolute top-8 right-8 animate-fade-in">
+        <div className="absolute top-8 right-8 animate-fade-in hidden lg:block z-20">
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 w-80 border border-white/20 shadow-2xl">
             <div className="text-center space-y-6">
               <h3 className="text-white font-semibold text-xl">

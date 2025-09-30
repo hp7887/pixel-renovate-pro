@@ -70,9 +70,9 @@ const PersonalCabinetSection = () => {
       className="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary/5 via-white to-secondary/5 overflow-hidden"
     >
       <div className="container mx-auto px-4">
-        <div className="flex flex-col xl:flex-row items-center xl:items-start gap-8 xl:gap-16">{/* Changed from lg:flex-row to xl:flex-row */}
-          {/* Main content */}
-          <div className={`flex-1 transform transition-all duration-1000 ${
+        <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+          {/* Main content - narrower to fit phone on the right */}
+          <div className={`max-w-2xl transform transition-all duration-1000 ${
             isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
           }`}>
             
