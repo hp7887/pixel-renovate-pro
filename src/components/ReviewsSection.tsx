@@ -1,126 +1,96 @@
-import { Star, Quote } from "lucide-react";
+import { Quote } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const reviews = [
   {
-    name: "Анна Петрова",
-    role: "Владелица квартиры",
-    rating: 5,
-    text: "Невероятно профессиональный подход! Каждый день могла следить за работой через камеры. Все сроки соблюдены, качество превосходное. Рекомендую всем!",
-    avatar: "АП",
-    project: "3-комн. квартира, 85 м²"
+    name: "Александра Михайлова",
+    date: "15.01.2025",
+    text: "Обратились в DigitalStroy для ремонта двухкомнатной квартиры в новостройке. Работали с прорабом Дмитрием и дизайнером Светланой. Особенно хочется отметить качество работ по электрике и сантехнике - все сделано аккуратно, с учетом всех пожеланий. Договорились на 2 месяца, закончили ровно в срок. Очень довольны результатом! Соседи уже спрашивают контакты.",
+    project: "2-комн. квартира, 62 м²",
+    initials: "АМ"
   },
   {
-    name: "Михаил Сидоров",
-    role: "Владелец загородного дома",
-    rating: 5,
-    text: "Делали полный ремонт дома. Особенно понравилось мобильное приложение - все документы, общение с бригадой, контроль расходов. Очень удобно!",
-    avatar: "МС",
-    project: "Загородный дом, 150 м²"
+    name: "Игорь и Марина Соколовы",
+    date: "28.12.2024",
+    text: "Делали капитальный ремонт трешки на Васильевском острове. Сначала переживали, что будет много проблем со старым домом, но ребята справились отлично. Заменили всю проводку, выровняли стены (а там было что выравнивать!), поменяли окна. Мастер Андрей очень внимательный, всегда на связи, если что-то не понятно - объяснит и покажет. Цена получилась даже чуть ниже, чем планировали изначально.",
+    project: "3-комн. квартира, 78 м²",
+    initials: "ИС"
   },
   {
-    name: "Екатерина Волкова",
-    role: "Дизайнер интерьеров",
-    rating: 5,
-    text: "Работаю с DigitalStroy уже третий год. Клиенты всегда довольны качеством и сервисом. Особенно ценят онлайн-контроль и прозрачность процессов.",
-    avatar: "ЕВ",
-    project: "Сотрудничество"
+    name: "Дмитрий Петров",
+    date: "10.12.2024",
+    text: "Заказывал ремонт однушки под сдачу. Нужен был качественный ремонт, но без излишеств. Менеджер Ольга помогла подобрать оптимальный вариант по цене и материалам. Бригада работала быстро и чисто, каждый день убирали за собой. Закончили за 3 недели. Через две недели после завершения ремонта уже сдал квартиру. Обязательно обращусь снова, когда буду делать ремонт в своей квартире.",
+    project: "1-комн. квартира, 38 м²",
+    initials: "ДП"
+  },
+  {
+    name: "Елена Васильева",
+    date: "22.11.2024",
+    text: "Хочу поблагодарить всю команду DigitalStroy за ремонт нашей квартиры! Особенно благодарна прорабу Сергею за его терпение и профессионализм. У нас было много изменений по ходу ремонта, все правки вносили без проблем. Качество работ на высоте - плитка в ванной положена идеально, стены ровные, все розетки на своих местах. Сделали даже лучше, чем ожидали. Всем рекомендую!",
+    project: "2-комн. квартира, 54 м²",
+    initials: "ЕВ"
+  },
+  {
+    name: "Константин Леонидович",
+    date: "05.11.2024",
+    text: "Делал ремонт квартиры для мамы. Возраст уже не тот, поэтому важно было, чтобы все было надежно и практично. Ребята учли все нюансы - сделали противоскользящую плитку в ванной, установили удобные поручни, продумали освещение. Работали аккуратно, всегда предупреждали о шумных работах. Мама очень довольна, говорит что квартира стала как новая. Спасибо большое!",
+    project: "2-комн. квартира, 51 м²",
+    initials: "КЛ"
   }
 ];
 
 const ReviewsSection = () => {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-16 md:py-20 bg-white">
       <div className="container mx-auto px-4">
-        {/* Section header */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-display font-display font-bold text-foreground mb-4">
-            Отзывы наших клиентов
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Более 500 довольных клиентов доверили нам свои проекты
-          </p>
-          
-          <div className="flex items-center justify-center gap-1 mt-6">
-            {[1, 2, 3, 4, 5].map((star) => (
-              <Star key={star} className="h-6 w-6 fill-yellow-400 text-yellow-400" />
-            ))}
-            <span className="ml-2 text-lg font-semibold">4.9 из 5</span>
-            <span className="text-muted-foreground ml-2">(543 отзыва)</span>
-          </div>
-        </div>
-        
-        {/* Reviews grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Reviews list */}
+        <div className="max-w-5xl mx-auto space-y-6">
           {reviews.map((review, index) => (
             <Card 
               key={index}
-              className="group hover:shadow-primary transition-smooth animate-scale-in shadow-card border-0"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="border border-gray-200 hover:border-primary/30 transition-all duration-300 shadow-sm hover:shadow-md"
             >
-              <CardContent className="p-8">
-                {/* Quote icon */}
-                <div className="mb-6">
-                  <Quote className="h-8 w-8 text-primary/20" />
-                </div>
-                
-                {/* Rating */}
-                <div className="flex items-center gap-1 mb-4">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <Star 
-                      key={star} 
-                      className={`h-4 w-4 ${
-                        star <= review.rating 
-                          ? 'fill-yellow-400 text-yellow-400' 
-                          : 'text-muted'
-                      }`} 
-                    />
-                  ))}
+              <CardContent className="p-6 md:p-8">
+                {/* Header with name and date */}
+                <div className="flex items-start justify-between mb-4 flex-wrap gap-2">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white font-semibold">
+                      {review.initials}
+                    </div>
+                    <div>
+                      <div className="font-semibold text-gray-900 text-lg">{review.name}</div>
+                      <div className="text-sm text-gray-500">{review.project}</div>
+                    </div>
+                  </div>
+                  <div className="text-sm text-gray-400">{review.date}</div>
                 </div>
                 
                 {/* Review text */}
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  "{review.text}"
+                <p className="text-gray-700 leading-relaxed">
+                  {review.text}
                 </p>
-                
-                {/* Author info */}
-                <div className="flex items-center gap-4">
-                  <Avatar className="w-12 h-12">
-                    <AvatarImage src="" />
-                    <AvatarFallback className="gradient-primary text-white font-medium">
-                      {review.avatar}
-                    </AvatarFallback>
-                  </Avatar>
-                  
-                  <div>
-                    <div className="font-semibold text-foreground">{review.name}</div>
-                    <div className="text-sm text-muted-foreground">{review.role}</div>
-                    <div className="text-xs text-primary font-medium">{review.project}</div>
-                  </div>
-                </div>
               </CardContent>
             </Card>
           ))}
         </div>
         
         {/* Trust indicators */}
-        <div className="grid md:grid-cols-4 gap-8 mt-16 text-center">
-          <div className="animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-            <div className="text-3xl font-bold gradient-primary bg-clip-text text-transparent">500+</div>
-            <div className="text-muted-foreground">Завершенных проектов</div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-5xl mx-auto">
+          <div className="text-center p-6 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl">
+            <div className="text-4xl font-bold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent mb-2">500+</div>
+            <div className="text-gray-600">Завершенных проектов</div>
           </div>
-          <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <div className="text-3xl font-bold gradient-primary bg-clip-text text-transparent">4.9</div>
-            <div className="text-muted-foreground">Средний рейтинг</div>
+          <div className="text-center p-6 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl">
+            <div className="text-4xl font-bold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent mb-2">8</div>
+            <div className="text-gray-600">Лет на рынке</div>
           </div>
-          <div className="animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-            <div className="text-3xl font-bold gradient-primary bg-clip-text text-transparent">98%</div>
-            <div className="text-muted-foreground">Клиентов рекомендуют нас</div>
+          <div className="text-center p-6 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl">
+            <div className="text-4xl font-bold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent mb-2">98%</div>
+            <div className="text-gray-600">Рекомендуют нас</div>
           </div>
-          <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            <div className="text-3xl font-bold gradient-primary bg-clip-text text-transparent">5 лет</div>
-            <div className="text-muted-foreground">Гарантия на работы</div>
+          <div className="text-center p-6 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl">
+            <div className="text-4xl font-bold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent mb-2">1 год</div>
+            <div className="text-gray-600">Гарантия на работы</div>
           </div>
         </div>
       </div>
