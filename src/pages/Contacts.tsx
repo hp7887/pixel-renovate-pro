@@ -64,34 +64,35 @@ const Contacts = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-24 md:pt-32 pb-12 md:pb-16 bg-gradient-to-br from-primary/10 via-yellow-50 to-white">
+      <section className="pt-24 md:pt-32 pb-12 md:pb-16 bg-gradient-to-br from-cyan-50 via-blue-50 to-white">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 text-center">
-            Контакты
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 text-center animate-fade-in">
+            Свяжитесь с нами
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto text-center leading-relaxed">
-            Свяжитесь с нами удобным способом. Мы всегда на связи и готовы ответить на ваши вопросы
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto text-center leading-relaxed animate-fade-in">
+            Ответим на все ваши вопросы и поможем воплотить мечту о красивом ремонте в реальность
           </p>
         </div>
       </section>
 
       {/* Contact Cards */}
-      <section className="py-12 md:py-20">
+      <section className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {contactInfo.map((contact, index) => (
               <div 
                 key={index}
-                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+                className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-cyan-100 hover-scale animate-fade-in group"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-yellow-400 flex items-center justify-center mb-4">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                   <contact.icon className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{contact.title}</h3>
                 {contact.link ? (
                   <a 
                     href={contact.link}
-                    className="text-xl font-semibold text-primary hover:text-yellow-600 transition-colors block mb-1"
+                    className="text-xl font-semibold bg-gradient-to-r from-cyan-600 to-blue-700 bg-clip-text text-transparent hover:from-cyan-700 hover:to-blue-800 transition-all block mb-1"
                   >
                     {contact.main}
                   </a>
@@ -106,15 +107,18 @@ const Contacts = () => {
       </section>
 
       {/* Social Media */}
-      <section className="py-12 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-12 md:py-16 bg-gradient-to-br from-cyan-50 via-blue-50 to-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
-            Мы в социальных сетях
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center animate-fade-in">
+            Напишите нам в мессенджер
           </h2>
-          <div className="flex justify-center gap-4">
+          <p className="text-gray-600 text-center mb-8 max-w-2xl mx-auto animate-fade-in">
+            Выберите удобный способ связи - ответим быстро и подробно на все ваши вопросы
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 animate-fade-in">
             <Button 
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-white px-6 py-6 h-auto"
+              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-6 h-auto shadow-lg hover:shadow-xl transition-all duration-300 hover-scale"
               onClick={() => window.open('https://wa.me/79152205556', '_blank')}
             >
               <MessageCircle className="mr-2 h-5 w-5" />
@@ -122,7 +126,7 @@ const Contacts = () => {
             </Button>
             <Button 
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-white px-6 py-6 h-auto"
+              className="bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 text-white px-8 py-6 h-auto shadow-lg hover:shadow-xl transition-all duration-300 hover-scale"
               onClick={() => window.open('https://t.me/digitalstroy', '_blank')}
             >
               <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -135,32 +139,36 @@ const Contacts = () => {
       </section>
 
       {/* Offices */}
-      <section className="py-12 md:py-20">
+      <section className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
-            Наши офисы
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center animate-fade-in">
+            Приходите к нам в офис
           </h2>
+          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto animate-fade-in">
+            Обсудим ваш проект за чашкой кофе, покажем примеры работ и составим смету
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {offices.map((office, index) => (
               <div 
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-lg border border-gray-100"
+                className="bg-gradient-to-br from-white to-cyan-50 rounded-2xl p-8 shadow-xl border-2 border-cyan-100 hover:border-cyan-300 transition-all duration-300 hover-scale animate-fade-in"
+                style={{ animationDelay: `${index * 150}ms` }}
               >
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{office.name}</h3>
-                <div className="space-y-3 text-gray-600">
-                  <p className="flex items-start gap-2">
-                    <MapPin className="w-5 h-5 flex-shrink-0 mt-1 text-primary" />
-                    <span>{office.address}</span>
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-600 to-blue-700 bg-clip-text text-transparent mb-6">{office.name}</h3>
+                <div className="space-y-4 text-gray-700">
+                  <p className="flex items-start gap-3">
+                    <MapPin className="w-5 h-5 flex-shrink-0 mt-1 text-cyan-600" />
+                    <span className="leading-relaxed">{office.address}</span>
                   </p>
-                  <p className="flex items-center gap-2">
-                    <Phone className="w-5 h-5 flex-shrink-0 text-primary" />
-                    <a href={`tel:+7${office.phone.replace(/\D/g, '').slice(1)}`} className="hover:text-primary transition-colors">
+                  <p className="flex items-center gap-3">
+                    <Phone className="w-5 h-5 flex-shrink-0 text-cyan-600" />
+                    <a href={`tel:+7${office.phone.replace(/\D/g, '').slice(1)}`} className="hover:text-cyan-600 transition-colors font-medium">
                       {office.phone}
                     </a>
                   </p>
-                  <p className="flex items-start gap-2">
-                    <Clock className="w-5 h-5 flex-shrink-0 mt-1 text-primary" />
-                    <span>{office.hours}</span>
+                  <p className="flex items-start gap-3">
+                    <Clock className="w-5 h-5 flex-shrink-0 mt-1 text-cyan-600" />
+                    <span className="leading-relaxed">{office.hours}</span>
                   </p>
                 </div>
               </div>
@@ -170,21 +178,22 @@ const Contacts = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-primary to-yellow-400">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-            Готовы начать ваш проект?
+      <section className="py-16 md:py-20 bg-gradient-to-br from-cyan-500 via-blue-600 to-cyan-700 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMtMy4zMTQgMC02IDIuNjg2LTYgNnMyLjY4NiA2IDYgNiA2LTIuNjg2IDYtNi0yLjY4Ni02LTYtNnoiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii4wNSIvPjwvZz48L3N2Zz4=')] opacity-30"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 animate-fade-in">
+            Начнём работу над вашей мечтой?
           </h2>
-          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Оставьте заявку, и мы свяжемся с вами в течение 15 минут
+          <p className="text-lg md:text-xl text-white/95 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in">
+            Оставьте заявку прямо сейчас — мы свяжемся с вами в течение 15 минут и ответим на все вопросы
           </p>
           <Button 
             size="lg"
-            className="bg-white text-primary hover:bg-gray-100 text-lg px-8 py-6 h-auto"
+            className="bg-white text-cyan-600 hover:bg-gray-50 text-lg px-10 py-7 h-auto font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 hover-scale animate-fade-in"
             onClick={() => window.dispatchEvent(new Event('openContactDialog'))}
           >
-            <Phone className="mr-2 h-5 w-5" />
-            Получить консультацию
+            <Phone className="mr-2 h-6 w-6" />
+            Получить бесплатную консультацию
           </Button>
         </div>
       </section>
