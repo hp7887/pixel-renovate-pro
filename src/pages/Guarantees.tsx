@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Shield, FileText, Clock, Award } from "lucide-react";
@@ -51,6 +52,16 @@ const Guarantees = () => {
 
   return (
     <main className="min-h-screen">
+      <Helmet>
+        <title>Гарантии на ремонт квартир DigitalSTROY | Гарантия 5 лет на все работы</title>
+        <meta name="description" content="Официальная гарантия 5 лет на все виды ремонтных работ. Договор с фиксированными сроками, страхование объекта до 5 млн рублей. Полная ответственность за результат." />
+        <meta name="keywords" content="гарантия на ремонт квартиры, гарантия ремонт СПб, страхование ремонта, договор ремонт, гарантийные обязательства" />
+        <link rel="canonical" href="https://digitalstroy.ru/guarantees" />
+        <meta property="og:title" content="Гарантии DigitalSTROY - 5 лет на все работы" />
+        <meta property="og:description" content="Комплексные гарантии на ремонт: 5 лет на работы, официальный договор, страхование объекта." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://digitalstroy.ru/guarantees" />
+      </Helmet>
       <Header />
       
       {/* Hero Section */}

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { CheckCircle, Award, Users, TrendingUp } from "lucide-react";
@@ -47,6 +48,16 @@ const About = () => {
 
   return (
     <main className="min-h-screen">
+      <Helmet>
+        <title>О компании DigitalSTROY - 8 лет опыта в ремонте квартир в Санкт-Петербурге</title>
+        <meta name="description" content="DigitalSTROY - надежная ремонтно-строительная компания в СПб. 8 лет на рынке, 500+ реализованных проектов, профессиональная команда. Узнайте больше о нашем опыте и подходе к работе." />
+        <meta name="keywords" content="о компании ремонт, строительная компания СПб, ремонтная компания Санкт-Петербург, профессиональный ремонт" />
+        <link rel="canonical" href="https://digitalstroy.ru/about" />
+        <meta property="og:title" content="О компании DigitalSTROY - Профессиональный ремонт в СПб" />
+        <meta property="og:description" content="8 лет успешной работы на рынке ремонта и отделки квартир в Санкт-Петербурге. Более 500 выполненных проектов." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://digitalstroy.ru/about" />
+      </Helmet>
       <Header />
       
       {/* Hero Section */}

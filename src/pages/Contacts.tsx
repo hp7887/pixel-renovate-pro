@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
@@ -50,6 +51,16 @@ const Contacts = () => {
 
   return (
     <main className="min-h-screen">
+      <Helmet>
+        <title>Контакты DigitalSTROY - Телефон, адреса офисов в Санкт-Петербурге</title>
+        <meta name="description" content="Контакты компании DigitalSTROY в Санкт-Петербурге. Телефон: 8 915 220-55-56. Офисы на Невском проспекте и Васильевском острове. Консультации круглосуточно. WhatsApp и Telegram." />
+        <meta name="keywords" content="контакты ремонт квартир СПб, телефон ремонт, адрес офиса ремонт, связаться с ремонтной компанией" />
+        <link rel="canonical" href="https://digitalstroy.ru/contacts" />
+        <meta property="og:title" content="Контакты DigitalSTROY - Свяжитесь с нами" />
+        <meta property="og:description" content="Два офиса в Санкт-Петербурге. Консультации и выезд замерщика. Ответим в течение 15 минут." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://digitalstroy.ru/contacts" />
+      </Helmet>
       <Header />
       
       {/* Hero Section */}
@@ -103,7 +114,7 @@ const Contacts = () => {
           <div className="flex justify-center gap-4">
             <Button 
               size="lg"
-              className="bg-green-500 hover:bg-green-600 text-white px-6 py-6 h-auto"
+              className="bg-primary hover:bg-primary/90 text-white px-6 py-6 h-auto"
               onClick={() => window.open('https://wa.me/79152205556', '_blank')}
             >
               <MessageCircle className="mr-2 h-5 w-5" />
@@ -111,7 +122,7 @@ const Contacts = () => {
             </Button>
             <Button 
               size="lg"
-              className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-6 h-auto"
+              className="bg-primary hover:bg-primary/90 text-white px-6 py-6 h-auto"
               onClick={() => window.open('https://t.me/digitalstroy', '_blank')}
             >
               <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">

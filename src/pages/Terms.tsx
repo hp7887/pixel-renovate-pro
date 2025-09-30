@@ -1,9 +1,16 @@
+import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const Terms = () => {
   return (
     <main className="min-h-screen">
+      <Helmet>
+        <title>Условия использования - DigitalSTROY</title>
+        <meta name="description" content="Условия использования сайта компании DigitalSTROY. Правила и положения для пользователей сайта." />
+        <meta name="robots" content="noindex, follow" />
+        <link rel="canonical" href="https://digitalstroy.ru/terms" />
+      </Helmet>
       <Header />
       
       <section className="pt-24 md:pt-32 pb-16 md:pb-20">

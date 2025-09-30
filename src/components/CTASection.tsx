@@ -96,15 +96,15 @@ const CTASection = () => {
           {/* Benefits reminder */}
           <div className="grid md:grid-cols-3 gap-6 text-white/80 text-sm">
             <div className="flex items-center justify-center gap-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
               <span>Выезд замерщика бесплатно</span>
             </div>
             <div className="flex items-center justify-center gap-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
               <span>Смета в течение 24 часов</span>
             </div>
             <div className="flex items-center justify-center gap-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
               <span>Гарантия 5 лет</span>
             </div>
           </div>

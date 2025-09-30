@@ -20,9 +20,9 @@ const Header = () => {
       <div className="container mx-auto px-4 py-2 md:py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center">
+          <a href="/" className="flex items-center">
             <img src={logo} alt="DigitalSTROY" className="h-10 md:h-12 w-auto" />
-          </div>
+          </a>
           
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6">

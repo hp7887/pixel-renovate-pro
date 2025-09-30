@@ -1,9 +1,16 @@
+import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const Privacy = () => {
   return (
     <main className="min-h-screen">
+      <Helmet>
+        <title>Политика конфиденциальности - DigitalSTROY</title>
+        <meta name="description" content="Политика конфиденциальности компании DigitalSTROY. Информация о защите персональных данных клиентов." />
+        <meta name="robots" content="noindex, follow" />
+        <link rel="canonical" href="https://digitalstroy.ru/privacy" />
+      </Helmet>
       <Header />
       
       <section className="pt-24 md:pt-32 pb-16 md:pb-20">
