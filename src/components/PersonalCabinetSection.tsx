@@ -70,9 +70,9 @@ const PersonalCabinetSection = () => {
       className="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary/5 via-white to-secondary/5 overflow-hidden"
     >
       <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
-          {/* Main content - narrower to fit phone on the right */}
-          <div className={`max-w-2xl transform transition-all duration-1000 ${
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">{/* Changed to grid for better control */}
+          {/* Main content */}
+          <div className={`transform transition-all duration-1000 ${
             isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
           }`}>
             
@@ -108,7 +108,7 @@ const PersonalCabinetSection = () => {
           </div>
           
           {/* Phone mockup */}
-          <div className={`flex-shrink-0 transform transition-all duration-1000 delay-300 ${
+          <div className={`flex justify-center lg:justify-start transform transition-all duration-1000 delay-300 ${
             isVisible ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
           }`}>
             <div className="relative w-56 sm:w-64 md:w-72">

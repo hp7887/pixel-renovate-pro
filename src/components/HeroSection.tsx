@@ -76,23 +76,23 @@ const HeroSection = () => {
             РАССЧИТАТЬ СТОИМОСТЬ
           </Button>
         </div>
-        
-        {/* Company info - positioned in top right corner */}
-        <div className="absolute top-8 right-8 animate-fade-in hidden lg:block z-20">
-          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 w-80 border border-white/20 shadow-2xl">
-            <div className="text-center space-y-6">
-              <h3 className="text-white font-semibold text-xl">
-                О КОМПАНИИ
-              </h3>
-              
-              <div className="space-y-4 text-left">
-                <div className="text-white/90 text-sm leading-relaxed">
-                  <p className="mb-3">Более 10 лет профессионального опыта в сфере ремонта и строительства</p>
-                  <p className="mb-3">Собственные бригады квалифицированных мастеров</p>
-                  <p className="mb-3">Более 500 успешно завершенных проектов</p>
-                  <p className="mb-3">Работаем только с качественными материалами от проверенных поставщиков</p>
-                  <p>Официальное оформление всех документов и гарантийных обязательств</p>
-                </div>
+      </div>
+      
+      {/* Company info - positioned in top right corner OUTSIDE of content container */}
+      <div className="hidden xl:block absolute top-24 right-8 z-20 animate-fade-in">
+        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 w-80 border border-white/20 shadow-2xl">
+          <div className="text-center space-y-6">
+            <h3 className="text-white font-semibold text-xl">
+              О КОМПАНИИ
+            </h3>
+            
+            <div className="space-y-4 text-left">
+              <div className="text-white/90 text-sm leading-relaxed">
+                <p className="mb-3">Более 10 лет профессионального опыта в сфере ремонта и строительства</p>
+                <p className="mb-3">Собственные бригады квалифицированных мастеров</p>
+                <p className="mb-3">Более 500 успешно завершенных проектов</p>
+                <p className="mb-3">Работаем только с качественными материалами от проверенных поставщиков</p>
+                <p>Официальное оформление всех документов и гарантийных обязательств</p>
               </div>
             </div>
           </div>
