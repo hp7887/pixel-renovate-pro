@@ -14,14 +14,15 @@ const Reviews = () => {
   return (
     <main className="min-h-screen">
       <Helmet>
-        <title>Отзывы клиентов о ремонте квартир DigitalSTROY | 156+ реальных отзывов</title>
-        <meta name="description" content="Реальные отзывы клиентов DigitalSTROY о ремонте квартир в Санкт-Петербурге. Средняя оценка 4.9/5. Более 156 отзывов от довольных клиентов. Читайте мнения о качестве наших работ." />
-        <meta name="keywords" content="отзывы о ремонте квартир, отзывы ремонт СПб, отзывы digitalstroy, рейтинг ремонтной компании" />
-        <link rel="canonical" href="https://digitalstroy.ru/reviews" />
-        <meta property="og:title" content="Отзывы клиентов DigitalSTROY - Рейтинг 4.9/5" />
+        <title>Отзывы клиентов о ремонте квартир SPB-DSRemont | 156+ реальных отзывов</title>
+        <meta name="description" content="Реальные отзывы клиентов SPB-DSRemont о ремонте квартир в Санкт-Петербурге. Средняя оценка 4.9/5. Более 156 отзывов от довольных клиентов. Читайте мнения о качестве наших работ." />
+        <meta name="keywords" content="отзывы о ремонте квартир, отзывы ремонт СПб, отзывы spb-dsremont, рейтинг ремонтной компании" />
+        <link rel="canonical" href="https://spb-dsremont.ru/reviews" />
+        <meta property="og:title" content="Отзывы клиентов SPB-DSRemont - Рейтинг 4.9/5" />
         <meta property="og:description" content="156+ реальных отзывов о ремонте квартир. 98% клиентов рекомендуют нас своим друзьям." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://digitalstroy.ru/reviews" />
+        <meta property="og:url" content="https://spb-dsremont.ru/reviews" />
+        <meta property="og:image" content="https://spb-dsremont.ru/og-image.jpg" />
       </Helmet>
       <Header />
       

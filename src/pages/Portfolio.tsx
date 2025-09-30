@@ -71,14 +71,15 @@ const Portfolio = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Портфолио проектов - DigitalSTROY | 500+ реализованных проектов ремонта квартир в Санкт-Петербурге</title>
-        <meta name="description" content="Галерея выполненных ремонтов квартир и офисов DigitalSTROY в Санкт-Петербурге. Более 500 успешных проектов: капитальный ремонт, дизайнерский ремонт, чистовая отделка. Фото до и после." />
+        <title>Портфолио проектов - SPB-DSRemont | 500+ реализованных проектов ремонта квартир в Санкт-Петербурге</title>
+        <meta name="description" content="Галерея выполненных ремонтов квартир и офисов SPB-DSRemont в Санкт-Петербурге. Более 500 успешных проектов: капитальный ремонт, дизайнерский ремонт, чистовая отделка. Фото до и после." />
         <meta name="keywords" content="портфолио ремонта квартир, примеры ремонта СПб, фото ремонта квартир, выполненные проекты ремонта, галерея ремонта" />
-        <link rel="canonical" href="https://digitalstroy.ru/portfolio" />
-        <meta property="og:title" content="Портфолио проектов ремонта - DigitalSTROY" />
+        <link rel="canonical" href="https://spb-dsremont.ru/portfolio" />
+        <meta property="og:title" content="Портфолио проектов ремонта - SPB-DSRemont" />
         <meta property="og:description" content="500+ реализованных проектов ремонта квартир и офисов в Санкт-Петербурге. Современный дизайн и качественное исполнение." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://digitalstroy.ru/portfolio" />
+        <meta property="og:url" content="https://spb-dsremont.ru/portfolio" />
+        <meta property="og:image" content="https://spb-dsremont.ru/og-image.jpg" />
       </Helmet>
       <Header />
       

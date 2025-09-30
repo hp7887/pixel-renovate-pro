@@ -6,10 +6,10 @@ const Privacy = () => {
   return (
     <main className="min-h-screen">
       <Helmet>
-        <title>Политика конфиденциальности - DigitalSTROY</title>
-        <meta name="description" content="Политика конфиденциальности компании DigitalSTROY. Информация о защите персональных данных клиентов." />
+        <title>Политика конфиденциальности - SPB-DSRemont</title>
+        <meta name="description" content="Политика конфиденциальности компании SPB-DSRemont. Информация о защите персональных данных клиентов." />
         <meta name="robots" content="noindex, follow" />
-        <link rel="canonical" href="https://digitalstroy.ru/privacy" />
+        <link rel="canonical" href="https://spb-dsremont.ru/privacy" />
       </Helmet>
       <Header />
       
@@ -24,10 +24,10 @@ const Privacy = () => {
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">1. Общие положения</h2>
               <p className="mb-4">
                 Настоящая Политика конфиденциальности определяет порядок обработки и защиты информации о физических лицах 
-                (далее — Пользователи), использующих сайт DigitalStroy и его сервисы.
+                (далее — Пользователи), использующих сайт SPB-DSRemont и его сервисы.
               </p>
               <p>
-                Используя сайт DigitalStroy, вы соглашаетесь с условиями данной Политики конфиденциальности. 
+                Используя сайт SPB-DSRemont, вы соглашаетесь с условиями данной Политики конфиденциальности. 
                 Если вы не согласны с условиями, пожалуйста, не используйте наш сайт.
               </p>
             </section>

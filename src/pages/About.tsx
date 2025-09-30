@@ -46,14 +46,15 @@ const About = () => {
   return (
     <main className="min-h-screen">
       <Helmet>
-        <title>О компании DigitalSTROY - 8 лет опыта в ремонте квартир в Санкт-Петербурге</title>
-        <meta name="description" content="DigitalSTROY - надежная ремонтно-строительная компания в СПб. 8 лет на рынке, 500+ реализованных проектов, профессиональная команда. Узнайте больше о нашем опыте и подходе к работе." />
+        <title>О компании SPB-DSRemont - 8 лет опыта в ремонте квартир в Санкт-Петербурге</title>
+        <meta name="description" content="SPB-DSRemont - надежная ремонтно-строительная компания в СПб. 8 лет на рынке, 500+ реализованных проектов, профессиональная команда. Узнайте больше о нашем опыте и подходе к работе." />
         <meta name="keywords" content="о компании ремонт, строительная компания СПб, ремонтная компания Санкт-Петербург, профессиональный ремонт" />
-        <link rel="canonical" href="https://digitalstroy.ru/about" />
-        <meta property="og:title" content="О компании DigitalSTROY - Профессиональный ремонт в СПб" />
+        <link rel="canonical" href="https://spb-dsremont.ru/about" />
+        <meta property="og:title" content="О компании SPB-DSRemont - Профессиональный ремонт в СПб" />
         <meta property="og:description" content="8 лет успешной работы на рынке ремонта и отделки квартир в Санкт-Петербурге. Более 500 выполненных проектов." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://digitalstroy.ru/about" />
+        <meta property="og:url" content="https://spb-dsremont.ru/about" />
+        <meta property="og:image" content="https://spb-dsremont.ru/og-image.jpg" />
       </Helmet>
       <Header />
       
@@ -61,7 +62,7 @@ const About = () => {
       <section className="pt-24 md:pt-32 pb-12 md:pb-16 bg-gradient-to-br from-cyan-50 via-blue-50 to-white">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 text-center">
-            О компании DigitalSTROY
+            О компании SPB-DSRemont
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto text-center leading-relaxed">
             Мы создаем современные и функциональные пространства, в которых приятно жить и работать. 

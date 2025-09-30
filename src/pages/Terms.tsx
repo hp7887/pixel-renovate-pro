@@ -6,10 +6,10 @@ const Terms = () => {
   return (
     <main className="min-h-screen">
       <Helmet>
-        <title>Условия использования - DigitalSTROY</title>
-        <meta name="description" content="Условия использования сайта компании DigitalSTROY. Правила и положения для пользователей сайта." />
+        <title>Условия использования - SPB-DSRemont</title>
+        <meta name="description" content="Условия использования сайта компании SPB-DSRemont. Правила и положения для пользователей сайта." />
         <meta name="robots" content="noindex, follow" />
-        <link rel="canonical" href="https://digitalstroy.ru/terms" />
+        <link rel="canonical" href="https://spb-dsremont.ru/terms" />
       </Helmet>
       <Header />
       
@@ -24,10 +24,10 @@ const Terms = () => {
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">1. Общие условия</h2>
               <p className="mb-4">
                 Настоящее Пользовательское соглашение (далее — Соглашение) регулирует отношения между 
-                DigitalStroy (далее — Исполнитель) и пользователями сайта (далее — Заказчик).
+                SPB-DSRemont (далее — Исполнитель) и пользователями сайта (далее — Заказчик).
               </p>
               <p>
-                Используя сайт и сервисы DigitalStroy, вы принимаете условия данного Соглашения в полном объеме. 
+                Используя сайт и сервисы SPB-DSRemont, вы принимаете условия данного Соглашения в полном объеме. 
                 Если вы не согласны с условиями, пожалуйста, не используйте наши услуги.
               </p>
             </section>

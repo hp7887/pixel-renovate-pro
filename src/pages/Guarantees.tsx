@@ -53,14 +53,15 @@ const Guarantees = () => {
   return (
     <main className="min-h-screen">
       <Helmet>
-        <title>Гарантии на ремонт квартир DigitalSTROY | Гарантия 1 год на все работы</title>
+        <title>Гарантии на ремонт квартир SPB-DSRemont | Гарантия 1 год на все работы</title>
         <meta name="description" content="Официальная гарантия 1 год на все виды ремонтных работ. Договор с фиксированными сроками. Полная ответственность за результат." />
         <meta name="keywords" content="гарантия на ремонт квартиры, гарантия ремонт СПб, договор ремонт, гарантийные обязательства" />
-        <link rel="canonical" href="https://digitalstroy.ru/guarantees" />
-        <meta property="og:title" content="Гарантии DigitalSTROY - 1 год на все работы" />
+        <link rel="canonical" href="https://spb-dsremont.ru/guarantees" />
+        <meta property="og:title" content="Гарантии SPB-DSRemont - 1 год на все работы" />
         <meta property="og:description" content="Комплексные гарантии на ремонт: 1 год на работы, официальный договор." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://digitalstroy.ru/guarantees" />
+        <meta property="og:url" content="https://spb-dsremont.ru/guarantees" />
+        <meta property="og:image" content="https://spb-dsremont.ru/og-image.jpg" />
       </Helmet>
       <Header />
       

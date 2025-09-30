@@ -12,14 +12,15 @@ const Index = () => {
   return (
     <main className="min-h-screen">
       <Helmet>
-        <title>DigitalSTROY - Ремонт квартир под ключ в Санкт-Петербурге | Капитальный и дизайнерский ремонт</title>
-        <meta name="description" content="Профессиональный ремонт квартир под ключ в Санкт-Петербурге. Капитальный, дизайнерский, косметический ремонт. Гарантия 1 год. Цены от 7000₽/м². Бесплатная консультация и выезд замерщика." />
-        <meta name="keywords" content="ремонт квартир СПб, ремонт под ключ, капитальный ремонт, дизайнерский ремонт, косметический ремонт, ремонт офиса, отделка квартир" />
-        <link rel="canonical" href="https://digitalstroy.ru/" />
-        <meta property="og:title" content="DigitalSTROY - Профессиональный ремонт квартир под ключ в СПб" />
-        <meta property="og:description" content="Качественный ремонт квартир любой сложности. Гарантия 1 год. Более 500 выполненных проектов." />
+        <title>Ремонт квартир под ключ в Санкт-Петербурге | SPB-DSRemont</title>
+        <meta name="description" content="Профессиональный ремонт квартир в Санкт-Петербурге: капитальный, косметический и дизайнерский ремонт под ключ. Бесплатный замер и консультация, гарантия качества." />
+        <meta name="keywords" content="ремонт квартир СПб, ремонт под ключ Санкт-Петербург, капитальный ремонт, дизайнерский ремонт, косметический ремонт, ремонт офиса, отделка квартир" />
+        <link rel="canonical" href="https://spb-dsremont.ru/" />
+        <meta property="og:title" content="SPB-DSRemont - Ремонт квартир под ключ в Санкт-Петербурге" />
+        <meta property="og:description" content="Качественный ремонт квартир в Санкт-Петербурге. Современный дизайн, прозрачные цены и гарантия до 3 лет." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://digitalstroy.ru/" />
+        <meta property="og:url" content="https://spb-dsremont.ru/" />
+        <meta property="og:image" content="https://spb-dsremont.ru/og-image.jpg" />
       </Helmet>
       <Header />
       <HeroSection />
