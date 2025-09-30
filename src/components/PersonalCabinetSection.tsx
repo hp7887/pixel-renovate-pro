@@ -70,23 +70,23 @@ const PersonalCabinetSection = () => {
       className="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary/5 via-white to-secondary/5 overflow-hidden"
     >
       <div className="container mx-auto px-4">
-        <div className="relative min-h-[600px] lg:min-h-[500px]">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
           {/* Main content */}
-          <div className={`transform transition-all duration-1000 ${
+          <div className={`flex-1 transform transition-all duration-1000 ${
             isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
           }`}>
             
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight max-w-2xl">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight">
               Контроль через <br />
               <span className="text-primary">мобильное приложение</span>
             </h2>
             
-            <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 leading-relaxed max-w-2xl">
+            <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 leading-relaxed">
               Революционная система контроля ремонта в режиме реального времени. 
               Полная прозрачность процесса и финансов через удобное мобильное приложение.
             </p>
             
-            <div className="space-y-4 md:space-y-6 max-w-2xl">
+            <div className="space-y-4 md:space-y-6">
               {cabinetFeatures.map((feature, index) => (
                 <div 
                   key={index} 
@@ -107,8 +107,8 @@ const PersonalCabinetSection = () => {
             </div>
           </div>
           
-          {/* Phone mockup - positioned absolute right on desktop, below on mobile */}
-          <div className={`relative lg:absolute lg:bottom-0 lg:right-0 mt-8 lg:mt-0 flex justify-center lg:justify-end transform transition-all duration-1000 delay-300 ${
+          {/* Phone mockup */}
+          <div className={`flex-shrink-0 transform transition-all duration-1000 delay-300 ${
             isVisible ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
           }`}>
             <div className="relative w-56 sm:w-64 md:w-72">
