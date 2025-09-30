@@ -79,7 +79,7 @@ const HeroSection = () => {
       </div>
       
       {/* Company info card - positioned in bottom right corner */}
-      <div className="hidden lg:block absolute bottom-24 right-6 z-20 animate-fade-in">
+      <div className="hidden lg:block absolute bottom-1 md:bottom-2 right-6 z-20 animate-fade-in">
         <div className="bg-white/95 backdrop-blur-sm rounded-xl p-5 w-72 shadow-2xl border border-gray-200">
           <h3 className="text-primary font-bold text-lg mb-3 text-center">
             О НАС

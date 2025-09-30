@@ -171,7 +171,7 @@ const WorkStepsSection = () => {
             }`}>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 {/* Image tile */}
-                <div className="h-48 md:h-56 bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl overflow-hidden shadow-lg">
+                <div className="h-56 md:h-64 lg:h-72 bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl overflow-hidden shadow-lg">
                   <img 
                     src={stageIndex === 0 ? workCalculation : 
                          stageIndex === 1 ? workDesign : 
@@ -185,7 +185,7 @@ const WorkStepsSection = () => {
                   return (
                     <Card 
                       key={stepIndex}
-                      className={`h-48 md:h-56 bg-white border-gray-200 hover:shadow-2xl hover:border-primary/30 transition-all duration-500 relative transform ${
+                      className={`h-56 md:h-64 lg:h-72 bg-white border-gray-200 hover:shadow-2xl hover:border-primary/30 transition-all duration-500 relative transform ${
                         visibleCards[stageIndex]?.[stepIndex]
                           ? 'translate-y-0 opacity-100 scale-100'
                           : 'translate-y-12 opacity-0 scale-95'
