@@ -53,13 +53,16 @@ const HeroSection = () => {
               
               {/* Animated typewriter text */}
               <div className="text-lg text-white font-semibold min-h-[3rem] flex items-center">
-                <TypewriterText 
-                  texts={animatedTexts}
-                  speed={80}
-                  deleteSpeed={50}
-                  pauseDuration={3000}
-                  className="text-white"
-                />
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                  <TypewriterText 
+                    texts={animatedTexts}
+                    speed={60}
+                    deleteSpeed={40}
+                    pauseDuration={4000}
+                    className="text-white"
+                  />
+                </div>
               </div>
             </div>
             
