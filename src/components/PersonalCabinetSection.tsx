@@ -70,23 +70,23 @@ const PersonalCabinetSection = () => {
       className="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary/5 via-white to-secondary/5 overflow-hidden"
     >
       <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+        <div className="relative min-h-[600px] lg:min-h-[500px]">
           {/* Main content */}
-          <div className={`flex-1 transform transition-all duration-1000 ${
+          <div className={`transform transition-all duration-1000 ${
             isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
           }`}>
             
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight max-w-2xl">
               Контроль через <br />
               <span className="text-primary">мобильное приложение</span>
             </h2>
             
-            <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 leading-relaxed">
+            <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 leading-relaxed max-w-2xl">
               Революционная система контроля ремонта в режиме реального времени. 
               Полная прозрачность процесса и финансов через удобное мобильное приложение.
             </p>
             
-            <div className="space-y-4 md:space-y-6">
+            <div className="space-y-4 md:space-y-6 max-w-2xl">
               {cabinetFeatures.map((feature, index) => (
                 <div 
                   key={index} 
@@ -107,18 +107,18 @@ const PersonalCabinetSection = () => {
             </div>
           </div>
           
-          {/* Phone mockup */}
-          <div className={`flex-1 flex justify-center lg:justify-end transform transition-all duration-1000 delay-300 ${
+          {/* Phone mockup - positioned absolute right on desktop, below on mobile */}
+          <div className={`relative lg:absolute lg:bottom-0 lg:right-0 mt-8 lg:mt-0 flex justify-center lg:justify-end transform transition-all duration-1000 delay-300 ${
             isVisible ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
           }`}>
-            <div className="relative w-64 sm:w-72 md:w-80">
-              <div className="relative bg-gray-900 rounded-[2.5rem] md:rounded-[3rem] p-2 md:p-3 shadow-2xl">
-                <div className="bg-black rounded-[2rem] md:rounded-[2.5rem] overflow-hidden">
-                  <div className="bg-gray-900 h-6 md:h-8 flex items-center justify-center relative">
-                    <div className="w-24 md:w-32 h-5 md:h-6 bg-black rounded-b-2xl md:rounded-b-3xl absolute top-0"></div>
+            <div className="relative w-56 sm:w-64 md:w-72">
+              <div className="relative bg-gray-900 rounded-[2rem] md:rounded-[2.5rem] p-2 md:p-3 shadow-2xl">
+                <div className="bg-black rounded-[1.5rem] md:rounded-[2rem] overflow-hidden">
+                  <div className="bg-gray-900 h-5 md:h-6 flex items-center justify-center relative">
+                    <div className="w-20 md:w-24 h-4 md:h-5 bg-black rounded-b-2xl absolute top-0"></div>
                   </div>
                   
-                  <div className="relative h-[480px] sm:h-[540px] md:h-[600px] bg-white overflow-hidden">
+                  <div className="relative h-[400px] sm:h-[450px] md:h-[500px] bg-white overflow-hidden">
                     {appScreens.map((screen, index) => (
                       <img
                         key={index}

@@ -43,12 +43,12 @@ const Footer = () => {
             }`} style={{ transitionDelay: '100ms' }}>
               <h4 className="font-bold text-lg md:text-xl mb-4 md:mb-6 text-yellow-400">Наши услуги</h4>
               <ul className="space-y-2 md:space-y-3">
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">Косметический ремонт</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">Капитальный ремонт</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">Дизайн интерьера</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">Ремонт ванных комнат</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">Ремонт кухни</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">Электромонтажные работы</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Косметический ремонт</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Капитальный ремонт</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Дизайн интерьера</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Ремонт ванных комнат</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Ремонт кухни</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Электромонтажные работы</a></li>
               </ul>
             </div>
             
@@ -58,12 +58,12 @@ const Footer = () => {
             }`} style={{ transitionDelay: '200ms' }}>
               <h4 className="font-bold text-lg md:text-xl mb-4 md:mb-6 text-yellow-400">О компании</h4>
               <ul className="space-y-2 md:space-y-3">
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">О нас</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">Портфолио работ</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">Отзывы клиентов</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">Гарантии</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">Вакансии</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">Контакты</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">О нас</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Портфолио работ</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Отзывы клиентов</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Гарантии</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Вакансии</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Контакты</a></li>
               </ul>
             </div>
             

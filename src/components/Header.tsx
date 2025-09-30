@@ -1,12 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle, Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ContactDialog from "./ContactDialog";
 
 const Header = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  // Слушаем глобальное событие для открытия диалога
+  useEffect(() => {
+    const handleOpenDialog = () => setIsContactOpen(true);
+    window.addEventListener('openContactDialog', handleOpenDialog);
+    return () => window.removeEventListener('openContactDialog', handleOpenDialog);
+  }, []);
   
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md transition-all duration-300">

@@ -223,8 +223,8 @@ const WorkStepsSection = () => {
             </p>
             <button 
               onClick={() => {
-                const calculatorSection = document.getElementById('calculator');
-                calculatorSection?.scrollIntoView({ behavior: 'smooth' });
+                // Открываем ContactDialog через событие
+                window.dispatchEvent(new CustomEvent('openContactDialog'));
               }}
               className="bg-primary hover:bg-primary/90 text-white font-semibold text-base md:text-lg px-6 md:px-10 py-3 md:py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto"
             >
