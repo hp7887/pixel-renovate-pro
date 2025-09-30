@@ -56,12 +56,6 @@ const CalculatorSection = () => {
 
         <div className="max-w-4xl mx-auto">
           <Card className="border-2 shadow-xl">
-            <CardHeader className="bg-gradient-to-r from-cyan-50 to-blue-50 border-b">
-              <CardTitle className="text-2xl md:text-3xl text-center">Расчет стоимости ремонта</CardTitle>
-              <CardDescription className="text-center text-base">
-                Заполните данные для получения точного расчета
-              </CardDescription>
-            </CardHeader>
             <CardContent className="p-6 md:p-8">
               <div className="space-y-8">
                 {/* Площадь помещения */}
@@ -96,7 +90,7 @@ const CalculatorSection = () => {
                     <Slider
                       min={15}
                       max={500}
-                      step={5}
+                      step={1}
                       value={[area]}
                       onValueChange={(value) => setArea(value[0])}
                       className="w-full"
