@@ -106,7 +106,7 @@ const HeroSection = () => {
       </div>
       
       {/* Bottom gift banner */}
-      <div className="absolute bottom-8 md:bottom-12 left-3 md:left-6 right-3 md:right-auto bg-gradient-to-r from-orange-400 to-orange-500 rounded-xl md:rounded-2xl p-3 md:p-4 shadow-lg max-w-md">
+      <div className="absolute bottom-1 md:bottom-2 left-3 md:left-6 right-3 md:right-auto bg-gradient-to-r from-orange-400 to-orange-500 rounded-xl md:rounded-2xl p-3 md:p-4 shadow-lg max-w-md">
         <div className="flex items-center space-x-2 md:space-x-3 text-white">
           <Gift className="w-6 h-6 md:w-8 md:h-8 flex-shrink-0" />
           <div className="text-xs md:text-sm">
