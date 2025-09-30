@@ -130,14 +130,14 @@ const WorkStepsSection = () => {
   }, []);
 
   return (
-    <section id="work-steps" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section id="work-steps" className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
         {/* Main section header */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        <div className="text-center mb-12 md:mb-16 lg:mb-20">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
             КАК МЫ РАБОТАЕМ
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4">
             Прозрачный процесс от первичной консультации до сдачи объекта в три последовательных этапа
           </p>
         </div>
@@ -152,21 +152,21 @@ const WorkStepsSection = () => {
             className="mb-12 last:mb-0"
           >
             {/* Stage title */}
-            <div className={`text-center mb-12 transform transition-all duration-700 ${
+            <div className={`text-center mb-8 md:mb-12 transform transition-all duration-700 ${
               visibleStages[stageIndex] ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}>
-              <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4 px-4">
                 {stage.number}. {stage.title}
               </h3>
             </div>
             
-            {/* Stage steps in 2x2 grid format with image tile */}
+            {/* Stage steps in grid format with image tile */}
             <div className={`max-w-5xl mx-auto transform transition-all duration-1000 delay-300 ${
               visibleStages[stageIndex] ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
             }`}>
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 {/* Image tile */}
-                <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl overflow-hidden shadow-lg">
+                <div className="h-40 md:h-48 bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl overflow-hidden shadow-lg">
                   <img 
                     src={stageIndex === 0 ? workCalculation : 
                          stageIndex === 1 ? workDesign : 
@@ -180,7 +180,7 @@ const WorkStepsSection = () => {
                   return (
                     <Card 
                       key={stepIndex}
-                      className={`h-48 bg-white border-gray-200 hover:shadow-xl transition-all duration-300 relative transform ${
+                      className={`h-40 md:h-48 bg-white border-gray-200 hover:shadow-xl transition-all duration-300 relative transform ${
                         visibleCards[stageIndex]?.[stepIndex]
                           ? 'translate-y-0 opacity-100 scale-100'
                           : 'translate-y-12 opacity-0 scale-95'
@@ -188,21 +188,21 @@ const WorkStepsSection = () => {
                       style={{ animationDelay: `${stepIndex * 200}ms` }}
                     >
                       {step.isFree && (
-                        <div className="absolute -top-3 -right-3 bg-yellow-400 text-black px-3 py-1 rounded-full text-xs font-bold z-10">
+                        <div className="absolute -top-2 -right-2 md:-top-3 md:-right-3 bg-yellow-400 text-black px-2 md:px-3 py-0.5 md:py-1 rounded-full text-xs font-bold z-10">
                           БЕСПЛАТНО
                         </div>
                       )}
                       
-                      <CardContent className="p-4 h-full flex flex-col justify-center text-center">
-                        <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
-                          <IconComponent className="w-6 h-6 text-primary" />
+                      <CardContent className="p-3 md:p-4 h-full flex flex-col justify-center text-center">
+                        <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-2 md:mb-3">
+                          <IconComponent className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                         </div>
                         
-                        <h4 className="text-lg font-bold text-gray-900 mb-2">
+                        <h4 className="text-base md:text-lg font-bold text-gray-900 mb-1 md:mb-2">
                           {step.title}
                         </h4>
                         
-                        <p className="text-gray-600 text-xs leading-relaxed">{step.description}</p>
+                        <p className="text-gray-600 text-xs leading-relaxed line-clamp-3">{step.description}</p>
                       </CardContent>
                     </Card>
                   );
@@ -213,12 +213,12 @@ const WorkStepsSection = () => {
         ))}
         
         {/* Bottom call to action */}
-        <div className="mt-10 text-center">
-          <div className="bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 rounded-3xl p-10 max-w-4xl mx-auto">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
+        <div className="mt-8 md:mt-10 text-center px-4">
+          <div className="bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 rounded-2xl md:rounded-3xl p-6 md:p-10 max-w-4xl mx-auto">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 md:mb-4">
               Готовы начать ваш проект?
             </h3>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-sm md:text-base lg:text-lg text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto">
               Каждый этап контролируется профессионалами. Получите качественный результат в срок по фиксированной стоимости.
             </p>
             <button 
@@ -226,7 +226,7 @@ const WorkStepsSection = () => {
                 const calculatorSection = document.getElementById('calculator');
                 calculatorSection?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="bg-primary hover:bg-primary/90 text-white font-semibold text-lg px-10 py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+              className="bg-primary hover:bg-primary/90 text-white font-semibold text-base md:text-lg px-6 md:px-10 py-3 md:py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto"
             >
               НАЧАТЬ ПРОЕКТ
             </button>

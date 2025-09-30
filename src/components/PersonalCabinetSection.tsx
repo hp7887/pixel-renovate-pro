@@ -2,10 +2,10 @@
 
 import { Video, FileText, MessageCircle, BarChart3 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import appScreen1 from "@/assets/app-screen-1.jpg";
-import appScreen2 from "@/assets/app-screen-2.jpg";
-import appScreen3 from "@/assets/app-screen-3.jpg";
-import appScreen4 from "@/assets/app-screen-4.jpg";
+import appScreen1 from "@/assets/app-screen-1.png";
+import appScreen2 from "@/assets/app-screen-2.png";
+import appScreen3 from "@/assets/app-screen-3.png";
+import appScreen4 from "@/assets/app-screen-4.png";
 
 const cabinetFeatures = [
   {
@@ -67,61 +67,58 @@ const PersonalCabinetSection = () => {
     <section 
       id="personal-cabinet"
       ref={sectionRef}
-      className="py-20 bg-gradient-to-br from-primary/5 via-white to-secondary/5 overflow-hidden"
+      className="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary/5 via-white to-secondary/5 overflow-hidden"
     >
       <div className="container mx-auto px-4">
-        <div className="relative">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           {/* Main content */}
-          <div className={`transform transition-all duration-1000 ${
+          <div className={`flex-1 transform transition-all duration-1000 ${
             isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
           }`}>
             
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight">
               Контроль через <br />
               <span className="text-primary">мобильное приложение</span>
             </h2>
             
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed max-w-2xl">
+            <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 leading-relaxed">
               Революционная система контроля ремонта в режиме реального времени. 
               Полная прозрачность процесса и финансов через удобное мобильное приложение.
             </p>
             
-            <div className="space-y-6 mb-10 max-w-2xl">
+            <div className="space-y-4 md:space-y-6">
               {cabinetFeatures.map((feature, index) => (
                 <div 
                   key={index} 
-                  className={`flex items-start gap-4 transform transition-all duration-700 ${
+                  className={`flex items-start gap-3 md:gap-4 transform transition-all duration-700 ${
                     isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
                   }`}
                   style={{ transitionDelay: `${300 + index * 150}ms` }}
                 >
-                  <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-lg">
-                    <feature.icon className="h-7 w-7 text-white" />
+                  <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-lg">
+                    <feature.icon className="h-6 w-6 md:h-7 md:w-7 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-2 text-lg">{feature.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                    <h3 className="font-bold text-gray-900 mb-1 md:mb-2 text-base md:text-lg">{feature.title}</h3>
+                    <p className="text-gray-600 leading-relaxed text-sm md:text-base">{feature.description}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
           
-          {/* Phone mockup - positioned bottom right */}
-          <div className={`absolute bottom-0 right-0 transform transition-all duration-1000 delay-300 ${
+          {/* Phone mockup */}
+          <div className={`flex-1 flex justify-center lg:justify-end transform transition-all duration-1000 delay-300 ${
             isVisible ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
           }`}>
-            <div className="relative w-80 mx-auto lg:mx-0">
-              {/* Phone frame */}
-              <div className="relative bg-gray-900 rounded-[3rem] p-3 shadow-2xl">
-                <div className="bg-black rounded-[2.5rem] overflow-hidden">
-                  {/* Status bar notch */}
-                  <div className="bg-gray-900 h-8 flex items-center justify-center relative">
-                    <div className="w-32 h-6 bg-black rounded-b-3xl absolute top-0"></div>
+            <div className="relative w-64 sm:w-72 md:w-80">
+              <div className="relative bg-gray-900 rounded-[2.5rem] md:rounded-[3rem] p-2 md:p-3 shadow-2xl">
+                <div className="bg-black rounded-[2rem] md:rounded-[2.5rem] overflow-hidden">
+                  <div className="bg-gray-900 h-6 md:h-8 flex items-center justify-center relative">
+                    <div className="w-24 md:w-32 h-5 md:h-6 bg-black rounded-b-2xl md:rounded-b-3xl absolute top-0"></div>
                   </div>
                   
-                  {/* Screen content - cycling images */}
-                  <div className="relative h-[600px] bg-white overflow-hidden">
+                  <div className="relative h-[480px] sm:h-[540px] md:h-[600px] bg-white overflow-hidden">
                     {appScreens.map((screen, index) => (
                       <img
                         key={index}
@@ -136,7 +133,6 @@ const PersonalCabinetSection = () => {
                 </div>
               </div>
               
-              {/* Indicator dots */}
               <div className="flex justify-center gap-2 mt-4">
                 {appScreens.map((_, index) => (
                   <div

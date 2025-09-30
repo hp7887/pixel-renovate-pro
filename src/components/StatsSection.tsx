@@ -92,21 +92,21 @@ const StatsSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-20 bg-gradient-to-r from-primary/5 via-white to-secondary/5 overflow-hidden"
+      className="py-12 md:py-16 lg:py-20 bg-gradient-to-r from-primary/5 via-white to-secondary/5 overflow-hidden"
     >
       <div className="container mx-auto px-4">
-        <div className={`text-center mb-16 transform transition-all duration-1000 ${
+        <div className={`text-center mb-12 md:mb-16 transform transition-all duration-1000 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
             Наши достижения
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
             Цифры, которые говорят о нашем профессионализме и качестве работы
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
           {statistics.map((stat, index) => {
             const IconComponent = stat.icon;
             return (
@@ -117,21 +117,21 @@ const StatsSection = () => {
                 }`}
                 style={{ transitionDelay: `${index * 200}ms` }}
               >
-                <CardContent className="p-8">
-                  <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary/80 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                    <IconComponent className="w-10 h-10 text-white" />
+                <CardContent className="p-6 md:p-8">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-primary to-primary/80 rounded-2xl md:rounded-3xl flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg">
+                    <IconComponent className="w-8 h-8 md:w-10 md:h-10 text-white" />
                   </div>
                   
-                  <div className="mb-4">
-                    <div className="text-4xl lg:text-5xl font-bold text-primary mb-2">
+                  <div className="mb-3 md:mb-4">
+                    <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-2">
                       {formatNumber(animatedStats[index], stat.number)}
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">
                       {stat.label}
                     </h3>
                   </div>
                   
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-gray-600 text-xs md:text-sm leading-relaxed">
                     {stat.description}
                   </p>
                 </CardContent>
@@ -141,12 +141,12 @@ const StatsSection = () => {
         </div>
 
         {/* Additional visual elements */}
-        <div className="mt-16 text-center">
-          <div className={`inline-flex items-center bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full px-6 py-3 transform transition-all duration-1000 delay-1000 ${
+        <div className="mt-12 md:mt-16 text-center px-4">
+          <div className={`inline-flex items-center bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full px-4 md:px-6 py-2 md:py-3 transform transition-all duration-1000 delay-1000 ${
             isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-4 opacity-0 scale-95'
           }`}>
-            <Award className="w-6 h-6 text-primary mr-3" />
-            <span className="text-primary font-semibold">Сертифицированная компания с лицензией</span>
+            <Award className="w-5 h-5 md:w-6 md:h-6 text-primary mr-2 md:mr-3 flex-shrink-0" />
+            <span className="text-primary font-semibold text-sm md:text-base">Сертифицированная компания с лицензией</span>
           </div>
         </div>
       </div>

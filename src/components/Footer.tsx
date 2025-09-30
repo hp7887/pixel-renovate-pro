@@ -35,20 +35,20 @@ const Footer = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Main footer content */}
-        <div className="py-16">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="py-12 md:py-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
             {/* Services */}
             <div className={`transform transition-all duration-700 ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`} style={{ transitionDelay: '100ms' }}>
-              <h4 className="font-bold text-xl mb-6 text-yellow-400">Наши услуги</h4>
-              <ul className="space-y-3">
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block">Косметический ремонт</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block">Капитальный ремонт</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block">Дизайн интерьера</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block">Ремонт ванных комнат</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block">Ремонт кухни</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block">Электромонтажные работы</a></li>
+              <h4 className="font-bold text-lg md:text-xl mb-4 md:mb-6 text-yellow-400">Наши услуги</h4>
+              <ul className="space-y-2 md:space-y-3">
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">Косметический ремонт</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">Капитальный ремонт</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">Дизайн интерьера</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">Ремонт ванных комнат</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">Ремонт кухни</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">Электромонтажные работы</a></li>
               </ul>
             </div>
             
@@ -56,70 +56,70 @@ const Footer = () => {
             <div className={`transform transition-all duration-700 ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`} style={{ transitionDelay: '200ms' }}>
-              <h4 className="font-bold text-xl mb-6 text-yellow-400">О компании</h4>
-              <ul className="space-y-3">
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block">О нас</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block">Портфолио работ</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block">Отзывы клиентов</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block">Гарантии</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block">Вакансии</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block">Контакты</a></li>
+              <h4 className="font-bold text-lg md:text-xl mb-4 md:mb-6 text-yellow-400">О компании</h4>
+              <ul className="space-y-2 md:space-y-3">
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">О нас</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">Портфолио работ</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">Отзывы клиентов</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">Гарантии</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">Вакансии</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors hover:translate-x-2 inline-block text-sm md:text-base">Контакты</a></li>
               </ul>
             </div>
             
             {/* Contact info */}
-            <div className={`transform transition-all duration-700 ${
+            <div className={`sm:col-span-2 lg:col-span-1 transform transition-all duration-700 ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`} style={{ transitionDelay: '300ms' }}>
-              <h4 className="font-bold text-xl mb-6 text-yellow-400">Контакты</h4>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3 group">
-                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/40 transition-colors">
-                    <Phone className="h-5 w-5 text-yellow-400" />
+              <h4 className="font-bold text-lg md:text-xl mb-4 md:mb-6 text-yellow-400">Контакты</h4>
+              <div className="space-y-3 md:space-y-4">
+                <div className="flex items-start gap-2 md:gap-3 group">
+                  <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/40 transition-colors flex-shrink-0">
+                    <Phone className="h-4 w-4 md:h-5 md:w-5 text-yellow-400" />
                   </div>
                   <div>
-                    <a href="tel:+79152205556" className="font-medium text-white hover:text-yellow-400 transition-colors">
+                    <a href="tel:+79152205556" className="font-medium text-white hover:text-yellow-400 transition-colors text-sm md:text-base">
                       8 915 220-55-56
                     </a>
-                    <div className="text-sm text-gray-400">Звонки принимаем 24/7</div>
+                    <div className="text-xs md:text-sm text-gray-400">Звонки принимаем 24/7</div>
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-3 group">
-                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/40 transition-colors">
-                    <Mail className="h-5 w-5 text-yellow-400" />
+                <div className="flex items-start gap-2 md:gap-3 group">
+                  <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/40 transition-colors flex-shrink-0">
+                    <Mail className="h-4 w-4 md:h-5 md:w-5 text-yellow-400" />
                   </div>
                   <div>
-                    <a href="mailto:info@remont-spb.ru" className="font-medium text-white hover:text-yellow-400 transition-colors">
+                    <a href="mailto:info@remont-spb.ru" className="font-medium text-white hover:text-yellow-400 transition-colors text-sm md:text-base break-all">
                       info@remont-spb.ru
                     </a>
-                    <div className="text-sm text-gray-400">Ответ в течение часа</div>
+                    <div className="text-xs md:text-sm text-gray-400">Ответ в течение часа</div>
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-3 group">
-                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/40 transition-colors">
-                    <MapPin className="h-5 w-5 text-yellow-400" />
+                <div className="flex items-start gap-2 md:gap-3 group">
+                  <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/40 transition-colors flex-shrink-0">
+                    <MapPin className="h-4 w-4 md:h-5 md:w-5 text-yellow-400" />
                   </div>
                   <div>
-                    <div className="font-medium text-white">Санкт-Петербург</div>
-                    <div className="text-sm text-gray-400">Работаем по всему городу</div>
+                    <div className="font-medium text-white text-sm md:text-base">Санкт-Петербург</div>
+                    <div className="text-xs md:text-sm text-gray-400">Работаем по всему городу</div>
                   </div>
                 </div>
               </div>
 
               {/* Social links */}
-              <div className="flex gap-3 mt-6">
+              <div className="flex gap-2 md:gap-3 mt-4 md:mt-6">
                 <Button 
                   size="sm" 
-                  className="w-10 h-10 p-0 bg-white/10 hover:bg-primary border-0 text-white hover:scale-110 transition-all"
+                  className="w-9 h-9 md:w-10 md:h-10 p-0 bg-white/10 hover:bg-primary border-0 text-white hover:scale-110 transition-all"
                   onClick={() => window.open('https://wa.me/79152205556', '_blank')}
                 >
                   <MessageCircle className="h-4 w-4" />
                 </Button>
                 <Button 
                   size="sm" 
-                  className="w-10 h-10 p-0 bg-white/10 hover:bg-primary border-0 text-white hover:scale-110 transition-all"
+                  className="w-9 h-9 md:w-10 md:h-10 p-0 bg-white/10 hover:bg-primary border-0 text-white hover:scale-110 transition-all"
                   onClick={() => window.open('https://t.me/digitalstroy', '_blank')}
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -132,15 +132,15 @@ const Footer = () => {
         </div>
         
         {/* Bottom footer */}
-        <div className="py-6 border-t border-gray-700">
-          <div className={`flex flex-col md:flex-row justify-between items-center gap-4 transform transition-all duration-700 ${
+        <div className="py-4 md:py-6 border-t border-gray-700">
+          <div className={`flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4 transform transition-all duration-700 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
           }`} style={{ transitionDelay: '400ms' }}>
-            <div className="text-gray-400 text-sm">
+            <div className="text-gray-400 text-xs md:text-sm text-center md:text-left">
               © 2024 DigitalSTROY. Все права защищены.
             </div>
             
-            <div className="flex gap-6 text-sm">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 text-xs md:text-sm text-center">
               <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">
                 Политика конфиденциальности
               </a>
