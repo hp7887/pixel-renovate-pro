@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 const statistics = [
   {
     icon: TrendingUp,
-    number: "5,000+",
+    number: "15,000+",
     label: "м² отремонтировано",
     description: "Качественный ремонт жилых и коммерческих помещений"
   },

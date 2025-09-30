@@ -26,10 +26,11 @@ const Header = () => {
           
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6">
-            <a href="#calculator" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">СТОИМОСТЬ</a>
-            <a href="#work-steps" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">ЭТАПЫ РАБОТЫ</a>
-            <a href="#personal-cabinet" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">ЛИЧНЫЙ КАБИНЕТ</a>
-            <a href="#gallery" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">ГОТОВЫЕ ОБЪЕКТЫ</a>
+            <a href="/portfolio" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">ПОРТФОЛИО</a>
+            <a href="/about" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">О НАС</a>
+            <a href="/reviews" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">ОТЗЫВЫ</a>
+            <a href="/guarantees" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">ГАРАНТИИ</a>
+            <a href="/contacts" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">КОНТАКТЫ</a>
           </nav>
           
           {/* Right side - Contact & Menu */}
@@ -93,32 +94,39 @@ const Header = () => {
           <nav className="lg:hidden mt-4 pb-4 border-t pt-4 animate-fade-in">
             <div className="flex flex-col space-y-3">
               <a 
-                href="#calculator" 
+                href="/portfolio" 
                 className="text-gray-800 hover:text-primary font-medium transition-colors text-sm px-2 py-2 hover:bg-gray-50 rounded"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                СТОИМОСТЬ
+                ПОРТФОЛИО
               </a>
               <a 
-                href="#work-steps" 
+                href="/about" 
                 className="text-gray-800 hover:text-primary font-medium transition-colors text-sm px-2 py-2 hover:bg-gray-50 rounded"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                ЭТАПЫ РАБОТЫ
+                О НАС
               </a>
               <a 
-                href="#personal-cabinet" 
+                href="/reviews" 
                 className="text-gray-800 hover:text-primary font-medium transition-colors text-sm px-2 py-2 hover:bg-gray-50 rounded"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                ЛИЧНЫЙ КАБИНЕТ
+                ОТЗЫВЫ
               </a>
               <a 
-                href="#gallery" 
+                href="/guarantees" 
                 className="text-gray-800 hover:text-primary font-medium transition-colors text-sm px-2 py-2 hover:bg-gray-50 rounded"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                ГОТОВЫЕ ОБЪЕКТЫ
+                ГАРАНТИИ
+              </a>
+              <a 
+                href="/contacts" 
+                className="text-gray-800 hover:text-primary font-medium transition-colors text-sm px-2 py-2 hover:bg-gray-50 rounded"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                КОНТАКТЫ
               </a>
               
               {/* Mobile contact info */}
