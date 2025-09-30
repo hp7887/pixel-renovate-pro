@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle, Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import ContactDialog from "./ContactDialog";
 
 const Header = () => {
@@ -20,17 +21,17 @@ const Header = () => {
       <div className="container mx-auto px-4 py-2 md:py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="/" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img src={logo} alt="SPB-DSRemont" className="h-10 md:h-12 w-auto" />
-          </a>
+          </Link>
           
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6">
-            <a href="/portfolio" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">ПОРТФОЛИО</a>
-            <a href="/about" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">О НАС</a>
-            <a href="/reviews" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">ОТЗЫВЫ</a>
-            <a href="/guarantees" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">ГАРАНТИИ</a>
-            <a href="/contacts" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">КОНТАКТЫ</a>
+            <Link to="/portfolio" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">ПОРТФОЛИО</Link>
+            <Link to="/about" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">О НАС</Link>
+            <Link to="/reviews" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">ОТЗЫВЫ</Link>
+            <Link to="/guarantees" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">ГАРАНТИИ</Link>
+            <Link to="/contacts" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">КОНТАКТЫ</Link>
           </nav>
           
           {/* Right side - Contact & Menu */}
@@ -93,41 +94,41 @@ const Header = () => {
         {isMobileMenuOpen && (
           <nav className="lg:hidden mt-4 pb-4 border-t pt-4 animate-fade-in">
             <div className="flex flex-col space-y-3">
-              <a 
-                href="/portfolio" 
+              <Link 
+                to="/portfolio" 
                 className="text-gray-800 hover:text-primary font-medium transition-colors text-sm px-2 py-2 hover:bg-gray-50 rounded"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 ПОРТФОЛИО
-              </a>
-              <a 
-                href="/about" 
+              </Link>
+              <Link 
+                to="/about" 
                 className="text-gray-800 hover:text-primary font-medium transition-colors text-sm px-2 py-2 hover:bg-gray-50 rounded"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 О НАС
-              </a>
-              <a 
-                href="/reviews" 
+              </Link>
+              <Link 
+                to="/reviews" 
                 className="text-gray-800 hover:text-primary font-medium transition-colors text-sm px-2 py-2 hover:bg-gray-50 rounded"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 ОТЗЫВЫ
-              </a>
-              <a 
-                href="/guarantees" 
+              </Link>
+              <Link 
+                to="/guarantees" 
                 className="text-gray-800 hover:text-primary font-medium transition-colors text-sm px-2 py-2 hover:bg-gray-50 rounded"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 ГАРАНТИИ
-              </a>
-              <a 
-                href="/contacts" 
+              </Link>
+              <Link 
+                to="/contacts" 
                 className="text-gray-800 hover:text-primary font-medium transition-colors text-sm px-2 py-2 hover:bg-gray-50 rounded"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 КОНТАКТЫ
-              </a>
+              </Link>
               
               {/* Mobile contact info */}
               <div className="border-t pt-3 mt-3 space-y-3">
