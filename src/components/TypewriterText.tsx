@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 
 interface TypewriterTextProps {
   texts: string[];
@@ -61,4 +61,4 @@ const TypewriterText = ({
   );
 };
 
-export default TypewriterText;
+export default memo(TypewriterText);

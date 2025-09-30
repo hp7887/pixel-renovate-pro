@@ -31,69 +31,67 @@ const HeroSection = () => {
       
       {/* Hero content */}
       <div className="relative z-10 container mx-auto px-4 py-16 md:py-20 pt-24 md:pt-32">
-        <div className="grid lg:grid-cols-12 gap-6 md:gap-8 items-center min-h-[80vh]">
-          {/* Left content */}
-          <div className="lg:col-span-7 space-y-4 md:space-y-6 lg:space-y-8">
-            {/* Insurance badge */}
-            <div className="inline-flex items-center bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full px-3 md:px-4 py-1.5 md:py-2">
-              <span className="text-primary text-xs md:text-sm font-medium">Страховка всей стоимости ремонта на 1 000 000 ₽</span>
-            </div>
-            
-            {/* Main heading */}
-            <div className="space-y-3 md:space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                РЕМОНТ{" "}
-                <span className="text-yellow-400">КВАРТИР ПОД КЛЮЧ</span>
-                <br />
-                <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl">в Санкт-Петербурге</span>
-              </h1>
-              
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed max-w-2xl">
-                КАЧЕСТВЕННО И В СРОК ПОД ВАШ БЮДЖЕТ,<br className="hidden sm:block" />
-                <span className="sm:inline"> </span>С ПРОЗРАЧНОЙ СМЕТОЙ И ГАРАНТИЕЙ
-              </p>
-              
-              {/* Animated typewriter text */}
-              <div className="text-sm md:text-base lg:text-lg text-white font-semibold min-h-[2.5rem] md:min-h-[3rem] flex items-center">
-                <div className="flex items-center space-x-2 md:space-x-3">
-                  <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-primary rounded-full animate-pulse flex-shrink-0"></div>
-                  <TypewriterText 
-                    texts={animatedTexts}
-                    speed={60}
-                    deleteSpeed={40}
-                    pauseDuration={4000}
-                    className="text-white"
-                  />
-                </div>
-              </div>
-            </div>
-            
-            {/* CTA Button */}
-            <Button 
-              size="lg"
-              onClick={scrollToCalculator}
-              className="bg-primary hover:bg-primary/90 text-white font-semibold text-sm md:text-base lg:text-lg px-6 md:px-8 py-4 md:py-6 rounded-lg shadow-glow transition-smooth w-full sm:w-auto"
-            >
-              РАССЧИТАТЬ СТОИМОСТЬ
-            </Button>
+        {/* Left content */}
+        <div className="max-w-3xl space-y-4 md:space-y-6 lg:space-y-8">
+          {/* Insurance badge */}
+          <div className="inline-flex items-center bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full px-3 md:px-4 py-1.5 md:py-2">
+            <span className="text-primary text-xs md:text-sm font-medium">Страховка всей стоимости ремонта на 1 000 000 ₽</span>
           </div>
           
-          {/* Right content - Company info */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end mt-4 lg:mt-0">
-            <div className="bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl p-4 md:p-6 w-full max-w-sm border border-white/20">
-              <div className="text-center space-y-4 md:space-y-6">
-                <h3 className="text-white font-semibold text-lg md:text-xl">
-                  О КОМПАНИИ
-                </h3>
-                
-                <div className="space-y-3 md:space-y-4 text-left">
-                  <div className="text-white/90 text-xs md:text-sm leading-relaxed">
-                    <p className="mb-2 md:mb-3">Более 10 лет профессионального опыта в сфере ремонта и строительства</p>
-                    <p className="mb-2 md:mb-3">Собственные бригады квалифицированных мастеров</p>
-                    <p className="mb-2 md:mb-3">Более 500 успешно завершенных проектов</p>
-                    <p className="mb-2 md:mb-3">Работаем только с качественными материалами от проверенных поставщиков</p>
-                    <p>Официальное оформление всех документов и гарантийных обязательств</p>
-                  </div>
+          {/* Main heading */}
+          <div className="space-y-3 md:space-y-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+              РЕМОНТ{" "}
+              <span className="text-yellow-400">КВАРТИР ПОД КЛЮЧ</span>
+              <br />
+              <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl">в Санкт-Петербурге</span>
+            </h1>
+            
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed max-w-2xl">
+              КАЧЕСТВЕННО И В СРОК ПОД ВАШ БЮДЖЕТ,<br className="hidden sm:block" />
+              <span className="sm:inline"> </span>С ПРОЗРАЧНОЙ СМЕТОЙ И ГАРАНТИЕЙ
+            </p>
+            
+            {/* Animated typewriter text */}
+            <div className="text-sm md:text-base lg:text-lg text-white font-semibold min-h-[2.5rem] md:min-h-[3rem] flex items-center">
+              <div className="flex items-center space-x-2 md:space-x-3">
+                <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-primary rounded-full animate-pulse flex-shrink-0"></div>
+                <TypewriterText 
+                  texts={animatedTexts}
+                  speed={60}
+                  deleteSpeed={40}
+                  pauseDuration={4000}
+                  className="text-white"
+                />
+              </div>
+            </div>
+          </div>
+          
+          {/* CTA Button */}
+          <Button 
+            size="lg"
+            onClick={scrollToCalculator}
+            className="bg-primary hover:bg-primary/90 text-white font-semibold text-sm md:text-base lg:text-lg px-6 md:px-8 py-4 md:py-6 rounded-lg shadow-glow transition-smooth w-full sm:w-auto"
+          >
+            РАССЧИТАТЬ СТОИМОСТЬ
+          </Button>
+        </div>
+        
+        {/* Company info - positioned in top right corner */}
+        <div className="hidden lg:block absolute top-8 right-8 animate-fade-in">
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 w-80 border border-white/20 shadow-2xl">
+            <div className="text-center space-y-6">
+              <h3 className="text-white font-semibold text-xl">
+                О КОМПАНИИ
+              </h3>
+              
+              <div className="space-y-4 text-left">
+                <div className="text-white/90 text-sm leading-relaxed">
+                  <p className="mb-3">Более 10 лет профессионального опыта в сфере ремонта и строительства</p>
+                  <p className="mb-3">Собственные бригады квалифицированных мастеров</p>
+                  <p className="mb-3">Более 500 успешно завершенных проектов</p>
+                  <p className="mb-3">Работаем только с качественными материалами от проверенных поставщиков</p>
+                  <p>Официальное оформление всех документов и гарантийных обязательств</p>
                 </div>
               </div>
             </div>
