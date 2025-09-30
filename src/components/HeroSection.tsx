@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { Gift } from "lucide-react";
 import heroImage from "@/assets/hero-interior.jpg";
+import TypewriterText from "./TypewriterText";
 
 const HeroSection = () => {
   const scrollToCalculator = () => {
@@ -8,90 +9,113 @@ const HeroSection = () => {
     calculatorSection?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const animatedTexts = [
+    "гарантия на ремонт",
+    "контроль качества",
+    "прозрачные цены",
+    "работа под ключ"
+  ];
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
-      {/* Background overlay */}
-      <div className="absolute inset-0 bg-black/20" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <img 
+          src={heroImage} 
+          alt="Современный интерьер" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
       
       {/* Hero content */}
       <div className="relative z-10 container mx-auto px-4 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-12 gap-8 items-center min-h-[80vh]">
           {/* Left content */}
-          <div className="text-center lg:text-left animate-fade-in-up">
-            <h1 className="text-hero font-display font-bold text-white mb-6 leading-tight">
-              Современный ремонт
-              <span className="block bg-gradient-to-r from-pink-300 to-purple-300 bg-clip-text text-transparent">
-                с контролем 24/7
-              </span>
-            </h1>
+          <div className="lg:col-span-7 space-y-8">
+            {/* Insurance badge */}
+            <div className="inline-flex items-center bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full px-4 py-2">
+              <span className="text-primary text-sm font-medium">Страховка всей стоимости ремонта на 1 000 000 ₽</span>
+            </div>
             
-            <p className="text-xl text-white/90 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-              Качественный ремонт квартир и домов с онлайн-наблюдением, 
-              прозрачными ценами и гарантией результата
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button 
-                size="lg" 
-                onClick={scrollToCalculator}
-                className="bg-white text-primary hover:bg-white/90 shadow-glow transition-smooth group"
-              >
-                Рассчитать стоимость
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+            {/* Main heading */}
+            <div className="space-y-4">
+              <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight">
+                РЕМОНТ{" "}
+                <span className="text-yellow-400">КВАРТИР ПОД КЛЮЧ</span>
+              </h1>
               
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-white/20 text-white hover:bg-white/10 backdrop-blur-sm"
-              >
-                <Play className="mr-2 h-5 w-5" />
-                Смотреть видео
-              </Button>
+              <p className="text-xl lg:text-2xl text-white/90 leading-relaxed max-w-2xl">
+                ЗА 3 МЕСЯЦА ПОД ВАШ БЮДЖЕТ,<br />
+                БЕЗ СКРЫТЫХ ДЕФЕКТОВ
+              </p>
+              
+              {/* Animated typewriter text */}
+              <div className="text-lg text-primary font-semibold">
+                <TypewriterText 
+                  texts={animatedTexts}
+                  speed={120}
+                  deleteSpeed={80}
+                  pauseDuration={2000}
+                />
+              </div>
             </div>
             
-            {/* Trust indicators */}
-            <div className="flex items-center justify-center lg:justify-start gap-8 mt-12 text-white/80">
-              <div className="text-center">
-                <div className="text-2xl font-bold">500+</div>
-                <div className="text-sm">завершенных проектов</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold">5 лет</div>
-                <div className="text-sm">гарантии</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold">4.9</div>
-                <div className="text-sm">рейтинг клиентов</div>
-              </div>
-            </div>
+            {/* CTA Button */}
+            <Button 
+              size="xl"
+              onClick={scrollToCalculator}
+              className="bg-primary hover:bg-primary/90 text-white font-semibold text-lg px-8 py-6 rounded-lg shadow-glow transition-smooth"
+            >
+              РАССЧИТАТЬ СТОИМОСТЬ<br />
+              <span className="text-sm font-normal">В ТРЕХ ВАРИАНТАХ</span>
+            </Button>
           </div>
           
-          {/* Right content - Hero image */}
-          <div className="relative animate-scale-in">
-            <div className="relative rounded-2xl overflow-hidden shadow-glow">
-              <img 
-                src={heroImage} 
-                alt="Современный интерьер после ремонта"
-                className="w-full h-[600px] object-cover"
-              />
-              
-              {/* Floating card */}
-              <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-card">
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm font-medium text-foreground">Онлайн-контроль</span>
+          {/* Right content - Guide download */}
+          <div className="lg:col-span-5 flex justify-end">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 max-w-sm border border-white/20">
+              <div className="text-center space-y-4">
+                <h3 className="text-white font-semibold text-lg">
+                  Скачайте бесплатный гайд
+                </h3>
+                <p className="text-white/80 text-sm leading-relaxed">
+                  «КАК СДЕЛАТЬ КАЧЕСТВЕННЫЙ РЕМОНТ<br />
+                  В 2025 ГОДУ ПОД ВАШ БЮДЖЕТ»
+                </p>
+                
+                {/* Guide preview */}
+                <div className="relative mx-auto w-32 h-40 bg-gradient-to-b from-primary to-primary/80 rounded-lg shadow-lg">
+                  <div className="absolute inset-2 bg-white rounded text-xs p-2">
+                    <div className="space-y-1">
+                      <div className="h-2 bg-gray-200 rounded"></div>
+                      <div className="h-2 bg-gray-200 rounded w-3/4"></div>
+                      <div className="h-2 bg-gray-200 rounded w-1/2"></div>
+                    </div>
+                  </div>
                 </div>
+                
+                <Button 
+                  className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold"
+                  size="lg"
+                >
+                  СКАЧАТЬ ГАЙД
+                </Button>
               </div>
             </div>
           </div>
         </div>
       </div>
       
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+      {/* Bottom gift banner */}
+      <div className="absolute bottom-6 left-6 bg-gradient-to-r from-orange-400 to-orange-500 rounded-2xl p-4 shadow-lg max-w-md">
+        <div className="flex items-center space-x-3 text-white">
+          <Gift className="w-8 h-8 flex-shrink-0" />
+          <div className="text-sm">
+            <span className="font-semibold">При заказе ремонта </span>
+            <span className="font-bold">дизайн-проект в подарок </span>
+            <span>(экономия 200 000 рублей)</span>
+          </div>
         </div>
       </div>
     </section>
