@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import appScreen1 from "@/assets/app-screen-1.jpg";
 import appScreen2 from "@/assets/app-screen-2.jpg";
 import appScreen3 from "@/assets/app-screen-3.jpg";
+import { Card, CardContent } from "@/components/ui/card";
 
 const cabinetFeatures = [
   {
@@ -89,20 +90,36 @@ const PersonalCabinetSection = () => {
               Для вашего удобства мы разработали приложение, которое позволит вам в режиме онлайн отслеживать весь процесс ремонта и контролировать все расходы.
             </p>
             
-            {/* Features in 2 columns */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
-              {cabinetFeatures.map((feature, index) => (
-                <div 
-                  key={index} 
-                  className={`transform transition-all duration-700 ${
-                    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-                  }`}
-                  style={{ transitionDelay: `${300 + index * 150}ms` }}
-                >
-                  <h3 className="font-bold text-white mb-2 md:mb-3 text-lg md:text-xl">{feature.title}</h3>
-                  <p className="text-white/70 leading-relaxed text-sm md:text-base">{feature.description}</p>
-                </div>
-              ))}
+            {/* Features as cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+              {cabinetFeatures.map((feature, index) => {
+                const IconComponent = feature.icon;
+                return (
+                  <Card 
+                    key={index}
+                    className={`bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/15 hover:border-white/40 transition-all duration-500 transform ${
+                      isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-4 opacity-0 scale-95'
+                    }`}
+                    style={{ transitionDelay: `${300 + index * 150}ms` }}
+                  >
+                    <CardContent className="p-5 md:p-6">
+                      {/* Icon and Title row */}
+                      <div className="flex items-start gap-3 mb-3">
+                        <div className="w-11 h-11 md:w-12 md:h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                          <IconComponent className="w-6 h-6 md:w-7 md:h-7 text-white" />
+                        </div>
+                        
+                        <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-white leading-tight flex-1">
+                          {feature.title}
+                        </h3>
+                      </div>
+                      
+                      {/* Description */}
+                      <p className="text-white/80 text-sm md:text-base leading-relaxed">{feature.description}</p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
             </div>
           </div>
           
