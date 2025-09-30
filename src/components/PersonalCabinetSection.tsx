@@ -71,10 +71,6 @@ const PersonalCabinetSection = () => {
           <div className={`transform transition-all duration-1000 ${
             isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
           }`}>
-            <div className="inline-flex items-center bg-primary/10 rounded-full px-4 py-2 mb-6">
-              <Smartphone className="w-5 h-5 text-primary mr-2" />
-              <span className="text-primary font-medium">Цифровые технологии</span>
-            </div>
             
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               Контроль через <br />
@@ -106,13 +102,6 @@ const PersonalCabinetSection = () => {
               ))}
             </div>
             
-            <Button 
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <Play className="mr-2 h-5 w-5" />
-              Посмотреть демо
-            </Button>
           </div>
           
           {/* Right content - Animated phone mockup */}

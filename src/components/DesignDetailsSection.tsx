@@ -13,7 +13,7 @@ const DesignDetailsSection = () => {
             При заказе ремонта мы предоставляем базовый дизайн-проект квартиры совершенно бесплатно
           </p>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardContent className="p-6 text-center">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -43,20 +43,14 @@ const DesignDetailsSection = () => {
                 <p className="text-gray-600">Схема размещения электрики, сантехники и вентиляции согласно строительным нормам</p>
               </CardContent>
             </Card>
-          </div>
-          
-          <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardContent className="p-6 text-center">
                 <div className="w-16 h-16 bg-yellow-400/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckCircle className="w-8 h-8 text-yellow-600" />
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-3">Важно знать</h4>
-                <p className="text-gray-700 text-sm leading-relaxed">
-                  Базовый дизайн-проект предоставляется при заказе ремонта стоимостью от 500 000 рублей. 
-                  Включает планировочные решения, но не включает детальную визуализацию и подбор декора. 
-                  Для расширенного дизайн-проекта с 3D-визуализацией и авторским надзором предусмотрены дополнительные услуги.
-                </p>
+                <h3 className="text-xl font-semibold mb-3">Важно знать</h3>
+                <p className="text-gray-600">Базовый проект при заказе от 500 000 ₽. Включает планировку, но без 3D-визуализации. Расширенный проект с 3D и авторским надзором - дополнительно.</p>
               </CardContent>
             </Card>
           </div>

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Gift } from "lucide-react";
-import heroImage from "@/assets/hero-interior.jpg";
+import heroImage from "@/assets/hero-hightech.jpg";
 import TypewriterText from "./TypewriterText";
 
 const HeroSection = () => {
