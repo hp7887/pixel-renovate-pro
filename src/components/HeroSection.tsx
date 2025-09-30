@@ -44,11 +44,13 @@ const HeroSection = () => {
               <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight">
                 РЕМОНТ{" "}
                 <span className="text-yellow-400">КВАРТИР ПОД КЛЮЧ</span>
+                <br />
+                <span className="text-3xl lg:text-4xl">в Санкт-Петербурге</span>
               </h1>
               
               <p className="text-xl lg:text-2xl text-white/90 leading-relaxed max-w-2xl">
-                ЗА 3 МЕСЯЦА ПОД ВАШ БЮДЖЕТ,<br />
-                БЕЗ СКРЫТЫХ ДЕФЕКТОВ
+                КАЧЕСТВЕННО И В СРОК ПОД ВАШ БЮДЖЕТ,<br />
+                С ПРОЗРАЧНОЙ СМЕТОЙ И ГАРАНТИЕЙ
               </p>
               
               {/* Animated typewriter text */}

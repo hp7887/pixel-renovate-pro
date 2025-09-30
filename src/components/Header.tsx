@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle } from "lucide-react";
 import logo from "@/assets/logo.png";
+import { useState } from "react";
+import ContactDialog from "./ContactDialog";
 
 const Header = () => {
+  const [isContactOpen, setIsContactOpen] = useState(false);
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md transition-all duration-300">
       <div className="container mx-auto px-4 py-2">
@@ -51,9 +54,20 @@ const Header = () => {
                 </svg>
               </Button>
             </div>
+            
+            <Button 
+              className="bg-primary hover:bg-primary/90 text-white font-semibold ml-2 lg:ml-4"
+              size="default"
+              onClick={() => setIsContactOpen(true)}
+            >
+              <Phone className="mr-1 lg:mr-2 h-4 w-4" />
+              <span className="hidden sm:inline">Начать проект</span>
+            </Button>
           </div>
         </div>
       </div>
+      
+      <ContactDialog open={isContactOpen} onOpenChange={setIsContactOpen} />
     </header>
   );
 };
