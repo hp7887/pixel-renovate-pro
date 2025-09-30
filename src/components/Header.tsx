@@ -13,12 +13,12 @@ const Header = () => {
           </div>
           
           {/* Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            <a href="#" className="text-gray-800 hover:text-primary font-medium transition-colors">СТОИМОСТЬ</a>
-            <a href="#" className="text-gray-800 hover:text-primary font-medium transition-colors">ЭТАПЫ РАБОТЫ</a>
-            <a href="#" className="text-gray-800 hover:text-primary font-medium transition-colors">ЛИЧНЫЙ КАБИНЕТ</a>
-            <a href="#" className="text-gray-800 hover:text-primary font-medium transition-colors">ГОТОВЫЕ ОБЪЕКТЫ</a>
-            <a href="#" className="text-gray-800 hover:text-primary font-medium transition-colors">КОНТАКТЫ</a>
+          <nav className="hidden md:flex items-center space-x-4 lg:space-x-8">
+            <a href="#calculator" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm lg:text-base">СТОИМОСТЬ</a>
+            <a href="#work-steps" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm lg:text-base">ЭТАПЫ РАБОТЫ</a>
+            <a href="#personal-cabinet" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm lg:text-base">ЛИЧНЫЙ КАБИНЕТ</a>
+            <a href="#gallery" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm lg:text-base">ГОТОВЫЕ ОБЪЕКТЫ</a>
+            <a href="#footer" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm lg:text-base">КОНТАКТЫ</a>
           </nav>
           
           {/* Contact info and social */}

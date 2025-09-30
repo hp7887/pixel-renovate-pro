@@ -77,47 +77,23 @@ const HeroSection = () => {
             </Button>
           </div>
           
-          {/* Right content - Why choose us */}
+          {/* Right content - Company info */}
           <div className="lg:col-span-5 flex justify-end">
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 max-w-sm border border-white/20">
               <div className="text-center space-y-6">
                 <h3 className="text-white font-semibold text-xl">
-                  ПОЧЕМУ ВЫБИРАЮТ НАС
+                  О КОМПАНИИ
                 </h3>
                 
                 <div className="space-y-4 text-left">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-white/90 text-sm">Опыт работы более 10 лет</p>
-                  </div>
-                  
-                  <div className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-white/90 text-sm">Собственная бригада мастеров</p>
-                  </div>
-                  
-                  <div className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-white/90 text-sm">Контроль качества на каждом этапе</p>
-                  </div>
-                  
-                  <div className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-white/90 text-sm">Работаем с проверенными поставщиками</p>
-                  </div>
-                  
-                  <div className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-white/90 text-sm">Все документы и договоры официально</p>
+                  <div className="text-white/90 text-sm leading-relaxed">
+                    <p className="mb-3">Более 10 лет профессионального опыта в сфере ремонта и строительства</p>
+                    <p className="mb-3">Собственные бригады квалифицированных мастеров</p>
+                    <p className="mb-3">Более 500 успешно завершенных проектов</p>
+                    <p className="mb-3">Работаем только с качественными материалами от проверенных поставщиков</p>
+                    <p>Официальное оформление всех документов и гарантийных обязательств</p>
                   </div>
                 </div>
-                
-                <Button 
-                  className="w-full bg-primary hover:bg-primary/90 text-white font-semibold"
-                  size="lg"
-                >
-                  УЗНАТЬ ПОДРОБНЕЕ
-                </Button>
               </div>
             </div>
           </div>
