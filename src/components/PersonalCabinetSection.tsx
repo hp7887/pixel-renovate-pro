@@ -111,7 +111,7 @@ const PersonalCabinetSection = () => {
           <div className={`absolute bottom-0 right-0 transform transition-all duration-1000 delay-300 ${
             isVisible ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
           }`}>
-            <div className="relative w-80 mx-auto lg:mx-0">
+            <div className="relative w-96 mx-auto lg:mx-0">
               {/* Phone frame */}
               <div className="relative bg-gray-900 rounded-[3rem] p-3 shadow-2xl">
                 <div className="bg-black rounded-[2.5rem] overflow-hidden">
@@ -121,15 +121,20 @@ const PersonalCabinetSection = () => {
                   </div>
                   
                   {/* Screen content - cycling images */}
-                  <div className="relative h-[600px] bg-white">
+                  <div className="relative h-[700px] bg-white overflow-hidden">
                     {appScreens.map((screen, index) => (
                       <img
                         key={index}
                         src={screen}
                         alt={`App screen ${index + 1}`}
-                        className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
+                        className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${
                           activeImage === index ? 'opacity-100' : 'opacity-0'
                         }`}
+                        style={{
+                          objectFit: 'cover',
+                          objectPosition: 'center center',
+                          transform: 'scale(1.8)',
+                        }}
                       />
                     ))}
                   </div>
