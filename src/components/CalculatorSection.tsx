@@ -1,81 +1,38 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import { Calculator, Home, Paintbrush, Calendar, Ruler } from "lucide-react";
+import { Calculator, Minus, Plus } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Slider } from "@/components/ui/slider";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-
-const calculatorSchema = z.object({
-  propertyType: z.enum(["newbuilding", "secondary", "house"], {
-    required_error: "Выберите тип недвижимости",
-  }),
-  renovationType: z.enum(["rough", "finishing", "major", "designer", "cosmetic"], {
-    required_error: "Выберите тип ремонта",
-  }),
-  area: z.number().min(10, "Минимальная площадь 10 м²").max(500, "Максимальная площадь 500 м²"),
-  needsDesign: z.enum(["yes", "no"], {
-    required_error: "Укажите, нужен ли дизайн-проект",
-  }),
-  startDate: z.string().min(1, "Укажите дату начала работ"),
-});
-
-type CalculatorFormData = z.infer<typeof calculatorSchema>;
 
 const CalculatorSection = () => {
+  const [area, setArea] = useState(15);
+  const [rooms, setRooms] = useState(1);
+  const [bathrooms, setBathrooms] = useState(1);
+  const [levelFloors, setLevelFloors] = useState(false);
+  const [levelWalls, setLevelWalls] = useState(false);
+  const [plumbingWorks, setPlumbingWorks] = useState(false);
+  const [electricalWorks, setElectricalWorks] = useState(false);
   const [calculatedPrice, setCalculatedPrice] = useState<number | null>(null);
-  const [showFreeDesign, setShowFreeDesign] = useState(false);
 
-  const form = useForm<CalculatorFormData>({
-    resolver: zodResolver(calculatorSchema),
-    defaultValues: {
-      propertyType: undefined,
-      renovationType: undefined,
-      area: 50,
-      needsDesign: undefined,
-      startDate: "",
-    },
-  });
-
-  const onSubmit = (data: CalculatorFormData) => {
-    const area = data.area;
-    let pricePerSqM = 0;
-
-    // Расчет цены за квадратный метр
-    switch (data.renovationType) {
-      case "major":
-        pricePerSqM = 15000;
-        break;
-      case "designer":
-        pricePerSqM = 20000;
-        break;
-      case "cosmetic":
-        pricePerSqM = 7000;
-        break;
-      case "rough":
-        pricePerSqM = 12000;
-        break;
-      case "finishing":
-        pricePerSqM = 10000;
-        break;
-      default:
-        pricePerSqM = 12000;
-    }
-
-    const totalPrice = area * pricePerSqM;
-    setCalculatedPrice(totalPrice);
+  const calculatePrice = () => {
+    // Базовая цена за 15м², 1 комната, 1 санузел = 173909
+    const basePrice = (area / 15) * 173909;
     
-    // Показываем сообщение о бесплатном дизайне
-    if (data.needsDesign === "yes") {
-      setShowFreeDesign(true);
-    } else {
-      setShowFreeDesign(false);
-    }
+    // Доп комнаты (каждая после первой)
+    const additionalRoomsPrice = Math.max(0, rooms - 1) * 32800;
+    
+    // Доп санузлы (каждый после первого)
+    const additionalBathroomsPrice = Math.max(0, bathrooms - 1) * 86400;
+    
+    // Доп работы
+    let additionalWorksPrice = 0;
+    if (levelFloors) additionalWorksPrice += 9172;
+    if (levelWalls) additionalWorksPrice += 7400;
+    if (plumbingWorks) additionalWorksPrice += 16600;
+    if (electricalWorks) additionalWorksPrice += 18500;
+    
+    const total = basePrice + additionalRoomsPrice + additionalBathroomsPrice + additionalWorksPrice;
+    setCalculatedPrice(Math.round(total));
   };
 
   const formatPrice = (price: number) => {
@@ -106,202 +63,190 @@ const CalculatorSection = () => {
               </CardDescription>
             </CardHeader>
             <CardContent className="p-6 md:p-8">
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                  {/* Тип недвижимости */}
-                  <FormField
-                    control={form.control}
-                    name="propertyType"
-                    render={({ field }) => (
-                      <FormItem>
-                        <div className="flex items-center gap-3 mb-4">
-                          <Home className="w-5 h-5 text-primary" />
-                          <FormLabel className="text-lg font-semibold">Тип недвижимости</FormLabel>
-                        </div>
-                        <FormControl>
-                          <RadioGroup
-                            onValueChange={field.onChange}
-                            value={field.value}
-                            className="grid grid-cols-1 sm:grid-cols-3 gap-4"
-                          >
-                            <div className="flex items-center space-x-2 border rounded-lg p-4 hover:bg-gray-50 cursor-pointer">
-                              <RadioGroupItem value="newbuilding" id="newbuilding" />
-                              <Label htmlFor="newbuilding" className="cursor-pointer flex-1">Новостройка</Label>
-                            </div>
-                            <div className="flex items-center space-x-2 border rounded-lg p-4 hover:bg-gray-50 cursor-pointer">
-                              <RadioGroupItem value="secondary" id="secondary" />
-                              <Label htmlFor="secondary" className="cursor-pointer flex-1">Вторичка</Label>
-                            </div>
-                            <div className="flex items-center space-x-2 border rounded-lg p-4 hover:bg-gray-50 cursor-pointer">
-                              <RadioGroupItem value="house" id="house" />
-                              <Label htmlFor="house" className="cursor-pointer flex-1">Дом</Label>
-                            </div>
-                          </RadioGroup>
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+              <div className="space-y-8">
+                {/* Площадь помещения */}
+                <div>
+                  <label className="text-lg font-semibold text-gray-700 block mb-4">
+                    Площадь помещения
+                  </label>
+                  <div className="bg-white rounded-xl border-2 p-6">
+                    <div className="flex items-center justify-center gap-4 mb-4">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="icon"
+                        onClick={() => setArea(Math.max(15, area - 5))}
+                        className="h-12 w-12"
+                      >
+                        <Minus className="h-5 w-5" />
+                      </Button>
+                      <span className="text-3xl font-bold text-gray-900 min-w-[100px] text-center">
+                        {area}
+                      </span>
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="icon"
+                        onClick={() => setArea(Math.min(500, area + 5))}
+                        className="h-12 w-12"
+                      >
+                        <Plus className="h-5 w-5" />
+                      </Button>
+                    </div>
+                    <Slider
+                      min={15}
+                      max={500}
+                      step={5}
+                      value={[area]}
+                      onValueChange={(value) => setArea(value[0])}
+                      className="w-full"
+                    />
+                  </div>
+                </div>
 
-                  {/* Тип ремонта */}
-                  <FormField
-                    control={form.control}
-                    name="renovationType"
-                    render={({ field }) => (
-                      <FormItem>
-                        <div className="flex items-center gap-3 mb-4">
-                          <Paintbrush className="w-5 h-5 text-primary" />
-                          <FormLabel className="text-lg font-semibold">Тип ремонта</FormLabel>
-                        </div>
-                        <FormControl>
-                          <RadioGroup
-                            onValueChange={field.onChange}
-                            value={field.value}
-                            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-                          >
-                            <div className="flex items-center space-x-2 border rounded-lg p-4 hover:bg-gray-50 cursor-pointer">
-                              <RadioGroupItem value="rough" id="rough" />
-                              <Label htmlFor="rough" className="cursor-pointer flex-1">
-                                Черновой
-                              </Label>
-                            </div>
-                            <div className="flex items-center space-x-2 border rounded-lg p-4 hover:bg-gray-50 cursor-pointer">
-                              <RadioGroupItem value="finishing" id="finishing" />
-                              <Label htmlFor="finishing" className="cursor-pointer flex-1">
-                                Чистовой
-                              </Label>
-                            </div>
-                            <div className="flex items-center space-x-2 border rounded-lg p-4 hover:bg-gray-50 cursor-pointer">
-                              <RadioGroupItem value="major" id="major" />
-                              <Label htmlFor="major" className="cursor-pointer flex-1">
-                                Капитальный
-                              </Label>
-                            </div>
-                            <div className="flex items-center space-x-2 border rounded-lg p-4 hover:bg-gray-50 cursor-pointer">
-                              <RadioGroupItem value="designer" id="designer" />
-                              <Label htmlFor="designer" className="cursor-pointer flex-1">
-                                Дизайнерский
-                              </Label>
-                            </div>
-                            <div className="flex items-center space-x-2 border rounded-lg p-4 hover:bg-gray-50 cursor-pointer sm:col-span-2">
-                              <RadioGroupItem value="cosmetic" id="cosmetic" />
-                              <Label htmlFor="cosmetic" className="cursor-pointer flex-1">
-                                Косметический
-                              </Label>
-                            </div>
-                          </RadioGroup>
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                {/* Комнаты и Санузлы */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Комнаты */}
+                  <div>
+                    <label className="text-lg font-semibold text-gray-700 block mb-4">
+                      Комнаты
+                    </label>
+                    <div className="bg-white rounded-xl border-2 p-6">
+                      <div className="flex items-center justify-center gap-4">
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="icon"
+                          onClick={() => setRooms(Math.max(1, rooms - 1))}
+                          className="h-12 w-12"
+                        >
+                          <Minus className="h-5 w-5" />
+                        </Button>
+                        <span className="text-3xl font-bold text-gray-900 min-w-[60px] text-center">
+                          {rooms}
+                        </span>
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="icon"
+                          onClick={() => setRooms(rooms + 1)}
+                          className="h-12 w-12"
+                        >
+                          <Plus className="h-5 w-5" />
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
 
-                  {/* Площадь */}
-                  <FormField
-                    control={form.control}
-                    name="area"
-                    render={({ field }) => (
-                      <FormItem>
-                        <div className="flex items-center justify-between mb-4">
-                          <div className="flex items-center gap-3">
-                            <Ruler className="w-5 h-5 text-primary" />
-                            <FormLabel className="text-lg font-semibold">Площадь помещения</FormLabel>
-                          </div>
-                          <span className="text-2xl font-bold text-primary">{field.value} м²</span>
-                        </div>
-                        <FormControl>
-                          <Slider
-                            min={10}
-                            max={500}
-                            step={5}
-                            value={[field.value]}
-                            onValueChange={(value) => field.onChange(value[0])}
-                            className="w-full"
-                          />
-                        </FormControl>
-                        <div className="flex justify-between text-xs text-gray-500 mt-2">
-                          <span>10 м²</span>
-                          <span>500 м²</span>
-                        </div>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                  {/* Санузлы */}
+                  <div>
+                    <label className="text-lg font-semibold text-gray-700 block mb-4">
+                      Санузлы
+                    </label>
+                    <div className="bg-white rounded-xl border-2 p-6">
+                      <div className="flex items-center justify-center gap-4">
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="icon"
+                          onClick={() => setBathrooms(Math.max(1, bathrooms - 1))}
+                          className="h-12 w-12"
+                        >
+                          <Minus className="h-5 w-5" />
+                        </Button>
+                        <span className="text-3xl font-bold text-gray-900 min-w-[60px] text-center">
+                          {bathrooms}
+                        </span>
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="icon"
+                          onClick={() => setBathrooms(bathrooms + 1)}
+                          className="h-12 w-12"
+                        >
+                          <Plus className="h-5 w-5" />
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-                  {/* Нужен ли дизайн-проект */}
-                  <FormField
-                    control={form.control}
-                    name="needsDesign"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-lg font-semibold">Нужен ли дизайн-проект?</FormLabel>
-                        <FormControl>
-                          <RadioGroup
-                            onValueChange={field.onChange}
-                            value={field.value}
-                            className="grid grid-cols-2 gap-4"
-                          >
-                            <div className="flex items-center space-x-2 border rounded-lg p-4 hover:bg-gray-50 cursor-pointer">
-                              <RadioGroupItem value="yes" id="design-yes" />
-                              <Label htmlFor="design-yes" className="cursor-pointer flex-1">Да</Label>
-                            </div>
-                            <div className="flex items-center space-x-2 border rounded-lg p-4 hover:bg-gray-50 cursor-pointer">
-                              <RadioGroupItem value="no" id="design-no" />
-                              <Label htmlFor="design-no" className="cursor-pointer flex-1">Нет</Label>
-                            </div>
-                          </RadioGroup>
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                {/* Доп. работы */}
+                <div>
+                  <label className="text-lg font-semibold text-gray-700 block mb-4">
+                    Доп. работы
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <Button
+                      type="button"
+                      variant={levelFloors ? "default" : "outline"}
+                      onClick={() => setLevelFloors(!levelFloors)}
+                      className={`h-auto py-4 px-6 text-base font-medium ${
+                        levelFloors 
+                          ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-600 hover:to-blue-700" 
+                          : "hover:bg-gray-50"
+                      }`}
+                    >
+                      Выровнять полы
+                    </Button>
+                    <Button
+                      type="button"
+                      variant={levelWalls ? "default" : "outline"}
+                      onClick={() => setLevelWalls(!levelWalls)}
+                      className={`h-auto py-4 px-6 text-base font-medium ${
+                        levelWalls 
+                          ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-600 hover:to-blue-700" 
+                          : "hover:bg-gray-50"
+                      }`}
+                    >
+                      Выровнять стены
+                    </Button>
+                    <Button
+                      type="button"
+                      variant={plumbingWorks ? "default" : "outline"}
+                      onClick={() => setPlumbingWorks(!plumbingWorks)}
+                      className={`h-auto py-4 px-6 text-base font-medium ${
+                        plumbingWorks 
+                          ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-600 hover:to-blue-700" 
+                          : "hover:bg-gray-50"
+                      }`}
+                    >
+                      Сантехнические работы
+                    </Button>
+                    <Button
+                      type="button"
+                      variant={electricalWorks ? "default" : "outline"}
+                      onClick={() => setElectricalWorks(!electricalWorks)}
+                      className={`h-auto py-4 px-6 text-base font-medium ${
+                        electricalWorks 
+                          ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-600 hover:to-blue-700" 
+                          : "hover:bg-gray-50"
+                      }`}
+                    >
+                      Электромонтажные работы
+                    </Button>
+                  </div>
+                </div>
 
-                  {/* Дата начала работ */}
-                  <FormField
-                    control={form.control}
-                    name="startDate"
-                    render={({ field }) => (
-                      <FormItem>
-                        <div className="flex items-center gap-3 mb-4">
-                          <Calendar className="w-5 h-5 text-primary" />
-                          <FormLabel className="text-lg font-semibold">Когда планируете начать ремонт?</FormLabel>
-                        </div>
-                        <FormControl>
-                          <Input
-                            type="date"
-                            className="text-lg h-12"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full text-lg h-14 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 shadow-lg"
-                  >
-                    <Calculator className="w-5 h-5 mr-2" />
-                    Рассчитать стоимость
-                  </Button>
-                </form>
-              </Form>
+                <Button
+                  type="button"
+                  onClick={calculatePrice}
+                  size="lg"
+                  className="w-full text-lg h-14 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 shadow-lg"
+                >
+                  <Calculator className="w-5 h-5 mr-2" />
+                  Рассчитать смету
+                </Button>
+              </div>
 
               {/* Результат расчета */}
               {calculatedPrice !== null && (
                 <div className="mt-8 p-6 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl border-2 border-primary/20 animate-fade-in">
                   <div className="text-center">
-                    <p className="text-gray-600 text-lg mb-2">Примерная стоимость ремонта:</p>
+                    <p className="text-gray-600 text-lg mb-2">Предварительный расчет</p>
                     <p className="text-4xl md:text-5xl font-bold text-primary mb-4">
                       {formatPrice(calculatedPrice)} ₽
                     </p>
-                    {showFreeDesign && (
-                      <div className="bg-gradient-to-r from-yellow-400 to-orange-400 text-white px-4 py-2 rounded-full inline-block font-semibold shadow-lg mb-4 text-sm">
-                        🎁 ДИЗАЙН-ПРОЕКТ В ПОДАРОК!
-                      </div>
-                    )}
                     <p className="text-gray-600 text-sm mt-4 italic">
                       * Указанная сумма носит ориентировочный характер. Точная стоимость и детальная смета будут рассчитаны специалистом после выезда на объект и проведения профессиональных замеров.
                     </p>
