@@ -3,6 +3,9 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { FileText, Ruler, Calculator, Users, Palette, FileCheck, CheckCircle, Hammer, Home } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import calculationImage from "@/assets/calculation-process.jpg";
+import designImage from "@/assets/design-process.jpg";
+import renovationImage from "@/assets/renovation-process.jpg";
 
 const workStages = [
   {
@@ -146,7 +149,7 @@ const WorkStepsSection = () => {
             ref={(el) => {
               stageRefs.current[stageIndex] = el;
             }}
-            className="mb-20 last:mb-0"
+            className="mb-12 last:mb-0"
           >
             {/* Stage title */}
             <div className={`text-center mb-12 transform transition-all duration-700 ${
@@ -157,17 +160,27 @@ const WorkStepsSection = () => {
               </h3>
             </div>
             
-            {/* Stage steps in 2x2 grid format like original */}
-            <div className={`max-w-4xl mx-auto transform transition-all duration-1000 delay-300 ${
+            {/* Stage steps in 2x2 grid format with image tile */}
+            <div className={`max-w-5xl mx-auto transform transition-all duration-1000 delay-300 ${
               visibleStages[stageIndex] ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
             }`}>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                {/* Image tile */}
+                <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl overflow-hidden shadow-lg">
+                  <img 
+                    src={stageIndex === 0 ? calculationImage : 
+                         stageIndex === 1 ? designImage : 
+                         renovationImage}
+                    alt={`${stage.title} процесс`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 {stage.steps.map((step, stepIndex) => {
                   const IconComponent = step.icon;
                   return (
                     <Card 
                       key={stepIndex}
-                      className={`aspect-square bg-white border-gray-200 hover:shadow-xl transition-all duration-300 relative transform ${
+                      className={`h-48 bg-white border-gray-200 hover:shadow-xl transition-all duration-300 relative transform ${
                         visibleCards[stageIndex]?.[stepIndex]
                           ? 'translate-y-0 opacity-100 scale-100'
                           : 'translate-y-12 opacity-0 scale-95'
@@ -180,18 +193,16 @@ const WorkStepsSection = () => {
                         </div>
                       )}
                       
-                      <CardContent className="p-6 h-full flex flex-col justify-center text-center">
-                        <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                          <IconComponent className="w-8 h-8 text-primary" />
+                      <CardContent className="p-4 h-full flex flex-col justify-center text-center">
+                        <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                          <IconComponent className="w-6 h-6 text-primary" />
                         </div>
                         
-                        <h4 className="text-xl font-bold text-gray-900 mb-4">
+                        <h4 className="text-lg font-bold text-gray-900 mb-2">
                           {step.title}
                         </h4>
                         
-                        <p className="text-gray-600 text-sm leading-relaxed">
-                          {step.description}
-                        </p>
+                        <p className="text-gray-600 text-xs leading-relaxed">{step.description}</p>
                       </CardContent>
                     </Card>
                   );
@@ -202,7 +213,7 @@ const WorkStepsSection = () => {
         ))}
         
         {/* Bottom call to action */}
-        <div className="mt-20 text-center">
+        <div className="mt-10 text-center">
           <div className="bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 rounded-3xl p-10 max-w-4xl mx-auto">
             <h3 className="text-3xl font-bold text-gray-900 mb-4">
               Готовы начать ваш проект?
