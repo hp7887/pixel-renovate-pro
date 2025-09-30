@@ -1,49 +1,46 @@
 import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { CheckCircle, Award, Users, TrendingUp } from "lucide-react";
+import { Award, Users, Clock, Shield } from "lucide-react";
 
 const About = () => {
-  const advantages = [
+  const features = [
     {
       icon: Award,
-      title: "Опыт 15+ лет",
-      description: "Более 15 лет успешной работы в сфере ремонта и строительства"
+      title: "Качество работ",
+      description: "Используем только сертифицированные материалы и современные технологии. Каждый этап работ проходит строгий контроль качества."
     },
     {
       icon: Users,
-      title: "500+ проектов",
-      description: "Реализовали более 500 проектов различной сложности"
+      title: "Профессиональная команда",
+      description: "Наши специалисты имеют многолетний опыт и регулярно проходят обучение. В команде работают дизайнеры, архитекторы и мастера высшей квалификации."
     },
     {
-      icon: TrendingUp,
-      title: "98% довольных клиентов",
-      description: "Высокий уровень удовлетворенности наших заказчиков"
+      icon: Clock,
+      title: "Соблюдение сроков",
+      description: "Фиксируем сроки выполнения работ в договоре. Контролируем процесс на каждом этапе, чтобы сдать объект точно в срок."
     },
     {
-      icon: CheckCircle,
-      title: "Гарантия 5 лет",
-      description: "Предоставляем расширенную гарантию на все виды работ"
+      icon: Shield,
+      title: "Гарантия 1 год",
+      description: "Предоставляем официальную гарантию на все виды выполненных работ. Бесплатно устраняем любые дефекты в течение гарантийного срока."
     }
   ];
 
-  const values = [
-    {
-      title: "Качество",
-      description: "Используем только проверенные материалы и технологии"
-    },
-    {
-      title: "Прозрачность",
-      description: "Полный контроль работ через мобильное приложение 24/7"
-    },
-    {
-      title: "Надежность",
-      description: "Соблюдаем все договоренности и сроки выполнения работ"
-    },
-    {
-      title: "Инновации",
-      description: "Внедряем современные решения для удобства клиентов"
-    }
+  const stats = [
+    { value: "8", label: "лет на рынке", suffix: "+" },
+    { value: "500", label: "выполненных проектов", suffix: "+" },
+    { value: "15000", label: "м² отремонтировано", suffix: "+" },
+    { value: "98", label: "довольных клиентов", suffix: "%" }
+  ];
+
+  const advantages = [
+    "Бесплатный выезд замерщика и консультация",
+    "Составление подробной сметы в течение 24 часов",
+    "Официальный договор с фиксацией сроков и цены",
+    "Онлайн-контроль за ходом работ через мобильное приложение",
+    "Закупка материалов по оптовым ценам",
+    "Уборка после завершения каждого этапа работ"
   ];
 
   return (
@@ -61,86 +58,99 @@ const About = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-24 md:pt-32 pb-12 md:pb-16 bg-gradient-to-br from-primary/10 via-yellow-50 to-white">
+      <section className="pt-24 md:pt-32 pb-12 md:pb-16 bg-gradient-to-br from-cyan-50 via-blue-50 to-white">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 text-center">
-            О компании DigitalStroy
+            О компании DigitalSTROY
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto text-center leading-relaxed">
-            Мы - команда профессионалов, которая создает комфортное пространство для жизни. 
-            Наша миссия - сделать ремонт простым, прозрачным и предсказуемым процессом.
+            Мы создаем современные и функциональные пространства, в которых приятно жить и работать. 
+            За 8 лет работы выполнили более 500 проектов любой сложности.
           </p>
         </div>
       </section>
 
-      {/* Advantages */}
-      <section className="py-12 md:py-20">
+      {/* Stats Section */}
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
-            Наши преимущества
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {advantages.map((advantage, index) => (
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {stats.map((stat, index) => (
               <div 
                 key={index}
-                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+                className="text-center bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-yellow-400 flex items-center justify-center mb-4">
-                  <advantage.icon className="w-7 h-7 text-white" />
+                <div className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent mb-2">
+                  {stat.value}{stat.suffix}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{advantage.title}</h3>
-                <p className="text-gray-600">{advantage.description}</p>
+                <div className="text-sm md:text-base text-gray-600 font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Our Story */}
-      <section className="py-12 md:py-20 bg-gradient-to-br from-gray-50 to-white">
+      {/* Features Section */}
+      <section className="py-12 md:py-20 bg-gradient-to-br from-white to-cyan-50">
         <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center">
+            Почему выбирают нас
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {features.map((feature, index) => (
+              <div 
+                key={index}
+                className="bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
+              >
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-6">
+                  <feature.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">{feature.title}</h3>
+                <p className="text-gray-600 leading-relaxed text-lg">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Advantages Section */}
+      <section className="py-12 md:py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center">
+            Наши преимущества
+          </h2>
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
-              Наша история
-            </h2>
-            <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
-              <p>
-                Компания DigitalStroy была основана в 2009 году группой энтузиастов, которые хотели 
-                изменить подход к ремонту квартир в России. Мы начинали с небольшой команды из 5 человек 
-                и одного проекта.
-              </p>
-              <p>
-                За годы работы мы выросли в крупную компанию с штатом более 100 специалистов. 
-                Мы постоянно внедряем инновации: первыми в регионе запустили систему онлайн-контроля 
-                ремонта с видеонаблюдением 24/7 и разработали мобильное приложение для заказчиков.
-              </p>
-              <p>
-                Сегодня DigitalStroy - это современная компания, которая объединяет опыт, технологии 
-                и индивидуальный подход к каждому клиенту. Мы гордимся каждым реализованным проектом 
-                и стремимся превзойти ожидания наших заказчиков.
-              </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              {advantages.map((advantage, index) => (
+                <div 
+                  key={index}
+                  className="flex items-start gap-4 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-bold text-sm">{index + 1}</span>
+                  </div>
+                  <span className="text-gray-700 text-lg leading-relaxed">{advantage}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Values */}
-      <section className="py-12 md:py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
-            Наши ценности
+      {/* CTA Section */}
+      <section className="py-16 md:py-20 bg-gradient-to-br from-cyan-500 to-blue-600">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+            Готовы начать ваш проект?
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => (
-              <div 
-                key={index}
-                className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-6 border-l-4 border-primary shadow-md hover:shadow-lg transition-all duration-300"
-              >
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
-                <p className="text-gray-600">{value.description}</p>
-              </div>
-            ))}
-          </div>
+          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            Оставьте заявку, и мы свяжемся с вами в течение 15 минут для бесплатной консультации
+          </p>
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent('openContactDialog'))}
+            className="bg-white text-primary hover:bg-gray-100 font-bold text-lg px-10 py-5 rounded-xl transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl"
+          >
+            Получить консультацию
+          </button>
         </div>
       </section>
 

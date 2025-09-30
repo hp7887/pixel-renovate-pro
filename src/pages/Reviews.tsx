@@ -12,6 +12,24 @@ const Reviews = () => {
     { value: "500", label: "Завершенных проектов", suffix: "+" }
   ];
 
+  const trustReasons = [
+    {
+      emoji: "🏆",
+      title: "Качество",
+      description: "Используем только сертифицированные материалы и современные технологии"
+    },
+    {
+      emoji: "⏱️",
+      title: "Сроки",
+      description: "Соблюдаем договорные сроки выполнения работ с гарантией"
+    },
+    {
+      emoji: "🛡️",
+      title: "Гарантия",
+      description: "Даем официальную гарантию 1 год на все виды работ"
+    }
+  ];
+
   return (
     <main className="min-h-screen">
       <Helmet>
@@ -27,7 +45,7 @@ const Reviews = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-24 md:pt-32 pb-12 md:pb-16 bg-gradient-to-br from-primary/10 via-yellow-50 to-white">
+      <section className="pt-24 md:pt-32 pb-12 md:pb-16 bg-gradient-to-br from-cyan-50 via-blue-50 to-white">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 text-center">
             Отзывы наших клиентов
@@ -43,7 +61,7 @@ const Reviews = () => {
                 <Star key={star} className="w-8 h-8 fill-yellow-400 text-yellow-400" />
               ))}
             </div>
-            <span className="text-3xl font-bold text-gray-900">4.9</span>
+            <span className="text-3xl font-bold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">4.9</span>
           </div>
         </div>
       </section>
@@ -55,12 +73,12 @@ const Reviews = () => {
             {stats.map((stat, index) => (
               <div 
                 key={index}
-                className="text-center bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 shadow-md"
+                className="text-center bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-2">
+                <div className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent mb-2">
                   {stat.value}<span className="text-2xl md:text-3xl">{stat.suffix}</span>
                 </div>
-                <div className="text-sm md:text-base text-gray-600">{stat.label}</div>
+                <div className="text-sm md:text-base text-gray-600 font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -71,36 +89,45 @@ const Reviews = () => {
       <ReviewsSection />
 
       {/* Trust Section */}
-      <section className="py-12 md:py-16 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-12 md:py-16 bg-gradient-to-br from-white to-cyan-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
               Почему нам доверяют?
             </h2>
             <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-              <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="text-5xl mb-4">🏆</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Качество</h3>
-                <p className="text-gray-600">
-                  Используем только сертифицированные материалы
-                </p>
-              </div>
-              <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="text-5xl mb-4">⏱️</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Сроки</h3>
-                <p className="text-gray-600">
-                  Соблюдаем договорные сроки выполнения работ
-                </p>
-              </div>
-              <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="text-5xl mb-4">🛡️</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Гарантия</h3>
-                <p className="text-gray-600">
-                  Даем гарантию 5 лет на все виды работ
-                </p>
-              </div>
+              {trustReasons.map((reason, index) => (
+                <div 
+                  key={index}
+                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+                >
+                  <div className="text-6xl mb-4">{reason.emoji}</div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{reason.title}</h3>
+                  <p className="text-gray-600 leading-relaxed text-lg">
+                    {reason.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 md:py-20 bg-gradient-to-br from-cyan-500 to-blue-600">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+            Станьте нашим следующим довольным клиентом
+          </h2>
+          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            Оставьте заявку, и мы свяжемся с вами для обсуждения вашего проекта
+          </p>
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent('openContactDialog'))}
+            className="bg-white text-primary hover:bg-gray-100 font-bold text-lg px-10 py-5 rounded-xl transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl"
+          >
+            Оставить заявку
+          </button>
         </div>
       </section>
 
