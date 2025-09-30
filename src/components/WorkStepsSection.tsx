@@ -156,8 +156,8 @@ const WorkStepsSection = () => {
               visibleStages[stageIndex] ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}>
               <div className="flex items-center justify-center gap-4 md:gap-6 mb-2">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-primary to-yellow-400 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
-                  <span className="text-white font-bold text-3xl md:text-4xl">{stage.number}</span>
+                <div className="w-13 h-13 md:w-16 md:h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
+                  <span className="text-white font-bold text-2xl md:text-3xl">{stage.number}</span>
                 </div>
                 <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight text-left">
                   {stage.title}
