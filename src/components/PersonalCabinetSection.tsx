@@ -2,10 +2,9 @@
 
 import { Video, FileText, MessageCircle, BarChart3 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import appScreen1 from "@/assets/app-screen-1.png";
-import appScreen2 from "@/assets/app-screen-2.png";
-import appScreen3 from "@/assets/app-screen-3.png";
-import appScreen4 from "@/assets/app-screen-4.png";
+import appScreen1 from "@/assets/app-screen-1.jpg";
+import appScreen2 from "@/assets/app-screen-2.jpg";
+import appScreen3 from "@/assets/app-screen-3.jpg";
 
 const cabinetFeatures = [
   {
@@ -35,7 +34,7 @@ const PersonalCabinetSection = () => {
   const [activeImage, setActiveImage] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   
-  const appScreens = [appScreen1, appScreen2, appScreen3, appScreen4];
+  const appScreens = [appScreen1, appScreen2, appScreen3];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -118,16 +117,21 @@ const PersonalCabinetSection = () => {
                     <div className="w-20 md:w-24 h-4 md:h-5 bg-black rounded-b-2xl absolute top-0"></div>
                   </div>
                   
-                  {/* Reduced height by 15% */}
-                  <div className="relative h-[340px] sm:h-[382px] md:h-[425px] lg:h-[467px] bg-white overflow-hidden">
+                  {/* Aspect ratio 320:657, reduced height by 15% */}
+                  <div className="relative h-[430px] sm:h-[485px] md:h-[540px] lg:h-[595px] bg-gray-900 overflow-hidden">
                     {appScreens.map((screen, index) => (
                       <img
                         key={index}
                         src={screen}
-                        alt={`App screen ${index + 1}`}
-                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                        alt={`Экран приложения ${index + 1}: ${
+                          index === 0 ? 'Меню навигации с доступом к функциям' : 
+                          index === 1 ? 'Статус ремонта и контроль прогресса' : 
+                          'Финансовая панель и управление бюджетом'
+                        }`}
+                        className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
                           activeImage === index ? 'opacity-100' : 'opacity-0'
                         }`}
+                        loading="lazy"
                       />
                     ))}
                   </div>
