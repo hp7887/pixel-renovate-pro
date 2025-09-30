@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Slider } from "@/components/ui/slider";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 
 const calculatorSchema = z.object({
@@ -17,9 +18,7 @@ const calculatorSchema = z.object({
   renovationType: z.enum(["rough", "finishing", "major", "designer", "cosmetic"], {
     required_error: "Выберите тип ремонта",
   }),
-  area: z.string().min(1, "Укажите площадь").refine((val) => !isNaN(Number(val)) && Number(val) > 0, {
-    message: "Площадь должна быть положительным числом",
-  }),
+  area: z.number().min(10, "Минимальная площадь 10 м²").max(500, "Максимальная площадь 500 м²"),
   needsDesign: z.enum(["yes", "no"], {
     required_error: "Укажите, нужен ли дизайн-проект",
   }),
@@ -37,21 +36,23 @@ const CalculatorSection = () => {
     defaultValues: {
       propertyType: undefined,
       renovationType: undefined,
-      area: "",
+      area: 50,
       needsDesign: undefined,
       startDate: "",
     },
   });
 
   const onSubmit = (data: CalculatorFormData) => {
-    const area = Number(data.area);
+    const area = data.area;
     let pricePerSqM = 0;
 
     // Расчет цены за квадратный метр
     switch (data.renovationType) {
       case "major":
-      case "designer":
         pricePerSqM = 15000;
+        break;
+      case "designer":
+        pricePerSqM = 20000;
         break;
       case "cosmetic":
         pricePerSqM = 7000;
@@ -162,35 +163,30 @@ const CalculatorSection = () => {
                               <RadioGroupItem value="rough" id="rough" />
                               <Label htmlFor="rough" className="cursor-pointer flex-1">
                                 Черновой
-                                <span className="block text-xs text-gray-500">12 000 ₽/м²</span>
                               </Label>
                             </div>
                             <div className="flex items-center space-x-2 border rounded-lg p-4 hover:bg-gray-50 cursor-pointer">
                               <RadioGroupItem value="finishing" id="finishing" />
                               <Label htmlFor="finishing" className="cursor-pointer flex-1">
                                 Чистовой
-                                <span className="block text-xs text-gray-500">10 000 ₽/м²</span>
                               </Label>
                             </div>
                             <div className="flex items-center space-x-2 border rounded-lg p-4 hover:bg-gray-50 cursor-pointer">
                               <RadioGroupItem value="major" id="major" />
                               <Label htmlFor="major" className="cursor-pointer flex-1">
                                 Капитальный
-                                <span className="block text-xs text-gray-500">15 000 ₽/м²</span>
                               </Label>
                             </div>
                             <div className="flex items-center space-x-2 border rounded-lg p-4 hover:bg-gray-50 cursor-pointer">
                               <RadioGroupItem value="designer" id="designer" />
                               <Label htmlFor="designer" className="cursor-pointer flex-1">
                                 Дизайнерский
-                                <span className="block text-xs text-gray-500">15 000 ₽/м²</span>
                               </Label>
                             </div>
                             <div className="flex items-center space-x-2 border rounded-lg p-4 hover:bg-gray-50 cursor-pointer sm:col-span-2">
                               <RadioGroupItem value="cosmetic" id="cosmetic" />
                               <Label htmlFor="cosmetic" className="cursor-pointer flex-1">
                                 Косметический
-                                <span className="block text-xs text-gray-500">7 000 ₽/м²</span>
                               </Label>
                             </div>
                           </RadioGroup>
@@ -206,18 +202,27 @@ const CalculatorSection = () => {
                     name="area"
                     render={({ field }) => (
                       <FormItem>
-                        <div className="flex items-center gap-3 mb-4">
-                          <Ruler className="w-5 h-5 text-primary" />
-                          <FormLabel className="text-lg font-semibold">Площадь помещения (м²)</FormLabel>
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="flex items-center gap-3">
+                            <Ruler className="w-5 h-5 text-primary" />
+                            <FormLabel className="text-lg font-semibold">Площадь помещения</FormLabel>
+                          </div>
+                          <span className="text-2xl font-bold text-primary">{field.value} м²</span>
                         </div>
                         <FormControl>
-                          <Input
-                            type="number"
-                            placeholder="Например: 65"
-                            className="text-lg h-12"
-                            {...field}
+                          <Slider
+                            min={10}
+                            max={500}
+                            step={5}
+                            value={[field.value]}
+                            onValueChange={(value) => field.onChange(value[0])}
+                            className="w-full"
                           />
                         </FormControl>
+                        <div className="flex justify-between text-xs text-gray-500 mt-2">
+                          <span>10 м²</span>
+                          <span>500 м²</span>
+                        </div>
                         <FormMessage />
                       </FormItem>
                     )}
@@ -293,12 +298,12 @@ const CalculatorSection = () => {
                       {formatPrice(calculatedPrice)} ₽
                     </p>
                     {showFreeDesign && (
-                      <div className="bg-gradient-to-r from-yellow-400 to-orange-400 text-white px-6 py-3 rounded-full inline-block font-bold shadow-lg mb-4">
+                      <div className="bg-gradient-to-r from-yellow-400 to-orange-400 text-white px-4 py-2 rounded-full inline-block font-semibold shadow-lg mb-4 text-sm">
                         🎁 ДИЗАЙН-ПРОЕКТ В ПОДАРОК!
                       </div>
                     )}
-                    <p className="text-gray-600 text-sm mt-4">
-                      * Точная стоимость определяется после замеров и консультации со специалистом
+                    <p className="text-gray-600 text-sm mt-4 italic">
+                      * Указанная сумма носит ориентировочный характер. Точная стоимость и детальная смета будут рассчитаны специалистом после выезда на объект и проведения профессиональных замеров.
                     </p>
                     <Button
                       onClick={() => {

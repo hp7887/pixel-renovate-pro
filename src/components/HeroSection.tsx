@@ -106,10 +106,10 @@ const HeroSection = () => {
       </div>
       
       {/* Bottom gift banner */}
-      <div className="absolute bottom-1 md:bottom-2 left-3 md:left-6 right-3 md:right-auto bg-gradient-to-r from-orange-400 to-orange-500 rounded-xl md:rounded-2xl p-3 md:p-4 shadow-lg max-w-md">
-        <div className="flex items-center space-x-2 md:space-x-3 text-white">
-          <Gift className="w-6 h-6 md:w-8 md:h-8 flex-shrink-0" />
-          <div className="text-xs md:text-sm">
+      <div className="absolute bottom-1 md:bottom-2 left-4 right-3 md:right-auto bg-gradient-to-r from-orange-400 to-orange-500 rounded-lg md:rounded-xl p-2 md:p-2 shadow-lg max-w-xs">
+        <div className="flex items-center space-x-1.5 md:space-x-2 text-white">
+          <Gift className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
+          <div className="text-[10px] md:text-xs">
             <span className="font-semibold">При заказе ремонта </span>
             <span className="font-bold">дизайн-проект в подарок </span>
             <span className="block md:inline">(экономия 200 000 рублей<a href="#design-details" className="text-yellow-300 hover:text-yellow-100 ml-1">*</a>)</span>
