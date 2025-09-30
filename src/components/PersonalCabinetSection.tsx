@@ -67,41 +67,41 @@ const PersonalCabinetSection = () => {
     <section 
       id="personal-cabinet"
       ref={sectionRef}
-      className="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary/5 via-white to-secondary/5 overflow-hidden"
+      className="py-16 md:py-20 lg:py-24 bg-gradient-to-br from-slate-800 via-slate-700 to-teal-800 overflow-hidden relative"
     >
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-400 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
           {/* Left side - Main content */}
           <div className={`flex-1 transform transition-all duration-1000 ${
             isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
           }`}>
             
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight">
-              Контроль через <br />
-              <span className="text-primary">мобильное приложение</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 md:mb-8 leading-tight uppercase tracking-wide">
+              Мобильное приложение
             </h2>
             
-            <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 leading-relaxed">
-              Революционная система контроля ремонта в режиме реального времени. 
-              Полная прозрачность процесса и финансов через удобное мобильное приложение.
+            <p className="text-base md:text-lg text-white/80 mb-8 md:mb-12 leading-relaxed max-w-xl">
+              Для вашего удобства мы разработали приложение, которое позволит вам в режиме онлайн отслеживать весь процесс ремонта и контролировать все расходы.
             </p>
             
-            <div className="space-y-4 md:space-y-6">
+            {/* Features in 2 columns */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
               {cabinetFeatures.map((feature, index) => (
                 <div 
                   key={index} 
-                  className={`flex items-start gap-3 md:gap-4 transform transition-all duration-700 ${
+                  className={`transform transition-all duration-700 ${
                     isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
                   }`}
                   style={{ transitionDelay: `${300 + index * 150}ms` }}
                 >
-                  <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-lg">
-                    <feature.icon className="h-6 w-6 md:h-7 md:w-7 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900 mb-1 md:mb-2 text-base md:text-lg">{feature.title}</h3>
-                    <p className="text-gray-600 leading-relaxed text-sm md:text-base">{feature.description}</p>
-                  </div>
+                  <h3 className="font-bold text-white mb-2 md:mb-3 text-lg md:text-xl">{feature.title}</h3>
+                  <p className="text-white/70 leading-relaxed text-sm md:text-base">{feature.description}</p>
                 </div>
               ))}
             </div>
@@ -118,7 +118,8 @@ const PersonalCabinetSection = () => {
                     <div className="w-20 md:w-24 h-4 md:h-5 bg-black rounded-b-2xl absolute top-0"></div>
                   </div>
                   
-                  <div className="relative h-[400px] sm:h-[450px] md:h-[500px] lg:h-[550px] bg-white overflow-hidden">
+                  {/* Reduced height by 15% */}
+                  <div className="relative h-[340px] sm:h-[382px] md:h-[425px] lg:h-[467px] bg-white overflow-hidden">
                     {appScreens.map((screen, index) => (
                       <img
                         key={index}
@@ -138,7 +139,7 @@ const PersonalCabinetSection = () => {
                   <div
                     key={index}
                     className={`h-2 rounded-full transition-all duration-300 ${
-                      activeImage === index ? 'w-8 bg-primary' : 'w-2 bg-gray-300'
+                      activeImage === index ? 'w-8 bg-cyan-400' : 'w-2 bg-white/30'
                     }`}
                   />
                 ))}

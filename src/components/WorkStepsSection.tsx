@@ -130,14 +130,14 @@ const WorkStepsSection = () => {
   }, []);
 
   return (
-    <section id="work-steps" className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section id="work-steps" className="py-16 md:py-20 lg:py-24 bg-gradient-to-b from-white via-gray-50 to-white">
       <div className="container mx-auto px-4">
         {/* Main section header */}
-        <div className="text-center mb-12 md:mb-16 lg:mb-20">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
+        <div className="text-center mb-16 md:mb-20 lg:mb-24">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 md:mb-8 tracking-tight">
             КАК МЫ РАБОТАЕМ
           </h2>
-          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4">
+          <p className="text-lg md:text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto px-4 leading-relaxed font-light">
             Прозрачный процесс от первичной консультации до сдачи объекта в три последовательных этапа
           </p>
         </div>
@@ -152,11 +152,16 @@ const WorkStepsSection = () => {
             className="mb-12 last:mb-0"
           >
             {/* Stage title */}
-            <div className={`text-center mb-8 md:mb-12 transform transition-all duration-700 ${
+            <div className={`text-center mb-10 md:mb-14 transform transition-all duration-700 ${
               visibleStages[stageIndex] ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}>
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4 px-4">
-                {stage.number}. {stage.title}
+              <div className="inline-flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-white font-bold text-xl md:text-2xl shadow-lg">
+                  {stage.number}
+                </div>
+              </div>
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-4 tracking-tight">
+                {stage.title}
               </h3>
             </div>
             
@@ -180,7 +185,7 @@ const WorkStepsSection = () => {
                   return (
                     <Card 
                       key={stepIndex}
-                      className={`h-40 md:h-48 bg-white border-gray-200 hover:shadow-xl transition-all duration-300 relative transform ${
+                      className={`h-40 md:h-48 bg-white border-gray-200 hover:shadow-2xl hover:border-primary/30 transition-all duration-500 relative transform ${
                         visibleCards[stageIndex]?.[stepIndex]
                           ? 'translate-y-0 opacity-100 scale-100'
                           : 'translate-y-12 opacity-0 scale-95'
@@ -188,21 +193,21 @@ const WorkStepsSection = () => {
                       style={{ animationDelay: `${stepIndex * 200}ms` }}
                     >
                       {step.isFree && (
-                        <div className="absolute -top-2 -right-2 md:-top-3 md:-right-3 bg-yellow-400 text-black px-2 md:px-3 py-0.5 md:py-1 rounded-full text-xs font-bold z-10">
+                        <div className="absolute -top-2 -right-2 md:-top-3 md:-right-3 bg-gradient-to-r from-yellow-400 to-orange-400 text-white px-3 md:px-4 py-1 md:py-1.5 rounded-full text-xs font-bold z-10 shadow-lg">
                           БЕСПЛАТНО
                         </div>
                       )}
                       
-                      <CardContent className="p-3 md:p-4 h-full flex flex-col justify-center text-center">
-                        <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-2 md:mb-3">
-                          <IconComponent className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                      <CardContent className="p-4 md:p-5 h-full flex flex-col justify-center text-center">
+                        <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 shadow-sm">
+                          <IconComponent className="w-6 h-6 md:w-7 md:h-7 text-primary" />
                         </div>
                         
-                        <h4 className="text-base md:text-lg font-bold text-gray-900 mb-1 md:mb-2">
+                        <h4 className="text-base md:text-lg lg:text-xl font-bold text-gray-900 mb-2 md:mb-3 leading-tight">
                           {step.title}
                         </h4>
                         
-                        <p className="text-gray-600 text-xs leading-relaxed line-clamp-3">{step.description}</p>
+                        <p className="text-gray-600 text-xs md:text-sm leading-relaxed line-clamp-3 font-light">{step.description}</p>
                       </CardContent>
                     </Card>
                   );
@@ -213,12 +218,12 @@ const WorkStepsSection = () => {
         ))}
         
         {/* Bottom call to action */}
-        <div className="mt-8 md:mt-10 text-center px-4">
-          <div className="bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 rounded-2xl md:rounded-3xl p-6 md:p-10 max-w-4xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 md:mb-4">
+        <div className="mt-12 md:mt-16 text-center px-4">
+          <div className="bg-gradient-to-br from-primary/10 via-white to-secondary/10 rounded-3xl md:rounded-[2rem] p-8 md:p-12 lg:p-14 max-w-5xl mx-auto border border-primary/10 shadow-xl">
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6 tracking-tight">
               Готовы начать ваш проект?
             </h3>
-            <p className="text-sm md:text-base lg:text-lg text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto">
+            <p className="text-base md:text-lg lg:text-xl text-gray-600 mb-8 md:mb-10 max-w-3xl mx-auto leading-relaxed font-light">
               Каждый этап контролируется профессионалами. Получите качественный результат в срок по фиксированной стоимости.
             </p>
             <button 
@@ -226,7 +231,7 @@ const WorkStepsSection = () => {
                 // Открываем ContactDialog через событие
                 window.dispatchEvent(new CustomEvent('openContactDialog'));
               }}
-              className="bg-primary hover:bg-primary/90 text-white font-semibold text-base md:text-lg px-6 md:px-10 py-3 md:py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto"
+              className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white font-bold text-base md:text-lg lg:text-xl px-8 md:px-12 lg:px-14 py-4 md:py-5 lg:py-6 rounded-xl transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl w-full sm:w-auto"
             >
               НАЧАТЬ ПРОЕКТ
             </button>
