@@ -11,6 +11,11 @@ import Guarantees from "./pages/Guarantees";
 import Contacts from "./pages/Contacts";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import Careers from "./pages/Careers";
+import CosmeticRepair from "./pages/Services/CosmeticRepair";
+import MajorRepair from "./pages/Services/MajorRepair";
+import InteriorDesign from "./pages/Services/InteriorDesign";
+import BathroomRepair from "./pages/Services/BathroomRepair";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +35,11 @@ const App = () => (
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/services/cosmetic-repair" element={<CosmeticRepair />} />
+          <Route path="/services/major-repair" element={<MajorRepair />} />
+          <Route path="/services/interior-design" element={<InteriorDesign />} />
+          <Route path="/services/bathroom-repair" element={<BathroomRepair />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

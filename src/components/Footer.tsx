@@ -44,10 +44,10 @@ const Footer = () => {
             }`} style={{ transitionDelay: '100ms' }}>
               <h4 className="font-bold text-lg md:text-xl mb-4 md:mb-6 text-yellow-400">Наши услуги</h4>
               <ul className="space-y-2 md:space-y-3">
-                <li><Link to="/portfolio" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Косметический ремонт</Link></li>
-                <li><Link to="/portfolio" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Капитальный ремонт</Link></li>
-                <li><Link to="/portfolio" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Дизайн интерьера</Link></li>
-                <li><Link to="/portfolio" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Ремонт ванных комнат</Link></li>
+                <li><Link to="/services/cosmetic-repair" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Косметический ремонт</Link></li>
+                <li><Link to="/services/major-repair" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Капитальный ремонт</Link></li>
+                <li><Link to="/services/interior-design" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Дизайн интерьера</Link></li>
+                <li><Link to="/services/bathroom-repair" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Ремонт ванных комнат</Link></li>
                 <li><Link to="/portfolio" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Ремонт кухни</Link></li>
                 <li><Link to="/portfolio" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Электромонтажные работы</Link></li>
               </ul>
@@ -63,7 +63,7 @@ const Footer = () => {
                 <li><Link to="/portfolio" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Портфолио работ</Link></li>
                 <li><Link to="/reviews" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Отзывы клиентов</Link></li>
                 <li><Link to="/guarantees" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Гарантии</Link></li>
-                <li><Link to="/portfolio" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Вакансии</Link></li>
+                <li><Link to="/careers" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Вакансии</Link></li>
                 <li><Link to="/contacts" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Контакты</Link></li>
               </ul>
             </div>

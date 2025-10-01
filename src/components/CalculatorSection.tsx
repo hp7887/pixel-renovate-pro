@@ -178,7 +178,7 @@ const CalculatorSection = () => {
                       className={`h-auto py-4 px-6 text-base font-medium ${
                         levelFloors 
                           ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-600 hover:to-blue-700" 
-                          : "hover:bg-gray-50"
+                          : "hover:bg-gray-50 hover:text-gray-900"
                       }`}
                     >
                       Выровнять полы
@@ -190,7 +190,7 @@ const CalculatorSection = () => {
                       className={`h-auto py-4 px-6 text-base font-medium ${
                         levelWalls 
                           ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-600 hover:to-blue-700" 
-                          : "hover:bg-gray-50"
+                          : "hover:bg-gray-50 hover:text-gray-900"
                       }`}
                     >
                       Выровнять стены
@@ -202,7 +202,7 @@ const CalculatorSection = () => {
                       className={`h-auto py-4 px-6 text-base font-medium ${
                         plumbingWorks 
                           ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-600 hover:to-blue-700" 
-                          : "hover:bg-gray-50"
+                          : "hover:bg-gray-50 hover:text-gray-900"
                       }`}
                     >
                       Сантехнические работы
@@ -214,7 +214,7 @@ const CalculatorSection = () => {
                       className={`h-auto py-4 px-6 text-base font-medium ${
                         electricalWorks 
                           ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-600 hover:to-blue-700" 
-                          : "hover:bg-gray-50"
+                          : "hover:bg-gray-50 hover:text-gray-900"
                       }`}
                     >
                       Электромонтажные работы
@@ -235,24 +235,45 @@ const CalculatorSection = () => {
 
               {/* Результат расчета */}
               {calculatedPrice !== null && (
-                <div className="mt-8 p-6 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl border-2 border-primary/20 animate-fade-in">
-                  <div className="text-center">
-                    <p className="text-gray-600 text-lg mb-2">Предварительный расчет</p>
-                    <p className="text-4xl md:text-5xl font-bold text-primary mb-4">
-                      {formatPrice(calculatedPrice)} ₽
-                    </p>
-                    <p className="text-gray-600 text-sm mt-4 italic">
-                      * Указанная сумма носит ориентировочный характер. Точная стоимость и детальная смета будут рассчитаны специалистом после выезда на объект и проведения профессиональных замеров.
-                    </p>
-                    <Button
-                      onClick={() => {
-                        window.dispatchEvent(new CustomEvent('openContactDialog'));
-                      }}
-                      className="mt-6 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700"
-                      size="lg"
-                    >
-                      Получить точный расчет
-                    </Button>
+                <div className="mt-8 space-y-6">
+                  <div className="p-6 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl border-2 border-primary/20 animate-fade-in">
+                    <div className="text-center">
+                      <p className="text-gray-600 text-lg mb-2">Предварительный расчет</p>
+                      <p className="text-4xl md:text-5xl font-bold text-primary mb-4">
+                        {formatPrice(calculatedPrice)} ₽
+                      </p>
+                      <p className="text-gray-600 text-sm mt-4 italic">
+                        * Указанная сумма носит ориентировочный характер. Точная стоимость и детальная смета будут рассчитаны специалистом после выезда на объект и проведения профессиональных замеров.
+                      </p>
+                      <Button
+                        onClick={() => {
+                          window.dispatchEvent(new CustomEvent('openContactDialog'));
+                        }}
+                        className="mt-6 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700"
+                        size="lg"
+                      >
+                        Получить точный расчет
+                      </Button>
+                    </div>
+                  </div>
+                  
+                  <div className="p-6 bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl border-2 border-yellow-400/30 animate-fade-in">
+                    <div className="text-center">
+                      <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full mb-4">
+                        <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                        </svg>
+                      </div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                        🎁 Дизайн-проект в подарок!
+                      </h3>
+                      <p className="text-gray-700 text-lg mb-3">
+                        При заказе ремонта от 50 м² — профессиональный дизайн-проект совершенно бесплатно
+                      </p>
+                      <p className="text-gray-600 text-sm">
+                        Включает планировку, 3D-визуализацию и подбор материалов
+                      </p>
+                    </div>
                   </div>
                 </div>
               )}
