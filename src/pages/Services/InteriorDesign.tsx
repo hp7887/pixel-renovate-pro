@@ -4,6 +4,8 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import LazyImage from "@/components/LazyImage";
+import interiorDesignHero from "@/assets/interior-design-hero.jpg";
+import designStudio from "@/assets/design-studio.jpg";
 
 const InteriorDesign = () => {
   return (
@@ -25,7 +27,7 @@ const InteriorDesign = () => {
           
           <div className="max-w-4xl mx-auto mb-12">
             <LazyImage
-              src="/placeholder.svg"
+              src={interiorDesignHero}
               alt="Современный дизайн интерьера квартиры"
               className="w-full h-[400px] object-cover rounded-2xl shadow-2xl"
             />
@@ -68,6 +70,33 @@ const InteriorDesign = () => {
                 <p className="text-xl text-gray-800 font-semibold">
                   Дизайн-проект в подарок при заказе ремонта от 50 м²!
                 </p>
+              </div>
+            </section>
+
+            <section className="my-12">
+              <LazyImage
+                src={designStudio}
+                alt="Работа над дизайн-проектом интерьера"
+                className="w-full h-[400px] object-cover rounded-2xl shadow-xl"
+              />
+            </section>
+
+            <section>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Зачем нужен дизайн-проект квартиры?</h2>
+              <div className="prose prose-lg max-w-none mb-8">
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Многие считают, что дизайн-проект — это роскошь, без которой можно обойтись. Однако профессиональный проект помогает избежать множества ошибок и в итоге экономит ваши деньги и время.
+                </p>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  <strong>Что дает дизайн-проект:</strong>
+                </p>
+                <ul className="space-y-3 text-gray-700">
+                  <li><strong>Оптимизация пространства:</strong> Дизайнер поможет грамотно использовать каждый квадратный метр, учитывая ваш образ жизни и потребности.</li>
+                  <li><strong>Экономия на материалах:</strong> Точные расчеты позволяют купить нужное количество материалов без излишков.</li>
+                  <li><strong>Единая концепция:</strong> Все элементы интерьера гармонично сочетаются друг с другом.</li>
+                  <li><strong>Избежание ошибок:</strong> Все технические решения продуманы заранее, что исключает переделки.</li>
+                  <li><strong>Реалистичная визуализация:</strong> 3D-модели позволяют увидеть будущий интерьер до начала ремонта.</li>
+                </ul>
               </div>
             </section>
 
@@ -135,6 +164,24 @@ const InteriorDesign = () => {
                     <li>✓ Авторский надзор</li>
                   </ul>
                 </div>
+              </div>
+            </section>
+
+            <section className="mt-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Как мы работаем с клиентами</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Процесс создания дизайн-проекта — это совместная работа дизайнера и клиента. Мы стремимся понять ваши потребности, вкусы и образ жизни, чтобы создать интерьер, который будет вам по-настоящему комфортен.
+              </p>
+              <div className="bg-gradient-to-br from-cyan-50 to-blue-50 p-8 rounded-2xl">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Что важно обсудить на первой встрече:</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Состав семьи и привычки всех членов семьи</li>
+                  <li>• Бюджет на ремонт и покупку мебели</li>
+                  <li>• Предпочтения по стилю и цветовой гамме</li>
+                  <li>• Необходимость зонирования пространства</li>
+                  <li>• Особые пожелания (домашний офис, гардеробная, система умный дом)</li>
+                  <li>• Планируемые сроки реализации проекта</li>
+                </ul>
               </div>
             </section>
 
