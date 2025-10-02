@@ -192,7 +192,7 @@ const CosmeticRepair = () => {
               <div className="bg-white p-6 rounded-xl border-2 border-cyan-200">
                 <div className="text-center">
                   <p className="text-gray-600 mb-2">От</p>
-                  <p className="text-4xl font-bold text-cyan-600 mb-2">6 000 ₽/м²<grok-card data-id="b4b314" data-type="citation_card"></grok-card><grok-card data-id="11e6e2" data-type="citation_card"></grok-card></p>
+                  <p className="text-4xl font-bold text-cyan-600 mb-2">6 000 ₽/м²<GrokCard  data-id="b4b314" data-type="citation_card"><GrokCard /><GrokCard  data-id="11e6e2" data-type="citation_card"><GrokCard /></p>
                   <p className="text-gray-600">с материалами и работой</p>
                 </div>
               </div>
