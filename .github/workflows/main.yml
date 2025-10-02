@@ -2,7 +2,7 @@ name: Deploy Vite site to GitHub Pages
 
 on:
   push:
-    branches: [main]   # если главная ветка называется иначе (например master), замени
+    branches: [main]   # если главная ветка называется master — поменяй
   workflow_dispatch:
 
 permissions:
@@ -14,21 +14,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
       - run: npm ci
       - run: npm run build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3   # ✅ правильный экшен
         with:
           path: ./dist
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2
+        id: deployment
+        uses: actions/deploy-pages@v4   # ✅ свежая версия
