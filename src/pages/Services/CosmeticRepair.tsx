@@ -110,7 +110,7 @@ const CosmeticRepair = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Минимум неудобств</h3>
-                  <p className="text-gray-700">Можно проживать в квартире во время ремонта других комнат</p>
+                  <p className="text-gray-700">Можно проживать в квартире во время ремонта во время других комнат</p>
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Свежий вид</h3>
@@ -192,7 +192,7 @@ const CosmeticRepair = () => {
               <div className="bg-white p-6 rounded-xl border-2 border-cyan-200">
                 <div className="text-center">
                   <p className="text-gray-600 mb-2">От</p>
-                  <p className="text-4xl font-bold text-cyan-600 mb-2">6 000 ₽/м²<GrokCard  data-id="b4b314" data-type="citation_card"><GrokCard /><GrokCard  data-id="11e6e2" data-type="citation_card"><GrokCard /></p>
+                  <p className="text-4xl font-bold text-cyan-600 mb-2">6 000 ₽/м²</p>
                   <p className="text-gray-600">с материалами и работой</p>
                 </div>
               </div>
