@@ -15,4 +15,10 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // 🔹 ВАЖНО для GitHub Pages:
+  base: "/",   // так как у тебя КАСТОМНЫЙ ДОМЕН spb-dsremont.ru
+  build: {
+    outDir: "dist", // стандартный каталог для билда
+    emptyOutDir: true, // очищает dist перед новым билдом
+  },
 }));
