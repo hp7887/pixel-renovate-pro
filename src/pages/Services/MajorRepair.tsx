@@ -2,82 +2,53 @@ import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Check, ChevronRight } from "lucide-react";
 import LazyImage from "@/components/LazyImage";
 import majorRepairHero from "@/assets/major-repair-hero.jpg";
 import majorRepairProcess from "@/assets/major-repair-process.jpg";
 
 const MajorRepair = () => {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-gray-50">
       <Helmet>
         <title>Капитальный ремонт квартир в СПб под ключ | SPB-DSRemont</title>
         <meta name="description" content="Капитальный ремонт квартир в Санкт-Петербурге: полная замена инженерных систем, перепланировка, черновая и чистовая отделка. Гарантия 3 года." />
         <meta name="keywords" content="капитальный ремонт, ремонт под ключ, перепланировка квартиры, замена проводки, ремонт новостройки СПб" />
         <link rel="canonical" href="https://spb-dsremont.ru/services/major-repair" />
-        <meta property="og:title" content="Капитальный ремонт квартир в СПб под ключ | SPB-DSRemont" />
-        <meta property="og:description" content="Капитальный ремонт квартир в Санкт-Петербурге: полная замена инженерных систем, перепланировка, черновая и чистовая отделка. Гарантия 3 года." />
-        <meta property="og:url" content="https://spb-dsremont.ru/services/major-repair" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content={majorRepairHero} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Капитальный ремонт квартир в СПб под ключ | SPB-DSRemont" />
-        <meta name="twitter:description" content="Капитальный ремонт квартир в Санкт-Петербурге: полная замена инженерных систем, перепланировка, черновая и чистовая отделка. Гарантия 3 года." />
-        <meta name="twitter:image" content={majorRepairHero} />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "serviceType": "Капитальный ремонт квартир под ключ",
-            "provider": {
-              "@type": "LocalBusiness",
-              "name": "SPB-DSRemont",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Санкт-Петербург",
-                "addressCountry": "RU"
-              }
-            },
-            "areaServed": "Санкт-Петербург",
-            "offers": {
-              "@type": "Offer",
-              "price": "10000",
-              "priceCurrency": "RUB",
-              "priceSpecification": {
-                "@type": "UnitPriceSpecification",
-                "price": "10000",
-                "priceCurrency": "RUB",
-                "unitCode": "MTK"
-              }
-            }
-          })}
-        </script>
       </Helmet>
-     
+      
       <Header />
-     
+      
       <article className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 text-center">
-            Капитальный ремонт квартир под ключ
-          </h1>
-         
-          <div className="max-w-4xl mx-auto mb-12">
+          <div className="relative mb-12">
             <LazyImage
               src={majorRepairHero}
               alt="Капитальный ремонт квартиры - современный интерьер"
-              className="w-full h-[400px] object-cover rounded-2xl shadow-2xl"
-              fallbackSrc="/placeholder.jpg"
+              className="w-full h-[500px] object-cover rounded-3xl shadow-2xl"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/50 to-transparent rounded-3xl" />
+            <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+                Капитальный ремонт квартир под ключ
+              </h1>
+              <p className="text-xl text-cyan-100 max-w-2xl mx-auto">
+                Полное преобразование вашего пространства с гарантией качества
+              </p>
+            </div>
           </div>
-          <div className="max-w-4xl mx-auto space-y-8">
-            <section>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Что такое капитальный ремонт?</h2>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+
+          <div className="max-w-4xl mx-auto space-y-12">
+            <section className="bg-white p-8 rounded-3xl shadow-lg">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                <span className="w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center text-white text-sm">?</span>
+                Что такое капитальный ремонт?
+              </h2>
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
                 Капитальный ремонт — это полное преобразование квартиры с заменой всех инженерных систем, выравниванием поверхностей и чистовой отделкой. Оптимальное решение для новостроек и вторичного жилья, требующего серьезного обновления.
               </p>
-             
-              <div className="grid md:grid-cols-2 gap-4 mb-8">
+              
+              <div className="grid md:grid-cols-2 gap-4">
                 {[
                   "Демонтаж старых конструкций",
                   "Перепланировка (при необходимости)",
@@ -88,88 +59,105 @@ const MajorRepair = () => {
                   "Стяжка и выравнивание полов",
                   "Полная чистовая отделка"
                 ].map((item, index) => (
-                  <div key={`${item}-${index}`} className="flex items-center gap-3 p-4 bg-cyan-50 rounded-lg">
-                    <Check className="w-5 h-5 text-cyan-600 flex-shrink-0" aria-hidden="true" />
+                  <div key={index} className="flex items-center gap-3 p-4 bg-cyan-50 rounded-xl hover:bg-cyan-100 transition-colors">
+                    <Check className="w-5 h-5 text-cyan-600 flex-shrink-0" />
                     <span className="text-gray-800">{item}</span>
                   </div>
                 ))}
               </div>
             </section>
-            <section className="bg-gradient-to-br from-cyan-50 to-blue-50 p-8 rounded-2xl">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Почему выбирают нас?</h2>
-              <div className="space-y-4">
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Официальный договор</h3>
-                  <p className="text-gray-700">Все условия, сроки и гарантии фиксируются в договоре</p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Опытные мастера</h3>
-                  <p className="text-gray-700">Квалифицированные специалисты с опытом работы от 5 лет</p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Гарантия 3 года</h3>
-                  <p className="text-gray-700">Официальная гарантия на все выполненные работы</p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Контроль онлайн</h3>
-                  <p className="text-gray-700">Ежедневные фотоотчеты о ходе работ в личном кабинете</p>
-                </div>
+
+            <section className="bg-gradient-to-br from-cyan-50 to-blue-50 p-8 rounded-3xl shadow-lg">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                <span className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm">!</span>
+                Почему выбирают нас?
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                {[
+                  { title: "Официальный договор", desc: "Все условия, сроки и гарантии фиксируются в договоре" },
+                  { title: "Опытные мастера", desc: "Квалифицированные специалисты с опытом работы от 5 лет" },
+                  { title: "Гарантия 3 года", desc: "Официальная гарантия на все выполненные работы" },
+                  { title: "Контроль онлайн", desc: "Ежедневные фотоотчеты о ходе работ в личном кабинете" }
+                ].map((item, index) => (
+                  <div key={index} className="bg-white p-6 rounded-xl shadow-md">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
+                    <p className="text-gray-700">{item.desc}</p>
+                  </div>
+                ))}
               </div>
             </section>
-            <section className="my-12">
+
+            <section className="relative rounded-3xl overflow-hidden shadow-2xl">
               <LazyImage
                 src={majorRepairProcess}
                 alt="Процесс капитального ремонта квартиры"
-                className="w-full h-[400px] object-cover rounded-2xl shadow-xl"
-                fallbackSrc="/placeholder.jpg"
+                className="w-full h-[400px] object-cover"
               />
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-900/40 to-blue-900/40" />
+              <div className="absolute top-1/2 left-8 transform -translate-y-1/2">
+                <p className="text-2xl font-bold text-white">Процесс ремонта от А до Я</p>
+              </div>
             </section>
-            <section>
+
+            <section className="bg-white p-8 rounded-3xl shadow-lg">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Капитальный ремонт новостройки в СПб</h2>
-              <div className="prose prose-lg max-w-none">
-                <p className="text-gray-700 leading-relaxed mb-4">
+              <div className="prose prose-lg max-w-none space-y-4">
+                <p className="text-gray-700 leading-relaxed">
                   Капитальный ремонт новостройки — это комплекс работ, который превращает голые стены в уютное жилое пространство. В отличие от вторичного жилья, здесь вы начинаете с чистого листа и можете реализовать любые дизайнерские идеи.
                 </p>
-                <p className="text-gray-700 leading-relaxed mb-4">
+                <p className="text-gray-700 leading-relaxed">
                   Наша компания специализируется на ремонте новостроек в Санкт-Петербурге. Мы понимаем все особенности работы с новыми квартирами: необходимость правильной последовательности работ, важность качественной гидроизоляции, требования к вентиляции и многое другое.
                 </p>
               </div>
             </section>
-            <section className="bg-gray-50 p-8 rounded-2xl mt-8">
+
+            <section className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-3xl shadow-lg">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Основные виды работ при капитальном ремонте</h2>
               <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Черновые работы</h3>
-                  <p className="text-gray-700">Возведение перегородок, прокладка электрики и сантехники, выравнивание стен и полов, установка окон и дверей. Это основа качественного ремонта.</p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Чистовая отделка</h3>
-                  <p className="text-gray-700">Финишная отделка стен (покраска, обои, декоративная штукатурка), укладка напольных покрытий, монтаж потолков, установка сантехники и электрики.</p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Инженерные системы</h3>
-                  <p className="text-gray-700">Замена или прокладка новой электропроводки, водоснабжения, канализации, отопления, вентиляции. Все работы выполняются с соблюдением норм и стандартов.</p>
-                </div>
+                {[
+                  { title: "Черновые работы", desc: "Возведение перегородок, прокладка электрики и сантехники, выравнивание стен и полов, установка окон и дверей. Это основа качественного ремонта." },
+                  { title: "Чистовая отделка", desc: "Финишная отделка стен (покраска, обои, декоративная штукатурка), укладка напольных покрытий, монтаж потолков, установка сантехники и электрики." },
+                  { title: "Инженерные системы", desc: "Замена или прокладка новой электропроводки, водоснабжения, канализации, отопления, вентиляции. Все работы выполняются с соблюдением норм и стандартов." }
+                ].map((item, index) => (
+                  <div key={index} className="flex gap-4 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div className="flex-shrink-0 w-10 h-10 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold">
+                      {index + 1}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
+                      <p className="text-gray-700">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </section>
-            <section className="mt-8">
+
+            <section className="bg-white p-8 rounded-3xl shadow-lg">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Сколько времени занимает капитальный ремонт?</h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-gray-700 leading-relaxed mb-6">
                 Сроки капитального ремонта зависят от площади квартиры и объема работ. В среднем:
               </p>
-              <ul className="space-y-2 text-gray-700">
-                <li>• Однокомнатная квартира (35-45 м²) — 2-3 месяца</li>
-                <li>• Двухкомнатная квартира (50-65 м²) — 3-4 месяца</li>
-                <li>• Трехкомнатная квартира (70-90 м²) — 4-5 месяцев</li>
-                <li>• Четырехкомнатная квартира (100+ м²) — 5-6 месяцев</li>
+              <ul className="grid md:grid-cols-2 gap-4">
+                {[
+                  "Однокомнатная квартира (35-45 м²) — 2-3 месяца",
+                  "Двухкомнатная квартира (50-65 м²) — 3-4 месяца",
+                  "Трехкомнатная квартира (70-90 м²) — 4-5 месяцев",
+                  "Четырехкомнатная квартира (100+ м²) — 5-6 месяцев"
+                ].map((item, index) => (
+                  <li key={index} className="flex items-center gap-3 text-gray-700">
+                    <ChevronRight className="w-5 h-5 text-cyan-600" />
+                    {item}
+                  </li>
+                ))}
               </ul>
-              <p className="text-gray-700 leading-relaxed mt-4">
+              <p className="text-gray-700 leading-relaxed mt-6">
                 Мы составляем детальный график работ и придерживаемся согласованных сроков. Каждый этап ремонта контролируется нашим прорабом.
               </p>
             </section>
-            <section>
+
+            <section className="bg-gradient-to-br from-cyan-50 to-blue-50 p-8 rounded-3xl shadow-lg">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Этапы капитального ремонта</h2>
-              <div className="space-y-6">
+              <div className="relative space-y-8 before:absolute before:left-6 before:top-0 before:bottom-0 before:w-0.5 before:bg-cyan-200 md:before:left-1/2 md:before:-translate-x-1/2">
                 {[
                   { title: "Замер и проектирование", desc: "Выезд инженера, составление проекта и сметы" },
                   { title: "Демонтажные работы", desc: "Снос перегородок, демонтаж старых покрытий" },
@@ -178,11 +166,11 @@ const MajorRepair = () => {
                   { title: "Установка сантехники", desc: "Монтаж сантехнических приборов и оборудования" },
                   { title: "Клининг и сдача", desc: "Генеральная уборка и приемка объекта" }
                 ].map((step, index) => (
-                  <div key={`${step.title}-${index}`} className="flex gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                  <div key={index} className={`flex gap-4 relative ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl z-10">
                       {index + 1}
                     </div>
-                    <div>
+                    <div className="bg-white p-4 rounded-xl shadow-md flex-1">
                       <h3 className="text-xl font-semibold text-gray-900 mb-1">{step.title}</h3>
                       <p className="text-gray-600">{step.desc}</p>
                     </div>
@@ -190,48 +178,28 @@ const MajorRepair = () => {
                 ))}
               </div>
             </section>
-            <section className="bg-gray-50 p-8 rounded-2xl">
+
+            <section className="bg-white p-8 rounded-3xl shadow-lg">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Стоимость капитального ремонта</h2>
               <p className="text-lg text-gray-700 mb-6">
-                Итоговая цена зависит от объема работ, площади квартиры и выбранных материалов.
+                Итоговая цена зависит от объема работ, площади квартиры и выбранных материалов. 
                 Средняя стоимость капитального ремонта под ключ:
               </p>
-              <div className="bg-white p-6 rounded-xl border-2 border-cyan-200">
-                <div className="text-center">
-                  <p className="text-gray-600 mb-2">От</p>
-                  <p className="text-4xl font-bold text-cyan-600 mb-2">10 000 ₽/м²</p>
-                  <p className="text-gray-600">с материалами и работой</p>
-                </div>
+              <div className="bg-gradient-to-br from-cyan-50 to-blue-50 p-8 rounded-2xl text-center">
+                <p className="text-gray-600 mb-2 text-lg">От</p>
+                <p className="text-5xl font-bold text-cyan-600 mb-2">8 000 ₽/м²</p>
+                <p className="text-gray-600 text-lg">с материалами и работой</p>
               </div>
-              <div className="mt-6 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
-                <p className="text-gray-700 text-center">
-                  При площади от 50 м² — дизайн-проект в подарок!
-                </p>
+              <div className="mt-6 p-4 bg-yellow-50 rounded-lg border border-yellow-200 text-center text-gray-700 font-semibold">
+                При площади от 50 м² — дизайн-проект в подарок!
               </div>
             </section>
-            <section className="bg-gray-50 p-8 rounded-2xl mt-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Часто задаваемые вопросы</h2>
-              <div className="space-y-4">
-                <details className="bg-white p-4 rounded-lg">
-                  <summary className="font-semibold text-gray-900 cursor-pointer">Сколько стоит капитальный ремонт?</summary>
-                  <p className="text-gray-700 mt-2">От 10 000 ₽/м², в зависимости от площади и материалов.</p>
-                </details>
-                <details className="bg-white p-4 rounded-lg">
-                  <summary className="font-semibold text-gray-900 cursor-pointer">Как долго длится ремонт?</summary>
-                  <p className="text-gray-700 mt-2">2-6 месяцев, в зависимости от размера квартиры.</p>
-                </details>
-                <details className="bg-white p-4 rounded-lg">
-                  <summary className="font-semibold text-gray-900 cursor-pointer">Даете ли гарантию?</summary>
-                  <p className="text-gray-700 mt-2">Да, 3 года на все работы.</p>
-                </details>
-              </div>
-            </section>
+
             <div className="text-center pt-8">
               <Button
                 size="lg"
                 onClick={() => window.dispatchEvent(new CustomEvent('openContactDialog'))}
-                className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-lg px-8 py-6"
-                aria-label="Получить расчет стоимости"
+                className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white text-lg px-12 py-6 rounded-full shadow-lg hover:shadow-xl transition-shadow"
               >
                 Получить расчет стоимости
               </Button>
@@ -239,9 +207,10 @@ const MajorRepair = () => {
           </div>
         </div>
       </article>
-     
+      
       <Footer />
     </main>
   );
 };
+
 export default MajorRepair;
