@@ -201,7 +201,7 @@ const MajorRepair = () => {
               <div className="bg-white p-6 rounded-xl border-2 border-cyan-200">
                 <div className="text-center">
                   <p className="text-gray-600 mb-2">От</p>
-                  <p className="text-4xl font-bold text-cyan-600 mb-2">10 000 ₽/м²<grok-card data-id="2b162f" data-type="citation_card"></grok-card></p>
+                  <p className="text-4xl font-bold text-cyan-600 mb-2">10 000 ₽/м²<grok-card data-id="1a206d" data-type="citation_card"></grok-card><grok-card data-id="68726c" data-type="citation_card"></grok-card></p>
                   <p className="text-gray-600">с материалами и работой</p>
                 </div>
               </div>
