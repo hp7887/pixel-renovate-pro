@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Check, ChevronRight } from "lucide-react";
+import { Check } from "lucide-react";
 import LazyImage from "@/components/LazyImage";
 import majorRepairHero from "@/assets/major-repair-hero.jpg";
 import majorRepairProcess from "@/assets/major-repair-process.jpg";
@@ -21,29 +21,36 @@ const MajorRepair = () => {
       
       <article className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="relative mb-12">
+          <section className="relative h-[500px] md:h-[600px] overflow-hidden mb-12">
             <LazyImage
               src={majorRepairHero}
               alt="Капитальный ремонт квартиры - современный интерьер"
-              className="w-full h-[500px] object-cover rounded-3xl shadow-2xl"
+              className="w-full h-full object-cover rounded-b-3xl"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/50 to-transparent rounded-3xl" />
-            <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-                Капитальный ремонт квартир под ключ
-              </h1>
-              <p className="text-xl text-cyan-100 max-w-2xl mx-auto">
-                Полное преобразование вашего пространства с гарантией качества
-              </p>
+            <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/60 to-transparent rounded-b-3xl flex items-center">
+              <div className="container mx-auto px-4">
+                <div className="max-w-3xl">
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
+                    Капитальный ремонт квартир под ключ
+                  </h1>
+                  <p className="text-xl md:text-2xl text-cyan-100 mb-8 leading-relaxed">
+                    Полное преобразование вашего пространства с гарантией качества
+                  </p>
+                  <Button 
+                    size="lg" 
+                    className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl transition-shadow"
+                    onClick={() => window.dispatchEvent(new CustomEvent('openContactDialog'))}
+                  >
+                    Получить расчет стоимости
+                  </Button>
+                </div>
+              </div>
             </div>
-          </div>
+          </section>
 
           <div className="max-w-4xl mx-auto space-y-12">
             <section className="bg-white p-8 rounded-3xl shadow-lg">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                <span className="w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center text-white text-sm">?</span>
-                Что такое капитальный ремонт?
-              </h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Что такое капитальный ремонт?</h2>
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
                 Капитальный ремонт — это полное преобразование квартиры с заменой всех инженерных систем, выравниванием поверхностей и чистовой отделкой. Оптимальное решение для новостроек и вторичного жилья, требующего серьезного обновления.
               </p>
@@ -68,10 +75,7 @@ const MajorRepair = () => {
             </section>
 
             <section className="bg-gradient-to-br from-cyan-50 to-blue-50 p-8 rounded-3xl shadow-lg">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                <span className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm">!</span>
-                Почему выбирают нас?
-              </h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Почему выбирают нас?</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 {[
                   { title: "Официальный договор", desc: "Все условия, сроки и гарантии фиксируются в договоре" },
@@ -145,7 +149,7 @@ const MajorRepair = () => {
                   "Четырехкомнатная квартира (100+ м²) — 5-6 месяцев"
                 ].map((item, index) => (
                   <li key={index} className="flex items-center gap-3 text-gray-700">
-                    <ChevronRight className="w-5 h-5 text-cyan-600" />
+                    <Check className="w-5 h-5 text-cyan-600" />
                     {item}
                   </li>
                 ))}
