@@ -2,10 +2,8 @@ import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Award, Users, Clock, Shield, Check } from "lucide-react";  // Добавлено: Check для consistency
-import LazyImage from "@/components/LazyImage";  // Добавлено: для изображений
-import companyTeam from "@/assets/company-team.jpg";  // Добавлено: предполагаемое изображение команды
-import companyOffice from "@/assets/company-office.jpg";  // Добавлено: предполагаемое изображение офиса
+import { Award, Users, Clock, Shield, Check } from "lucide-react";
+import LazyImage from "@/components/LazyImage";
 
 const About = () => {
   const features = [
@@ -26,12 +24,12 @@ const About = () => {
     },
     {
       icon: Shield,
-      title: "Гарантия 3 года",  // Обновлено: на 3 года для consistency с другими страницами
+      title: "Гарантия 3 года",
       description: "Предоставляем официальную гарантию на все виды выполненных работ. Бесплатно устраняем любые дефекты в течение гарантийного срока."
     }
   ];
   const stats = [
-    { value: "9", label: "лет на рынке", suffix: "+" },  // Обновлено: с 8 на 9 (учитывая 2025 год)
+    { value: "9", label: "лет на рынке", suffix: "+" },
     { value: "500", label: "выполненных проектов", suffix: "+" },
     { value: "15000", label: "м² отремонтировано", suffix: "+" },
     { value: "98", label: "довольных клиентов", suffix: "%" }
@@ -47,21 +45,19 @@ const About = () => {
   return (
     <main className="min-h-screen">
       <Helmet>
-        <title>О компании SPB-DSRemont - 9 лет опыта в ремонте квартир в Санкт-Петербурге</title>  // Обновлено: 9 лет
+        <title>О компании SPB-DSRemont - 9 лет опыта в ремонте квартир в Санкт-Петербурге</title>
         <meta name="description" content="SPB-DSRemont - надежная ремонтно-строительная компания в СПб. 9 лет на рынке, 500+ реализованных проектов, профессиональная команда. Узнайте больше о нашем опыте и подходе к работе к каждому клиенту." />
         <meta name="keywords" content="о компании ремонт, строительная компания СПб, ремонтная компания Санкт-Петербург, профессиональный ремонт" />
         <link rel="canonical" href="https://spb-dsremont.ru/about" />
         <meta property="og:title" content="О компании SPB-DSRemont - Профессиональный ремонт в СПб" />
-        <meta property="og:description" content="9 лет успешной работы на рынке ремонта и отделки квартир в Санкт-Петербурге. Более 500 выполненных проектов." />  // Обновлено: 9 лет
+        <meta property="og:description" content="9 лет успешной работы на рынке ремонта и отделки квартир в Санкт-Петербурге. Более 500 выполненных проектов." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://spb-dsremont.ru/about" />
         <meta property="og:image" content="https://spb-dsremont.ru/og-image.jpg" />
-        {/* Добавлено для SEO: Twitter Cards */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="О компании SPB-DSRemont - Профессиональный ремонт в СПб" />
         <meta name="twitter:description" content="9 лет успешной работы на рынке ремонта и отделки квартир в Санкт-Петербурге. Более 500 выполненных проектов." />
         <meta name="twitter:image" content="https://spb-dsremont.ru/og-image.jpg" />
-        {/* Добавлено для SEO: Schema.org JSON-LD */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -74,22 +70,15 @@ const About = () => {
               "addressCountry": "RU"
             },
             "url": "https://spb-dsremont.ru",
-            "numberOfEmployees": "50",  // Примерное значение
-            "foundingDate": "2016"  // На основе 9 лет в 2025
+            "numberOfEmployees": "50",
+            "foundingDate": "2016"
           })}
         </script>
       </Helmet>
       <Header />
      
-      {/* Hero Section - Улучшено: добавлено изображение */}
       <section className="pt-24 md:pt-32 pb-12 md:pb-16 bg-gradient-to-br from-cyan-50 via-blue-50 to-white relative">
         <div className="absolute inset-0 opacity-20">
-          <LazyImage
-            src={companyOffice}
-            alt="Офис компании SPB-DSRemont"
-            className="w-full h-full object-cover"
-            fallbackSrc="/placeholder.jpg"
-          />
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 text-center">
@@ -101,7 +90,6 @@ const About = () => {
           </p>
         </div>
       </section>
-      {/* Stats Section - Улучшено: добавлены анимации или hover эффекты */}
       <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
@@ -119,7 +107,6 @@ const About = () => {
           </div>
         </div>
       </section>
-      {/* Features Section */}
       <section className="py-12 md:py-20 bg-gradient-to-br from-white to-cyan-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center">
@@ -141,7 +128,6 @@ const About = () => {
           </div>
         </div>
       </section>
-      {/* Добавлено: Раздел "Наша история" для большего контента */}
       <section className="py-12 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center">
@@ -154,16 +140,9 @@ const About = () => {
             <p className="mb-6">
               За 9 лет мы реализовали более 500 проектов: от косметического ремонта студий до капитального ремонта элитных квартир в центре Санкт-Петербурга. Наш успех основан на внимании к деталям и индивидуальном подходе к каждому клиенту.
             </p>
-            <LazyImage
-              src={companyTeam}
-              alt="Команда SPB-DSRemont"
-              className="w-full h-[400px] object-cover rounded-2xl shadow-xl my-8"
-              fallbackSrc="/placeholder.jpg"
-            />
           </div>
         </div>
       </section>
-      {/* Advantages Section - Улучшено: с Check иконками */}
       <section className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center">
@@ -176,7 +155,7 @@ const About = () => {
                   key={`${advantage}-${index}`}
                   className="flex items-start gap-4 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300"
                 >
-                  <Check className="w-8 h-8 text-cyan-600 flex-shrink-0" aria-hidden="true" />  // Добавлено: Check иконка
+                  <Check className="w-8 h-8 text-cyan-600 flex-shrink-0" aria-hidden="true" />
                   <span className="text-gray-700 text-lg leading-relaxed">{advantage}</span>
                 </div>
               ))}
@@ -184,7 +163,6 @@ const About = () => {
           </div>
         </div>
       </section>
-      {/* CTA Section - Улучшено: с градиентом на кнопке */}
       <section className="py-16 md:py-20 bg-gradient-to-br from-cyan-500 to-blue-600">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -196,13 +174,12 @@ const About = () => {
           <Button
             onClick={() => window.dispatchEvent(new CustomEvent('openContactDialog'))}
             className="bg-white text-cyan-600 hover:bg-gray-100 font-bold text-lg px-10 py-5 rounded-xl transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl"
-            aria-label="Получить консультацию"  // Добавлено: доступность
+            aria-label="Получить консультацию"
           >
             Получить консультацию
           </Button>
         </div>
       </section>
-      {/* Добавлено: Раздел FAQ */}
       <section className="py-12 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center">
