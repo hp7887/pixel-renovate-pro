@@ -15,31 +15,67 @@ const InteriorDesign = () => {
         <meta name="description" content="Профессиональный дизайн интерьера в Санкт-Петербурге: 3D-визуализация, планировка, подбор материалов. Дизайн-проект в подарок при заказе ремонта от 50 м²." />
         <meta name="keywords" content="дизайн интерьера СПб, дизайн-проект квартиры, 3D визуализация, планировка квартиры, дизайнер интерьера" />
         <link rel="canonical" href="https://spb-dsremont.ru/services/interior-design" />
+        {/* Добавлено для SEO: Open Graph и Twitter Cards */}
+        <meta property="og:title" content="Дизайн интерьера квартир в СПб | Дизайн-проект под ключ | SPB-DSRemont" />
+        <meta property="og:description" content="Профессиональный дизайн интерьера в Санкт-Петербурге: 3D-визуализация, планировка, подбор материалов. Дизайн-проект в подарок при заказе ремонта от 50 м²." />
+        <meta property="og:url" content="https://spb-dsremont.ru/services/interior-design" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={interiorDesignHero} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Дизайн интерьера квартир в СПб | Дизайн-проект под ключ | SPB-DSRemont" />
+        <meta name="twitter:description" content="Профессиональный дизайн интерьера в Санкт-Петербурге: 3D-визуализация, планировка, подбор материалов. Дизайн-проект в подарок при заказе ремонта от 50 м²." />
+        <meta name="twitter:image" content={interiorDesignHero} />
+        {/* Добавлено для SEO: Schema.org JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Дизайн интерьера квартир под ключ",
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "SPB-DSRemont",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Санкт-Петербург",
+                "addressCountry": "RU"
+              }
+            },
+            "areaServed": "Санкт-Петербург",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Варианты дизайна",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Стандартный", "offers": { "@type": "Offer", "price": "2500", "priceCurrency": "RUB", "unitCode": "MTK" } } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Расширенный", "offers": { "@type": "Offer", "price": "3500", "priceCurrency": "RUB", "unitCode": "MTK" } } }
+              ]
+            }
+          })}
+        </script>
       </Helmet>
-      
+     
       <Header />
-      
+     
       <article className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 text-center">
             Дизайн интерьера квартир в Санкт-Петербурге
           </h1>
-          
+         
           <div className="max-w-4xl mx-auto mb-12">
             <LazyImage
               src={interiorDesignHero}
               alt="Современный дизайн интерьера квартиры"
               className="w-full h-[400px] object-cover rounded-2xl shadow-2xl"
+              fallbackSrc="/placeholder.jpg"
             />
           </div>
-
           <div className="max-w-4xl mx-auto space-y-8">
             <section>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Что включает дизайн-проект?</h2>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
                 Профессиональный дизайн-проект — это не просто красивые картинки. Это полный комплект документации для ремонта, который поможет избежать ошибок и переделок, а также сэкономит ваше время и деньги.
               </p>
-              
+             
               <div className="grid md:grid-cols-2 gap-4 mb-8">
                 {[
                   "Планировочное решение",
@@ -51,14 +87,13 @@ const InteriorDesign = () => {
                   "Спецификация материалов",
                   "Комплектация мебели и декора"
                 ].map((item, index) => (
-                  <div key={index} className="flex items-center gap-3 p-4 bg-cyan-50 rounded-lg">
-                    <Check className="w-5 h-5 text-cyan-600 flex-shrink-0" />
+                  <div key={`${item}-${index}`} className="flex items-center gap-3 p-4 bg-cyan-50 rounded-lg">
+                    <Check className="w-5 h-5 text-cyan-600 flex-shrink-0" aria-hidden="true" />
                     <span className="text-gray-800">{item}</span>
                   </div>
                 ))}
               </div>
             </section>
-
             <section className="bg-gradient-to-br from-yellow-50 to-orange-50 p-8 rounded-2xl border-2 border-yellow-400/30">
               <div className="text-center mb-6">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full mb-4">
@@ -72,15 +107,14 @@ const InteriorDesign = () => {
                 </p>
               </div>
             </section>
-
             <section className="my-12">
               <LazyImage
                 src={designStudio}
                 alt="Работа над дизайн-проектом интерьера"
                 className="w-full h-[400px] object-cover rounded-2xl shadow-xl"
+                fallbackSrc="/placeholder.jpg"
               />
             </section>
-
             <section>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Зачем нужен дизайн-проект квартиры?</h2>
               <div className="prose prose-lg max-w-none mb-8">
@@ -99,7 +133,6 @@ const InteriorDesign = () => {
                 </ul>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Стили интерьера</h2>
               <p className="text-lg text-gray-700 mb-6">Мы работаем со всеми популярными стилями:</p>
@@ -112,14 +145,13 @@ const InteriorDesign = () => {
                   { name: "Неоклассика", desc: "Сочетание традиций и современности" },
                   { name: "Эко-стиль", desc: "Природные материалы" }
                 ].map((style, index) => (
-                  <div key={index} className="bg-white p-6 rounded-xl border-2 border-gray-200 hover:border-cyan-400 transition-colors">
+                  <div key={`${style.name}-${index}`} className="bg-white p-6 rounded-xl border-2 border-gray-200 hover:border-cyan-400 transition-colors">
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">{style.name}</h3>
                     <p className="text-gray-600">{style.desc}</p>
                   </div>
                 ))}
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Этапы создания дизайн-проекта</h2>
               <div className="space-y-6">
@@ -130,7 +162,7 @@ const InteriorDesign = () => {
                   { title: "Рабочая документация", desc: "Чертежи, развертки, спецификации" },
                   { title: "Авторский надзор", desc: "Контроль реализации проекта на объекте" }
                 ].map((step, index) => (
-                  <div key={index} className="flex gap-4">
+                  <div key={`${step.title}-${index}`} className="flex gap-4">
                     <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
                       {index + 1}
                     </div>
@@ -142,13 +174,12 @@ const InteriorDesign = () => {
                 ))}
               </div>
             </section>
-
             <section className="bg-gray-50 p-8 rounded-2xl">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Стоимость дизайн-проекта</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white p-6 rounded-xl border-2 border-gray-200">
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">Стандартный пакет</h3>
-                  <p className="text-3xl font-bold text-cyan-600 mb-4">от 1 500 ₽/м²</p>
+                  <p className="text-3xl font-bold text-cyan-600 mb-4">от 2 500 ₽/м²</p>
                   <ul className="space-y-2 text-gray-700">
                     <li>✓ Планировочное решение</li>
                     <li>✓ 3D-визуализация</li>
@@ -157,7 +188,7 @@ const InteriorDesign = () => {
                 </div>
                 <div className="bg-gradient-to-br from-cyan-50 to-blue-50 p-6 rounded-xl border-2 border-cyan-400">
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">Расширенный пакет</h3>
-                  <p className="text-3xl font-bold text-cyan-600 mb-4">от 2 500 ₽/м²</p>
+                  <p className="text-3xl font-bold text-cyan-600 mb-4">от 3 500 ₽/м²</p>
                   <ul className="space-y-2 text-gray-700">
                     <li>✓ Все из стандартного пакета</li>
                     <li>✓ Рабочая документация</li>
@@ -166,7 +197,6 @@ const InteriorDesign = () => {
                 </div>
               </div>
             </section>
-
             <section className="mt-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Как мы работаем с клиентами</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
@@ -178,18 +208,36 @@ const InteriorDesign = () => {
                   <li>• Состав семьи и привычки всех членов семьи</li>
                   <li>• Бюджет на ремонт и покупку мебели</li>
                   <li>• Предпочтения по стилю и цветовой гамме</li>
-                  <li>• Необходимость зонирования пространства</li>
+                  <li>• Предпочтения по зонированию пространства</li>
                   <li>• Особые пожелания (домашний офис, гардеробная, система умный дом)</li>
                   <li>• Планируемые сроки реализации проекта</li>
                 </ul>
               </div>
             </section>
-
+            {/* Добавлено: Раздел FAQ */}
+            <section className="bg-gray-50 p-8 rounded-2xl mt-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Часто задаваемые вопросы</h2>
+              <div className="space-y-4">
+                <details className="bg-white p-4 rounded-lg">
+                  <summary className="font-semibold text-gray-900 cursor-pointer">Сколько стоит дизайн-проект?</summary>
+                  <p className="text-gray-700 mt-2">От 2 500 ₽/м² в зависимости от пакета.</p>
+                </details>
+                <details className="bg-white p-4 rounded-lg">
+                  <summary className="font-semibold text-gray-900 cursor-pointer">Как долго разрабатывается проект?</summary>
+                  <p className="text-gray-700 mt-2">От 30 дней, в зависимости от сложности.</p>
+                </details>
+                <details className="bg-white p-4 rounded-lg">
+                  <summary className="font-semibold text-gray-900 cursor-pointer">Можно ли получить проект бесплатно?</summary>
+                  <p className="text-gray-700 mt-2">Да, в подарок при заказе ремонта от 50 м².</p>
+                </details>
+              </div>
+            </section>
             <div className="text-center pt-8">
               <Button
                 size="lg"
                 onClick={() => window.dispatchEvent(new CustomEvent('openContactDialog'))}
                 className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-lg px-8 py-6"
+                aria-label="Заказать дизайн-проект"
               >
                 Заказать дизайн-проект
               </Button>
@@ -197,10 +245,9 @@ const InteriorDesign = () => {
           </div>
         </div>
       </article>
-      
+     
       <Footer />
     </main>
   );
 };
-
 export default InteriorDesign;
