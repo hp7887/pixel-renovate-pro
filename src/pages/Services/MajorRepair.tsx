@@ -15,7 +15,6 @@ const MajorRepair = () => {
         <meta name="description" content="Капитальный ремонт квартир в Санкт-Петербурге: полная замена инженерных систем, перепланировка, черновая и чистовая отделка. Гарантия 3 года." />
         <meta name="keywords" content="капитальный ремонт, ремонт под ключ, перепланировка квартиры, замена проводки, ремонт новостройки СПб" />
         <link rel="canonical" href="https://spb-dsremont.ru/services/major-repair" />
-        {/* Добавлено для SEO: Open Graph и Twitter Cards */}
         <meta property="og:title" content="Капитальный ремонт квартир в СПб под ключ | SPB-DSRemont" />
         <meta property="og:description" content="Капитальный ремонт квартир в Санкт-Петербурге: полная замена инженерных систем, перепланировка, черновая и чистовая отделка. Гарантия 3 года." />
         <meta property="og:url" content="https://spb-dsremont.ru/services/major-repair" />
@@ -25,7 +24,6 @@ const MajorRepair = () => {
         <meta name="twitter:title" content="Капитальный ремонт квартир в СПб под ключ | SPB-DSRemont" />
         <meta name="twitter:description" content="Капитальный ремонт квартир в Санкт-Петербурге: полная замена инженерных систем, перепланировка, черновая и чистовая отделка. Гарантия 3 года." />
         <meta name="twitter:image" content={majorRepairHero} />
-        {/* Добавлено для SEO: Schema.org JSON-LD */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -69,7 +67,7 @@ const MajorRepair = () => {
               src={majorRepairHero}
               alt="Капитальный ремонт квартиры - современный интерьер"
               className="w-full h-[400px] object-cover rounded-2xl shadow-2xl"
-              fallbackSrc="/placeholder.jpg"  // Добавлено: fallback для производительности/ошибок
+              fallbackSrc="/placeholder.jpg"
             />
           </div>
           <div className="max-w-4xl mx-auto space-y-8">
@@ -90,7 +88,7 @@ const MajorRepair = () => {
                   "Стяжка и выравнивание полов",
                   "Полная чистовая отделка"
                 ].map((item, index) => (
-                  <div key={`${item}-${index}`} className="flex items-center gap-3 p-4 bg-cyan-50 rounded-lg">  // Улучшено: уникальный key
+                  <div key={`${item}-${index}`} className="flex items-center gap-3 p-4 bg-cyan-50 rounded-lg">
                     <Check className="w-5 h-5 text-cyan-600 flex-shrink-0" aria-hidden="true" />
                     <span className="text-gray-800">{item}</span>
                   </div>
@@ -123,7 +121,7 @@ const MajorRepair = () => {
                 src={majorRepairProcess}
                 alt="Процесс капитального ремонта квартиры"
                 className="w-full h-[400px] object-cover rounded-2xl shadow-xl"
-                fallbackSrc="/placeholder.jpg"  // Добавлено: fallback
+                fallbackSrc="/placeholder.jpg"
               />
             </section>
             <section>
@@ -180,7 +178,7 @@ const MajorRepair = () => {
                   { title: "Установка сантехники", desc: "Монтаж сантехнических приборов и оборудования" },
                   { title: "Клининг и сдача", desc: "Генеральная уборка и приемка объекта" }
                 ].map((step, index) => (
-                  <div key={`${step.title}-${index}`} className="flex gap-4">  // Улучшено: уникальный key
+                  <div key={`${step.title}-${index}`} className="flex gap-4">
                     <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
                       {index + 1}
                     </div>
@@ -201,7 +199,7 @@ const MajorRepair = () => {
               <div className="bg-white p-6 rounded-xl border-2 border-cyan-200">
                 <div className="text-center">
                   <p className="text-gray-600 mb-2">От</p>
-                  <p className="text-4xl font-bold text-cyan-600 mb-2">10 000 ₽/м²<grok-card data-id="1a206d" data-type="citation_card"></grok-card><grok-card data-id="68726c" data-type="citation_card"></grok-card></p>
+                  <p className="text-4xl font-bold text-cyan-600 mb-2">10 000 ₽/м²</p>
                   <p className="text-gray-600">с материалами и работой</p>
                 </div>
               </div>
@@ -211,7 +209,6 @@ const MajorRepair = () => {
                 </p>
               </div>
             </section>
-            {/* Добавлено: Раздел FAQ для дополнительного контента/SEO */}
             <section className="bg-gray-50 p-8 rounded-2xl mt-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Часто задаваемые вопросы</h2>
               <div className="space-y-4">
@@ -234,7 +231,7 @@ const MajorRepair = () => {
                 size="lg"
                 onClick={() => window.dispatchEvent(new CustomEvent('openContactDialog'))}
                 className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-lg px-8 py-6"
-                aria-label="Получить расчет стоимости"  // Добавлено: для доступности
+                aria-label="Получить расчет стоимости"
               >
                 Получить расчет стоимости
               </Button>
