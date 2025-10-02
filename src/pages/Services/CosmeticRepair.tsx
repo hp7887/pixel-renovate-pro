@@ -43,11 +43,11 @@ const CosmeticRepair = () => {
             "areaServed": "Санкт-Петербург",
             "offers": {
               "@type": "Offer",
-              "price": "2500",
+              "price": "6000",
               "priceCurrency": "RUB",
               "priceSpecification": {
                 "@type": "UnitPriceSpecification",
-                "price": "2500",
+                "price": "6000",
                 "priceCurrency": "RUB",
                 "unitCode": "MTK"
               }
@@ -192,7 +192,7 @@ const CosmeticRepair = () => {
               <div className="bg-white p-6 rounded-xl border-2 border-cyan-200">
                 <div className="text-center">
                   <p className="text-gray-600 mb-2">От</p>
-                  <p className="text-4xl font-bold text-cyan-600 mb-2">2 500 ₽/м²</p>
+                  <p className="text-4xl font-bold text-cyan-600 mb-2">6 000 ₽/м²<grok-card data-id="b4b314" data-type="citation_card"></grok-card><grok-card data-id="11e6e2" data-type="citation_card"></grok-card></p>
                   <p className="text-gray-600">с материалами и работой</p>
                 </div>
               </div>
@@ -203,7 +203,7 @@ const CosmeticRepair = () => {
               <div className="space-y-4">
                 <details className="bg-white p-4 rounded-lg">
                   <summary className="font-semibold text-gray-900 cursor-pointer">Сколько стоит косметический ремонт?</summary>
-                  <p className="text-gray-700 mt-2">От 2 500 ₽/м², в зависимости от площади и материалов.</p>
+                  <p className="text-gray-700 mt-2">От 6 000 ₽/м², в зависимости от площади и материалов.</p>
                 </details>
                 <details className="bg-white p-4 rounded-lg">
                   <summary className="font-semibold text-gray-900 cursor-pointer">Как долго длится ремонт?</summary>
