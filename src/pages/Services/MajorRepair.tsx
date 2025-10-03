@@ -27,15 +27,15 @@ const MajorRepair = () => {
               alt="Капитальный ремонт квартиры - современный интерьер"
               className="w-full h-full object-cover rounded-b-3xl"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/60 to-transparent rounded-b-3xl flex items-center">
-              <div className="container mx-auto px-4">
-                <div className="max-w-3xl">
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
-                    Капитальный ремонт квартир под ключ
-                  </h1>
-                  <p className="text-xl md:text-2xl text-cyan-100 mb-8 leading-relaxed">
-                    Полное преобразование вашего пространства с гарантией качества
-                  </p>
+          <div className="absolute inset-0 bg-gradient-to-t from-white/80 to-white/60 rounded-b-3xl flex items-center">
+            <div className="container mx-auto px-4">
+              <div className="max-w-3xl">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
+                  Капитальный ремонт квартир под ключ
+                </h1>
+                <p className="text-xl md:text-2xl text-gray-800 mb-8 leading-relaxed">
+                  Полное преобразование вашего пространства с гарантией качества
+                </p>
                   <Button 
                     size="lg" 
                     className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl transition-shadow"

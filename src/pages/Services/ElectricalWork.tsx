@@ -29,13 +29,13 @@ const ElectricalWork = () => {
             alt="Профессиональные электромонтажные работы в квартире"
             className="w-full h-full object-cover rounded-b-3xl"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/60 to-transparent rounded-b-3xl flex items-center">
+          <div className="absolute inset-0 bg-gradient-to-t from-white/80 to-white/60 rounded-b-3xl flex items-center">
             <div className="container mx-auto px-4">
               <div className="max-w-3xl">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
                   Электромонтажные работы в Санкт-Петербурге
                 </h1>
-                <p className="text-xl md:text-2xl text-cyan-100 mb-8 leading-relaxed">
+                <p className="text-xl md:text-2xl text-gray-800 mb-8 leading-relaxed">
                   Полный комплекс услуг по монтажу электрики под ключ от опытных специалистов
                 </p>
                 <Button 
@@ -125,7 +125,7 @@ const ElectricalWork = () => {
               Этапы электромонтажных работ
             </h2>
             
-            <div className="max-w-4xl mx-auto relative space-y-8 before:absolute before:left-6 before:top-0 before:bottom-0 before:w-0.5 before:bg-cyan-200 md:before:left-1/2 md:before:-translate-x-1/2">
+            <div className="max-w-4xl mx-auto relative space-y-8">
               {[
                 { title: "Проектирование и расчет", desc: "Составляем схему электроснабжения, рассчитываем необходимую мощность, определяем количество линий и точек подключения. Учитываем все пожелания заказчика и современные стандарты безопасности." },
                 { title: "Подготовительные работы", desc: "Демонтируем старую проводку (при необходимости), штробим стены под кабель-каналы, подготавливаем места для установки розеток, выключателей и распределительных коробок." },
