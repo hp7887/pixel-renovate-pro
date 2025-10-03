@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Award, Users, Clock, Shield, Check } from "lucide-react";
 import LazyImage from "@/components/LazyImage";
-import aboutHero from "@/assets/about-hero.jpg";
 
 const About = () => {
   const features = [
@@ -78,20 +77,14 @@ const About = () => {
       </Helmet>
       <Header />
      
-      <section className="pt-24 md:pt-32 pb-12 md:pb-16 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <LazyImage
-            src={aboutHero}
-            alt="Команда Digital Stroy"
-            className="w-full h-full object-cover brightness-75"
-            fallbackSrc="/placeholder.jpg"
-          />
+      <section className="pt-24 md:pt-32 pb-12 md:pb-16 bg-gradient-to-br from-cyan-50 via-blue-50 to-white relative">
+        <div className="absolute inset-0 opacity-20">
         </div>
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+        <div className="container mx-auto px-4 relative z-10">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 text-center">
             О компании Digital Stroy
           </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto text-center leading-relaxed">
             Мы создаем современные и функциональные пространства, в которых приятно жить и работать.
             За 9 лет работы выполнили более 500 проектов любой сложности.
           </p>
