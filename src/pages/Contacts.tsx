@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import contactsImage from "@/assets/contacts-office.jpg";
+import contactsHero from "@/assets/contacts-hero.jpg";
 import LazyImage from "@/components/LazyImage";
 
 const Contacts = () => {
@@ -67,23 +67,32 @@ const Contacts = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-24 md:pt-32 pb-12 md:pb-16 bg-gradient-to-br from-cyan-50 via-blue-50 to-white">
+      <section className="pt-16 md:pt-24">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
-            <div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 animate-fade-in">
-                Свяжитесь с нами
-              </h1>
-              <p className="text-lg md:text-xl text-gray-600 leading-relaxed animate-fade-in">
-                Ответим на все ваши вопросы и поможем воплотить мечту о красивом ремонте в реальность
-              </p>
-            </div>
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl animate-fade-in">
-              <LazyImage 
-                src={contactsImage}
-                alt="Офис компании SPB-DSRemont в Санкт-Петербурге - современное пространство для консультаций"
-                className="w-full h-[400px] object-cover"
-              />
+          <div className="relative h-[500px] md:h-[600px] overflow-hidden mb-12">
+            <LazyImage
+              src={contactsHero}
+              alt="Свяжитесь с нами - консультация по ремонту квартир в Санкт-Петербурге"
+              className="w-full h-full object-cover rounded-b-3xl"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-white/80 to-white/60 rounded-b-3xl flex items-center">
+              <div className="container mx-auto px-4">
+                <div className="max-w-3xl">
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
+                    Свяжитесь с нами
+                  </h1>
+                  <p className="text-xl md:text-2xl text-gray-800 mb-8 leading-relaxed">
+                    Ответим на все ваши вопросы и поможем воплотить мечту о красивом ремонте в реальность
+                  </p>
+                  <Button 
+                    size="lg" 
+                    className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl transition-shadow"
+                    onClick={() => window.dispatchEvent(new Event('openContactDialog'))}
+                  >
+                    Получить консультацию
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
