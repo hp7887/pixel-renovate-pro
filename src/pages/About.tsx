@@ -45,33 +45,39 @@ const About = () => {
   return (
     <main className="min-h-screen">
       <Helmet>
-        <title>О компании Digital Stroy - 9 лет опыта в ремонте квартир в Санкт-Петербурге</title>
-        <meta name="description" content="Digital Stroy - надежная ремонтно-строительная компания в СПб. 9 лет на рынке, 500+ реализованных проектов, профессиональная команда. Узнайте больше о нашем опыте и подходе к работе к каждому клиенту." />
+        <title>О компании SPB-DSRemont - 9 лет опыта в ремонте квартир в Санкт-Петербурге</title>
+        <meta name="description" content="SPB-DSRemont - надежная ремонтно-строительная компания в СПб. 9 лет на рынке, 500+ реализованных проектов, профессиональная команда. Узнайте больше о нашем опыте и подходе к работе к каждому клиенту." />
         <meta name="keywords" content="о компании ремонт, строительная компания СПб, ремонтная компания Санкт-Петербург, профессиональный ремонт" />
-        <link rel="canonical" href="https://digital-stroy.ru/about" />
-        <meta property="og:title" content="О компании Digital Stroy - Профессиональный ремонт в СПб" />
+        <link rel="canonical" href="https://spb-dsremont.ru/about" />
+        <meta property="og:title" content="О компании SPB-DSRemont - Профессиональный ремонт в СПб" />
         <meta property="og:description" content="9 лет успешной работы на рынке ремонта и отделки квартир в Санкт-Петербурге. Более 500 выполненных проектов." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://digital-stroy.ru/about" />
-        <meta property="og:image" content="https://digital-stroy.ru/og-image.jpg" />
+        <meta property="og:url" content="https://spb-dsremont.ru/about" />
+        <meta property="og:image" content="https://spb-dsremont.ru/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="О компании Digital Stroy - Профессиональный ремонт в СПб" />
+        <meta name="twitter:title" content="О компании SPB-DSRemont - Профессиональный ремонт в СПб" />
         <meta name="twitter:description" content="9 лет успешной работы на рынке ремонта и отделки квартир в Санкт-Петербурге. Более 500 выполненных проектов." />
-        <meta name="twitter:image" content="https://digital-stroy.ru/og-image.jpg" />
+        <meta name="twitter:image" content="https://spb-dsremont.ru/og-image.jpg" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Digital Stroy",
+            "name": "SPB-DSRemont",
             "description": "Ремонтно-строительная компания в Санкт-Петербурге. Капитальный ремонт квартир под ключ.",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Санкт-Петербург",
               "addressCountry": "RU"
             },
-            "url": "https://digital-stroy.ru",
+            "url": "https://spb-dsremont.ru",
+            "telephone": "+7 915 220-55-56",
             "numberOfEmployees": "50",
-            "foundingDate": "2016"
+            "foundingDate": "2016",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "156"
+            }
           })}
         </script>
       </Helmet>
@@ -82,7 +88,7 @@ const About = () => {
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 text-center">
-            О компании Digital Stroy
+            О компании SPB-DSRemont
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto text-center leading-relaxed">
             Мы создаем современные и функциональные пространства, в которых приятно жить и работать.
@@ -135,7 +141,7 @@ const About = () => {
           </h2>
           <div className="max-w-4xl mx-auto prose prose-lg text-gray-700 leading-relaxed">
             <p className="mb-6">
-              Компания Digital Stroy основана в 2016 году группой энтузиастов с большим опытом в строительстве и дизайне. С тех пор мы выросли от небольшой бригады до полноценной компании с собственным штатом специалистов.
+              Компания SPB-DSRemont основана в 2016 году группой энтузиастов с большим опытом в строительстве и дизайне. С тех пор мы выросли от небольшой бригады до полноценной компании с собственным штатом специалистов.
             </p>
             <p className="mb-6">
               За 9 лет мы реализовали более 500 проектов: от косметического ремонта студий до капитального ремонта элитных квартир в центре Санкт-Петербурга. Наш успех основан на внимании к деталям и индивидуальном подходе к каждому клиенту.

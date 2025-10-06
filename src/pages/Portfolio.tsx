@@ -80,6 +80,22 @@ const Portfolio = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://spb-dsremont.ru/portfolio" />
         <meta property="og:image" content="https://spb-dsremont.ru/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Портфолио проектов ремонта - SPB-DSRemont" />
+        <meta name="twitter:description" content="500+ реализованных проектов ремонта квартир и офисов в Санкт-Петербурге. Современный дизайн и качественное исполнение." />
+        <meta name="twitter:image" content="https://spb-dsremont.ru/og-image.jpg" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Портфолио выполненных ремонтов",
+            "description": "Галерея наших проектов по ремонту квартир и офисов в Санкт-Петербурге",
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "SPB-DSRemont"
+            }
+          })}
+        </script>
       </Helmet>
       <Header />
       

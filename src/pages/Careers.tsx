@@ -12,6 +12,36 @@ const Careers = () => {
         <meta name="description" content="Работа в строительной компании SPB-DSRemont: вакансии для отделочников, плиточников, электриков, сантехников. Стабильная работа, достойная оплата." />
         <meta name="keywords" content="вакансии отделочник СПб, работа плиточник, вакансии строители, работа прораб Санкт-Петербург" />
         <link rel="canonical" href="https://spb-dsremont.ru/careers" />
+        <meta property="og:title" content="Вакансии в SPB-DSRemont - Работа в строительной компании СПб" />
+        <meta property="og:description" content="Работа в строительной компании: стабильная занятость, достойная оплата, официальное оформление." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://spb-dsremont.ru/careers" />
+        <meta property="og:image" content="https://spb-dsremont.ru/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Вакансии в SPB-DSRemont - Работа в строительной компании СПб" />
+        <meta name="twitter:description" content="Работа в строительной компании: стабильная занятость, достойная оплата, официальное оформление." />
+        <meta name="twitter:image" content="https://spb-dsremont.ru/og-image.jpg" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "JobPosting",
+            "title": "Вакансии в строительной компании",
+            "description": "Ищем профессионалов: отделочников, плиточников, электриков, сантехников, прорабов",
+            "hiringOrganization": {
+              "@type": "Organization",
+              "name": "SPB-DSRemont",
+              "sameAs": "https://spb-dsremont.ru"
+            },
+            "jobLocation": {
+              "@type": "Place",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Санкт-Петербург",
+                "addressCountry": "RU"
+              }
+            }
+          })}
+        </script>
       </Helmet>
       
       <Header />

@@ -15,6 +15,44 @@ const MajorRepair = () => {
         <meta name="description" content="Капитальный ремонт квартир в Санкт-Петербурге: полная замена инженерных систем, перепланировка, черновая и чистовая отделка. Гарантия 3 года." />
         <meta name="keywords" content="капитальный ремонт, ремонт под ключ, перепланировка квартиры, замена проводки, ремонт новостройки СПб" />
         <link rel="canonical" href="https://spb-dsremont.ru/services/major-repair" />
+        <meta property="og:title" content="Капитальный ремонт квартир в СПб под ключ | SPB-DSRemont" />
+        <meta property="og:description" content="Капитальный ремонт квартир в Санкт-Петербурге: полная замена инженерных систем, перепланировка, черновая и чистовая отделка. Гарантия 3 года." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://spb-dsremont.ru/services/major-repair" />
+        <meta property="og:image" content={majorRepairHero} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Капитальный ремонт квартир в СПб под ключ | SPB-DSRemont" />
+        <meta name="twitter:description" content="Капитальный ремонт квартир в Санкт-Петербурге: полная замена инженерных систем, перепланировка, черновая и чистовая отделка. Гарантия 3 года." />
+        <meta name="twitter:image" content={majorRepairHero} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Капитальный ремонт квартир под ключ",
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "SPB-DSRemont",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Санкт-Петербург",
+                "addressCountry": "RU"
+              },
+              "telephone": "+7 915 220-55-56"
+            },
+            "areaServed": "Санкт-Петербург",
+            "offers": {
+              "@type": "Offer",
+              "price": "8000",
+              "priceCurrency": "RUB",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "8000",
+                "priceCurrency": "RUB",
+                "unitCode": "MTK"
+              }
+            }
+          })}
+        </script>
       </Helmet>
       
       <Header />

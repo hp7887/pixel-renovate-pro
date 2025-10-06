@@ -22,6 +22,10 @@ const Index = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://spb-dsremont.ru/" />
         <meta property="og:image" content="https://spb-dsremont.ru/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="SPB-DSRemont - Ремонт квартир под ключ в Санкт-Петербурге" />
+        <meta name="twitter:description" content="Качественный ремонт квартир в Санкт-Петербурге. Современный дизайн, прозрачные цены и гарантия до 3 лет." />
+        <meta name="twitter:image" content="https://spb-dsremont.ru/og-image.jpg" />
       </Helmet>
       <Header />
       <HeroSection />

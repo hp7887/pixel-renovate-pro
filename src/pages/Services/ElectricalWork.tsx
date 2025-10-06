@@ -18,6 +18,37 @@ const ElectricalWork = () => {
         <meta name="description" content="Электромонтажные работы в СПб: полная замена проводки, установка электрощитов, монтаж розеток и выключателей. Опытные электрики, гарантия качества, доступные цены." />
         <meta name="keywords" content="электромонтажные работы, замена проводки, монтаж электрики, установка электрощита, электрик СПб, проводка в квартире" />
         <link rel="canonical" href="https://spb-dsremont.ru/services/electrical-work" />
+        <meta property="og:title" content="Электромонтажные работы в Санкт-Петербурге | SPB-DSRemont" />
+        <meta property="og:description" content="Электромонтажные работы в СПб: полная замена проводки, установка электрощитов, монтаж розеток и выключателей. Опытные электрики, гарантия качества." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://spb-dsremont.ru/services/electrical-work" />
+        <meta property="og:image" content={electricalHero} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Электромонтажные работы в Санкт-Петербурге | SPB-DSRemont" />
+        <meta name="twitter:description" content="Электромонтажные работы в СПб: полная замена проводки, установка электрощитов, монтаж розеток и выключателей." />
+        <meta name="twitter:image" content={electricalHero} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Электромонтажные работы",
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "SPB-DSRemont",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Санкт-Петербург",
+                "addressCountry": "RU"
+              },
+              "telephone": "+7 915 220-55-56"
+            },
+            "areaServed": "Санкт-Петербург",
+            "offers": {
+              "@type": "Offer",
+              "priceRange": "2500-5000 ₽/м²"
+            }
+          })}
+        </script>
       </Helmet>
       
       <Header />

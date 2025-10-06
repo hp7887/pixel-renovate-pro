@@ -63,6 +63,28 @@ const Contacts = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://spb-dsremont.ru/contacts" />
         <meta property="og:image" content="https://spb-dsremont.ru/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Контакты SPB-DSRemont - Свяжитесь с нами" />
+        <meta name="twitter:description" content="Два офиса в Санкт-Петербурге. Консультации и выезд замерщика. Ответим в течение 15 минут." />
+        <meta name="twitter:image" content="https://spb-dsremont.ru/og-image.jpg" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "mainEntity": {
+              "@type": "LocalBusiness",
+              "name": "SPB-DSRemont",
+              "telephone": "+7 915 220-55-56",
+              "email": "info@remont-spb.ru",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Санкт-Петербург",
+                "addressCountry": "RU"
+              },
+              "url": "https://spb-dsremont.ru"
+            }
+          })}
+        </script>
       </Helmet>
       <Header />
       

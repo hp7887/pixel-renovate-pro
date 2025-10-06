@@ -24,6 +24,24 @@ const Reviews = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://spb-dsremont.ru/reviews" />
         <meta property="og:image" content="https://spb-dsremont.ru/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Отзывы клиентов SPB-DSRemont - Рейтинг 4.9/5" />
+        <meta name="twitter:description" content="156+ реальных отзывов о ремонте квартир. 98% клиентов рекомендуют нас своим друзьям." />
+        <meta name="twitter:image" content="https://spb-dsremont.ru/og-image.jpg" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "SPB-DSRemont",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "156",
+              "bestRating": "5",
+              "worstRating": "1"
+            }
+          })}
+        </script>
       </Helmet>
       <Header />
       
