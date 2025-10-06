@@ -3,6 +3,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import contactsImage from "@/assets/contacts-office.jpg";
+import LazyImage from "@/components/LazyImage";
 
 const Contacts = () => {
   const contactInfo = [
@@ -67,12 +69,23 @@ const Contacts = () => {
       {/* Hero Section */}
       <section className="pt-24 md:pt-32 pb-12 md:pb-16 bg-gradient-to-br from-cyan-50 via-blue-50 to-white">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 text-center animate-fade-in">
-            Свяжитесь с нами
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto text-center leading-relaxed animate-fade-in">
-            Ответим на все ваши вопросы и поможем воплотить мечту о красивом ремонте в реальность
-          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+            <div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 animate-fade-in">
+                Свяжитесь с нами
+              </h1>
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed animate-fade-in">
+                Ответим на все ваши вопросы и поможем воплотить мечту о красивом ремонте в реальность
+              </p>
+            </div>
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl animate-fade-in">
+              <LazyImage 
+                src={contactsImage}
+                alt="Офис компании SPB-DSRemont в Санкт-Петербурге - современное пространство для консультаций"
+                className="w-full h-[400px] object-cover"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
