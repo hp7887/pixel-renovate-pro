@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, MessageSquare } from "lucide-react";
+import { formatPhoneNumber } from "@/lib/utils";
 
 interface ContactDialogProps {
   open: boolean;
@@ -14,17 +15,32 @@ interface ContactDialogProps {
 
 const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState("+7 ");
   const [message, setMessage] = useState("");
   const { toast } = useToast();
+
+  // Инициализируем телефон с +7 при открытии
+  useEffect(() => {
+    if (open && !phone.startsWith('+7')) {
+      setPhone("+7 ");
+    }
+  }, [open]);
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPhoneNumber(e.target.value);
+    setPhone(formatted);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!name || !phone) {
+    // Убираем форматирование для валидации
+    const cleanPhone = phone.replace(/\D/g, '');
+    
+    if (!name || cleanPhone.length < 11) {
       toast({
         title: "Заполните обязательные поля",
-        description: "Имя и телефон обязательны для заполнения",
+        description: "Имя и корректный номер телефона обязательны для заполнения",
         variant: "destructive",
       });
       return;
@@ -33,43 +49,46 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
     // Формируем текст сообщения
     const messageText = `🔔 Новая заявка с сайта!\n\n👤 Имя: ${name}\n📱 Телефон: ${phone}${message ? `\n💬 Комментарий: ${message}` : ''}`;
     
-    // Отправка в Telegram
-    const telegramBotToken = ''; // Bot token нужно будет добавить через переменные окружения
-    const telegramChatId = ''; // Chat ID нужно будет добавить
+    // Telegram Bot настройки (нужно добавить свои данные)
+    const TELEGRAM_BOT_TOKEN = '7967526827:AAEa3bOkxiMlPxSGDnCbfg2wZrfLbjfNwcI';
+    const TELEGRAM_CHAT_ID = '559990492';
     
-    // Отправка в WhatsApp (открытие диалога с предзаполненным текстом)
-    const whatsappNumber = '79111110126';
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(messageText)}`;
-    
-    // Открываем WhatsApp
-    window.open(whatsappUrl, '_blank');
-    
-    // Если есть Telegram bot token, отправляем туда
-    if (telegramBotToken && telegramChatId) {
-      try {
-        await fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage`, {
+    try {
+      // Отправка в Telegram
+      if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
+        await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            chat_id: telegramChatId,
+            chat_id: TELEGRAM_CHAT_ID,
             text: messageText,
             parse_mode: 'HTML'
           })
         });
-      } catch (error) {
-        console.error('Ошибка отправки в Telegram:', error);
       }
+
+      // Дублируем в WhatsApp
+      const whatsappNumber = '79111110126';
+      const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(messageText)}`;
+      window.open(whatsappUrl, '_blank');
+
+      toast({
+        title: "Заявка отправлена!",
+        description: "Наш менеджер свяжется с вами в ближайшее время",
+      });
+
+      setName("");
+      setPhone("+7 ");
+      setMessage("");
+      onOpenChange(false);
+    } catch (error) {
+      console.error('Ошибка отправки:', error);
+      toast({
+        title: "Ошибка отправки",
+        description: "Попробуйте позвонить нам напрямую",
+        variant: "destructive",
+      });
     }
-
-    toast({
-      title: "Заявка отправлена!",
-      description: "Наш менеджер свяжется с вами в ближайшее время",
-    });
-
-    setName("");
-    setPhone("");
-    setMessage("");
-    onOpenChange(false);
   };
 
   return (
@@ -101,7 +120,7 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
               type="tel"
               placeholder="+7 (911) 111-01-26"
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={handlePhoneChange}
               required
             />
           </div>
