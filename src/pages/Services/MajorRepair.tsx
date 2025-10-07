@@ -37,7 +37,7 @@ const MajorRepair = () => {
                 "addressLocality": "Санкт-Петербург",
                 "addressCountry": "RU"
               },
-              "telephone": "+7 915 220-55-56"
+              "telephone": "+7 812 209-98-85"
             },
             "areaServed": "Санкт-Петербург",
             "offers": {

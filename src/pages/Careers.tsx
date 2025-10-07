@@ -213,7 +213,7 @@ const Careers = () => {
               >
                 Откликнуться на вакансию
               </Button>
-              <p className="text-gray-600 mt-4">Или позвоните нам: <a href="tel:+79152205556" className="text-cyan-600 font-semibold">8 915 220-55-56</a></p>
+              <p className="text-gray-600 mt-4">Или позвоните нам: <a href="tel:+78122099885" className="text-cyan-600 font-semibold">8 812 209-98-85</a></p>
             </div>
           </div>
         </div>

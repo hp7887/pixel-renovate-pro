@@ -33,7 +33,7 @@ const CTASection = () => {
                   <Phone className="h-6 w-6 text-white" />
                 </div>
                 <div className="text-white font-medium mb-1">Позвонить</div>
-                <div className="text-white/80 text-sm">+7 (495) 123-45-67</div>
+                <div className="text-white/80 text-sm">8 812 209-98-85</div>
               </CardContent>
             </Card>
             
@@ -55,7 +55,7 @@ const CTASection = () => {
                   <Mail className="h-6 w-6 text-white" />
                 </div>
                 <div className="text-white font-medium mb-1">Email</div>
-                <div className="text-white/80 text-sm">info@remstroy.ru</div>
+                <div className="text-white/80 text-sm">digitalstroy@inbox.ru</div>
               </CardContent>
             </Card>
             
@@ -86,7 +86,7 @@ const CTASection = () => {
               size="lg"
               variant="outline"
               className="border-white/20 text-white hover:bg-white/10 backdrop-blur-sm"
-              onClick={() => window.open('https://wa.me/79152205556', '_blank')}
+              onClick={() => window.open('https://wa.me/79111110126', '_blank')}
             >
               <MessageCircle className="mr-2 h-5 w-5" />
               Написать в WhatsApp

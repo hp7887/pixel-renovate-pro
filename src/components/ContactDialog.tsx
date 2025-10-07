@@ -18,7 +18,7 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
   const [message, setMessage] = useState("");
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!name || !phone) {
@@ -28,6 +28,37 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
         variant: "destructive",
       });
       return;
+    }
+
+    // Формируем текст сообщения
+    const messageText = `🔔 Новая заявка с сайта!\n\n👤 Имя: ${name}\n📱 Телефон: ${phone}${message ? `\n💬 Комментарий: ${message}` : ''}`;
+    
+    // Отправка в Telegram
+    const telegramBotToken = ''; // Bot token нужно будет добавить через переменные окружения
+    const telegramChatId = ''; // Chat ID нужно будет добавить
+    
+    // Отправка в WhatsApp (открытие диалога с предзаполненным текстом)
+    const whatsappNumber = '79111110126';
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(messageText)}`;
+    
+    // Открываем WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
+    // Если есть Telegram bot token, отправляем туда
+    if (telegramBotToken && telegramChatId) {
+      try {
+        await fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: telegramChatId,
+            text: messageText,
+            parse_mode: 'HTML'
+          })
+        });
+      } catch (error) {
+        console.error('Ошибка отправки в Telegram:', error);
+      }
     }
 
     toast({
@@ -68,7 +99,7 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
             <Input
               id="phone"
               type="tel"
-              placeholder="+7 (999) 123-45-67"
+              placeholder="+7 (911) 111-01-26"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               required
@@ -96,14 +127,14 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
           <div className="space-y-2">
             <div className="flex items-center gap-2 text-sm">
               <Phone className="w-4 h-4 text-primary" />
-              <a href="tel:+74951234567" className="hover:text-primary transition-colors">
-                +7 (495) 123-45-67
+              <a href="tel:+78122099885" className="hover:text-primary transition-colors">
+                8 812 209-98-85
               </a>
             </div>
             <div className="flex items-center gap-2 text-sm">
               <Mail className="w-4 h-4 text-primary" />
-              <a href="mailto:info@remont-spb.ru" className="hover:text-primary transition-colors">
-                info@remont-spb.ru
+              <a href="mailto:digitalstroy@inbox.ru" className="hover:text-primary transition-colors">
+                digitalstroy@inbox.ru
               </a>
             </div>
           </div>

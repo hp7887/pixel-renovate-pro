@@ -132,8 +132,8 @@ const Terms = () => {
             <section>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">11. Контакты</h2>
               <p className="mb-2">Для связи с нами используйте:</p>
-              <p className="mb-1">Email: info@remont-spb.ru</p>
-              <p className="mb-1">Телефон: 8 915 220-55-56</p>
+              <p className="mb-1">Email: digitalstroy@inbox.ru</p>
+              <p className="mb-1">Телефон: 8 812 209-98-85</p>
               <p className="mt-4 text-sm text-gray-600">Дата последнего обновления: 01.01.2024</p>
             </section>
           </div>

@@ -70,7 +70,7 @@ const About = () => {
               "addressCountry": "RU"
             },
             "url": "https://spb-dsremont.ru",
-            "telephone": "+7 915 220-55-56",
+            "telephone": "+7 812 209-98-85",
             "numberOfEmployees": "50",
             "foundingDate": "2016",
             "aggregateRating": {

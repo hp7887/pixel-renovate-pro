@@ -11,16 +11,16 @@ const Contacts = () => {
     {
       icon: Phone,
       title: "Телефон",
-      main: "8 915 220-55-56",
+      main: "8 812 209-98-85",
       sub: "Звонки принимаем круглосуточно",
-      link: "tel:+79152205556"
+      link: "tel:+78122099885"
     },
     {
       icon: Mail,
       title: "Email",
-      main: "info@remont-spb.ru",
+      main: "digitalstroy@inbox.ru",
       sub: "Ответим в течение часа",
-      link: "mailto:info@remont-spb.ru"
+      link: "mailto:digitalstroy@inbox.ru"
     },
     {
       icon: MapPin,
@@ -40,13 +40,13 @@ const Contacts = () => {
     {
       name: "Центральный офис",
       address: "г. Санкт-Петербург, Невский проспект, д. 123",
-      phone: "8 915 220-55-56",
+      phone: "8 812 209-98-85",
       hours: "Пн-Пт: 09:00-21:00, Сб-Вс: 10:00-18:00"
     },
     {
       name: "Офис на Васильевском острове",
       address: "г. Санкт-Петербург, В.О., Средний проспект, д. 45",
-      phone: "8 915 220-55-57",
+      phone: "8 812 209-98-85",
       hours: "Пн-Пт: 09:00-21:00, Сб-Вс: 10:00-18:00"
     }
   ];
@@ -55,7 +55,7 @@ const Contacts = () => {
     <main className="min-h-screen">
       <Helmet>
         <title>Контакты SPB-DSRemont - Телефон, адреса офисов в Санкт-Петербурге</title>
-        <meta name="description" content="Контакты компании SPB-DSRemont в Санкт-Петербурге. Телефон: 8 915 220-55-56. Офисы на Невском проспекте и Васильевском острове. Консультации круглосуточно. WhatsApp и Telegram." />
+        <meta name="description" content="Контакты компании SPB-DSRemont в Санкт-Петербурге. Телефон: 8 812 209-98-85. Офисы на Невском проспекте и Васильевском острове. Консультации круглосуточно. WhatsApp и Telegram." />
         <meta name="keywords" content="контакты ремонт квартир СПб, телефон ремонт, адрес офиса ремонт, связаться с ремонтной компанией" />
         <link rel="canonical" href="https://spb-dsremont.ru/contacts" />
         <meta property="og:title" content="Контакты SPB-DSRemont - Свяжитесь с нами" />
@@ -74,8 +74,8 @@ const Contacts = () => {
             "mainEntity": {
               "@type": "LocalBusiness",
               "name": "SPB-DSRemont",
-              "telephone": "+7 915 220-55-56",
-              "email": "info@remont-spb.ru",
+              "telephone": "+7 812 209-98-85",
+              "email": "digitalstroy@inbox.ru",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Санкт-Петербург",
@@ -164,7 +164,7 @@ const Contacts = () => {
             <Button 
               size="lg"
               className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-6 h-auto shadow-lg hover:shadow-xl transition-all duration-300 hover-scale"
-              onClick={() => window.open('https://wa.me/79152205556', '_blank')}
+              onClick={() => window.open('https://wa.me/79111110126', '_blank')}
             >
               <MessageCircle className="mr-2 h-5 w-5" />
               WhatsApp
@@ -172,7 +172,7 @@ const Contacts = () => {
             <Button 
               size="lg"
               className="bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 text-white px-8 py-6 h-auto shadow-lg hover:shadow-xl transition-all duration-300 hover-scale"
-              onClick={() => window.open('https://t.me/spbdsremont', '_blank')}
+              onClick={() => window.open('https://t.me/+79111110126', '_blank')}
             >
               <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 0C5.374 0 0 5.373 0 12s5.374 12 12 12 12-5.373 12-12S18.626 0 12 0zm5.568 8.16c-.169 1.858-.896 6.728-.896 6.728-.162 1.684-.602 1.984-1.025 1.984-.896 0-1.745-.538-2.711-1.077-1.018-.566-1.554-.9-2.421-1.455-.994-.636-.362-1.04.24-1.635.158-.155 2.836-2.575 2.888-2.79.006-.027.01-.123-.05-.175-.061-.052-.146-.033-.21-.02-.09.019-1.474.933-4.16 2.74-.394.267-.739.396-1.037.388-.341-.009-1.023-.192-1.52-.35-.61-.193-.94-.295-.905-.623.018-.17.211-.342.579-.516 2.362-1.02 3.937-1.697 4.725-2.03 2.249-.973 2.715-1.143 3.019-1.148.067-.001.218.015.315.09.08.062.102.144.112.202.01.058.023.19.013.294z"/>
