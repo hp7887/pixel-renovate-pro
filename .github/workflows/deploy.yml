@@ -1,34 +1,36 @@
-name: Deploy Vite site to GitHub Pages
+name: Build and deploy to REG.RU (FTP)
 
 on:
   push:
-    branches: [main]   # если главная ветка у тебя другая (например master) — замени
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+    branches: [ main ]  # Автодеплой при каждом пуше в main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
-      - run: npm ci
-      - run: npm run build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3   # 🔹 заменили на актуальное
-        with:
-          path: ./dist
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4   # 🔹 тоже свежая версия
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy via FTP to REG.RU
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          local-dir: build/
+          protocol: ftp
+          log-level: standard
+          timeout: 120000
