@@ -49,7 +49,7 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
     }
 
     // Формируем текст сообщения для Telegram
-    const messageText = `🔔 Новая заявка с сайта!\n\n👤 Имя: ${name}\n📱 Телефон: ${phone}\n📅 Начало ремонта: ${startTime}\n📐 Площадь: ${area} м²${message ? `\n💬 Комментарий: ${message}` : ''}`;
+    const messageText = `🔔 Новая заявка с сайта!\n\n👤 Имя: ${name}\n📱 Телефон: ${phone}\n📅 Начало ремонта: ${startTime}\n📐 Площадь: ${area}${message ? `\n💬 Комментарий: ${message}` : ''}`;
     
     const TELEGRAM_BOT_TOKEN = '8299135792:AAFlefFNow9bYCvqitTWLPGmotFci0afunE';
     const TELEGRAM_CHAT_ID = '1945915642';
@@ -133,21 +133,23 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
                 <SelectItem value="неделя">В течение недели</SelectItem>
                 <SelectItem value="2 недели">В течение 2 недель</SelectItem>
                 <SelectItem value="месяц">В течение месяца</SelectItem>
+                <SelectItem value="не решил">Еще не решил</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="area">Площадь ремонта (м²) *</Label>
-            <Input
-              id="area"
-              type="number"
-              placeholder="50"
-              value={area}
-              onChange={(e) => setArea(e.target.value)}
-              required
-              min="1"
-            />
+            <Select value={area} onValueChange={setArea} required>
+              <SelectTrigger id="area">
+                <SelectValue placeholder="Выберите площадь" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="30-50">От 30 до 50 м²</SelectItem>
+                <SelectItem value="50-75">От 50 до 75 м²</SelectItem>
+                <SelectItem value="75-100">От 75 до 100 м²</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
 
           <div className="space-y-2">
