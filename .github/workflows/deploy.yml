@@ -1,29 +1,44 @@
-name: Build and deploy to REG.RU (FTP)
+name: Build and Deploy to REG.RU via FTP
 
 on:
   push:
-    branches: [ main ]  # Автодеплой при каждом пуше в main
+    branches:
+      - main  # деплой запускается при пуше в ветку main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Клонируем репозиторий
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
+      # 2. Устанавливаем Node.js
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: 18
 
+      # 3. Устанавливаем зависимости
       - name: Install dependencies
         run: npm ci
 
+      # 4. Собираем проект
       - name: Build project
         run: npm run build
 
-      - name: Deploy via FTP to REG.RU
+      # 5. Проверяем, что сборка действительно создалась
+      - name: Verify build output
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "❌ Build folder 'dist' not found. Check build script."
+            exit 1
+          fi
+          echo "✅ Build folder found. Proceeding to deploy."
+
+      # 6. Деплой на REG.RU по FTP
+      - name: Deploy to REG.RU via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: ${{ secrets.FTP_HOST }}
@@ -31,6 +46,8 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ secrets.FTP_SERVER_DIR }}
           local-dir: dist/
-          protocol: ftp
-          log-level: standard
-          timeout: 120000
+          dangerous-clean-slate: true  # удаляет старые файлы перед загрузкой
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
