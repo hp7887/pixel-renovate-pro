@@ -5,8 +5,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Phone, Mail, MessageSquare } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import { formatPhoneNumber } from "@/lib/utils";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 interface ContactDialogProps {
   open: boolean;
@@ -17,6 +18,8 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("+7 ");
   const [message, setMessage] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [area, setArea] = useState("");
   const { toast } = useToast();
 
   // Инициализируем телефон с +7 при открытии
@@ -34,52 +37,47 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Убираем форматирование для валидации
     const cleanPhone = phone.replace(/\D/g, '');
     
-    if (!name || cleanPhone.length < 11) {
+    if (!name || cleanPhone.length < 11 || !startTime || !area) {
       toast({
         title: "Заполните обязательные поля",
-        description: "Имя и корректный номер телефона обязательны для заполнения",
+        description: "Все поля обязательны для заполнения",
         variant: "destructive",
       });
       return;
     }
 
-    // Формируем текст сообщения
-    const messageText = `🔔 Новая заявка с сайта!\n\n👤 Имя: ${name}\n📱 Телефон: ${phone}${message ? `\n💬 Комментарий: ${message}` : ''}`;
+    // Формируем текст сообщения для Telegram
+    const messageText = `🔔 Новая заявка с сайта!\n\n👤 Имя: ${name}\n📱 Телефон: ${phone}\n📅 Начало ремонта: ${startTime}\n📐 Площадь: ${area} м²${message ? `\n💬 Комментарий: ${message}` : ''}`;
     
-    // Telegram Bot настройки (нужно добавить свои данные)
-    const TELEGRAM_BOT_TOKEN = '7967526827:AAEa3bOkxiMlPxSGDnCbfg2wZrfLbjfNwcI';
-    const TELEGRAM_CHAT_ID = '559990492';
+    const TELEGRAM_BOT_TOKEN = '8299135792:AAFlefFNow9bYCvqitTWLPGmotFci0afunE';
+    const TELEGRAM_CHAT_ID = '1945915642';
     
     try {
-      // Отправка в Telegram
-      if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
-        await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            chat_id: TELEGRAM_CHAT_ID,
-            text: messageText,
-            parse_mode: 'HTML'
-          })
-        });
+      const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text: messageText,
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Ошибка отправки в Telegram');
       }
 
-      // Дублируем в WhatsApp
-      const whatsappNumber = '79111110126';
-      const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(messageText)}`;
-      window.open(whatsappUrl, '_blank');
-
       toast({
-        title: "Заявка отправлена!",
+        title: "Заявка успешно отправлена!",
         description: "Наш менеджер свяжется с вами в ближайшее время",
       });
 
       setName("");
       setPhone("+7 ");
       setMessage("");
+      setStartTime("");
+      setArea("");
       onOpenChange(false);
     } catch (error) {
       console.error('Ошибка отправки:', error);
@@ -126,13 +124,40 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
           </div>
 
           <div className="space-y-2">
+            <Label htmlFor="startTime">Когда планируете начать ремонт? *</Label>
+            <Select value={startTime} onValueChange={setStartTime} required>
+              <SelectTrigger id="startTime">
+                <SelectValue placeholder="Выберите срок" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="неделя">В течение недели</SelectItem>
+                <SelectItem value="2 недели">В течение 2 недель</SelectItem>
+                <SelectItem value="месяц">В течение месяца</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="area">Площадь ремонта (м²) *</Label>
+            <Input
+              id="area"
+              type="number"
+              placeholder="50"
+              value={area}
+              onChange={(e) => setArea(e.target.value)}
+              required
+              min="1"
+            />
+          </div>
+
+          <div className="space-y-2">
             <Label htmlFor="message">Комментарий (необязательно)</Label>
             <Textarea
               id="message"
               placeholder="Расскажите о вашем проекте..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              rows={4}
+              rows={3}
             />
           </div>
 
