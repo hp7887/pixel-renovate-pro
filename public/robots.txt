@@ -1,6 +1,9 @@
 User-agent: Googlebot
 Allow: /
 
+User-agent: Yandex
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 
@@ -11,4 +14,9 @@ User-agent: facebookexternalhit
 Allow: /
 
 User-agent: *
+Disallow: /admin
+Disallow: /login
 Allow: /
+
+Sitemap: https://spb-dsremont.ru/sitemap.xml
+Host: spb-dsremont.ru
