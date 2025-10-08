@@ -199,7 +199,7 @@ const MajorRepair = () => {
 
             <section className="bg-gradient-to-br from-cyan-50 to-blue-50 p-8 rounded-3xl shadow-lg">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Этапы капитального ремонта</h2>
-              <div className="relative space-y-8 before:absolute before:left-6 before:top-0 before:bottom-0 before:w-0.5 before:bg-cyan-200 md:before:left-1/2 md:before:-translate-x-1/2">
+              <div className="relative space-y-8">
                 {[
                   { title: "Замер и проектирование", desc: "Выезд инженера, составление проекта и сметы" },
                   { title: "Демонтажные работы", desc: "Снос перегородок, демонтаж старых покрытий" },
