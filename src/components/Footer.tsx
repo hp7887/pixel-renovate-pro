@@ -48,7 +48,7 @@ const Footer = () => {
                 <li><Link to="/services/major-repair" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Капитальный ремонт</Link></li>
                 <li><Link to="/services/interior-design" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Дизайн интерьера</Link></li>
                 <li><Link to="/services/bathroom-repair" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Ремонт ванных комнат</Link></li>
-                <li><Link to="/portfolio" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Ремонт кухни</Link></li>
+                <li><Link to="/services/kitchen-repair" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Ремонт кухни</Link></li>
                 <li><Link to="/services/electrical-work" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Электромонтажные работы</Link></li>
               </ul>
             </div>

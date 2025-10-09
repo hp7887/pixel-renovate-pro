@@ -18,6 +18,7 @@ import MajorRepair from "./pages/Services/MajorRepair";
 import InteriorDesign from "./pages/Services/InteriorDesign";
 import BathroomRepair from "./pages/Services/BathroomRepair";
 import ElectricalWork from "./pages/Services/ElectricalWork";
+import KitchenRepair from "./pages/Services/KitchenRepair";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -44,6 +45,7 @@ const App = () => (
           <Route path="/services/interior-design" element={<InteriorDesign />} />
           <Route path="/services/bathroom-repair" element={<BathroomRepair />} />
           <Route path="/services/electrical-work" element={<ElectricalWork />} />
+          <Route path="/services/kitchen-repair" element={<KitchenRepair />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
