@@ -20,6 +20,7 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
   const [message, setMessage] = useState("");
   const [startTime, setStartTime] = useState("");
   const [area, setArea] = useState("");
+  const [hasProject, setHasProject] = useState("");
   const { toast } = useToast();
 
   // Инициализируем телефон с +7 при открытии
@@ -39,7 +40,7 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
     
     const cleanPhone = phone.replace(/\D/g, '');
     
-    if (!name || cleanPhone.length < 11 || !startTime || !area) {
+    if (!name || cleanPhone.length < 11 || !startTime || !area || !hasProject) {
       toast({
         title: "Заполните обязательные поля",
         description: "Все поля обязательны для заполнения",
@@ -49,7 +50,7 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
     }
 
     // Формируем текст сообщения для Telegram
-    const messageText = `🔔 Новая заявка с сайта!\n\n👤 Имя: ${name}\n📱 Телефон: ${phone}\n📅 Начало ремонта: ${startTime}\n📐 Площадь: ${area}${message ? `\n💬 Комментарий: ${message}` : ''}`;
+    const messageText = `🔔 Новая заявка с сайта!\n\n👤 Имя: ${name}\n📱 Телефон: ${phone}\n📅 Начало ремонта: ${startTime}\n📐 Площадь: ${area}\n📋 Есть проект: ${hasProject}${message ? `\n💬 Комментарий: ${message}` : ''}`;
     
     const TELEGRAM_BOT_TOKEN = '8299135792:AAFlefFNow9bYCvqitTWLPGmotFci0afunE';
     const TELEGRAM_CHAT_ID = '1945915642';
@@ -78,6 +79,7 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
       setMessage("");
       setStartTime("");
       setArea("");
+      setHasProject("");
       onOpenChange(false);
     } catch (error) {
       console.error('Ошибка отправки:', error);
@@ -148,6 +150,19 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
                 <SelectItem value="30-50">От 30 до 50 м²</SelectItem>
                 <SelectItem value="50-75">От 50 до 75 м²</SelectItem>
                 <SelectItem value="75-100">От 75 до 100 м²</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="hasProject">Есть ли проект? *</Label>
+            <Select value={hasProject} onValueChange={setHasProject} required>
+              <SelectTrigger id="hasProject">
+                <SelectValue placeholder="Выберите вариант" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="да">Да, есть</SelectItem>
+                <SelectItem value="нет">Нет</SelectItem>
               </SelectContent>
             </Select>
           </div>

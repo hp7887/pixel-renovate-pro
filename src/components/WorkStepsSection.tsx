@@ -3,7 +3,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { FileText, Ruler, Calculator, Users, Palette, FileCheck, CheckCircle, Hammer, Home } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import workCalculation from "@/assets/work-calculation.jpg";
+import workCalculation from "@/assets/work-calculation-new.jpg";
 import workDesign from "@/assets/work-design.jpg";
 import workRenovation from "@/assets/work-renovation-new.jpg";
 
