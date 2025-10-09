@@ -2,11 +2,7 @@
   RewriteEngine On
   RewriteBase /
 
-  # 🔒 Перенаправление с HTTP на HTTPS (только если не HTTPS)
-  RewriteCond %{HTTPS} !=on
-  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-  # ⚙️ Основные правила для SPA / одностраничных приложений
+  # ⚙️ Основные правила для SPA / фронтенда
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^ index.html [L]
