@@ -13,6 +13,10 @@ import Contacts from "./pages/Contacts";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Careers from "./pages/Careers";
+import Blog from "./pages/Blog";
+import HowToChooseMaterials from "./pages/Blog/HowToChooseMaterials";
+import BathroomMistakes from "./pages/Blog/BathroomMistakes";
+import DesignTrends2025 from "./pages/Blog/DesignTrends2025";
 import CosmeticRepair from "./pages/Services/CosmeticRepair";
 import MajorRepair from "./pages/Services/MajorRepair";
 import InteriorDesign from "./pages/Services/InteriorDesign";
@@ -40,6 +44,10 @@ const App = () => (
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/careers" element={<Careers />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/kak-vybrat-materialy-dlya-remonta" element={<HowToChooseMaterials />} />
+          <Route path="/blog/oshibki-pri-remonte-vannoy" element={<BathroomMistakes />} />
+          <Route path="/blog/trendy-dizayna-interera-2025" element={<DesignTrends2025 />} />
           <Route path="/services/cosmetic-repair" element={<CosmeticRepair />} />
           <Route path="/services/major-repair" element={<MajorRepair />} />
           <Route path="/services/interior-design" element={<InteriorDesign />} />
