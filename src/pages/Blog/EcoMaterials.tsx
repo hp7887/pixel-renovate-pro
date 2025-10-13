@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Leaf } from "lucide-react";
 import { Link } from "react-router-dom";
 import LazyImage from "@/components/LazyImage";
-import designProcess from "@/assets/design-process.jpg";
+import blogEcoMaterials from "@/assets/blog-eco-materials.jpg";
 
 const EcoMaterials = () => {
   return (
@@ -40,8 +40,8 @@ const EcoMaterials = () => {
             </div>
             
             <LazyImage
-              src={designProcess}
-              alt="Экологичные материалы для ремонта"
+              src={blogEcoMaterials}
+              alt="Экологичные и натуральные материалы для безопасного ремонта"
               className="w-full h-[400px] object-cover rounded-2xl mb-8"
             />
             

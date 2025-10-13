@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, AlertTriangle } from "lucide-react";
 import { Link } from "react-router-dom";
 import LazyImage from "@/components/LazyImage";
-import cosmeticRepairProcess from "@/assets/cosmetic-repair-process.jpg";
+import blogRenovationPitfalls from "@/assets/blog-renovation-pitfalls.jpg";
 
 const RepairPitfalls = () => {
   return (
@@ -68,8 +68,8 @@ const RepairPitfalls = () => {
             </div>
             
             <LazyImage
-              src={cosmeticRepairProcess}
-              alt="Подводные камни при ремонте квартиры"
+              src={blogRenovationPitfalls}
+              alt="Профессиональная проверка квартиры перед ремонтом"
               className="w-full h-[400px] object-cover rounded-2xl mb-8"
             />
             

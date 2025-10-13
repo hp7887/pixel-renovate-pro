@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, DollarSign, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import LazyImage from "@/components/LazyImage";
-import renovationProcess from "@/assets/renovation-process.jpg";
+import blogBudgetPlanning from "@/assets/blog-budget-planning.jpg";
 
 const RenovationBudget = () => {
   return (
@@ -68,8 +68,8 @@ const RenovationBudget = () => {
             </div>
             
             <LazyImage
-              src={renovationProcess}
-              alt="Расчет бюджета на ремонт квартиры"
+              src={blogBudgetPlanning}
+              alt="Планирование бюджета на ремонт квартиры"
               className="w-full h-[400px] object-cover rounded-2xl mb-8"
             />
             
