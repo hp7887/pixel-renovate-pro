@@ -17,6 +17,12 @@ import Blog from "./pages/Blog";
 import HowToChooseMaterials from "./pages/Blog/HowToChooseMaterials";
 import BathroomMistakes from "./pages/Blog/BathroomMistakes";
 import DesignTrends2025 from "./pages/Blog/DesignTrends2025";
+import RenovationBudget from "./pages/Blog/RenovationBudget";
+import RepairPitfalls from "./pages/Blog/RepairPitfalls";
+import EcoMaterials from "./pages/Blog/EcoMaterials";
+import RoomPlanning from "./pages/Blog/RoomPlanning";
+import SmartHome from "./pages/Blog/SmartHome";
+import KitchenRenovation from "./pages/Blog/KitchenRenovation";
 import CosmeticRepair from "./pages/Services/CosmeticRepair";
 import MajorRepair from "./pages/Services/MajorRepair";
 import InteriorDesign from "./pages/Services/InteriorDesign";
@@ -48,6 +54,12 @@ const App = () => (
           <Route path="/blog/kak-vybrat-materialy-dlya-remonta" element={<HowToChooseMaterials />} />
           <Route path="/blog/oshibki-pri-remonte-vannoy" element={<BathroomMistakes />} />
           <Route path="/blog/trendy-dizayna-interera-2025" element={<DesignTrends2025 />} />
+          <Route path="/blog/raschet-byudzheta-na-remont" element={<RenovationBudget />} />
+          <Route path="/blog/podvodnye-kamni-remonta" element={<RepairPitfalls />} />
+          <Route path="/blog/ekologichnye-materialy" element={<EcoMaterials />} />
+          <Route path="/blog/planirovka-pomeshcheniy" element={<RoomPlanning />} />
+          <Route path="/blog/umnyy-dom" element={<SmartHome />} />
+          <Route path="/blog/remont-kuhni" element={<KitchenRenovation />} />
           <Route path="/services/cosmetic-repair" element={<CosmeticRepair />} />
           <Route path="/services/major-repair" element={<MajorRepair />} />
           <Route path="/services/interior-design" element={<InteriorDesign />} />
