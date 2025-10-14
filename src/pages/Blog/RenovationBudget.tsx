@@ -20,12 +20,12 @@ const RenovationBudget = () => {
         <meta property="og:description" content="Подробная инструкция по расчету бюджета на ремонт квартиры: статьи расходов, средние цены на материалы и работы, способы экономии без потери качества." />
         <meta property="og:url" content="https://spb-dsremont.ru/blog/raschet-byudzheta-na-remont" />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content={renovationProcess} />
+        <meta property="og:image" content={blogBudgetPlanning} />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Как рассчитать бюджет на ремонт квартиры в 2025 году | SPB-DSRemont" />
         <meta name="twitter:description" content="Подробная инструкция по расчету бюджета на ремонт квартиры: статьи расходов, средние цены на материалы и работы, способы экономии без потери качества." />
-        <meta name="twitter:image" content={renovationProcess} />
+        <meta name="twitter:image" content={blogBudgetPlanning} />
         
         <script type="application/ld+json">
           {JSON.stringify({
@@ -45,7 +45,7 @@ const RenovationBudget = () => {
                 "url": "https://spb-dsremont.ru/logo.png"
               }
             },
-            "image": renovationProcess
+            "image": blogBudgetPlanning
           })}
         </script>
       </Helmet>

@@ -20,12 +20,12 @@ const RepairPitfalls = () => {
         <meta property="og:description" content="Скрытые проблемы при ремонте квартиры: от старой проводки до проблем с соседями. Как выявить риски заранее и избежать неприятных сюрпризов." />
         <meta property="og:url" content="https://spb-dsremont.ru/blog/podvodnye-kamni-remonta" />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content={cosmeticRepairProcess} />
+        <meta property="og:image" content={blogRenovationPitfalls} />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Подводные камни ремонта: чего ожидать и как подготовиться | SPB-DSRemont" />
         <meta name="twitter:description" content="Скрытые проблемы при ремонте квартиры: от старой проводки до проблем с соседями. Как выявить риски заранее и избежать неприятных сюрпризов." />
-        <meta name="twitter:image" content={cosmeticRepairProcess} />
+        <meta name="twitter:image" content={blogRenovationPitfalls} />
         
         <script type="application/ld+json">
           {JSON.stringify({
@@ -45,7 +45,7 @@ const RepairPitfalls = () => {
                 "url": "https://spb-dsremont.ru/logo.png"
               }
             },
-            "image": cosmeticRepairProcess
+            "image": blogRenovationPitfalls
           })}
         </script>
       </Helmet>
