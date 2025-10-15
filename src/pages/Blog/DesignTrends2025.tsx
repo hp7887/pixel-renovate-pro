@@ -5,8 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import LazyImage from "@/components/LazyImage";
-import designStudio from "@/assets/design-studio.jpg";
-import { motion } from "framer-motion";
+import blogDesignTrends from "@/assets/blog-design-trends.jpg";
 
 const DesignTrends2025 = () => {
   const trends = [
@@ -103,7 +102,7 @@ const DesignTrends2025 = () => {
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <LazyImage
-          src={designStudio}
+          src={blogDesignTrends}
           alt="Современный дизайн интерьера 2025"
           className="w-full h-[450px] object-cover brightness-75"
         />
@@ -128,12 +127,7 @@ const DesignTrends2025 = () => {
             Вернуться к статьям
           </Link>
 
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="prose prose-lg max-w-none"
-          >
+          <div className="prose prose-lg max-w-none">
             <p className="text-xl text-gray-700 leading-relaxed mb-10">
               2025 год приносит новые акценты в интерьерный дизайн: сочетание природных материалов,
               мягких форм и технологий. Мы собрали <strong>10 ключевых трендов</strong>, которые помогут
@@ -142,12 +136,8 @@ const DesignTrends2025 = () => {
 
             <div className="space-y-10">
               {trends.map((trend, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                  viewport={{ once: true }}
                   className="p-6 bg-white shadow-md rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow duration-300"
                 >
                   <div className="flex items-start gap-3 mb-3">
@@ -165,7 +155,7 @@ const DesignTrends2025 = () => {
                     </p>
                     <p className="text-blue-800">{trend.tips}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
 
@@ -220,7 +210,7 @@ const DesignTrends2025 = () => {
                 Бесплатная консультация дизайнера в Санкт-Петербурге
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </article>
 

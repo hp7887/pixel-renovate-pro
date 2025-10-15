@@ -7,8 +7,10 @@ import projectModern1 from "@/assets/project-modern-1.jpg";
 import projectKitchen2 from "@/assets/project-kitchen-2.jpg";
 import projectBedroom3 from "@/assets/project-bedroom-3.jpg";
 import projectBathroom4 from "@/assets/project-bathroom-4.jpg";
-import projectOffice5 from "@/assets/project-office-5.jpg";
 import projectLoft6 from "@/assets/project-loft-6.jpg";
+import projectScandinavian7 from "@/assets/project-scandinavian-living.jpg";
+import projectMasterBedroom8 from "@/assets/project-master-bedroom.jpg";
+import projectDining9 from "@/assets/project-dining-area.jpg";
 
 const projects = [
   {
@@ -49,21 +51,39 @@ const projects = [
   },
   {
     id: 5,
-    image: projectOffice5,
-    title: "Офисное пространство",
-    area: "120 м²",
-    type: "Коммерческий ремонт",
-    description: "Современный офис с open space зонами, переговорными комнатами и зоной отдыха. Стеклянные перегородки, эргономичная мебель, система кондиционирования.",
-    year: "2023"
-  },
-  {
-    id: 6,
     image: projectLoft6,
     title: "Лофт в историческом здании",
     area: "95 м²",
     type: "Дизайнерский ремонт",
     description: "Квартира-студия в индустриальном стиле с сохранением исторических элементов. Кирпичная кладка, высокие потолки, панорамные окна, авторский дизайн.",
     year: "2022"
+  },
+  {
+    id: 6,
+    image: projectScandinavian7,
+    title: "Квартира в скандинавском стиле",
+    area: "72 м²",
+    type: "Дизайнерский ремонт",
+    description: "Светлая современная квартира с минималистичным дизайном. Натуральные материалы, светлые тона, функциональная планировка, максимум естественного света.",
+    year: "2024"
+  },
+  {
+    id: 7,
+    image: projectMasterBedroom8,
+    title: "Премиальная квартира с видом",
+    area: "110 м²",
+    type: "Капитальный ремонт",
+    description: "Роскошная квартира с панорамным остеклением. Мастер-спальня с гардеробной, умный дом, премиальная отделка, встроенная техника и мебель.",
+    year: "2024"
+  },
+  {
+    id: 8,
+    image: projectDining9,
+    title: "Квартира с дизайнерским интерьером",
+    area: "88 м²",
+    type: "Дизайнерский ремонт",
+    description: "Современная квартира с элегантным интерьером. Стильная столовая зона, дизайнерское освещение, premium мебель, гармоничное сочетание цветов и текстур.",
+    year: "2024"
   }
 ];
 
