@@ -5,9 +5,15 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Clock, ArrowRight } from "lucide-react";
 import LazyImage from "@/components/LazyImage";
-import majorRepairHero from "@/assets/major-repair-hero.jpg";
-import bathroomWork from "@/assets/bathroom-work.jpg";
-import designStudio from "@/assets/design-studio.jpg";
+import blogKitchenRenovation from "@/assets/blog-kitchen-renovation.jpg";
+import blogSmartHome from "@/assets/blog-smart-home.jpg";
+import blogRoomPlanning from "@/assets/blog-room-planning.jpg";
+import blogEcoMaterials from "@/assets/blog-eco-materials.jpg";
+import blogRenovationPitfalls from "@/assets/blog-renovation-pitfalls.jpg";
+import blogBudgetPlanning from "@/assets/blog-budget-planning.jpg";
+import blogMaterialsChoice from "@/assets/blog-materials-choice.jpg";
+import blogBathroomRenovation from "@/assets/blog-bathroom-renovation.jpg";
+import blogDesignTrends from "@/assets/blog-design-trends.jpg";
 
 const articles = [
   {
@@ -15,7 +21,7 @@ const articles = [
     slug: "remont-kuhni",
     title: "Ремонт кухни: пошаговое руководство от планировки до финиша",
     excerpt: "Полное руководство по ремонту кухни: планировка, выбор материалов, последовательность работ, типичные ошибки. Создайте функциональную и красивую кухню.",
-    image: bathroomWork,
+    image: blogKitchenRenovation,
     date: "10 февраля 2025",
     readTime: "14 мин"
   },
@@ -24,7 +30,7 @@ const articles = [
     slug: "umnyy-dom",
     title: "Умный дом: с чего начать и как не переплатить в 2025 году",
     excerpt: "Полное руководство по внедрению системы умный дом: умное освещение, климат-контроль, безопасность, автоматизация. Обзор лучших систем и цены.",
-    image: designStudio,
+    image: blogSmartHome,
     date: "5 февраля 2025",
     readTime: "13 мин"
   },
@@ -33,7 +39,7 @@ const articles = [
     slug: "planirovka-pomeshcheniy",
     title: "Планировка помещений при ремонте: как правильно организовать пространство",
     excerpt: "Профессиональное руководство по планировке: зонирование, эргономика, оптимизация пространства. Создайте функциональный и удобный интерьер.",
-    image: majorRepairHero,
+    image: blogRoomPlanning,
     date: "1 февраля 2025",
     readTime: "11 мин"
   },
@@ -42,7 +48,7 @@ const articles = [
     slug: "ekologichnye-materialy",
     title: "Экологичные материалы для ремонта: что выбрать для здоровья",
     excerpt: "Гид по экологичным материалам для ремонта квартиры: натуральные краски, безопасные покрытия, сертификаты качества. Создайте здоровый дом для всей семьи.",
-    image: designStudio,
+    image: blogEcoMaterials,
     date: "28 января 2025",
     readTime: "7 мин"
   },
@@ -51,7 +57,7 @@ const articles = [
     slug: "podvodnye-kamni-remonta",
     title: "Подводные камни ремонта: чего ожидать и как подготовиться",
     excerpt: "Скрытые проблемы при ремонте квартиры: от старой проводки до проблем с соседями. Как выявить риски заранее и избежать неприятных сюрпризов.",
-    image: majorRepairHero,
+    image: blogRenovationPitfalls,
     date: "25 января 2025",
     readTime: "9 мин"
   },
@@ -60,7 +66,7 @@ const articles = [
     slug: "raschet-byudzheta-na-remont",
     title: "Как рассчитать бюджет на ремонт квартиры в 2025 году",
     excerpt: "Подробная инструкция по расчету бюджета на ремонт: статьи расходов, средние цены на материалы и работы, способы экономии без потери качества.",
-    image: bathroomWork,
+    image: blogBudgetPlanning,
     date: "20 января 2025",
     readTime: "12 мин"
   },
@@ -69,7 +75,7 @@ const articles = [
     slug: "kak-vybrat-materialy-dlya-remonta",
     title: "Как правильно выбрать материалы для ремонта квартиры",
     excerpt: "Подробное руководство по выбору качественных материалов для ремонта. Разбираем основные критерии выбора напольных покрытий, обоев, красок и других отделочных материалов.",
-    image: majorRepairHero,
+    image: blogMaterialsChoice,
     date: "15 января 2025",
     readTime: "8 мин"
   },
@@ -78,7 +84,7 @@ const articles = [
     slug: "oshibki-pri-remonte-vannoy",
     title: "10 частых ошибок при ремонте ванной комнаты",
     excerpt: "Узнайте о самых распространенных ошибках, которые допускают при ремонте ванной комнаты, и как их избежать. Практические советы от профессионалов.",
-    image: bathroomWork,
+    image: blogBathroomRenovation,
     date: "10 января 2025",
     readTime: "6 мин"
   },
@@ -87,7 +93,7 @@ const articles = [
     slug: "trendy-dizayna-interera-2025",
     title: "Топ-10 трендов дизайна интерьера в 2025 году",
     excerpt: "Актуальные тренды в дизайне интерьера: от цветовых решений до инновационных материалов. Вдохновляйтесь свежими идеями для вашего ремонта.",
-    image: designStudio,
+    image: blogDesignTrends,
     date: "5 января 2025",
     readTime: "10 мин"
   }
