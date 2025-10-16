@@ -14,10 +14,30 @@ import blogBudgetPlanning from "@/assets/blog-budget-planning.jpg";
 import blogMaterialsChoice from "@/assets/blog-materials-choice.jpg";
 import blogBathroomRenovation from "@/assets/blog-bathroom-renovation.jpg";
 import blogDesignTrends from "@/assets/blog-design-trends.jpg";
+import blogLightingDesign from "@/assets/blog-lighting-design.jpg";
+import blogBalconyRenovation from "@/assets/blog-balcony-renovation.jpg";
 
 const articles = [
   {
     id: 1,
+    slug: "remont-balkona",
+    title: "Ремонт и утепление балкона: превращаем в уютное пространство",
+    excerpt: "Балкон может стать полноценной комнатой, кабинетом или зоной отдыха. Рассказываем, как правильно провести ремонт и утепление балкона с максимальной пользой.",
+    image: blogBalconyRenovation,
+    date: "20 февраля 2025",
+    readTime: "12 мин"
+  },
+  {
+    id: 2,
+    slug: "osveshchenie-v-kvartire",
+    title: "Освещение в квартире: как создать идеальный световой дизайн",
+    excerpt: "Правильное освещение способно полностью преобразить пространство. Разбираем все тонкости светового дизайна от основ до современных технологий.",
+    image: blogLightingDesign,
+    date: "15 февраля 2025",
+    readTime: "15 мин"
+  },
+  {
+    id: 3,
     slug: "remont-kuhni",
     title: "Ремонт кухни: пошаговое руководство от планировки до финиша",
     excerpt: "Полное руководство по ремонту кухни: планировка, выбор материалов, последовательность работ, типичные ошибки. Создайте функциональную и красивую кухню.",
@@ -26,7 +46,7 @@ const articles = [
     readTime: "14 мин"
   },
   {
-    id: 2,
+    id: 4,
     slug: "umnyy-dom",
     title: "Умный дом: с чего начать и как не переплатить в 2025 году",
     excerpt: "Полное руководство по внедрению системы умный дом: умное освещение, климат-контроль, безопасность, автоматизация. Обзор лучших систем и цены.",

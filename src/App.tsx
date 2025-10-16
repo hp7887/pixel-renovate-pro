@@ -23,6 +23,8 @@ import EcoMaterials from "./pages/Blog/EcoMaterials";
 import RoomPlanning from "./pages/Blog/RoomPlanning";
 import SmartHome from "./pages/Blog/SmartHome";
 import KitchenRenovation from "./pages/Blog/KitchenRenovation";
+import LightingDesign from "./pages/Blog/LightingDesign";
+import BalconyRenovation from "./pages/Blog/BalconyRenovation";
 import CosmeticRepair from "./pages/Services/CosmeticRepair";
 import MajorRepair from "./pages/Services/MajorRepair";
 import InteriorDesign from "./pages/Services/InteriorDesign";
@@ -60,6 +62,8 @@ const App = () => (
           <Route path="/blog/planirovka-pomeshcheniy" element={<RoomPlanning />} />
           <Route path="/blog/umnyy-dom" element={<SmartHome />} />
           <Route path="/blog/remont-kuhni" element={<KitchenRenovation />} />
+          <Route path="/blog/osveshchenie-v-kvartire" element={<LightingDesign />} />
+          <Route path="/blog/remont-balkona" element={<BalconyRenovation />} />
           <Route path="/services/cosmetic-repair" element={<CosmeticRepair />} />
           <Route path="/services/major-repair" element={<MajorRepair />} />
           <Route path="/services/interior-design" element={<InteriorDesign />} />
