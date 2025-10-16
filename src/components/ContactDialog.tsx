@@ -52,8 +52,9 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
     // Формируем текст сообщения для Telegram
     const messageText = `🔔 Новая заявка с сайта!\n\n👤 Имя: ${name}\n📱 Телефон: ${phone}\n📅 Начало ремонта: ${startTime}\n📐 Площадь: ${area}\n📋 Есть проект: ${hasProject}${message ? `\n💬 Комментарий: ${message}` : ''}`;
     
-    const TELEGRAM_BOT_TOKEN = '8299135792:AAFlefFNow9bYCvqitTWLPGmotFci0afunE';
-    const TELEGRAM_CHAT_ID = '1945915642';
+    // Отправка в Telegram @dsremont_spb
+    const TELEGRAM_BOT_TOKEN = '8118905163:AAErlOJd9KrHFfPSHUIEW-YqQBwdxk3gP1I';
+    const TELEGRAM_CHAT_ID = '@dsremont_spb';
     
     try {
       const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
