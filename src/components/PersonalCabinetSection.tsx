@@ -10,7 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 const cabinetFeatures = [
   {
     icon: Video,
-    title: "Видеонаблюдение 24/7",
+    title: "Видеонаблюдение онлайн",
     description: "Смотрите процесс ремонта в реальном времени. Камеры установлены во всех комнатах. Записи сохраняются в личном кабинете."
   },
   {

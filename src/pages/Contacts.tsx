@@ -31,8 +31,8 @@ const Contacts = () => {
     {
       icon: Clock,
       title: "График работы",
-      main: "Пн-Вс: 09:00 - 21:00",
-      sub: "Консультации круглосуточно"
+      main: "Пн-Пт: 09:00 - 18:00",
+      sub: "Консультации по телефону"
     }
   ];
 
@@ -49,7 +49,7 @@ const Contacts = () => {
     <main className="min-h-screen">
       <Helmet>
         <title>Контакты SPB-DSRemont - Телефон, адреса офисов в Санкт-Петербурге</title>
-        <meta name="description" content="Контакты компании SPB-DSRemont в Санкт-Петербурге. Телефон: 8 812 209-98-85. Офисы на Невском проспекте и Васильевском острове. Консультации круглосуточно. WhatsApp и Telegram." />
+        <meta name="description" content="Контакты компании SPB-DSRemont в Санкт-Петербурге. Телефон: 8 812 209-98-85. Офисы на Невском проспекте и Васильевском острове. Работаем Пн-Пт: 09:00-18:00. WhatsApp и Telegram." />
         <meta name="keywords" content="контакты ремонт квартир СПб, телефон ремонт, адрес офиса ремонт, связаться с ремонтной компанией" />
         <link rel="canonical" href="https://spb-dsremont.ru/contacts" />
         <meta property="og:title" content="Контакты SPB-DSRemont - Свяжитесь с нами" />

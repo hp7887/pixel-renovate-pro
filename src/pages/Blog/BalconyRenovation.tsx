@@ -424,7 +424,7 @@ const BalconyRenovation = () => {
               <div className="bg-gradient-to-r from-primary to-yellow-500 text-white p-8 rounded-2xl text-center">
                 <h2 className="text-3xl font-bold mb-4">Превратим ваш балкон в уютное пространство</h2>
                 <p className="text-lg mb-6 text-white/90">
-                  Рассчитаем стоимость, подберем оптимальные материалы и выполним ремонт балкона под ключ с гарантией 3 года
+                  Рассчитаем стоимость, подберем оптимальные материалы и выполним ремонт балкона под ключ с гарантией 1 год
                 </p>
                 <Button 
                   size="lg" 

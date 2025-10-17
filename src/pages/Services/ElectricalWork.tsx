@@ -139,7 +139,7 @@ const ElectricalWork = () => {
                 { title: "Опытные электрики", desc: "Все наши специалисты имеют допуск к электромонтажным работам и опыт более 10 лет" },
                 { title: "Качественные материалы", desc: "Используем только сертифицированную продукцию от ведущих производителей (ABB, Legrand, Schneider Electric)" },
                 { title: "Соблюдение норм", desc: "Работаем строго по ПУЭ (Правила устройства электроустановок) и ГОСТ" },
-                { title: "Гарантия 3 года", desc: "Даем официальную гарантию на все виды электромонтажных работ" }
+                { title: "Гарантия 1 год", desc: "Даем официальную гарантию на все виды электромонтажных работ" }
               ].map((item, index) => (
                 <div key={index} className="bg-white p-6 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300">
                   <h3 className="text-xl font-bold mb-3 text-cyan-600">{item.title}</h3>

@@ -12,18 +12,18 @@ const BathroomRepair = () => {
     <main className="min-h-screen">
       <Helmet>
         <title>Ремонт ванной комнаты под ключ в СПб | SPB-DSRemont</title>
-        <meta name="description" content="Ремонт ванной комнаты и санузла в Санкт-Петербурге: укладка плитки, замена сантехники, гидроизоляция. Гарантия 3 года, фиксированные цены." />
+        <meta name="description" content="Ремонт ванной комнаты и санузла в Санкт-Петербурге: укладка плитки, замена сантехники, гидроизоляция. Гарантия 1 год, фиксированные цены." />
         <meta name="keywords" content="ремонт ванной СПб, ремонт санузла, укладка плитки, замена сантехники, гидроизоляция ванной" />
         <link rel="canonical" href="https://spb-dsremont.ru/services/bathroom-repair" />
         {/* Добавлено для SEO: Open Graph и Twitter Cards */}
         <meta property="og:title" content="Ремонт ванной комнаты под ключ в СПб | SPB-DSRemont" />
-        <meta property="og:description" content="Ремонт ванной комнаты и санузла в Санкт-Петербурге: укладка плитки, замена сантехники, гидроизоляция. Гарантия 3 года, фиксированные цены." />
+        <meta property="og:description" content="Ремонт ванной комнаты и санузла в Санкт-Петербурге: укладка плитки, замена сантехники, гидроизоляция. Гарантия 1 год, фиксированные цены." />
         <meta property="og:url" content="https://spb-dsremont.ru/services/bathroom-repair" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={bathroomRepairHero} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Ремонт ванной комнаты под ключ в СПб | SPB-DSRemont" />
-        <meta name="twitter:description" content="Ремонт ванной комнаты и санузла в Санкт-Петербурге: укладка плитки, замена сантехники, гидроизоляция. Гарантия 3 года, фиксированные цены." />
+        <meta name="twitter:description" content="Ремонт ванной комнаты и санузла в Санкт-Петербурге: укладка плитки, замена сантехники, гидроизоляция. Гарантия 1 год, фиксированные цены." />
         <meta name="twitter:image" content={bathroomRepairHero} />
         {/* Добавлено для SEO: Schema.org JSON-LD */}
         <script type="application/ld+json">
@@ -244,7 +244,7 @@ const BathroomRepair = () => {
                 </details>
                 <details className="bg-white p-4 rounded-lg">
                   <summary className="font-semibold text-gray-900 cursor-pointer">Даете ли гарантию?</summary>
-                  <p className="text-gray-700 mt-2">Да, 3 года на все работы и материалы.</p>
+                  <p className="text-gray-700 mt-2">Да, 1 год на все работы и материалы.</p>
                 </details>
               </div>
             </section>

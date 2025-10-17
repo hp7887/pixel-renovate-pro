@@ -12,17 +12,17 @@ const MajorRepair = () => {
     <main className="min-h-screen bg-gray-50">
       <Helmet>
         <title>Капитальный ремонт квартир в СПб под ключ | SPB-DSRemont</title>
-        <meta name="description" content="Капитальный ремонт квартир в Санкт-Петербурге: полная замена инженерных систем, перепланировка, черновая и чистовая отделка. Гарантия 3 года." />
+        <meta name="description" content="Капитальный ремонт квартир в Санкт-Петербурге: полная замена инженерных систем, перепланировка, черновая и чистовая отделка. Гарантия 1 год." />
         <meta name="keywords" content="капитальный ремонт, ремонт под ключ, перепланировка квартиры, замена проводки, ремонт новостройки СПб" />
         <link rel="canonical" href="https://spb-dsremont.ru/services/major-repair" />
         <meta property="og:title" content="Капитальный ремонт квартир в СПб под ключ | SPB-DSRemont" />
-        <meta property="og:description" content="Капитальный ремонт квартир в Санкт-Петербурге: полная замена инженерных систем, перепланировка, черновая и чистовая отделка. Гарантия 3 года." />
+        <meta property="og:description" content="Капитальный ремонт квартир в Санкт-Петербурге: полная замена инженерных систем, перепланировка, черновая и чистовая отделка. Гарантия 1 год." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://spb-dsremont.ru/services/major-repair" />
         <meta property="og:image" content={majorRepairHero} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Капитальный ремонт квартир в СПб под ключ | SPB-DSRemont" />
-        <meta name="twitter:description" content="Капитальный ремонт квартир в Санкт-Петербурге: полная замена инженерных систем, перепланировка, черновая и чистовая отделка. Гарантия 3 года." />
+        <meta name="twitter:description" content="Капитальный ремонт квартир в Санкт-Петербурге: полная замена инженерных систем, перепланировка, черновая и чистовая отделка. Гарантия 1 год." />
         <meta name="twitter:image" content={majorRepairHero} />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -118,7 +118,7 @@ const MajorRepair = () => {
                 {[
                   { title: "Официальный договор", desc: "Все условия, сроки и гарантии фиксируются в договоре" },
                   { title: "Опытные мастера", desc: "Квалифицированные специалисты с опытом работы от 5 лет" },
-                  { title: "Гарантия 3 года", desc: "Официальная гарантия на все выполненные работы" },
+                  { title: "Гарантия 1 год", desc: "Официальная гарантия на все выполненные работы" },
                   { title: "Контроль онлайн", desc: "Ежедневные фотоотчеты о ходе работ в личном кабинете" }
                 ].map((item, index) => (
                   <div key={index} className="bg-white p-6 rounded-xl shadow-md">

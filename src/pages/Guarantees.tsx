@@ -7,8 +7,8 @@ const Guarantees = () => {
   const guarantees = [
     {
       icon: Shield,
-      title: "Гарантия на работы - 3 года",
-      description: "Мы уверены в качестве нашей работы и предоставляем гарантию на все виды выполненных работ. В течение 3 лет мы бесплатно устраним любые дефекты, возникшие по нашей вине."
+      title: "Гарантия на работы - 1 год",
+      description: "Мы уверены в качестве нашей работы и предоставляем гарантию на все виды выполненных работ. В течение года мы бесплатно устраним любые дефекты, возникшие по нашей вине."
     },
     {
       icon: FileText,
@@ -53,18 +53,18 @@ const Guarantees = () => {
   return (
     <main className="min-h-screen">
       <Helmet>
-        <title>Гарантии на ремонт квартир SPB-DSRemont | Гарантия 3 года на все работы</title>
-        <meta name="description" content="Официальная гарантия 3 года на все виды ремонтных работ. Договор с фиксированными сроками. Полная ответственность за результат." />
+        <title>Гарантии на ремонт квартир SPB-DSRemont | Гарантия 1 год на все работы</title>
+        <meta name="description" content="Официальная гарантия 1 год на все виды ремонтных работ. Договор с фиксированными сроками. Полная ответственность за результат." />
         <meta name="keywords" content="гарантия на ремонт квартиры, гарантия ремонт СПб, договор ремонт, гарантийные обязательства" />
         <link rel="canonical" href="https://spb-dsremont.ru/guarantees" />
-        <meta property="og:title" content="Гарантии SPB-DSRemont - 3 года на все работы" />
-        <meta property="og:description" content="Комплексные гарантии на ремонт: 3 года на работы, официальный договор." />
+        <meta property="og:title" content="Гарантии SPB-DSRemont - 1 год на все работы" />
+        <meta property="og:description" content="Комплексные гарантии на ремонт: 1 год на работы, официальный договор." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://spb-dsremont.ru/guarantees" />
         <meta property="og:image" content="https://spb-dsremont.ru/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Гарантии SPB-DSRemont - 3 года на все работы" />
-        <meta name="twitter:description" content="Комплексные гарантии на ремонт: 3 года на работы, официальный договор." />
+        <meta name="twitter:title" content="Гарантии SPB-DSRemont - 1 год на все работы" />
+        <meta name="twitter:description" content="Комплексные гарантии на ремонт: 1 год на работы, официальный договор." />
         <meta name="twitter:image" content="https://spb-dsremont.ru/og-image.jpg" />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -79,7 +79,7 @@ const Guarantees = () => {
               "@type": "WarrantyPromise",
               "durationOfWarranty": {
                 "@type": "QuantitativeValue",
-                "value": "3",
+                "value": "1",
                 "unitCode": "ANN"
               }
             }

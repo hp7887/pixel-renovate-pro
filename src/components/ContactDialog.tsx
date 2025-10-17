@@ -54,7 +54,7 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
     
     // Отправка в Telegram @dsremont_spb
     const TELEGRAM_BOT_TOKEN = '8118905163:AAErlOJd9KrHFfPSHUIEW-YqQBwdxk3gP1I';
-    const TELEGRAM_CHAT_ID = '@dsremont_spb';
+    const TELEGRAM_CHAT_ID = '1191074418'; // ID чата вместо username для надежности
     
     try {
       const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {

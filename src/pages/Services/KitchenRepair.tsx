@@ -11,13 +11,13 @@ const KitchenRepair = () => {
     <main className="min-h-screen">
       <Helmet>
         <title>Ремонт кухни под ключ в СПб - Цены, Фото, Гарантия | SPB-DSRemont</title>
-        <meta name="description" content="Профессиональный ремонт кухни в Санкт-Петербурге под ключ. Укладка плитки, установка кухонного гарнитура, замена коммуникаций. Цены от 15 000 ₽/м². Гарантия 3 года." />
+        <meta name="description" content="Профессиональный ремонт кухни в Санкт-Петербурге под ключ. Укладка плитки, установка кухонного гарнитура, замена коммуникаций. Цены от 15 000 ₽/м². Гарантия 1 год." />
         <meta name="keywords" content="ремонт кухни СПб, ремонт кухни под ключ, укладка плитки на кухне, установка кухонного гарнитура, ремонт кухни цена" />
         <link rel="canonical" href="https://spb-dsremont.ru/services/kitchen-repair" />
         
         {/* Open Graph */}
         <meta property="og:title" content="Ремонт кухни под ключ в СПб - Цены, Фото, Гарантия | SPB-DSRemont" />
-        <meta property="og:description" content="Профессиональный ремонт кухни в Санкт-Петербурге под ключ. Укладка плитки, установка кухонного гарнитура, замена коммуникаций. Цены от 15 000 ₽/м². Гарантия 3 года." />
+        <meta property="og:description" content="Профессиональный ремонт кухни в Санкт-Петербурге под ключ. Укладка плитки, установка кухонного гарнитура, замена коммуникаций. Цены от 15 000 ₽/м². Гарантия 1 год." />
         <meta property="og:url" content="https://spb-dsremont.ru/services/kitchen-repair" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={projectKitchen} />
@@ -25,7 +25,7 @@ const KitchenRepair = () => {
         {/* Twitter Cards */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Ремонт кухни под ключ в СПб - Цены, Фото, Гарантия | SPB-DSRemont" />
-        <meta name="twitter:description" content="Профессиональный ремонт кухни в Санкт-Петербурге под ключ. Укладка плитки, установка кухонного гарнитура, замена коммуникаций. Цены от 15 000 ₽/м². Гарантия 3 года." />
+        <meta name="twitter:description" content="Профессиональный ремонт кухни в Санкт-Петербурге под ключ. Укладка плитки, установка кухонного гарнитура, замена коммуникаций. Цены от 15 000 ₽/м². Гарантия 1 год." />
         <meta name="twitter:image" content={projectKitchen} />
         
         {/* Schema.org JSON-LD */}
@@ -84,7 +84,7 @@ const KitchenRepair = () => {
                     Ремонт кухни под ключ в Санкт-Петербурге
                   </h1>
                   <p className="text-xl md:text-2xl text-gray-800 mb-8 leading-relaxed">
-                    Профессиональный ремонт с гарантией 3 года. От планировки до установки техники
+                    Профессиональный ремонт с гарантией 1 год. От планировки до установки техники
                   </p>
                   <Button 
                     size="lg" 

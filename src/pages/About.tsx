@@ -24,7 +24,7 @@ const About = () => {
     },
     {
       icon: Shield,
-      title: "Гарантия 3 года",
+      title: "Гарантия 1 год",
       description: "Предоставляем официальную гарантию на все виды выполненных работ. Бесплатно устраняем любые дефекты в течение гарантийного срока."
     }
   ];
@@ -198,7 +198,7 @@ const About = () => {
             </details>
             <details className="bg-white p-6 rounded-2xl shadow-md">
               <summary className="font-bold text-xl cursor-pointer text-gray-900">Какая гарантия на работы?</summary>
-              <p className="text-gray-700 mt-4">3 года официальной гарантии на все услуги.</p>
+              <p className="text-gray-700 mt-4">1 год официальной гарантии на все услуги.</p>
             </details>
             <details className="bg-white p-6 rounded-2xl shadow-md">
               <summary className="font-bold text-xl cursor-pointer text-gray-900">Как контролировать ремонт?</summary>

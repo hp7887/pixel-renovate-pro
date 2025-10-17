@@ -83,7 +83,7 @@ const Footer = () => {
                     <a href="tel:+78122099885" className="font-medium text-white hover:text-yellow-400 transition-colors text-sm md:text-base">
                       8 812 209-98-85
                     </a>
-                    <div className="text-xs md:text-sm text-gray-400">Звонки принимаем 24/7</div>
+                    <div className="text-xs md:text-sm text-gray-400">Пн-Пт: 09:00 - 18:00</div>
                   </div>
                 </div>
                 
