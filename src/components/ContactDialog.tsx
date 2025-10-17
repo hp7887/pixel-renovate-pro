@@ -8,6 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail } from "lucide-react";
 import { formatPhoneNumber } from "@/lib/utils";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { supabase } from "@/integrations/supabase/client";
 
 interface ContactDialogProps {
   open: boolean;
@@ -49,25 +50,21 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
       return;
     }
 
-    // Формируем текст сообщения для Telegram
-    const messageText = `🔔 Новая заявка с сайта!\n\n👤 Имя: ${name}\n📱 Телефон: ${phone}\n📅 Начало ремонта: ${startTime}\n📐 Площадь: ${area}\n📋 Есть проект: ${hasProject}${message ? `\n💬 Комментарий: ${message}` : ''}`;
-    
-    // Отправка в Telegram @dsremont_spb
-    const TELEGRAM_BOT_TOKEN = '8118905163:AAErlOJd9KrHFfPSHUIEW-YqQBwdxk3gP1I';
-    const TELEGRAM_CHAT_ID = '1191074418'; // ID чата вместо username для надежности
-    
     try {
-      const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: TELEGRAM_CHAT_ID,
-          text: messageText,
-        })
+      const { data, error } = await supabase.functions.invoke('send-telegram-message', {
+        body: {
+          name,
+          phone,
+          startTime,
+          area,
+          hasProject,
+          message
+        }
       });
 
-      if (!response.ok) {
-        throw new Error('Ошибка отправки в Telegram');
+      if (error) {
+        console.error('Error invoking function:', error);
+        throw error;
       }
 
       toast({
