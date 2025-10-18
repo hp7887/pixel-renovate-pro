@@ -20,11 +20,11 @@ const CosmeticRepair = () => {
         <meta property="og:description" content="Косметический ремонт квартир в Санкт-Петербурге: быстро, качественно и недорого. Покраска стен, поклейка обоев, замена напольных покрытий. Гарантия качества." />
         <meta property="og:url" content="https://spb-dsremont.ru/services/cosmetic-repair" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={cosmeticRepairHero} />
+        <meta property="og:image" content="https://spb-dsremont.ru/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Косметический ремонт квартир в СПб под ключ | SPB-DSRemont" />
         <meta name="twitter:description" content="Косметический ремонт квартир в Санкт-Петербурге: быстро, качественно и недорого. Покраска стен, поклейка обоев, замена напольных покрытий. Гарантия качества." />
-        <meta name="twitter:image" content={cosmeticRepairHero} />
+        <meta name="twitter:image" content="https://spb-dsremont.ru/og-image.jpg" />
         {/* Добавлено для SEO: Schema.org JSON-LD */}
         <script type="application/ld+json">
           {JSON.stringify({
