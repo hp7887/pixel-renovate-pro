@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import LazyImage from "@/components/LazyImage";
 import cosmeticRepairHero from "@/assets/cosmetic-repair-hero-new.jpg";
-import cosmeticRepairProcess from "@/assets/cosmetic-repair-process.jpg";
+import cosmeticRepairProcess from "@/assets/cosmetic-repair-process-new.jpg";
 
 const CosmeticRepair = () => {
   return (
@@ -66,13 +66,13 @@ const CosmeticRepair = () => {
               alt="Косметический ремонт квартиры - результат работы"
               className="w-full h-full object-cover rounded-b-3xl"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-white/80 to-white/60 rounded-b-3xl flex items-center">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/30 rounded-b-3xl flex items-center">
               <div className="container mx-auto px-4">
                 <div className="max-w-3xl">
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
                     Косметический ремонт квартир в СПб
                   </h1>
-                  <p className="text-xl md:text-2xl text-gray-800 mb-8 leading-relaxed">
+                  <p className="text-xl md:text-2xl text-white mb-8 leading-relaxed">
                     Быстрое обновление интерьера с гарантией качества
                   </p>
                   <Button 
