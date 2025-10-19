@@ -77,13 +77,13 @@ const KitchenRepair = () => {
               alt="Ремонт кухни под ключ - современный дизайн"
               className="w-full h-full object-cover rounded-b-3xl"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-white/80 to-white/60 rounded-b-3xl flex items-center">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/30 rounded-b-3xl flex items-center">
               <div className="container mx-auto px-4">
                 <div className="max-w-3xl">
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
                     Ремонт кухни под ключ в Санкт-Петербурге
                   </h1>
-                  <p className="text-xl md:text-2xl text-gray-800 mb-8 leading-relaxed">
+                  <p className="text-xl md:text-2xl text-white mb-8 leading-relaxed">
                     Профессиональный ремонт с гарантией 1 год. От планировки до установки техники
                   </p>
                   <Button 
