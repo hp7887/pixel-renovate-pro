@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import LazyImage from "@/components/LazyImage";
-import cosmeticRepairHero from "@/assets/cosmetic-repair-hero.jpg";
+import cosmeticRepairHero from "@/assets/cosmetic-repair-hero-new.jpg";
 import cosmeticRepairProcess from "@/assets/cosmetic-repair-process.jpg";
 
 const CosmeticRepair = () => {
