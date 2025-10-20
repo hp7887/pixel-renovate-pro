@@ -65,6 +65,7 @@ const Footer = () => {
                 <li><Link to="/guarantees" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Гарантии</Link></li>
                 <li><Link to="/blog" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Статьи</Link></li>
                 <li><Link to="/careers" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Вакансии</Link></li>
+                <li><Link to="/partnership" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Сотрудничество</Link></li>
                 <li><Link to="/contacts" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Контакты</Link></li>
               </ul>
             </div>
