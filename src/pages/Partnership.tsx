@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -5,9 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle2, Handshake, FileText, Percent, Camera, Users, Trophy, Clock, Shield, Star } from "lucide-react";
 import LazyImage from "@/components/LazyImage";
+import PartnershipContactDialog from "@/components/PartnershipContactDialog";
 import designStudio from "@/assets/design-studio.jpg";
 
 const Partnership = () => {
+  const [contactDialogOpen, setContactDialogOpen] = useState(false);
   const benefits = [
     {
       icon: Handshake,
@@ -123,9 +126,7 @@ const Partnership = () => {
             <Button 
               size="lg"
               className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold text-lg px-8"
-              onClick={() => {
-                window.dispatchEvent(new CustomEvent('openContactDialog'));
-              }}
+              onClick={() => setContactDialogOpen(true)}
             >
               Начать сотрудничество
             </Button>
@@ -357,14 +358,17 @@ const Partnership = () => {
           <Button 
             size="lg"
             className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold text-lg px-10"
-            onClick={() => {
-              window.dispatchEvent(new CustomEvent('openContactDialog'));
-            }}
+            onClick={() => setContactDialogOpen(true)}
           >
             Связаться с нами
           </Button>
         </div>
       </section>
+
+      <PartnershipContactDialog 
+        open={contactDialogOpen} 
+        onOpenChange={setContactDialogOpen} 
+      />
 
       <Footer />
     </div>
