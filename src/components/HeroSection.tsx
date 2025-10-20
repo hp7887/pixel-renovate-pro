@@ -111,8 +111,7 @@ const HeroSection = () => {
           <Gift className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
           <div className="text-[10px] md:text-xs">
             <span className="font-semibold">При заказе ремонта </span>
-            <span className="font-bold">дизайн-проект в подарок </span>
-            <span className="block md:inline">(экономия 200 000 рублей<a href="#design-details" className="text-yellow-300 hover:text-yellow-100 ml-1">*</a>)</span>
+            <span className="font-bold">дизайн-проект в подарок<a href="#design-details" className="text-yellow-300 hover:text-yellow-100 ml-1">*</a></span>
           </div>
         </div>
       </div>
