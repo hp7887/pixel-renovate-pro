@@ -1,7 +1,10 @@
 import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Shield, FileText, Clock, Award } from "lucide-react";
+import { Shield, FileText, Clock, Award, CheckCircle, Phone, Calendar, Wrench } from "lucide-react";
+import LazyImage from "@/components/LazyImage";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import heroImage from "@/assets/work-renovation-new.jpg";
 
 const Guarantees = () => {
   const guarantees = [
@@ -50,6 +53,48 @@ const Guarantees = () => {
     }
   ];
 
+  const warrantyProcess = [
+    {
+      icon: Phone,
+      title: "Обращение",
+      description: "Позвоните нам или оставьте заявку на сайте"
+    },
+    {
+      icon: Calendar,
+      title: "Диагностика",
+      description: "Выезд мастера в течение 24 часов"
+    },
+    {
+      icon: Wrench,
+      title: "Устранение",
+      description: "Бесплатное устранение дефекта"
+    },
+    {
+      icon: CheckCircle,
+      title: "Приемка",
+      description: "Подписание акта выполненных работ"
+    }
+  ];
+
+  const faqItems = [
+    {
+      question: "Что входит в гарантию?",
+      answer: "Гарантия распространяется на все виды выполненных работ: отделочные работы, электромонтаж, сантехнические работы, установку дверей и окон. Мы бесплатно устраним любые дефекты, возникшие по нашей вине."
+    },
+    {
+      question: "Как воспользоваться гарантией?",
+      answer: "Позвоните нам по телефону или оставьте заявку на сайте. Наш специалист приедет к вам в течение 24 часов, проведет диагностику и бесплатно устранит проблему, если она является гарантийным случаем."
+    },
+    {
+      question: "На материалы тоже есть гарантия?",
+      answer: "Да, на все материалы предоставляются гарантийные талоны от производителей. Срок гарантии зависит от типа материала и указан в документации."
+    },
+    {
+      question: "Что не входит в гарантию?",
+      answer: "Гарантия не распространяется на дефекты, возникшие в результате неправильной эксплуатации, механических повреждений, действий третьих лиц или форс-мажорных обстоятельств."
+    }
+  ];
+
   return (
     <main className="min-h-screen">
       <Helmet>
@@ -88,29 +133,60 @@ const Guarantees = () => {
       </Helmet>
       <Header />
       
-      {/* Hero Section */}
-      <section className="pt-24 md:pt-32 pb-12 md:pb-16 bg-gradient-to-br from-cyan-50 via-blue-50 to-white">
+      {/* Hero Section with Image */}
+      <section className="pt-16 md:pt-24">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 text-center">
-            Гарантии качества
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto text-center leading-relaxed">
-            Мы несем полную ответственность за результат и предоставляем комплексные гарантии 
-            на все виды работ
-          </p>
+          <div className="relative h-[500px] md:h-[600px] overflow-hidden mb-12 animate-fade-in">
+            <LazyImage
+              src={heroImage}
+              alt="Гарантии качества SPB-DSRemont - надежность и ответственность"
+              className="w-full h-full object-cover rounded-b-3xl"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/50 to-transparent rounded-b-3xl flex items-center">
+              <div className="container mx-auto px-4">
+                <div className="max-w-3xl animate-fade-in" style={{ animationDelay: "200ms" }}>
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
+                    Гарантии качества
+                  </h1>
+                  <p className="text-xl md:text-2xl text-white/95 mb-8 leading-relaxed">
+                    Мы несем полную ответственность за результат и предоставляем комплексные гарантии 
+                    на все виды работ. Официальный договор и 1 год гарантии.
+                  </p>
+                  <div className="flex flex-wrap gap-4">
+                    <div className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-xl border border-white/30">
+                      <div className="text-3xl font-bold text-white">1 год</div>
+                      <div className="text-sm text-white/90">гарантии на работы</div>
+                    </div>
+                    <div className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-xl border border-white/30">
+                      <div className="text-3xl font-bold text-white">24 часа</div>
+                      <div className="text-sm text-white/90">время реакции</div>
+                    </div>
+                    <div className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-xl border border-white/30">
+                      <div className="text-3xl font-bold text-white">100%</div>
+                      <div className="text-sm text-white/90">ответственность</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Main Guarantees */}
       <section className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center animate-fade-in">
+            Наши гарантии
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {guarantees.map((guarantee, index) => (
               <div 
                 key={index}
-                className="bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+                className="bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-cyan-400 group hover-scale animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-6">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <guarantee.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{guarantee.title}</h3>
@@ -121,10 +197,42 @@ const Guarantees = () => {
         </div>
       </section>
 
-      {/* Warranty Conditions */}
+      {/* Warranty Process */}
       <section className="py-12 md:py-20 bg-gradient-to-br from-white to-cyan-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center animate-fade-in">
+            Как работает гарантия
+          </h2>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              {warrantyProcess.map((step, index) => (
+                <div 
+                  key={index}
+                  className="relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover-scale animate-fade-in"
+                  style={{ animationDelay: `${index * 150}ms` }}
+                >
+                  {index < warrantyProcess.length - 1 && (
+                    <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gradient-to-r from-cyan-500 to-blue-600 z-0"></div>
+                  )}
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-4 mx-auto">
+                    <step.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-center">
+                    <div className="text-sm font-bold text-cyan-600 mb-2">Шаг {index + 1}</div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Warranty Conditions */}
+      <section className="py-12 md:py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center animate-fade-in">
             Условия гарантии
           </h2>
           <div className="max-w-5xl mx-auto">
@@ -132,7 +240,8 @@ const Guarantees = () => {
               {warrantyConditions.map((condition, index) => (
                 <div 
                   key={index}
-                  className="bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-cyan-500"
+                  className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-cyan-500 hover-scale animate-fade-in"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center flex-shrink-0">
@@ -146,6 +255,34 @@ const Guarantees = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-12 md:py-20 bg-gradient-to-br from-white to-cyan-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center animate-fade-in">
+            Часто задаваемые вопросы
+          </h2>
+          <div className="max-w-4xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqItems.map((item, index) => (
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`}
+                  className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden animate-fade-in"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
+                    <span className="text-xl font-bold text-gray-900">{item.question}</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-4">
+                    <p className="text-gray-600 leading-relaxed text-lg">{item.answer}</p>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>
