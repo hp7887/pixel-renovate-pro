@@ -185,15 +185,18 @@ const WorkStepsSection = () => {
                   return (
                     <Card 
                       key={stepIndex}
-                      className={`h-56 md:h-64 lg:h-72 bg-white border-gray-200 hover:shadow-2xl hover:border-primary/30 transition-all duration-500 relative transform ${
+                      className={`h-56 md:h-64 lg:h-72 bg-white border-gray-200 hover:shadow-2xl hover:border-primary/30 transition-all duration-700 relative transform ${
                         visibleCards[stageIndex]?.[stepIndex]
-                          ? 'translate-y-0 opacity-100 scale-100'
-                          : 'translate-y-12 opacity-0 scale-95'
+                          ? 'translate-y-0 opacity-100 scale-100 rotate-0'
+                          : 'translate-y-16 opacity-0 scale-90 -rotate-3'
                       }`}
-                      style={{ animationDelay: `${stepIndex * 200}ms` }}
+                      style={{ 
+                        transitionDelay: `${stepIndex * 150}ms`,
+                        animationFillMode: 'both'
+                      }}
                     >
                       {step.isFree && (
-                        <div className="absolute -top-2 -right-2 md:-top-3 md:-right-3 bg-gradient-to-r from-yellow-400 to-orange-400 text-white px-3 md:px-4 py-1 md:py-1.5 rounded-full text-xs font-bold z-10 shadow-lg">
+                        <div className="absolute -top-2 -right-2 md:-top-3 md:-right-3 bg-gradient-to-r from-yellow-400 to-orange-400 text-white px-3 md:px-4 py-1 md:py-1.5 rounded-full text-xs font-bold z-10 shadow-lg animate-pulse">
                           БЕСПЛАТНО
                         </div>
                       )}
@@ -201,17 +204,31 @@ const WorkStepsSection = () => {
                       <CardContent className="p-4 md:p-5 h-full flex flex-col">
                         {/* Icon and Title row */}
                         <div className="flex items-start gap-3 mb-3">
-                          <div className="w-10 h-10 md:w-11 md:h-11 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
+                          <div className={`w-10 h-10 md:w-11 md:h-11 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm transition-all duration-500 ${
+                            visibleCards[stageIndex]?.[stepIndex] ? 'scale-100 rotate-0' : 'scale-0 rotate-180'
+                          }`}
+                          style={{ transitionDelay: `${stepIndex * 150 + 100}ms` }}
+                          >
                             <IconComponent className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                           </div>
                           
-                          <h4 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 leading-tight flex-1">
+                          <h4 className={`text-lg md:text-xl lg:text-2xl font-bold text-gray-900 leading-tight flex-1 transition-all duration-500 ${
+                            visibleCards[stageIndex]?.[stepIndex] ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
+                          }`}
+                          style={{ transitionDelay: `${stepIndex * 150 + 200}ms` }}
+                          >
                             {step.title}
                           </h4>
                         </div>
                         
                         {/* Description */}
-                        <p className="text-gray-600 text-sm md:text-base leading-relaxed flex-1">{step.description}</p>
+                        <p className={`text-gray-600 text-sm md:text-base leading-relaxed flex-1 transition-all duration-500 ${
+                          visibleCards[stageIndex]?.[stepIndex] ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                        }`}
+                        style={{ transitionDelay: `${stepIndex * 150 + 300}ms` }}
+                        >
+                          {step.description}
+                        </p>
                       </CardContent>
                     </Card>
                   );
