@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import WorkStepsSection from "@/components/WorkStepsSection";
+import BeforeAfterSection from "@/components/BeforeAfterSection";
 import CalculatorSection from "@/components/CalculatorSection";
 import PersonalCabinetSection from "@/components/PersonalCabinetSection";
 import StatsSection from "@/components/StatsSection";
@@ -30,6 +31,7 @@ const Index = () => {
       <Header />
       <HeroSection />
       <WorkStepsSection />
+      <BeforeAfterSection />
       <CalculatorSection />
       <PersonalCabinetSection />
       <StatsSection />
