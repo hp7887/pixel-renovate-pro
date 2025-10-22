@@ -143,15 +143,19 @@ const BeforeAfterSection = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex -left-12 hover-scale" />
-            <CarouselNext className="hidden md:flex -right-12 hover-scale" />
+            
+            {/* Desktop navigation - absolute positioned */}
+            <div className="hidden md:block">
+              <CarouselPrevious className="-left-12 hover-scale" />
+              <CarouselNext className="-right-12 hover-scale" />
+            </div>
+            
+            {/* Mobile navigation - positioned below */}
+            <div className="flex md:hidden justify-center gap-4 mt-6">
+              <CarouselPrevious className="static" />
+              <CarouselNext className="static" />
+            </div>
           </Carousel>
-
-          {/* Mobile navigation arrows */}
-          <div className="flex md:hidden justify-center gap-4 mt-6">
-            <CarouselPrevious className="relative left-0 top-0 translate-x-0 translate-y-0" />
-            <CarouselNext className="relative right-0 top-0 translate-x-0 translate-y-0" />
-          </div>
 
           {/* Indicators */}
           <div className="flex justify-center gap-2 mt-6">
