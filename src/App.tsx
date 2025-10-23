@@ -27,6 +27,8 @@ import LightingDesign from "./pages/Blog/LightingDesign";
 import BalconyRenovation from "./pages/Blog/BalconyRenovation";
 import CosmeticRepair from "./pages/Services/CosmeticRepair";
 import MajorRepair from "./pages/Services/MajorRepair";
+import TurnkeyRepair from "./pages/Services/TurnkeyRepair";
+import DesignerRepair from "./pages/Services/DesignerRepair";
 import InteriorDesign from "./pages/Services/InteriorDesign";
 import BathroomRepair from "./pages/Services/BathroomRepair";
 import ElectricalWork from "./pages/Services/ElectricalWork";
@@ -67,6 +69,8 @@ const App = () => (
           <Route path="/blog/remont-balkona" element={<BalconyRenovation />} />
           <Route path="/services/cosmetic-repair" element={<CosmeticRepair />} />
           <Route path="/services/major-repair" element={<MajorRepair />} />
+          <Route path="/services/turnkey-repair" element={<TurnkeyRepair />} />
+          <Route path="/services/designer-repair" element={<DesignerRepair />} />
           <Route path="/services/interior-design" element={<InteriorDesign />} />
           <Route path="/services/bathroom-repair" element={<BathroomRepair />} />
           <Route path="/services/electrical-work" element={<ElectricalWork />} />

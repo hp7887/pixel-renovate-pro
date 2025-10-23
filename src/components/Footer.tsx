@@ -46,6 +46,8 @@ const Footer = () => {
               <ul className="space-y-2 md:space-y-3">
                 <li><Link to="/services/cosmetic-repair" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Косметический ремонт</Link></li>
                 <li><Link to="/services/major-repair" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Капитальный ремонт</Link></li>
+                <li><Link to="/services/turnkey-repair" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Ремонт под ключ</Link></li>
+                <li><Link to="/services/designer-repair" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Дизайнерский ремонт</Link></li>
                 <li><Link to="/services/interior-design" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Дизайн интерьера</Link></li>
                 <li><Link to="/services/bathroom-repair" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Ремонт ванных комнат</Link></li>
                 <li><Link to="/services/kitchen-repair" className="text-gray-300 hover:text-yellow-400 transition-all duration-300 ease-in-out hover:translate-x-2 inline-block text-sm md:text-base">Ремонт кухни</Link></li>
