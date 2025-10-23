@@ -246,30 +246,18 @@ const TurnkeyRepair = () => {
             <section className="bg-white p-8 rounded-3xl shadow-lg">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Стоимость ремонта под ключ</h2>
               <p className="text-lg text-gray-700 mb-6">
-                Итоговая стоимость зависит от площади квартиры, объема работ и выбранных материалов. 
-                Средняя цена ремонта под ключ в Санкт-Петербурге:
+                Итоговая стоимость зависит от площади квартиры, объема работ и сложности отделки. 
+                Средняя цена работ по ремонту под ключ в Санкт-Петербурге:
               </p>
               <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl text-center">
                 <p className="text-gray-600 mb-2 text-lg">От</p>
                 <p className="text-5xl font-bold text-green-600 mb-2">6 000 ₽/м²</p>
-                <p className="text-gray-600 text-lg">всё включено: работы + материалы</p>
+                <p className="text-gray-600 text-lg">стоимость работ без материалов</p>
               </div>
-              <div className="mt-6 grid md:grid-cols-3 gap-4">
-                <div className="p-4 bg-green-50 rounded-lg border border-green-200 text-center">
-                  <p className="font-semibold text-gray-900 mb-2">Эконом</p>
-                  <p className="text-2xl font-bold text-green-600">от 6 000 ₽</p>
-                  <p className="text-sm text-gray-600 mt-1">Базовые материалы</p>
-                </div>
-                <div className="p-4 bg-emerald-50 rounded-lg border-2 border-emerald-400 text-center">
-                  <p className="font-semibold text-gray-900 mb-2">Стандарт</p>
-                  <p className="text-2xl font-bold text-emerald-600">от 8 000 ₽</p>
-                  <p className="text-sm text-gray-600 mt-1">Качественные материалы</p>
-                </div>
-                <div className="p-4 bg-green-50 rounded-lg border border-green-200 text-center">
-                  <p className="font-semibold text-gray-900 mb-2">Премиум</p>
-                  <p className="text-2xl font-bold text-green-600">от 12 000 ₽</p>
-                  <p className="text-sm text-gray-600 mt-1">Премиальные материалы</p>
-                </div>
+              <div className="mt-6 p-6 bg-white rounded-xl border-2 border-green-200">
+                <p className="text-gray-700 text-center">
+                  <strong>Обратите внимание:</strong> Указана стоимость только за работы. Материалы рассчитываются отдельно в зависимости от ваших пожеланий и бюджета.
+                </p>
               </div>
             </section>
 

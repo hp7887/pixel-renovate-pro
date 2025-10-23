@@ -42,11 +42,11 @@ const DesignerRepair = () => {
             "areaServed": "Санкт-Петербург",
             "offers": {
               "@type": "Offer",
-              "price": "12000",
+              "price": "15000",
               "priceCurrency": "RUB",
               "priceSpecification": {
                 "@type": "UnitPriceSpecification",
-                "price": "12000",
+                "price": "15000",
                 "priceCurrency": "RUB",
                 "unitCode": "MTK"
               }
@@ -76,7 +76,7 @@ const DesignerRepair = () => {
                   </p>
                   <Button 
                     size="lg" 
-                    className="bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl transition-shadow"
+                    className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl transition-shadow"
                     onClick={() => window.dispatchEvent(new CustomEvent('openContactDialog'))}
                   >
                     Заказать дизайн-проект
@@ -89,7 +89,7 @@ const DesignerRepair = () => {
           <div className="max-w-4xl mx-auto space-y-12">
             <section className="bg-white p-8 rounded-3xl shadow-lg">
               <div className="flex items-center gap-3 mb-6">
-                <Sparkles className="w-8 h-8 text-purple-600" />
+                <Sparkles className="w-8 h-8 text-green-600" />
                 <h2 className="text-3xl font-bold text-gray-900">Что такое дизайнерский ремонт?</h2>
               </div>
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
@@ -107,17 +107,17 @@ const DesignerRepair = () => {
                   "Текстильное оформление",
                   "Авторский надзор"
                 ].map((item, index) => (
-                  <div key={index} className="flex items-center gap-3 p-4 bg-purple-50 rounded-xl hover:bg-purple-100 transition-colors">
-                    <Check className="w-5 h-5 text-purple-600 flex-shrink-0" />
+                  <div key={index} className="flex items-center gap-3 p-4 bg-green-50 rounded-xl hover:bg-green-100 transition-colors">
+                    <Check className="w-5 h-5 text-green-600 flex-shrink-0" />
                     <span className="text-gray-800">{item}</span>
                   </div>
                 ))}
               </div>
             </section>
 
-            <section className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-3xl shadow-lg">
+            <section className="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-3xl shadow-lg">
               <div className="flex items-center gap-3 mb-6">
-                <Palette className="w-8 h-8 text-purple-600" />
+                <Palette className="w-8 h-8 text-green-600" />
                 <h2 className="text-3xl font-bold text-gray-900">Стили дизайнерского ремонта</h2>
               </div>
               <div className="grid md:grid-cols-2 gap-6">
@@ -143,7 +143,7 @@ const DesignerRepair = () => {
                 alt="Процесс создания дизайн-проекта"
                 className="w-full h-[400px] object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-900/40 to-pink-900/40" />
+              <div className="absolute inset-0 bg-gradient-to-r from-green-900/40 to-emerald-900/40" />
               <div className="absolute top-1/2 left-8 transform -translate-y-1/2">
                 <p className="text-2xl font-bold text-white">Процесс создания дизайн-проекта</p>
               </div>
@@ -151,7 +151,7 @@ const DesignerRepair = () => {
 
             <section className="bg-white p-8 rounded-3xl shadow-lg">
               <div className="flex items-center gap-3 mb-6">
-                <Ruler className="w-8 h-8 text-purple-600" />
+                <Ruler className="w-8 h-8 text-green-600" />
                 <h2 className="text-3xl font-bold text-gray-900">Этапы дизайнерского ремонта</h2>
               </div>
               <div className="relative space-y-8">
@@ -165,10 +165,10 @@ const DesignerRepair = () => {
                   { title: "Финальная стилизация", desc: "Расстановка мебели, декорирование, финальные штрихи" }
                 ].map((step, index) => (
                   <div key={index} className={`flex gap-4 relative ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 text-white rounded-full flex items-center justify-center font-bold text-xl z-10">
+                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 text-white rounded-full flex items-center justify-center font-bold text-xl z-10">
                       {index + 1}
                     </div>
-                    <div className="bg-white p-4 rounded-xl shadow-md flex-1 border-2 border-purple-100">
+                    <div className="bg-white p-4 rounded-xl shadow-md flex-1 border-2 border-green-100">
                       <h3 className="text-xl font-semibold text-gray-900 mb-1">{step.title}</h3>
                       <p className="text-gray-600">{step.desc}</p>
                     </div>
@@ -199,7 +199,7 @@ const DesignerRepair = () => {
                   }
                 ].map((item, index) => (
                   <div key={index} className="flex gap-4 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
-                    <div className="flex-shrink-0 w-10 h-10 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold">
+                    <div className="flex-shrink-0 w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">
                       {index + 1}
                     </div>
                     <div>
@@ -214,35 +214,35 @@ const DesignerRepair = () => {
             <section className="bg-white p-8 rounded-3xl shadow-lg">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Стоимость дизайнерского ремонта</h2>
               <p className="text-lg text-gray-700 mb-6">
-                Стоимость дизайнерского ремонта зависит от площади квартиры, сложности проекта и выбранных материалов. 
-                Средняя стоимость премиального ремонта с авторским дизайном:
+                Стоимость дизайнерского ремонта зависит от площади квартиры, сложности проекта и уровня отделки. 
+                Средняя стоимость работ по дизайнерскому ремонту:
               </p>
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl text-center">
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl text-center">
                 <p className="text-gray-600 mb-2 text-lg">От</p>
-                <p className="text-5xl font-bold text-purple-600 mb-2">12 000 ₽/м²</p>
-                <p className="text-gray-600 text-lg">включая дизайн-проект и материалы</p>
+                <p className="text-5xl font-bold text-green-600 mb-2">15 000 ₽/м²</p>
+                <p className="text-gray-600 text-lg">стоимость работ без материалов</p>
               </div>
               <div className="mt-6 grid md:grid-cols-2 gap-4">
-                <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+                <div className="p-4 bg-green-50 rounded-lg border border-green-200">
                   <h3 className="font-semibold text-gray-900 mb-2">В стоимость входит:</h3>
                   <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-center gap-2"><Check className="w-4 h-4 text-purple-600" /> Дизайн-проект</li>
-                    <li className="flex items-center gap-2"><Check className="w-4 h-4 text-purple-600" /> 3D-визуализация</li>
-                    <li className="flex items-center gap-2"><Check className="w-4 h-4 text-purple-600" /> Авторский надзор</li>
+                    <li className="flex items-center gap-2"><Check className="w-4 h-4 text-green-600" /> Дизайн-проект</li>
+                    <li className="flex items-center gap-2"><Check className="w-4 h-4 text-green-600" /> 3D-визуализация</li>
+                    <li className="flex items-center gap-2"><Check className="w-4 h-4 text-green-600" /> Авторский надзор</li>
                   </ul>
                 </div>
-                <div className="p-4 bg-pink-50 rounded-lg border border-pink-200">
+                <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
                   <h3 className="font-semibold text-gray-900 mb-2">Дополнительные услуги:</h3>
                   <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-center gap-2"><Check className="w-4 h-4 text-pink-600" /> Мебель на заказ</li>
-                    <li className="flex items-center gap-2"><Check className="w-4 h-4 text-pink-600" /> Эксклюзивный декор</li>
-                    <li className="flex items-center gap-2"><Check className="w-4 h-4 text-pink-600" /> Умный дом</li>
+                    <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-600" /> Мебель на заказ</li>
+                    <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-600" /> Эксклюзивный декор</li>
+                    <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-600" /> Умный дом</li>
                   </ul>
                 </div>
               </div>
             </section>
 
-            <section className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-3xl shadow-lg">
+            <section className="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-3xl shadow-lg">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Почему выбирают нас?</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 {[
@@ -263,7 +263,7 @@ const DesignerRepair = () => {
               <Button
                 size="lg"
                 onClick={() => window.dispatchEvent(new CustomEvent('openContactDialog'))}
-                className="bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white text-lg px-12 py-6 rounded-full shadow-lg hover:shadow-xl transition-shadow"
+                className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white text-lg px-12 py-6 rounded-full shadow-lg hover:shadow-xl transition-shadow"
               >
                 Заказать дизайн-проект
               </Button>
