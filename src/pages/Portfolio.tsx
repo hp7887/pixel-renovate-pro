@@ -3,86 +3,47 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StatsSection from "@/components/StatsSection";
 import { Card } from "@/components/ui/card";
-import projectModern1 from "@/assets/project-modern-1.jpg";
-import projectKitchen2 from "@/assets/project-kitchen-2.jpg";
-import projectBedroom3 from "@/assets/project-bedroom-3.jpg";
-import projectBathroom4 from "@/assets/project-bathroom-4.jpg";
-import projectLoft6 from "@/assets/project-loft-6.jpg";
-import projectScandinavian7 from "@/assets/project-scandinavian-living.jpg";
-import projectMasterBedroom8 from "@/assets/project-master-bedroom.jpg";
-import projectDining9 from "@/assets/project-dining-area.jpg";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import project1img1 from "@/assets/portfolio/project-1-image-1.jpg";
+import project1img2 from "@/assets/portfolio/project-1-image-2.jpg";
+import project1img3 from "@/assets/portfolio/project-1-image-3.jpg";
+import project1img4 from "@/assets/portfolio/project-1-image-4.jpg";
+import project2img1 from "@/assets/portfolio/project-2-image-1.jpg";
+import project2img2 from "@/assets/portfolio/project-2-image-2.jpg";
+import project2img3 from "@/assets/portfolio/project-2-image-3.jpg";
+import project4img1 from "@/assets/portfolio/project-4-image-1.jpg";
+import project4img2 from "@/assets/portfolio/project-4-image-2.jpg";
+import project4img3 from "@/assets/portfolio/project-4-image-3.jpg";
 
 const projects = [
   {
     id: 1,
-    image: projectModern1,
-    title: "Квартира в ЖК «Современный»",
-    area: "85 м²",
-    type: "Капитальный ремонт",
-    description: "Полная перепланировка трехкомнатной квартиры с объединением кухни и гостиной. Установка новых инженерных систем, дизайнерская отделка, встроенная мебель.",
+    images: [project1img1, project1img2, project1img3, project1img4],
+    imageLabels: ["Ванная комната", "Коридор", "Прихожая", "Холл"],
+    title: "Квартира в ЖК «Премьер Палас»",
+    area: "95 м²",
+    type: "Дизайнерский ремонт",
+    description: "Роскошная квартира с премиальной отделкой. Мраморные поверхности в ванной комнате, дизайнерское освещение, встроенная мебель из натурального дерева, элегантное оформление холла и коридора.",
     year: "2024"
   },
   {
     id: 2,
-    image: projectKitchen2,
-    title: "Квартира в загородном доме",
-    area: "120 м²",
-    type: "Дизайнерский ремонт",
-    description: "Современная квартира в скандинавском стиле с кухней-островом, мраморными столешницами и премиальной техникой. Индивидуальный дизайн-проект с 3D-визуализацией.",
+    images: [project2img1, project2img2, project2img3],
+    imageLabels: ["Гостиная", "Кухня", "Ванная комната"],
+    title: "Квартира в ЖК «Северная Долина»",
+    area: "88 м²",
+    type: "Капитальный ремонт",
+    description: "Современная квартира в стиле неоклассика. Светлая гостиная с панорамным остеклением, классическая кухня с мраморной столешницей, элегантная ванная комната с золотыми акцентами.",
     year: "2024"
   },
   {
     id: 3,
-    image: projectBedroom3,
-    title: "Квартира в новостройке",
-    area: "68 м²",
-    type: "Чистовая отделка",
-    description: "Двухкомнатная квартира с мастер-спальней и гардеробной зоной. Теплый пол, многоуровневое освещение, качественные отделочные материалы во всех комнатах.",
-    year: "2023"
-  },
-  {
-    id: 4,
-    image: projectBathroom4,
-    title: "Апартаменты премиум-класса",
-    area: "95 м²",
-    type: "Капитальный ремонт",
-    description: "Роскошная квартира с мраморной отделкой, душевыми кабинами и системой умного дома. Теплые полы во всех помещениях, встроенная аудиосистема.",
-    year: "2023"
-  },
-  {
-    id: 5,
-    image: projectLoft6,
-    title: "Лофт в историческом здании",
-    area: "95 м²",
-    type: "Дизайнерский ремонт",
-    description: "Квартира-студия в индустриальном стиле с сохранением исторических элементов. Кирпичная кладка, высокие потолки, панорамные окна, авторский дизайн.",
-    year: "2022"
-  },
-  {
-    id: 6,
-    image: projectScandinavian7,
-    title: "Квартира в скандинавском стиле",
-    area: "72 м²",
-    type: "Дизайнерский ремонт",
-    description: "Светлая современная квартира с минималистичным дизайном. Натуральные материалы, светлые тона, функциональная планировка, максимум естественного света.",
-    year: "2024"
-  },
-  {
-    id: 7,
-    image: projectMasterBedroom8,
-    title: "Премиальная квартира с видом",
-    area: "110 м²",
-    type: "Капитальный ремонт",
-    description: "Роскошная квартира с панорамным остеклением. Мастер-спальня с гардеробной, умный дом, премиальная отделка, встроенная техника и мебель.",
-    year: "2024"
-  },
-  {
-    id: 8,
-    image: projectDining9,
-    title: "Квартира с дизайнерским интерьером",
-    area: "88 м²",
-    type: "Дизайнерский ремонт",
-    description: "Современная квартира с элегантным интерьером. Стильная столовая зона, дизайнерское освещение, premium мебель, гармоничное сочетание цветов и текстур.",
+    images: [project4img1, project4img2, project4img3],
+    imageLabels: ["Гостиная", "Детская комната", "Ванная"],
+    title: "Квартира в ЖК «Новая Скандинавия»",
+    area: "102 м²",
+    type: "Ремонт под ключ",
+    description: "Трехкомнатная квартира для молодой семьи. Просторная гостиная с многоуровневым освещением, яркая детская комната с индивидуальным дизайном, функциональная ванная с современной сантехникой.",
     year: "2024"
   }
 ];
@@ -135,35 +96,56 @@ const Portfolio = () => {
       {/* Projects Grid */}
       <section className="py-12 md:py-16 lg:py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-12 max-w-7xl mx-auto">
-            {projects.map((project) => (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12 max-w-7xl mx-auto">
+            {projects.map((project, projectIndex) => (
               <Card 
                 key={project.id}
-                className="overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] group"
+                className="overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 group animate-fade-in"
+                style={{ animationDelay: `${projectIndex * 150}ms` }}
               >
-                {/* Project Image */}
-                <div className="relative h-64 md:h-80 overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    loading="lazy"
-                  />
-                  <div className="absolute top-4 right-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg">
+                {/* Image Carousel */}
+                <div className="relative">
+                  <Carousel className="w-full">
+                    <CarouselContent>
+                      {project.images.map((image, imageIndex) => (
+                        <CarouselItem key={imageIndex}>
+                          <div className="relative h-64 md:h-80 lg:h-96 overflow-hidden">
+                            <img
+                              src={image}
+                              alt={`${project.title} - ${project.imageLabels[imageIndex]}`}
+                              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                              loading="lazy"
+                            />
+                            {/* Image Label */}
+                            <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-lg font-medium text-sm shadow-lg">
+                              {project.imageLabels[imageIndex]}
+                            </div>
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious className="left-4 bg-white/90 hover:bg-white border-none shadow-lg" />
+                    <CarouselNext className="right-4 bg-white/90 hover:bg-white border-none shadow-lg" />
+                  </Carousel>
+                  
+                  {/* Area Badge */}
+                  <div className="absolute top-4 right-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg z-10">
                     {project.area}
                   </div>
-                  <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm text-gray-900 px-4 py-2 rounded-full font-semibold text-sm shadow-lg">
+                  
+                  {/* Year Badge */}
+                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-gray-900 px-4 py-2 rounded-full font-semibold text-sm shadow-lg z-10">
                     {project.year}
                   </div>
                 </div>
 
                 {/* Project Info */}
-                <div className="p-6 md:p-8">
+                <div className="p-6 md:p-8 bg-gradient-to-b from-white to-gray-50">
                   <div className="mb-4">
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 hover:text-primary transition-colors">
                       {project.title}
                     </h3>
-                    <div className="inline-block bg-gradient-to-r from-cyan-100 to-blue-100 text-primary px-4 py-1 rounded-full text-sm font-semibold">
+                    <div className="inline-block bg-gradient-to-r from-cyan-100 to-blue-100 text-primary px-4 py-2 rounded-full text-sm font-semibold shadow-sm">
                       {project.type}
                     </div>
                   </div>
