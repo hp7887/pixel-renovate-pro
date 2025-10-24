@@ -22,8 +22,23 @@ import project5img1 from "@/assets/portfolio/project-5-image-1.jpg";
 import project5img2 from "@/assets/portfolio/project-5-image-2.jpg";
 import project5img3 from "@/assets/portfolio/project-5-image-3.jpg";
 import project5img4 from "@/assets/portfolio/project-5-image-4.jpg";
+import project6img1 from "@/assets/portfolio/project-6-image-1.jpg";
+import project6img2 from "@/assets/portfolio/project-6-image-2.jpg";
+import project6img3 from "@/assets/portfolio/project-6-image-3.jpg";
+import project6img4 from "@/assets/portfolio/project-6-image-4.jpg";
+import project6img5 from "@/assets/portfolio/project-6-image-5.jpg";
 
 const projects = [
+  {
+    id: 6,
+    images: [project6img1, project6img2, project6img3, project6img4, project6img5],
+    imageLabels: ["Коридор", "Гостиная", "Кабинет", "Потолок с подсветкой", "Ванная комната"],
+    title: "Квартира в ЖК «Лофт Хаус»",
+    area: "92 м²",
+    type: "Дизайнерский ремонт",
+    description: "Стильная квартира в индустриальном стиле лофт. Кирпичная кладка, акцентные синие стены, потолочные балки, дизайнерское освещение, брутальная отделка ванной комнаты с деревянной плиткой.",
+    year: "2024"
+  },
   {
     id: 1,
     images: [project1img1, project1img2, project1img3, project1img4],
