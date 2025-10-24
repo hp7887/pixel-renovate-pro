@@ -11,9 +11,17 @@ import project1img4 from "@/assets/portfolio/project-1-image-4.jpg";
 import project2img1 from "@/assets/portfolio/project-2-image-1.jpg";
 import project2img2 from "@/assets/portfolio/project-2-image-2.jpg";
 import project2img3 from "@/assets/portfolio/project-2-image-3.jpg";
+import project3img1 from "@/assets/portfolio/project-3-image-1.jpg";
+import project3img2 from "@/assets/portfolio/project-3-image-2.jpg";
+import project3img3 from "@/assets/portfolio/project-3-image-3.jpg";
+import project3img4 from "@/assets/portfolio/project-3-image-4.jpg";
 import project4img1 from "@/assets/portfolio/project-4-image-1.jpg";
 import project4img2 from "@/assets/portfolio/project-4-image-2.jpg";
 import project4img3 from "@/assets/portfolio/project-4-image-3.jpg";
+import project5img1 from "@/assets/portfolio/project-5-image-1.jpg";
+import project5img2 from "@/assets/portfolio/project-5-image-2.jpg";
+import project5img3 from "@/assets/portfolio/project-5-image-3.jpg";
+import project5img4 from "@/assets/portfolio/project-5-image-4.jpg";
 
 const projects = [
   {
@@ -38,12 +46,32 @@ const projects = [
   },
   {
     id: 3,
+    images: [project3img1, project3img2, project3img3, project3img4],
+    imageLabels: ["Гостиная", "Санузел", "Кабинет", "Ванная комната"],
+    title: "Квартира в ЖК «Ривер Парк»",
+    area: "78 м²",
+    type: "Ремонт под ключ",
+    description: "Элегантная квартира в современном стиле. Просторная гостиная с изумрудным диваном, стильный санузел с темной плиткой, уютный кабинет с рабочей зоной, функциональная ванная комната.",
+    year: "2024"
+  },
+  {
+    id: 4,
     images: [project4img1, project4img2, project4img3],
     imageLabels: ["Гостиная", "Детская комната", "Ванная"],
     title: "Квартира в ЖК «Новая Скандинавия»",
     area: "102 м²",
-    type: "Ремонт под ключ",
+    type: "Капитальный ремонт",
     description: "Трехкомнатная квартира для молодой семьи. Просторная гостиная с многоуровневым освещением, яркая детская комната с индивидуальным дизайном, функциональная ванная с современной сантехникой.",
+    year: "2024"
+  },
+  {
+    id: 5,
+    images: [project5img1, project5img2, project5img3, project5img4],
+    imageLabels: ["Кухня-гостиная", "Ванная комната", "Гардеробная", "Мансарда"],
+    title: "Квартира в ЖК «Царская Столица»",
+    area: "115 м²",
+    type: "Дизайнерский ремонт",
+    description: "Просторная квартира с индивидуальным дизайном. Светлая кухня-гостиная открытой планировки, роскошная ванная с мрамором и деревом, встроенная гардеробная с подсветкой, уютная мансарда с мансардными окнами.",
     year: "2024"
   }
 ];
@@ -96,61 +124,61 @@ const Portfolio = () => {
       {/* Projects Grid */}
       <section className="py-12 md:py-16 lg:py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-7xl mx-auto">
             {projects.map((project, projectIndex) => (
               <Card 
                 key={project.id}
-                className="overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 group animate-fade-in"
-                style={{ animationDelay: `${projectIndex * 150}ms` }}
+                className="overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-500 group animate-fade-in"
+                style={{ animationDelay: `${projectIndex * 100}ms` }}
               >
                 {/* Image Carousel */}
                 <div className="relative">
-                  <Carousel className="w-full">
+                  <Carousel className="w-full" opts={{ loop: false }}>
                     <CarouselContent>
                       {project.images.map((image, imageIndex) => (
                         <CarouselItem key={imageIndex}>
-                          <div className="relative h-64 md:h-80 lg:h-96 overflow-hidden">
+                          <div className="relative bg-gray-100">
                             <img
                               src={image}
                               alt={`${project.title} - ${project.imageLabels[imageIndex]}`}
-                              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                              className="w-full h-[300px] md:h-[350px] object-contain transition-transform duration-500 group-hover:scale-105"
                               loading="lazy"
                             />
                             {/* Image Label */}
-                            <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-lg font-medium text-sm shadow-lg">
+                            <div className="absolute bottom-3 left-3 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg font-medium text-xs md:text-sm shadow-lg">
                               {project.imageLabels[imageIndex]}
                             </div>
                           </div>
                         </CarouselItem>
                       ))}
                     </CarouselContent>
-                    <CarouselPrevious className="left-4 bg-white/90 hover:bg-white border-none shadow-lg" />
-                    <CarouselNext className="right-4 bg-white/90 hover:bg-white border-none shadow-lg" />
+                    <CarouselPrevious className="left-2 md:left-3 bg-white/90 hover:bg-white border-none shadow-lg w-8 h-8 md:w-10 md:h-10" />
+                    <CarouselNext className="right-2 md:right-3 bg-white/90 hover:bg-white border-none shadow-lg w-8 h-8 md:w-10 md:h-10" />
                   </Carousel>
                   
                   {/* Area Badge */}
-                  <div className="absolute top-4 right-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg z-10">
+                  <div className="absolute top-3 right-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-3 py-1.5 rounded-full font-bold text-xs md:text-sm shadow-lg z-10">
                     {project.area}
                   </div>
                   
                   {/* Year Badge */}
-                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-gray-900 px-4 py-2 rounded-full font-semibold text-sm shadow-lg z-10">
+                  <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-gray-900 px-3 py-1.5 rounded-full font-semibold text-xs md:text-sm shadow-lg z-10">
                     {project.year}
                   </div>
                 </div>
 
                 {/* Project Info */}
-                <div className="p-6 md:p-8 bg-gradient-to-b from-white to-gray-50">
-                  <div className="mb-4">
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 hover:text-primary transition-colors">
+                <div className="p-4 md:p-6 bg-gradient-to-b from-white to-gray-50">
+                  <div className="mb-3">
+                    <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-2 hover:text-primary transition-colors">
                       {project.title}
                     </h3>
-                    <div className="inline-block bg-gradient-to-r from-cyan-100 to-blue-100 text-primary px-4 py-2 rounded-full text-sm font-semibold shadow-sm">
+                    <div className="inline-block bg-gradient-to-r from-cyan-100 to-blue-100 text-primary px-3 py-1.5 rounded-full text-xs md:text-sm font-semibold shadow-sm">
                       {project.type}
                     </div>
                   </div>
                   
-                  <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed">
                     {project.description}
                   </p>
                 </div>
