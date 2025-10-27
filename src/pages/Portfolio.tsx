@@ -39,6 +39,15 @@ import tiles1 from "@/assets/work-stages/tiles-1.jpg";
 import tiles2 from "@/assets/work-stages/tiles-2.jpg";
 import tiles3 from "@/assets/work-stages/tiles-3.jpg";
 import tiles4 from "@/assets/work-stages/tiles-4.jpg";
+import electrical1 from "@/assets/work-stages/electrical-1.jpg";
+import electrical2 from "@/assets/work-stages/electrical-2.jpg";
+import electrical3 from "@/assets/work-stages/electrical-3.jpg";
+import electrical4 from "@/assets/work-stages/electrical-4.jpg";
+import plumbing1 from "@/assets/work-stages/plumbing-1.jpg";
+import plumbing2 from "@/assets/work-stages/plumbing-2.jpg";
+import plumbing3 from "@/assets/work-stages/plumbing-3.jpg";
+import plumbing4 from "@/assets/work-stages/plumbing-4.jpg";
+import plumbing5 from "@/assets/work-stages/plumbing-5.jpg";
 
 const workStages = [
   {
@@ -53,17 +62,17 @@ const workStages = [
     id: 2,
     title: "Электромонтажные работы",
     icon: Zap,
-    description: "Прокладка электропроводки, установка розеток и выключателей, монтаж освещения",
-    images: [],
-    imageLabels: []
+    description: "Прокладка электропроводки, установка розеток и выключателей, монтаж освещения и электрощитов",
+    images: [electrical1, electrical2, electrical3, electrical4],
+    imageLabels: ["Монтаж электрощита", "Прокладка кабелей на потолке", "Разводка проводки", "Укладка кабелей на полу"]
   },
   {
     id: 3,
     title: "Сантехнические работы",
     icon: Droplets,
-    description: "Монтаж водопровода и канализации, установка сантехники, подключение оборудования",
-    images: [],
-    imageLabels: []
+    description: "Монтаж водопровода и канализации, установка сантехники, подключение отопительного оборудования",
+    images: [plumbing1, plumbing2, plumbing3, plumbing4, plumbing5],
+    imageLabels: ["Монтаж распределительного узла", "Установка системы отопления", "Подключение котла", "Монтаж коллектора", "Разводка труб и установка котла"]
   },
   {
     id: 4,
