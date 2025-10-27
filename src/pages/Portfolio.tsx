@@ -165,11 +165,11 @@ const Portfolio = () => {
                     <CarouselContent>
                       {project.images.map((image, imageIndex) => (
                         <CarouselItem key={imageIndex}>
-                          <div className="relative bg-gray-100">
+                          <div className="relative aspect-[4/3] bg-gray-100 overflow-hidden">
                             <img
                               src={image}
                               alt={`${project.title} - ${project.imageLabels[imageIndex]}`}
-                              className="w-full h-[300px] md:h-[350px] object-contain transition-transform duration-500 group-hover:scale-105"
+                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                               loading="lazy"
                             />
                             {/* Image Label */}
