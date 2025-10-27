@@ -108,11 +108,11 @@ const BeforeAfterSection = () => {
                         <h3 className="text-xl md:text-2xl font-semibold mb-6 text-center">
                           {project.title}
                         </h3>
-                        <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+                        <div className="grid md:grid-cols-2 gap-3 md:gap-4">
                           {/* Before */}
-                          <div className="space-y-3">
-                            <div className="relative group overflow-hidden rounded-lg aspect-[3/4]">
-                              <div className="absolute top-4 left-4 z-10 bg-destructive text-destructive-foreground px-4 py-2 rounded-md font-semibold shadow-lg">
+                          <div className="space-y-2">
+                            <div className="relative group overflow-hidden rounded-lg aspect-video">
+                              <div className="absolute top-2 left-2 z-10 bg-destructive text-destructive-foreground px-3 py-1 rounded-md font-semibold shadow-lg text-sm">
                                 ДО
                               </div>
                               <LazyImage
@@ -124,9 +124,9 @@ const BeforeAfterSection = () => {
                           </div>
 
                           {/* After */}
-                          <div className="space-y-3">
-                            <div className="relative group overflow-hidden rounded-lg aspect-[3/4]">
-                              <div className="absolute top-4 left-4 z-10 bg-primary text-primary-foreground px-4 py-2 rounded-md font-semibold shadow-lg">
+                          <div className="space-y-2">
+                            <div className="relative group overflow-hidden rounded-lg aspect-video">
+                              <div className="absolute top-2 left-2 z-10 bg-primary text-primary-foreground px-3 py-1 rounded-md font-semibold shadow-lg text-sm">
                                 ПОСЛЕ
                               </div>
                               <LazyImage

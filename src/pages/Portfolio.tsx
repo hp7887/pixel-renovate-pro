@@ -27,6 +27,8 @@ import project6img2 from "@/assets/portfolio/project-6-image-2.jpg";
 import project6img3 from "@/assets/portfolio/project-6-image-3.jpg";
 import project6img4 from "@/assets/portfolio/project-6-image-4.jpg";
 import project6img5 from "@/assets/portfolio/project-6-image-5.jpg";
+import LazyImage from "@/components/LazyImage";
+import portfolioHero from "@/assets/project-modern-1.jpg";
 
 const projects = [
   {
@@ -124,15 +126,26 @@ const Portfolio = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-24 md:pt-32 pb-12 md:pb-16 bg-gradient-to-br from-cyan-50 via-blue-50 to-white">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 text-center">
-            Наши проекты
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto text-center leading-relaxed">
-            Более 500 успешно реализованных проектов. Каждый объект - это уникальное решение, 
-            созданное с учетом пожеланий клиента и современных стандартов качества.
-          </p>
+      <section className="relative pt-24 md:pt-32 pb-16 md:pb-24 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <LazyImage
+            src={portfolioHero}
+            alt="Портфолио выполненных проектов ремонта квартир"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 to-gray-900/70"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              Наши проекты
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
+              Более 500 успешно реализованных проектов. Каждый объект - это уникальное решение, 
+              созданное с учетом пожеланий клиента и современных стандартов качества.
+            </p>
+          </div>
         </div>
       </section>
 
