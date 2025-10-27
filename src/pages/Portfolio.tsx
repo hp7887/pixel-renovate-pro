@@ -29,6 +29,51 @@ import project6img4 from "@/assets/portfolio/project-6-image-4.jpg";
 import project6img5 from "@/assets/portfolio/project-6-image-5.jpg";
 import LazyImage from "@/components/LazyImage";
 import portfolioHero from "@/assets/project-modern-1.jpg";
+import { PaintBucket, Zap, Droplets, Grid3x3 } from "lucide-react";
+import painting1 from "@/assets/work-stages/painting-1.jpg";
+import painting2 from "@/assets/work-stages/painting-2.jpg";
+import painting3 from "@/assets/work-stages/painting-3.jpg";
+import painting4 from "@/assets/work-stages/painting-4.jpg";
+import painting5 from "@/assets/work-stages/painting-5.jpg";
+import tiles1 from "@/assets/work-stages/tiles-1.jpg";
+import tiles2 from "@/assets/work-stages/tiles-2.jpg";
+import tiles3 from "@/assets/work-stages/tiles-3.jpg";
+import tiles4 from "@/assets/work-stages/tiles-4.jpg";
+
+const workStages = [
+  {
+    id: 1,
+    title: "Малярные работы",
+    icon: PaintBucket,
+    description: "Профессиональная покраска стен и потолков, шпаклевка, грунтовка, создание идеально ровных поверхностей",
+    images: [painting1, painting2, painting3, painting4, painting5],
+    imageLabels: ["Подготовка потолка", "Покраска комнаты", "Финишная отделка", "Работа на высоте", "Подготовка стен"]
+  },
+  {
+    id: 2,
+    title: "Электромонтажные работы",
+    icon: Zap,
+    description: "Прокладка электропроводки, установка розеток и выключателей, монтаж освещения",
+    images: [],
+    imageLabels: []
+  },
+  {
+    id: 3,
+    title: "Сантехнические работы",
+    icon: Droplets,
+    description: "Монтаж водопровода и канализации, установка сантехники, подключение оборудования",
+    images: [],
+    imageLabels: []
+  },
+  {
+    id: 4,
+    title: "Укладка плитки и кафеля",
+    icon: Grid3x3,
+    description: "Облицовка стен и полов керамической плиткой, укладка керамогранита, затирка швов",
+    images: [tiles1, tiles2, tiles3, tiles4],
+    imageLabels: ["Укладка плитки в углу", "Облицовка душевой", "Укладка пола", "Монтаж плитки"]
+  }
+];
 
 const projects = [
   {
@@ -212,6 +257,85 @@ const Portfolio = () => {
                 </div>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Work Stages Section */}
+      <section className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Этапы работ
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Профессиональное выполнение всех видов ремонтных работ с соблюдением технологий и стандартов качества
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-7xl mx-auto">
+            {workStages.map((stage, index) => {
+              const IconComponent = stage.icon;
+              const hasImages = stage.images.length > 0;
+              
+              return (
+                <Card 
+                  key={stage.id}
+                  className="overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-500 group"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  {hasImages ? (
+                    <div className="relative">
+                      <Carousel className="w-full" opts={{ loop: false }}>
+                        <CarouselContent>
+                          {stage.images.map((image, imageIndex) => (
+                            <CarouselItem key={imageIndex}>
+                              <div className="relative aspect-[4/3] bg-gray-100 overflow-hidden">
+                                <img
+                                  src={image}
+                                  alt={`${stage.title} - ${stage.imageLabels[imageIndex]}`}
+                                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                  loading="lazy"
+                                />
+                                <div className="absolute bottom-3 left-3 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg font-medium text-xs md:text-sm shadow-lg">
+                                  {stage.imageLabels[imageIndex]}
+                                </div>
+                              </div>
+                            </CarouselItem>
+                          ))}
+                        </CarouselContent>
+                        <CarouselPrevious className="left-2 md:left-3 bg-white/90 hover:bg-white border-none shadow-lg w-8 h-8 md:w-10 md:h-10" />
+                        <CarouselNext className="right-2 md:right-3 bg-white/90 hover:bg-white border-none shadow-lg w-8 h-8 md:w-10 md:h-10" />
+                      </Carousel>
+                    </div>
+                  ) : (
+                    <div className="relative aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                      <IconComponent className="w-20 h-20 text-gray-400" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end justify-center pb-6">
+                        <span className="text-white font-semibold text-sm bg-black/30 backdrop-blur-sm px-4 py-2 rounded-lg">
+                          Фотографии скоро появятся
+                        </span>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="p-4 md:p-6 bg-white">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <IconComponent className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="text-lg md:text-xl font-bold text-gray-900">
+                        {stage.title}
+                      </h3>
+                    </div>
+                    
+                    <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                      {stage.description}
+                    </p>
+                  </div>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
