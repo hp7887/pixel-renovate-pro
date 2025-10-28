@@ -100,8 +100,8 @@ const workStages = [
 const projects = [
   {
     id: 7,
-    images: [project7img1, project7img2, project7img3],
-    imageLabels: ["Укладка ламината", "ТВ-зона с подсветкой", "Декоративный потолок"],
+    images: [project7img2, project7img1, project7img3],
+    imageLabels: ["ТВ-зона с подсветкой", "Укладка ламината", "Декоративный потолок"],
     title: "Квартира в ЖК «Северный Берег»",
     area: "85 м²",
     type: "Капитальный ремонт",
@@ -120,8 +120,8 @@ const projects = [
   },
   {
     id: 9,
-    images: [project9img1, project9img2, project9img3, project9img4],
-    imageLabels: ["Малярные работы", "Спальня", "Гостиная с декором", "Коридор"],
+    images: [project9img2, project9img1, project9img3, project9img4],
+    imageLabels: ["Спальня", "Малярные работы", "Гостиная с декором", "Коридор"],
     title: "Квартира в ЖК «Гранд Парк»",
     area: "105 м²",
     type: "Ремонт под ключ",
