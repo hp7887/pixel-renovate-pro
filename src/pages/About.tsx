@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Award, Users, Clock, Shield, Check, Target, TrendingUp, Heart } from "lucide-react";
 import LazyImage from "@/components/LazyImage";
 import heroImage from "@/assets/design-studio.jpg";
-import historyImage from "@/assets/renovation-process.jpg";
+import historyImage from "@/assets/team-professional.jpg";
 
 const About = () => {
   const features = [

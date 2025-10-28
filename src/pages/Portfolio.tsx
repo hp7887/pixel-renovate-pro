@@ -223,7 +223,7 @@ const Portfolio = () => {
                             <img
                               src={image}
                               alt={`${project.title} - ${project.imageLabels[imageIndex]}`}
-                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                              className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                               loading="lazy"
                             />
                             {/* Image Label */}
@@ -303,7 +303,7 @@ const Portfolio = () => {
                                 <img
                                   src={image}
                                   alt={`${stage.title} - ${stage.imageLabels[imageIndex]}`}
-                                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                                   loading="lazy"
                                 />
                                 <div className="absolute bottom-3 left-3 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg font-medium text-xs md:text-sm shadow-lg">
