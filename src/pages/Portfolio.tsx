@@ -30,6 +30,16 @@ import project6img2 from "@/assets/portfolio/project-6-image-2.jpg";
 import project6img3 from "@/assets/portfolio/project-6-image-3.jpg";
 import project6img4 from "@/assets/portfolio/project-6-image-4.jpg";
 import project6img5 from "@/assets/portfolio/project-6-image-5.jpg";
+import project7img1 from "@/assets/portfolio/project-7-image-1.jpg";
+import project7img2 from "@/assets/portfolio/project-7-image-2.jpg";
+import project7img3 from "@/assets/portfolio/project-7-image-3.jpg";
+import project8img1 from "@/assets/portfolio/project-8-image-1.jpg";
+import project8img2 from "@/assets/portfolio/project-8-image-2.jpg";
+import project8img3 from "@/assets/portfolio/project-8-image-3.jpg";
+import project9img1 from "@/assets/portfolio/project-9-image-1.jpg";
+import project9img2 from "@/assets/portfolio/project-9-image-2.jpg";
+import project9img3 from "@/assets/portfolio/project-9-image-3.jpg";
+import project9img4 from "@/assets/portfolio/project-9-image-4.jpg";
 import LazyImage from "@/components/LazyImage";
 import portfolioHero from "@/assets/project-modern-1.jpg";
 import { PaintBucket, Zap, Droplets, Grid3x3 } from "lucide-react";
@@ -88,6 +98,36 @@ const workStages = [
 ];
 
 const projects = [
+  {
+    id: 7,
+    images: [project7img1, project7img2, project7img3],
+    imageLabels: ["Укладка ламината", "ТВ-зона с подсветкой", "Декоративный потолок"],
+    title: "Квартира в ЖК «Северный Берег»",
+    area: "85 м²",
+    type: "Капитальный ремонт",
+    description: "Современная квартира с дизайнерскими решениями. Укладка светлого ламината, стильная ТВ-зона с подсветкой и рельефными панелями, многоуровневый потолок с золотыми молдингами и люстрой.",
+    year: "2024"
+  },
+  {
+    id: 8,
+    images: [project8img1, project8img2, project8img3],
+    imageLabels: ["Декоративное панно", "Жилая комната", "Коридор с подсветкой"],
+    title: "Квартира в ЖК «Золотой Треугольник»",
+    area: "98 м²",
+    type: "Дизайнерский ремонт",
+    description: "Элегантная квартира с дизайнерскими элементами. Декоративное настенное панно с подсветкой, современный интерьер с серыми тонами, стильный коридор с многоуровневым потолком и встроенным освещением.",
+    year: "2024"
+  },
+  {
+    id: 9,
+    images: [project9img1, project9img2, project9img3, project9img4],
+    imageLabels: ["Малярные работы", "Спальня", "Гостиная с декором", "Коридор"],
+    title: "Квартира в ЖК «Гранд Парк»",
+    area: "105 м²",
+    type: "Ремонт под ключ",
+    description: "Трехкомнатная квартира с классическим дизайном. Профессиональные малярные работы, уютная спальня с декоративными элементами, гостиная с лепниной и золотой люстрой, светлый коридор с встроенным шкафом.",
+    year: "2024"
+  },
   {
     id: 6,
     images: [project6img1, project6img2, project6img3, project6img4, project6img5],
