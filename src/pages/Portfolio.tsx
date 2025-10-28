@@ -4,6 +4,9 @@ import Footer from "@/components/Footer";
 import StatsSection from "@/components/StatsSection";
 import { Card } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { useState } from "react";
+import { X } from "lucide-react";
 import project1img1 from "@/assets/portfolio/project-1-image-1.jpg";
 import project1img2 from "@/assets/portfolio/project-1-image-2.jpg";
 import project1img3 from "@/assets/portfolio/project-1-image-3.jpg";
@@ -148,6 +151,8 @@ const projects = [
 ];
 
 const Portfolio = () => {
+  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
+
   return (
     <div className="min-h-screen">
       <Helmet>
@@ -219,7 +224,13 @@ const Portfolio = () => {
                     <CarouselContent>
                       {project.images.map((image, imageIndex) => (
                         <CarouselItem key={imageIndex}>
-                          <div className="relative aspect-[4/3] bg-gray-100 overflow-hidden">
+                          <div 
+                            className="relative aspect-[4/3] bg-gray-100 overflow-hidden cursor-pointer"
+                            onClick={() => setSelectedImage({ 
+                              src: image, 
+                              alt: `${project.title} - ${project.imageLabels[imageIndex]}` 
+                            })}
+                          >
                             <img
                               src={image}
                               alt={`${project.title} - ${project.imageLabels[imageIndex]}`}
@@ -299,7 +310,13 @@ const Portfolio = () => {
                         <CarouselContent>
                           {stage.images.map((image, imageIndex) => (
                             <CarouselItem key={imageIndex}>
-                              <div className="relative aspect-[4/3] bg-gray-100 overflow-hidden">
+                              <div 
+                                className="relative aspect-[4/3] bg-gray-100 overflow-hidden cursor-pointer"
+                                onClick={() => setSelectedImage({ 
+                                  src: image, 
+                                  alt: `${stage.title} - ${stage.imageLabels[imageIndex]}` 
+                                })}
+                              >
                                 <img
                                   src={image}
                                   alt={`${stage.title} - ${stage.imageLabels[imageIndex]}`}
@@ -373,6 +390,28 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
+
+      {/* Image Viewer Modal */}
+      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black/95 border-none">
+          <button
+            onClick={() => setSelectedImage(null)}
+            className="absolute top-4 right-4 z-50 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+            aria-label="Закрыть изображение"
+          >
+            <X className="w-6 h-6" />
+          </button>
+          {selectedImage && (
+            <div className="flex items-center justify-center w-full h-full p-4">
+              <img
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                className="max-w-full max-h-[90vh] object-contain"
+              />
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
 
       <Footer />
     </div>
