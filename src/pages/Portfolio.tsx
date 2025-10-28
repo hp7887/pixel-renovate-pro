@@ -40,6 +40,10 @@ import project9img1 from "@/assets/portfolio/project-9-image-1.jpg";
 import project9img2 from "@/assets/portfolio/project-9-image-2.jpg";
 import project9img3 from "@/assets/portfolio/project-9-image-3.jpg";
 import project9img4 from "@/assets/portfolio/project-9-image-4.jpg";
+import project10img1 from "@/assets/portfolio/project-10-image-1.jpg";
+import project10img2 from "@/assets/portfolio/project-10-image-2.jpg";
+import project10img3 from "@/assets/portfolio/project-10-image-3.jpg";
+import project10img4 from "@/assets/portfolio/project-10-image-4.jpg";
 import LazyImage from "@/components/LazyImage";
 import portfolioHero from "@/assets/project-modern-1.jpg";
 import { PaintBucket, Zap, Droplets, Grid3x3 } from "lucide-react";
@@ -98,6 +102,16 @@ const workStages = [
 ];
 
 const projects = [
+  {
+    id: 10,
+    images: [project10img1, project10img2, project10img3, project10img4],
+    imageLabels: ["Декоративные ниши с подсветкой", "Прихожая с мебелью", "Стена с рейками и зеркалом", "Холл с многоуровневым потолком"],
+    title: "Квартира в ЖК «Парадный квартал»",
+    area: "95 м²",
+    type: "Дизайнерский ремонт",
+    description: "Элегантная квартира с современным дизайном. Декоративные ниши с подсветкой, стильная прихожая с встроенной мебелью, акцентная стена с деревянными рейками и большим зеркалом, просторный холл с эффектным многоуровневым потолком.",
+    year: "2024"
+  },
   {
     id: 7,
     images: [project7img2, project7img1, project7img3],
