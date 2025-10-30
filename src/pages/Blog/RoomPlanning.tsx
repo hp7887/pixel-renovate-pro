@@ -2,37 +2,35 @@ import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, CheckCircle } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import LazyImage from "@/components/LazyImage";
 import blogRoomPlanning from "@/assets/blog-room-planning.jpg";
+import blogPlanningBlueprint from "@/assets/blog-planning-blueprint.jpg";
+import blogPlanningZones from "@/assets/blog-planning-zones.jpg";
+import blogPlanningMultifunctional from "@/assets/blog-planning-multifunctional.jpg";
 
 const RoomPlanning = () => {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-white">
       <Helmet>
-        <title>Планировка помещений при ремонте: как правильно организовать пространство | SPB-DSRemont</title>
-        <meta name="description" content="Профессиональное руководство по планировке помещений при ремонте квартиры: зонирование, эргономика, оптимизация пространства. Создайте функциональный и удобный интерьер." />
-        <meta name="keywords" content="планировка квартиры, зонирование помещений, эргономика интерьера, организация пространства, перепланировка" />
+        <title>Планировка квартиры в СПб 2025: эргономика +20% пространства, зонирование студий | SPB-DSRemont</title>
+        <meta name="description" content="Правильная планировка увеличивает полезную площадь на 20%. Эргономика кухни по правилу треугольника 4-8м, зонирование студий. 3D-визуализация, согласование перепланировки в СПб. От 15000₽." />
+        <meta name="keywords" content="планировка квартиры спб, перепланировка санкт петербург, зонирование студии, эргономика кухни, дизайн проект планировка, согласование перепланировки" />
         <link rel="canonical" href="https://spb-dsremont.ru/blog/planirovka-pomeshcheniy" />
-        
-        <meta property="og:title" content="Планировка помещений при ремонте: как правильно организовать пространство | SPB-DSRemont" />
-        <meta property="og:description" content="Профессиональное руководство по планировке помещений при ремонте квартиры: зонирование, эргономика, оптимизация пространства." />
-        <meta property="og:url" content="https://spb-dsremont.ru/blog/planirovka-pomeshcheniy" />
+        <meta property="og:title" content="Планировка квартиры 2025: эргономика и зонирование — увеличение пространства на 20%" />
+        <meta property="og:description" content="Профессиональная планировка с увеличением полезной площади. 3D-визуализация, эргономика, согласование перепланировки в СПб от 15000₽" />
+        <meta property="og:image" content="https://spb-dsremont.ru/blog-room-planning.jpg" />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content={blogRoomPlanning} />
-        
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Планировка помещений при ремонте: как правильно организовать пространство | SPB-DSRemont" />
-        <meta name="twitter:description" content="Профессиональное руководство по планировке помещений при ремонте квартиры: зонирование, эргономика, оптимизация пространства." />
-        <meta name="twitter:image" content={blogRoomPlanning} />
-        
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Планировка помещений при ремонте: как правильно организовать пространство",
+            "description": "Правильная планировка увеличивает полезную площадь на 20%. Эргономика кухни, зонирование, оптимизация пространства",
+            "image": "https://spb-dsremont.ru/blog-room-planning.jpg",
             "datePublished": "2025-02-01",
+            "dateModified": "2025-02-05",
             "author": {
               "@type": "Organization",
               "name": "SPB-DSRemont"
@@ -44,211 +42,132 @@ const RoomPlanning = () => {
                 "@type": "ImageObject",
                 "url": "https://spb-dsremont.ru/logo.png"
               }
-            },
-            "image": blogRoomPlanning
+            }
           })}
         </script>
       </Helmet>
       
       <Header />
       
-      <article className="py-16 md:py-24">
+      <article className="py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <Link to="/blog" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 mb-8 transition-colors">
+          <div className="max-w-3xl mx-auto">
+            <Link to="/blog" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 mb-8">
               <ArrowLeft className="w-4 h-4" />
               Вернуться к статьям
             </Link>
             
-            <div className="mb-8">
-              <div className="text-sm text-gray-500 mb-4">1 февраля 2025 • 11 минут чтения</div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Планировка помещений при ремонте: как правильно организовать пространство
-              </h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Планировка помещений при ремонте: как правильно организовать пространство
+            </h1>
+
+            <div className="text-gray-500 text-sm mb-8">
+              Обновлено: 5 февраля 2025
             </div>
             
             <LazyImage
               src={blogRoomPlanning}
-              alt="Планировка и дизайн помещений"
-              className="w-full h-[400px] object-cover rounded-2xl mb-8"
+              alt="Планировка квартиры — дизайн проект и эргономика помещений"
+              className="w-full h-[400px] object-cover rounded-lg mb-8"
             />
             
-            <div className="prose prose-lg max-w-none">
-              <p className="text-xl text-gray-700 leading-relaxed mb-6">
-                Правильная планировка — основа комфортного жилья. От того, насколько грамотно вы организуете пространство, зависит удобство повседневной жизни. В этой статье разберем ключевые принципы планировки помещений и расскажем, как создать функциональный интерьер.
+            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+              <p className="text-lg mb-6">
+                Правильная планировка — основа комфортного жилья. От того, насколько грамотно организовано пространство, зависит удобство повседневной жизни. Грамотная планировка увеличивает полезную площадь на 15-20% без изменения квадратуры. В этой статье разберем ключевые принципы эргономики и покажем, как создать функциональный интерьер.
               </p>
               
-              <section className="mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Основные принципы эргономики</h2>
-                <p className="text-gray-700 mb-4">
-                  Эргономика интерьера — это наука о комфорте и эффективности использования пространства. Соблюдение эргономических норм сделает ваш дом по-настоящему удобным.
-                </p>
-                
-                <div className="bg-cyan-50 p-6 rounded-2xl mb-6">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Правило рабочего треугольника на кухне</h3>
-                  <p className="text-gray-700 mb-3">
-                    Холодильник, плита и мойка должны образовывать треугольник с суммой сторон 4-8 метров. Это оптимальное расстояние для комфортного приготовления пищи.
-                  </p>
-                  <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                    <li>Между холодильником и мойкой: 1,2-2,1 м</li>
-                    <li>Между мойкой и плитой: 1,2-1,8 м</li>
-                    <li>Между плитой и холодильником: 1,2-2,7 м</li>
-                  </ul>
-                </div>
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Основные принципы эргономики
+              </h2>
+              <p className="mb-4">
+                Эргономика интерьера — наука о комфорте и эффективности использования пространства. Соблюдение эргономических норм делает дом по-настоящему удобным. Главные параметры: проходы минимум 80-90 см, комфортно 100-120 см. Рабочая поверхность на кухне 85-95 см в зависимости от роста. Расстояние до телевизора: диагональ экрана умножить на 3-4 (для 55 дюймов это 4-4.5 метра). Место для сна: кровать плюс 70 см с каждой стороны для прохода.
+              </p>
+              <p className="mb-6">
+                Правило рабочего треугольника на кухне. Холодильник, плита и мойка должны образовывать треугольник с суммой сторон 4-8 метров. Это оптимальное расстояние для комфортного приготовления пищи. Между холодильником и мойкой 1.2-2.1 метра, между мойкой и плитой 1.2-1.8 метра, между плитой и холодильником 1.2-2.7 метра. Соблюдение этих параметров снижает количество лишних движений на 30-40%.
+              </p>
 
-                <LazyImage
-                  src={blogRoomPlanning}
-                  alt="Эргономика кухонного пространства"
-                  className="w-full h-[300px] object-cover rounded-xl mb-6"
-                />
-                
-                <div className="bg-blue-50 p-6 rounded-2xl mb-6">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Стандартные размеры для комфорта</h3>
-                  <div className="space-y-3 text-gray-700">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>Проходы:</strong> минимум 80-90 см, комфортно — 100-120 см
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>Рабочая поверхность:</strong> высота 85-95 см (зависит от роста)
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>Расстояние до ТВ:</strong> диагональ экрана × 3-4 (для 55" это 4-4,5 м)
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>Место для сна:</strong> кровать + 70 см с каждой стороны для прохода
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-              
-              <section className="mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Зонирование пространства</h2>
-                <p className="text-gray-700 mb-4">
-                  Грамотное зонирование особенно важно для студий и квартир открытой планировки. Вот эффективные способы разделения пространства на функциональные зоны.
+              <LazyImage
+                src={blogPlanningBlueprint}
+                alt="3D визуализация планировки квартиры на планшете с расстановкой мебели"
+                className="w-full h-[350px] object-cover rounded-lg my-8"
+              />
+
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Зонирование пространства
+              </h2>
+              <p className="mb-4">
+                Грамотное зонирование особенно важно для студий и квартир открытой планировки. Физическое зонирование использует мебель, перегородки, раздвижные системы. Стеллажи и открытые полки пропускают свет но разделяют пространство. Раздвижные стеклянные перегородки дают гибкость планировки. Барная стойка отделяет кухню от гостиной. Диван спинкой к столовой зоне создает мягкое зонирование.
+              </p>
+              <p className="mb-6">
+                Визуальное зонирование разделяет без физических барьеров — цветом, светом, материалами. Разные напольные покрытия: плитка на кухне, паркет в гостиной. Контрастные цвета стен или акцентные зоны выделяют функциональные области. Многоуровневые потолки с разным освещением. Подиумы — приподнятые зоны для спальни или кабинета высотой 15-30 см создают четкое деление пространства.
+              </p>
+
+              <LazyImage
+                src={blogPlanningZones}
+                alt="Зонирование гостиной с функциональными зонами и эргономичной расстановкой мебели"
+                className="w-full h-[350px] object-cover rounded-lg my-8"
+              />
+
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Оптимизация маленького пространства
+              </h2>
+              <p className="mb-4">
+                Даже компактную квартиру можно сделать просторной и функциональной. Светлые тона — белый, бежевый, светло-серый визуально расширяют пространство на 15-20%. Зеркала: большое зеркало напротив окна удвоит свет и создаст глубину. Минимализм — откажитесь от лишней мебели и декора. Меньше вещей значит больше воздуха и ощущения простора.
+              </p>
+              <p className="mb-6">
+                Вертикальные линии визуально поднимают потолок. Высокие узкие шкафы до потолка, вертикальные полосы на стенах добавляют высоты. Стеклянная мебель — прозрачные столы и стулья не загромождают пространство. Встроенные системы хранения экономят до 30% площади: шкафы-купе, ниши, антресоли. Всё спрятано и не занимает места. Трансформируемая мебель — кровать-диван, стол-книжка, откидные рабочие поверхности увеличивают функциональность малогабаритных квартир.
+              </p>
+
+              <LazyImage
+                src={blogPlanningMultifunctional}
+                alt="Многофункциональная студия с трансформируемой мебелью и зонированием пространства"
+                className="w-full h-[350px] object-cover rounded-lg my-8"
+              />
+
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Перепланировка: что можно и нельзя
+              </h2>
+              <p className="mb-4">
+                Перепланировка кардинально улучшает жилье, но требует соблюдения строительных норм и согласования с жилищной инспекцией Санкт-Петербурга. Можно без согласования: перенос не несущих перегородок, объединение санузла, установка и демонтаж встроенных шкафов, изменение дверных проемов в не несущих стенах, остекление балкона или лоджии.
+              </p>
+              <p className="mb-4">
+                Требует согласования: объединение кухни и комнаты если на кухне газовая плита, расширение санузла за счет коридора, устройство проемов в несущих стенах для усиления проема, перенос мокрых зон в пределах санузла. Срок согласования в СПб составляет 2-4 месяца, стоимость проекта от 30000 до 80000 рублей в зависимости от сложности.
+              </p>
+              <p className="mb-6">
+                Категорически запрещено: снос несущих стен без технического заключения, перенос кухни в жилую комнату, расширение санузла за счет кухни или жилой комнаты, перенос радиаторов отопления на балкон, демонтаж вентиляционных каналов. Незаконная перепланировка грозит штрафом до 350000 рублей и требованием вернуть квартиру в исходное состояние через суд.
+              </p>
+
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Выводы и рекомендации
+              </h2>
+              <p className="mb-4">
+                Грамотная планировка — сочетание эргономики, эстетики и функциональности. Учитывайте образ жизни семьи, соблюдайте нормы безопасности, не бойтесь нестандартных решений. Перед началом ремонта создайте подробный план с размерами и расстановкой мебели. Используйте программы для 3D-визуализации или пригласите дизайнера.
+              </p>
+              <p className="mb-6">
+                Если планируете перепланировку — обязательно согласуйте проект с жилищной инспекцией Санкт-Петербурга. Команда SPB-DSRemont поможет разработать оптимальную планировку с учетом особенностей вашей квартиры. Создадим 3D-визуализацию, рассчитаем эргономику, оформим все документы для согласования перепланировки.
+              </p>
+
+              <div className="bg-gray-50 border-l-4 border-primary p-6 rounded-r-lg my-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Дизайн-проект планировки квартиры
+                </h3>
+                <p className="mb-4">
+                  Разработаем функциональную планировку с учетом эргономики. 3D-визуализация, расстановка мебели, согласование перепланировки в СПб. От 15000₽.
                 </p>
-                
-                <div className="space-y-4">
-                  <div className="border-l-4 border-purple-500 pl-6 py-4 bg-purple-50 rounded-r-xl">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Физическое зонирование</h3>
-                    <p className="text-gray-700 mb-3">
-                      Использование мебели, перегородок, раздвижных систем для четкого разделения зон.
-                    </p>
-                    <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                      <li>Стеллажи и открытые полки — пропускают свет, но разделяют пространство</li>
-                      <li>Раздвижные стеклянные перегородки — для гибкости планировки</li>
-                      <li>Барная стойка — отделяет кухню от гостиной</li>
-                      <li>Диван спинкой к столовой зоне — мягкое зонирование</li>
-                    </ul>
-                  </div>
-                  
-                  <div className="border-l-4 border-green-500 pl-6 py-4 bg-green-50 rounded-r-xl">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Визуальное зонирование</h3>
-                    <p className="text-gray-700 mb-3">
-                      Разделение без физических барьеров — цветом, светом, материалами.
-                    </p>
-                    <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                      <li>Разные напольные покрытия (плитка на кухне, паркет в гостиной)</li>
-                      <li>Контрастные цвета стен или акцентные зоны</li>
-                      <li>Многоуровневые потолки с разным освещением</li>
-                      <li>Подиумы — приподнятые зоны для спальни или кабинета</li>
-                    </ul>
-                  </div>
-                </div>
-              </section>
-              
-              <section className="mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Оптимизация маленького пространства</h2>
-                <p className="text-gray-700 mb-4">
-                  Даже компактную квартиру можно сделать просторной и функциональной, если использовать правильные приемы.
-                </p>
-                
-                <div className="bg-yellow-50 p-6 rounded-2xl">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Приемы визуального увеличения</h3>
-                  <ul className="space-y-3 text-gray-700">
-                    <li>
-                      <strong>Светлые тона:</strong> белый, бежевый, светло-серый визуально расширяют пространство.
-                    </li>
-                    <li>
-                      <strong>Зеркала:</strong> большое зеркало напротив окна удвоит свет и создаст глубину.
-                    </li>
-                    <li>
-                      <strong>Минимализм:</strong> откажитесь от лишней мебели и декора. Меньше вещей = больше воздуха.
-                    </li>
-                    <li>
-                      <strong>Вертикальные линии:</strong> высокие узкие шкафы до потолка, вертикальные полосы визуально поднимают потолок.
-                    </li>
-                    <li>
-                      <strong>Стеклянная мебель:</strong> прозрачные столы и стулья не загромождают пространство.
-                    </li>
-                    <li>
-                      <strong>Встроенные системы хранения:</strong> шкафы-купе, ниши, антресоли — все спрятано и не занимает место.
-                    </li>
-                  </ul>
-                </div>
-              </section>
-              
-              <section className="mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Перепланировка: что можно и нельзя</h2>
-                <p className="text-gray-700 mb-4">
-                  Перепланировка может кардинально улучшить жилье, но требует соблюдения строительных норм и согласования.
-                </p>
-                
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-green-50 border-2 border-green-500 p-6 rounded-2xl">
-                    <h3 className="text-xl font-bold text-green-900 mb-3">✓ Можно без согласования</h3>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>• Перенос не несущих перегородок</li>
-                      <li>• Объединение санузла</li>
-                      <li>• Установка/демонтаж встроенных шкафов</li>
-                      <li>• Изменение дверных проемов в не несущих стенах</li>
-                      <li>• Остекление балкона/лоджии</li>
-                    </ul>
-                  </div>
-                  
-                  <div className="bg-red-50 border-2 border-red-500 p-6 rounded-2xl">
-                    <h3 className="text-xl font-bold text-red-900 mb-3">✗ Категорически запрещено</h3>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>• Снос несущих стен</li>
-                      <li>• Перенос кухни в жилую комнату</li>
-                      <li>• Расширение санузла за счет кухни/жилой комнаты</li>
-                      <li>• Перенос радиаторов на балкон</li>
-                      <li>• Демонтаж вентиляционных каналов</li>
-                    </ul>
-                  </div>
-                </div>
-              </section>
-              
-              <section className="mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Заключение</h2>
-                <p className="text-gray-700 mb-4">
-                  Грамотная планировка — это сочетание эргономики, эстетики и функциональности. Учитывайте образ жизни семьи, соблюдайте нормы безопасности, не бойтесь нестандартных решений. Если планируете перепланировку — обязательно согласуйте проект с БТИ.
-                </p>
-                <p className="text-gray-700">
-                  Наши дизайнеры помогут разработать оптимальную планировку с учетом особенностей вашей квартиры. Мы создадим 3D-визуализацию, рассчитаем эргономику и оформим все необходимые документы для перепланировки.
-                </p>
-              </section>
-              
-              <div className="text-center pt-8 border-t">
                 <Button
                   size="lg"
-                  onClick={() => window.dispatchEvent(new CustomEvent('openContactDialog'))}
-                  className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-lg px-8 py-6"
+                  onClick={() =>
+                    window.dispatchEvent(new CustomEvent("openContactDialog"))
+                  }
+                  className="w-full md:w-auto"
                 >
-                  Заказать проект планировки
+                  Заказать дизайн-проект планировки
                 </Button>
               </div>
+
+              <p className="text-sm text-gray-500 mt-8">
+                Статья подготовлена специалистами компании SPB-DSRemont на основе опыта работы более 10 лет в сфере ремонта и дизайна интерьеров в Санкт-Петербурге.
+              </p>
             </div>
           </div>
         </div>
