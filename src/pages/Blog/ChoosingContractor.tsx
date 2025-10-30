@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import LazyImage from "@/components/LazyImage";
 import blogContractorMeeting from "@/assets/blog-contractor-meeting.jpg";
 import blogContractorContract from "@/assets/blog-contractor-contract.jpg";
-import blogContractorTeam from "@/assets/blog-contractor-team.jpg";
+import blogContractorRedFlags from "@/assets/blog-contractor-red-flags.jpg";
 
 const ChoosingContractor = () => {
   return (
@@ -145,7 +145,7 @@ const ChoosingContractor = () => {
               Эти признаки указывают на высокий риск мошенничества или непрофессионализма.
             </p>
 
-            <LazyImage src={blogContractorTeam} alt="Профессиональная бригада за работой — качественный ремонт" className="w-full h-[400px] object-cover rounded-lg my-8" />
+            <LazyImage src={blogContractorRedFlags} alt="Красные флаги мошенников — как распознать недобросовестного подрядчика" className="w-full h-[400px] object-cover rounded-lg my-8" />
 
             <p className="text-foreground/80 leading-relaxed mb-6"><strong>Опасные признаки:</strong></p>
             <ul className="space-y-3 text-foreground/80 mb-6 list-disc pl-6">
