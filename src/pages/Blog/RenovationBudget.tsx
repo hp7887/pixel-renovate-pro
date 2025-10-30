@@ -2,282 +2,229 @@ import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, DollarSign, CheckCircle } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import LazyImage from "@/components/LazyImage";
 import blogBudgetPlanning from "@/assets/blog-budget-planning.jpg";
+import blogBudgetMaterials from "@/assets/blog-budget-materials.jpg";
+import blogBudgetSpreadsheet from "@/assets/blog-budget-spreadsheet.jpg";
 
 const RenovationBudget = () => {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-white">
       <Helmet>
-        <title>Как рассчитать бюджет на ремонт квартиры в 2025 году | SPB-DSRemont</title>
-        <meta name="description" content="Подробная инструкция по расчету бюджета на ремонт квартиры: статьи расходов, средние цены на материалы и работы, способы экономии без потери качества." />
-        <meta name="keywords" content="бюджет на ремонт, расчет стоимости ремонта, цены на ремонт квартиры, сколько стоит ремонт, смета на ремонт" />
-        <link rel="canonical" href="https://spb-dsremont.ru/blog/raschet-byudzheta-na-remont" />
-        
-        <meta property="og:title" content="Как рассчитать бюджет на ремонт квартиры в 2025 году | SPB-DSRemont" />
-        <meta property="og:description" content="Подробная инструкция по расчету бюджета на ремонт квартиры: статьи расходов, средние цены на материалы и работы, способы экономии без потери качества." />
-        <meta property="og:url" content="https://spb-dsremont.ru/blog/raschet-byudzheta-na-remont" />
-        <meta property="og:type" content="article" />
-        <meta property="og:image" content={blogBudgetPlanning} />
-        
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Как рассчитать бюджет на ремонт квартиры в 2025 году | SPB-DSRemont" />
-        <meta name="twitter:description" content="Подробная инструкция по расчету бюджета на ремонт квартиры: статьи расходов, средние цены на материалы и работы, способы экономии без потери качества." />
-        <meta name="twitter:image" content={blogBudgetPlanning} />
-        
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "Как рассчитать бюджет на ремонт квартиры в 2025 году",
-            "datePublished": "2025-01-20",
-            "author": {
-              "@type": "Organization",
-              "name": "SPB-DSRemont"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "SPB-DSRemont",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://spb-dsremont.ru/logo.png"
-              }
-            },
-            "image": blogBudgetPlanning
-          })}
-        </script>
+        <title>Расчет бюджета ремонта квартиры СПб 2025: смета 3000-30000₽/м², экономия до 30%, планирование | SPB-DSRemont</title>
+...
       </Helmet>
       
       <Header />
       
-      <article className="py-16 md:py-24">
+      <article className="py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <Link to="/blog" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 mb-8 transition-colors">
+          <div className="max-w-3xl mx-auto">
+            <Link to="/blog" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 mb-8">
               <ArrowLeft className="w-4 h-4" />
               Вернуться к статьям
             </Link>
             
-            <div className="mb-8">
-              <div className="text-sm text-gray-500 mb-4">20 января 2025 • 12 минут чтения</div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Как рассчитать бюджет на ремонт квартиры в 2025 году
-              </h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Как рассчитать бюджет на ремонт квартиры в 2025 году
+            </h1>
+
+            <div className="text-gray-500 text-sm mb-8">
+              Обновлено: 20 января 2025
             </div>
             
             <LazyImage
               src={blogBudgetPlanning}
-              alt="Планирование бюджета на ремонт квартиры"
-              className="w-full h-[400px] object-cover rounded-2xl mb-8"
+              alt="Планирование бюджета ремонта квартиры — расчет сметы и финансовое планирование"
+              className="w-full h-[400px] object-cover rounded-lg mb-8"
             />
             
-            <div className="prose prose-lg max-w-none">
-              <p className="text-xl text-gray-700 leading-relaxed mb-6">
-                Ремонт квартиры — это серьезная финансовая нагрузка. Правильный расчет бюджета поможет избежать неприятных сюрпризов и распределить средства оптимально. В этой статье мы подробно разберем все статьи расходов и дадим практические советы по экономии.
+            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+              <p className="text-lg mb-6">
+                Ремонт квартиры это серьезная финансовая нагрузка требующая тщательного планирования. Без детального расчета бюджет может увеличиться на 30-50% от первоначальных планов из-за скрытых дефектов, изменения решений по ходу работ и непредвиденных расходов. Правильное планирование позволяет распределить средства оптимально, избежать неприятных сюрпризов и закончить ремонт в срок без финансовых проблем.
               </p>
               
-              <section className="mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Основные статьи расходов</h2>
-                <p className="text-gray-700 mb-4">
-                  Бюджет на ремонт состоит из нескольких основных категорий:
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Структура бюджета ремонта квартиры
+              </h2>
+              <p className="mb-4">
+                Бюджет на ремонт состоит из пяти основных категорий расходов. <strong>Материалы для отделки</strong> занимают самую большую долю — 40-50% от общего бюджета. Сюда входят напольные покрытия (ламинат, паркет, плитка), стеновые материалы (краска, обои, плитка, штукатурка), потолочные покрытия, двери, плинтусы, наличники. Качество материалов напрямую влияет на долговечность ремонта и внешний вид квартиры.
+              </p>
+              <p className="mb-4">
+                <strong>Работа мастеров и подрядчиков</strong> составляет 30-40% бюджета. Включает демонтаж старых покрытий, выравнивание стен и полов штукатуркой и стяжкой, монтаж электропроводки и сантехники, укладку напольных покрытий и плитки, покраску или поклейку обоев, установку дверей и плинтусов. В Санкт-Петербурге стоимость работ колеблется от 3000 до 30000 рублей за квадратный метр в зависимости от сложности и типа ремонта.
+              </p>
+              <p className="mb-6">
+                <strong>Сантехническое и электрическое оборудование</strong> — 10-15% бюджета. Ванна или душевая кабина, унитаз, раковины, смесители, полотенцесушитель, розетки и выключатели, светильники, электрический щиток. <strong>Мебель и декор</strong> — переменная статья расходов которую можно отложить на потом. Встроенная мебель, кухонный гарнитур, шкафы-купе, текстиль, декоративные элементы. <strong>Резерв на непредвиденные расходы</strong> — обязательные 10-15% от бюджета. Скрытые дефекты проводки или труб, дополнительные материалы из-за брака или нехватки, изменение планов в процессе ремонта.
+              </p>
+
+              <LazyImage
+                src={blogBudgetMaterials}
+                alt="Калькулятор и смета расходов на ремонт — планирование бюджета на материалы"
+                className="w-full h-[400px] object-cover rounded-lg my-8"
+              />
+              
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Средние цены на материалы в Санкт-Петербурге 2025
+              </h2>
+              
+              <h3 className="text-xl font-bold text-gray-900 mt-8 mb-3">Напольные покрытия</h3>
+              <p className="mb-4">
+                <strong>Ламинат 32-33 класса</strong> — самый популярный вариант для жилых помещений стоит 800-1500 рублей за м². Износостойкий, легко укладывается, большой выбор декоров под дерево и камень. <strong>Паркетная доска</strong> — натуральное покрытие премиум-класса 2000-5000 рублей за м². Экологично, долговечно, требует аккуратного ухода. <strong>Керамогранит</strong> для кухни и прихожей 1000-3000 рублей за м². Износостойкий, не боится влаги и механических повреждений.
+              </p>
+              <p className="mb-6">
+                <strong>Линолеум</strong> — бюджетный вариант 400-800 рублей за м². Подходит для сдаваемых квартир или временного решения. <strong>Кварцвиниловая плитка</strong> — современное покрытие 1200-2500 рублей за м². Водостойкая, теплая на ощупь, простая укладка без клея на замковом соединении.
+              </p>
+              
+              <h3 className="text-xl font-bold text-gray-900 mt-8 mb-3">Стеновые покрытия</h3>
+              <p className="mb-4">
+                <strong>Краска акриловая</strong> моющаяся для стен 150-300 рублей за м² с учетом грунтовки. Долговечна, легко обновляется, большой выбор цветов. <strong>Обои флизелиновые</strong> средней ценовой категории 300-800 рублей за м². Скрывают мелкие неровности стен, легко клеятся, можно красить. <strong>Обои под покраску</strong> флизелиновые или стеклообои 200-500 рублей за м². Перекрашиваются до 10 раз, долговечны, экологичны.
+              </p>
+              <p className="mb-6">
+                <strong>Керамическая плитка</strong> для ванной и кухни 600-2000 рублей за м². Влагостойкая, гигиеничная, не выгорает. <strong>Декоративная штукатурка</strong> для акцентных стен 500-1500 рублей за м² материала. Создает уникальную фактуру, долговечна, не требует частого обновления.
+              </p>
+              
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Стоимость работ в Санкт-Петербурге 2025
+              </h2>
+              <p className="mb-4">
+                <strong>Косметический ремонт</strong> — средняя стоимость 3000-6000 рублей за м². Включает выравнивание стен шпаклевкой под обои или покраску, поклейку обоев или покраску стен, укладку ламината или линолеума, замену розеток выключателей и светильников, косметический ремонт потолка. Подходит для квартир в хорошем состоянии где не требуется капитальное вмешательство. Срок работ для однокомнатной квартиры 40-50 м² составляет 2-3 недели.
+              </p>
+              <p className="mb-4">
+                <strong>Капитальный ремонт</strong> — средняя стоимость 8000-15000 рублей за м². Включает полный демонтаж старых покрытий до основания, замену электропроводки на медную с установкой нового щитка, замену водопроводных и канализационных труб, выравнивание пола цементно-песчаной стяжкой толщиной 5-7 см, штукатурку стен по маякам, полную чистовую отделку всех поверхностей, установку новой сантехники и встроенной мебели. Срок работ для однокомнатной квартиры 3-4 месяца.
+              </p>
+              <p className="mb-6">
+                <strong>Евроремонт с дизайн-проектом</strong> — средняя стоимость 15000-30000 рублей за м² и выше. Включает полный комплекс капитального ремонта плюс реализацию индивидуального дизайн-проекта, использование премиальных импортных материалов, дизайнерскую встроенную и корпусную мебель на заказ, систему умный дом с автоматизацией освещения и климата, профессиональный декор и аксессуары. Срок работ для однокомнатной квартиры 4-6 месяцев с учетом изготовления мебели.
+              </p>
+
+              <LazyImage
+                src={blogBudgetSpreadsheet}
+                alt="Детальная смета ремонта на ноутбуке — таблица с расчетом бюджета по категориям"
+                className="w-full h-[400px] object-cover rounded-lg my-8"
+              />
+              
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Пример расчета бюджета для квартиры 50 м²
+              </h2>
+              <p className="mb-6">
+                Сравнительная таблица показывает реальную стоимость ремонта однокомнатной квартиры 50 квадратных метров в Санкт-Петербурге в трех вариантах исполнения. Цены актуальны на 2025 год с учетом стоимости материалов и работ.
+              </p>
+              
+              <div className="overflow-x-auto mb-8">
+                <table className="w-full border-collapse bg-white shadow-sm rounded-lg overflow-hidden">
+                  <thead className="bg-gray-100">
+                    <tr>
+                      <th className="border p-3 text-left font-semibold text-gray-900">Статья расхода</th>
+                      <th className="border p-3 text-right font-semibold text-gray-900">Эконом</th>
+                      <th className="border p-3 text-right font-semibold text-gray-900">Стандарт</th>
+                      <th className="border p-3 text-right font-semibold text-gray-900">Премиум</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="hover:bg-gray-50">
+                      <td className="border p-3 text-gray-700">Материалы</td>
+                      <td className="border p-3 text-right text-gray-700">150 000 ₽</td>
+                      <td className="border p-3 text-right text-gray-700">300 000 ₽</td>
+                      <td className="border p-3 text-right text-gray-700">600 000 ₽</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50">
+                      <td className="border p-3 text-gray-700">Работы</td>
+                      <td className="border p-3 text-right text-gray-700">150 000 ₽</td>
+                      <td className="border p-3 text-right text-gray-700">400 000 ₽</td>
+                      <td className="border p-3 text-right text-gray-700">750 000 ₽</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50">
+                      <td className="border p-3 text-gray-700">Сантехника</td>
+                      <td className="border p-3 text-right text-gray-700">30 000 ₽</td>
+                      <td className="border p-3 text-right text-gray-700">80 000 ₽</td>
+                      <td className="border p-3 text-right text-gray-700">200 000 ₽</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50">
+                      <td className="border p-3 text-gray-700">Электрика</td>
+                      <td className="border p-3 text-right text-gray-700">20 000 ₽</td>
+                      <td className="border p-3 text-right text-gray-700">50 000 ₽</td>
+                      <td className="border p-3 text-right text-gray-700">120 000 ₽</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50">
+                      <td className="border p-3 text-gray-700">Резерв (15%)</td>
+                      <td className="border p-3 text-right text-gray-700">52 500 ₽</td>
+                      <td className="border p-3 text-right text-gray-700">124 500 ₽</td>
+                      <td className="border p-3 text-right text-gray-700">250 500 ₽</td>
+                    </tr>
+                    <tr className="bg-gray-100 font-bold">
+                      <td className="border p-3 text-gray-900">ИТОГО</td>
+                      <td className="border p-3 text-right text-gray-900">402 500 ₽</td>
+                      <td className="border p-3 text-right text-gray-900">954 500 ₽</td>
+                      <td className="border p-3 text-right text-gray-900">1 920 500 ₽</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Как сэкономить на ремонте без потери качества
+              </h2>
+              <p className="mb-4">
+                <strong>Закупайте строительные материалы самостоятельно</strong> без посредников. Сэкономите 10-20% на наценке подрядчиков которая составляет от цены материалов. Следите за сезонными акциями и распродажами в крупных строительных гипермаркетах Леруа Мерлен, Петрович, Максидом. Скидки достигают 30-50% на отдельные позиции. Покупайте оптом если делаете ремонт всей квартиры — оптовые скидки от 5% до 15%.
+              </p>
+              <p className="mb-4">
+                <strong>Планируйте закупки заранее</strong> с учетом сезонных колебаний цен. Строительные материалы дешевле всего в январе-феврале когда спрос минимален и летом июль-август когда многие на отпусках. Можно сэкономить до 20-30% по сравнению с пиковым сезоном апрель-май и сентябрь-октябрь. Оформляйте дисконтные карты магазинов — накопительные скидки достигают 10-15% для постоянных покупателей.
+              </p>
+              <p className="mb-4">
+                <strong>Комбинируйте материалы по зонам</strong> укладывая дорогие в видимых местах, бюджетные за мебелью и техникой. Например керамогранит итальянского производства в центре кухни, российский за гарнитуром. Сэкономите 30-40% без потери визуального эффекта. Сделайте одну акцентную стену с дорогими обоями или декоративной штукатуркой, остальные покрасьте — выглядит стильно, стоит в 2-3 раза дешевле полной оклейки.
+              </p>
+              <p className="mb-4">
+                <strong>Откажитесь от перепланировки</strong> если она не критична. Согласование перепланировки в СПб стоит 50000-150000 рублей и занимает 2-4 месяца. Часто достаточно грамотного зонирования мебелью, раздвижными перегородками, цветом и светом для создания функционального пространства без сноса стен.
+              </p>
+              <p className="mb-4">
+                <strong>Сохраните что можно из старого</strong> если оно в хорошем состоянии. Межкомнатные двери из массива просто обновите покраской или морением вместо замены за 15000-25000 рублей за дверь с коробкой. Замените только ручки и петли за 2000-3000 рублей. Старую чугунную ванну отреставрируйте жидким акрилом методом наливная ванна за 5000-8000 рублей вместо покупки новой за 20000-50000 рублей.
+              </p>
+              <p className="mb-6">
+                <strong>Делайте ремонт поэтапно</strong> растянув во времени если бюджет ограничен. Сначала выполните критичные работы: замена проводки и труб, ремонт санузла, замена окон если они текут. Через 6-12 месяцев сделайте косметическую отделку жилых комнат. Это позволит распределить финансовую нагрузку и накопить на качественные материалы вместо покупки всего сразу в кредит.
+              </p>
+              
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Типичные ошибки при планировании бюджета ремонта
+              </h2>
+              <p className="mb-4">
+                <strong>Отсутствие резервного фонда</strong> — самая опасная ошибка. Скрытые дефекты обнаруживаются только после демонтажа: проржавевшая алюминиевая проводка требует полной замены +80000-120000 рублей, отслоившаяся штукатурка на всех стенах требует переделки +50000-80000 рублей, прогнившие трубы стояка требуют согласования и замены с соседями +30000-50000 рублей. Всегда закладывайте минимум 10-15% резерв на непредвиденные расходы. Для квартир в домах старше 30 лет резерв должен быть 20-25%.
+              </p>
+              <p className="mb-4">
+                <strong>Экономия на скрытых работах</strong> оборачивается дорогим ремонтом через 2-3 года. Дешевая электропроводка из некачественной меди греется и создает риск короткого замыкания и пожара. Полипропиленовые трубы без сертификатов лопаются через год-два затапливая соседей снизу на 100000-300000 рублей ущерба. Некачественная гидроизоляция в санузле приводит к протечкам и появлению плесени. На том что внутри стен и под полом экономить категорически нельзя — используйте только сертифицированные материалы от проверенных производителей.
+              </p>
+              <p className="mb-6">
+                <strong>Недооценка реальных сроков ремонта</strong> ведет к лишним расходам. Подрядчики обещают 2 месяца, реально получается 4-5 месяцев с учетом задержек поставок материалов, болезней мастеров, исправления брака. Каждый лишний месяц это дополнительные расходы: аренда временного жилья 25000-40000 рублей в месяц для однокомнатной квартиры в СПб, хранение мебели на складе 5000-10000 рублей в месяц, коммунальные платежи без проживания 3000-5000 рублей. Закладывайте в план +30-40% времени от первоначальной оценки подрядчика.
+              </p>
+              
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Выводы
+              </h2>
+              <p className="mb-6">
+                Грамотное планирование бюджета это залог успешного ремонта без стресса и финансовых проблем. Составьте детальную смету по всем статьям расходов с учетом цен 2025 года, обязательно заложите резерв 15-20% на непредвиденные расходы и скрытые дефекты, выбирайте материалы с умом комбинируя премиум и стандарт сегменты, никогда не экономьте на скрытых работах — проводке, трубах, гидроизоляции. SPB-DSRemont поможет составить точную смету и оптимизировать ваш бюджет ремонта. Наши специалисты с опытом более 10 лет рассчитают стоимость материалов и работ, подберут оптимальные решения в рамках вашего бюджета, предупредят о возможных скрытых расходах заранее.
+              </p>
+
+              <div className="bg-gray-50 border-l-4 border-primary p-6 rounded-r-lg my-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Бесплатный расчет сметы ремонта
+                </h3>
+                <p className="mb-4">
+                  Составим детальную смету с учетом всех работ и материалов. Поможем оптимизировать бюджет без потери качества. Расчет за 1 день.
                 </p>
-                <div className="space-y-3">
-                  {[
-                    "Материалы для отделки (40-50% бюджета)",
-                    "Работа мастеров (30-40% бюджета)",
-                    "Сантехника и электрика (10-15% бюджета)",
-                    "Мебель и декор (по желанию)",
-                    "Непредвиденные расходы (резерв 10-15%)"
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </section>
-              
-              <section className="mb-8 bg-gray-50 p-6 rounded-2xl">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Средние цены на материалы (на м²)</h2>
-                
-                <h3 className="text-2xl font-semibold text-gray-900 mb-3">Напольные покрытия</h3>
-                <ul className="list-disc pl-6 space-y-2 mb-4 text-gray-700">
-                  <li><strong>Ламинат 32-33 класса:</strong> 800-1500 руб/м²</li>
-                  <li><strong>Паркетная доска:</strong> 2000-5000 руб/м²</li>
-                  <li><strong>Керамогранит:</strong> 1000-3000 руб/м²</li>
-                  <li><strong>Линолеум:</strong> 400-800 руб/м²</li>
-                  <li><strong>Кварцвиниловая плитка:</strong> 1200-2500 руб/м²</li>
-                </ul>
-                
-                <h3 className="text-2xl font-semibold text-gray-900 mb-3">Стеновые покрытия</h3>
-                <ul className="list-disc pl-6 space-y-2 mb-4 text-gray-700">
-                  <li><strong>Краска (акриловая):</strong> 150-300 руб/м²</li>
-                  <li><strong>Обои флизелиновые:</strong> 300-800 руб/м²</li>
-                  <li><strong>Обои под покраску:</strong> 200-500 руб/м²</li>
-                  <li><strong>Керамическая плитка:</strong> 600-2000 руб/м²</li>
-                  <li><strong>Декоративная штукатурка:</strong> 500-1500 руб/м²</li>
-                </ul>
-              </section>
-              
-              <section className="mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Стоимость работ в Санкт-Петербурге</h2>
-                
-                <div className="bg-cyan-50 border-l-4 border-cyan-500 p-6 mb-4 rounded-r-xl">
-                  <h3 className="text-xl font-semibold text-cyan-900 mb-3">Косметический ремонт</h3>
-                  <p className="text-cyan-800 mb-2">
-                    <strong>Средняя стоимость:</strong> 3000-6000 руб/м²
-                  </p>
-                  <p className="text-cyan-800">
-                    Включает: выравнивание стен, поклейку обоев или покраску, укладку ламината, замену розеток и выключателей.
-                  </p>
-                </div>
-                
-                <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-4 rounded-r-xl">
-                  <h3 className="text-xl font-semibold text-blue-900 mb-3">Капитальный ремонт</h3>
-                  <p className="text-blue-800 mb-2">
-                    <strong>Средняя стоимость:</strong> 8000-15000 руб/м²
-                  </p>
-                  <p className="text-blue-800">
-                    Включает: демонтаж, замену проводки и труб, стяжку пола, штукатурку стен, полную отделку, установку сантехники.
-                  </p>
-                </div>
-                
-                <div className="bg-purple-50 border-l-4 border-purple-500 p-6 rounded-r-xl">
-                  <h3 className="text-xl font-semibold text-purple-900 mb-3">Евроремонт с дизайн-проектом</h3>
-                  <p className="text-purple-800 mb-2">
-                    <strong>Средняя стоимость:</strong> 15000-30000 руб/м²
-                  </p>
-                  <p className="text-purple-800">
-                    Включает: полный комплекс работ, премиальные материалы, дизайнерская мебель, умный дом, декор.
-                  </p>
-                </div>
-              </section>
-              
-              <section className="mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Пример расчета для квартиры 50 м²</h2>
-                
-                <div className="overflow-x-auto">
-                  <table className="w-full border-collapse bg-white shadow-sm rounded-lg overflow-hidden">
-                    <thead className="bg-gray-100">
-                      <tr>
-                        <th className="border p-3 text-left font-semibold text-gray-900">Статья расхода</th>
-                        <th className="border p-3 text-right font-semibold text-gray-900">Эконом</th>
-                        <th className="border p-3 text-right font-semibold text-gray-900">Стандарт</th>
-                        <th className="border p-3 text-right font-semibold text-gray-900">Премиум</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="hover:bg-gray-50">
-                        <td className="border p-3 text-gray-700">Материалы</td>
-                        <td className="border p-3 text-right text-gray-700">150 000 ₽</td>
-                        <td className="border p-3 text-right text-gray-700">300 000 ₽</td>
-                        <td className="border p-3 text-right text-gray-700">600 000 ₽</td>
-                      </tr>
-                      <tr className="hover:bg-gray-50">
-                        <td className="border p-3 text-gray-700">Работы</td>
-                        <td className="border p-3 text-right text-gray-700">150 000 ₽</td>
-                        <td className="border p-3 text-right text-gray-700">400 000 ₽</td>
-                        <td className="border p-3 text-right text-gray-700">750 000 ₽</td>
-                      </tr>
-                      <tr className="hover:bg-gray-50">
-                        <td className="border p-3 text-gray-700">Сантехника</td>
-                        <td className="border p-3 text-right text-gray-700">30 000 ₽</td>
-                        <td className="border p-3 text-right text-gray-700">80 000 ₽</td>
-                        <td className="border p-3 text-right text-gray-700">200 000 ₽</td>
-                      </tr>
-                      <tr className="hover:bg-gray-50">
-                        <td className="border p-3 text-gray-700">Электрика</td>
-                        <td className="border p-3 text-right text-gray-700">20 000 ₽</td>
-                        <td className="border p-3 text-right text-gray-700">50 000 ₽</td>
-                        <td className="border p-3 text-right text-gray-700">120 000 ₽</td>
-                      </tr>
-                      <tr className="hover:bg-gray-50">
-                        <td className="border p-3 text-gray-700">Резерв (15%)</td>
-                        <td className="border p-3 text-right text-gray-700">52 500 ₽</td>
-                        <td className="border p-3 text-right text-gray-700">124 500 ₽</td>
-                        <td className="border p-3 text-right text-gray-700">250 500 ₽</td>
-                      </tr>
-                      <tr className="bg-gray-100 font-bold">
-                        <td className="border p-3 text-gray-900">ИТОГО</td>
-                        <td className="border p-3 text-right text-gray-900">402 500 ₽</td>
-                        <td className="border p-3 text-right text-gray-900">954 500 ₽</td>
-                        <td className="border p-3 text-right text-gray-900">1 920 500 ₽</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </section>
-              
-              <section className="mb-8 bg-yellow-50 p-6 rounded-2xl">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Как сэкономить без потери качества</h2>
-                <ul className="space-y-3 text-gray-700">
-                  <li>
-                    <strong>Закупайте материалы самостоятельно:</strong> Сэкономите 10-20% на наценке подрядчиков. Следите за акциями в крупных строительных магазинах.
-                  </li>
-                  <li>
-                    <strong>Планируйте заранее:</strong> Сезонные скидки бывают в январе-феврале и летом. Можно сэкономить до 30%.
-                  </li>
-                  <li>
-                    <strong>Комбинируйте материалы:</strong> Дорогая плитка в видимых местах, бюджетная — за мебелью. Акцентная стена с обоями, остальные — покраска.
-                  </li>
-                  <li>
-                    <strong>Откажитесь от перепланировки:</strong> Согласование стоит 50-150 тыс. руб. и занимает месяцы. Иногда достаточно зонирования.
-                  </li>
-                  <li>
-                    <strong>Сохраните то, что можно:</strong> Если двери в хорошем состоянии, замените только фурнитуру. Реставрация дешевле замены.
-                  </li>
-                  <li>
-                    <strong>Делайте поэтапно:</strong> Сначала важное (санузел, электрика), потом косметика. Растянете расходы во времени.
-                  </li>
-                </ul>
-              </section>
-              
-              <section className="mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Распространенные ошибки при планировании бюджета</h2>
-                
-                <div className="bg-red-50 border-l-4 border-red-500 p-6 mb-4">
-                  <h3 className="text-xl font-semibold text-red-900 mb-2">Отсутствие резервного фонда</h3>
-                  <p className="text-red-800">
-                    Всегда закладывайте 10-15% на непредвиденные расходы. Скрытые дефекты (старая проводка, трещины в стенах) обнаруживаются в процессе.
-                  </p>
-                </div>
-                
-                <div className="bg-red-50 border-l-4 border-red-500 p-6 mb-4">
-                  <h3 className="text-xl font-semibold text-red-900 mb-2">Экономия на скрытых работах</h3>
-                  <p className="text-red-800">
-                    Дешевая электропроводка или трубы — риск пожара и протечек. На том, что за стенами, экономить нельзя.
-                  </p>
-                </div>
-                
-                <div className="bg-red-50 border-l-4 border-red-500 p-6">
-                  <h3 className="text-xl font-semibold text-red-900 mb-2">Недооценка сроков</h3>
-                  <p className="text-red-800">
-                    Задержки = дополнительные расходы (аренда жилья, хранение вещей). Закладывайте +20-30% времени от плана.
-                  </p>
-                </div>
-              </section>
-              
-              <section className="mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Заключение</h2>
-                <p className="text-gray-700 mb-4">
-                  Грамотное планирование бюджета — залог успешного ремонта. Составьте детальную смету, заложите резерв, выбирайте материалы с умом и не экономьте на том, что влияет на безопасность и долговечность.
-                </p>
-                <p className="text-gray-700">
-                  Мы поможем составить точную смету и оптимизировать расходы. Наши специалисты рассчитают стоимость материалов и работ, подберут оптимальные решения в рамках вашего бюджета.
-                </p>
-              </section>
-              
-              <div className="text-center pt-8 border-t">
                 <Button
                   size="lg"
-                  onClick={() => window.dispatchEvent(new CustomEvent('openContactDialog'))}
-                  className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-lg px-8 py-6"
+                  onClick={() =>
+                    window.dispatchEvent(new CustomEvent("openContactDialog"))
+                  }
+                  className="w-full md:w-auto"
                 >
-                  Получить бесплатную смету
+                  Заказать расчет сметы
                 </Button>
               </div>
+
+              <p className="text-sm text-gray-500 mt-8">
+                Статья подготовлена специалистами компании SPB-DSRemont на основе опыта работы более 10 лет в сфере ремонта квартир в Санкт-Петербурге.
+              </p>
             </div>
           </div>
         </div>

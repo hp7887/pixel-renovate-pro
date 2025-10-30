@@ -14,7 +14,7 @@ import blogBudgetPlanning from "@/assets/blog-budget-planning.jpg";
 import blogMaterialsChoice from "@/assets/blog-materials-choice.jpg";
 import blogBathroomRenovation from "@/assets/blog-bathroom-renovation.jpg";
 import blogDesignTrends from "@/assets/blog-design-trends.jpg";
-import blogLightingDesign from "@/assets/blog-lighting-design.jpg";
+import blogLightingDesign from "@/assets/blog-lighting-design-new.jpg";
 import blogBalconyRenovation from "@/assets/blog-balcony-renovation.jpg";
 
 const articles = [
