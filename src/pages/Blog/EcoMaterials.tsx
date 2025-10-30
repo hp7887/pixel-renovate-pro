@@ -77,23 +77,19 @@ const EcoMaterials = () => {
             
             <div className="prose prose-lg max-w-none space-y-8">
               <section>
-                <h2 className="text-3xl font-bold mb-4">Почему экологичность материалов так важна</h2>
+                <h2 className="text-3xl font-bold mb-6">Почему экологичность материалов так важна</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   Здоровье вашей семьи начинается с выбора правильных материалов для ремонта. Некачественная отделка может выделять токсичные вещества годами, вызывая аллергии, головные боли и серьезные заболевания дыхательных путей.
                 </p>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   По данным исследований, концентрация вредных веществ в воздухе квартир после ремонта может превышать допустимые нормы в 2-5 раз и сохраняться до 3 лет. Особенно опасны формальдегид, летучие органические соединения (ЛОС) и тяжелые металлы.
                 </p>
-                <div className="bg-accent/50 p-6 rounded-xl my-6">
-                  <h3 className="text-xl font-semibold mb-3">Главные риски некачественных материалов:</h3>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li>• Формальдегид из ДСП и МДФ класса E2-E3 — канцероген</li>
-                    <li>• ЛОС из красок и лаков — поражают нервную систему</li>
-                    <li>• Свинец в старых красках — токсичен для детей</li>
-                    <li>• Фенол в некоторых видах пластика — гормональные нарушения</li>
-                    <li>• Стирол из дешевого линолеума — раздражает дыхательные пути</li>
-                  </ul>
-                </div>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  <strong>Главные риски некачественных материалов:</strong>
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  Формальдегид из ДСП и МДФ класса E2-E3 является канцерогеном. ЛОС из красок и лаков поражают нервную систему. Свинец в старых красках токсичен для детей. Фенол в некоторых видах пластика вызывает гормональные нарушения. Стирол из дешевого линолеума раздражает дыхательные пути.
+                </p>
               </section>
 
               <LazyImage
@@ -172,7 +168,7 @@ const EcoMaterials = () => {
                 <h2 className="text-3xl font-bold mb-4">Лучшие экологичные материалы для разных задач</h2>
                 
                 <div className="space-y-6">
-                  <div className="bg-accent/30 p-6 rounded-xl">
+                  <div>
                     <h3 className="text-2xl font-semibold mb-3">Напольные покрытия</h3>
                     <ul className="space-y-3 text-muted-foreground">
                       <li>
@@ -194,7 +190,7 @@ const EcoMaterials = () => {
                     </ul>
                   </div>
 
-                  <div className="bg-accent/30 p-6 rounded-xl">
+                  <div>
                     <h3 className="text-2xl font-semibold mb-3">Стены</h3>
                     <ul className="space-y-3 text-muted-foreground">
                       <li>
@@ -216,7 +212,7 @@ const EcoMaterials = () => {
                     </ul>
                   </div>
 
-                  <div className="bg-accent/30 p-6 rounded-xl">
+                  <div>
                     <h3 className="text-2xl font-semibold mb-3">Краски и лаки</h3>
                     <ul className="space-y-3 text-muted-foreground">
                       <li>
@@ -238,7 +234,7 @@ const EcoMaterials = () => {
                     </ul>
                   </div>
 
-                  <div className="bg-accent/30 p-6 rounded-xl">
+                  <div>
                     <h3 className="text-2xl font-semibold mb-3">Утеплители</h3>
                     <ul className="space-y-3 text-muted-foreground">
                       <li>
@@ -260,7 +256,7 @@ const EcoMaterials = () => {
                     </ul>
                   </div>
 
-                  <div className="bg-accent/30 p-6 rounded-xl">
+                  <div>
                     <h3 className="text-2xl font-semibold mb-3">Клеи и герметики</h3>
                     <ul className="space-y-3 text-muted-foreground">
                       <li>
@@ -303,70 +299,57 @@ const EcoMaterials = () => {
               </section>
 
               <section>
-                <h2 className="text-3xl font-bold mb-4">Как проверить экологичность материалов</h2>
-                <div className="space-y-4">
-                  <div className="bg-accent/50 p-5 rounded-xl">
-                    <h3 className="font-semibold text-lg mb-2">1. Запрашивайте сертификаты</h3>
-                    <p className="text-muted-foreground">
-                      У продавца должны быть паспорта безопасности, сертификаты соответствия, протоколы испытаний. Не стесняйтесь их просить!
-                    </p>
-                  </div>
-                  <div className="bg-accent/50 p-5 rounded-xl">
-                    <h3 className="font-semibold text-lg mb-2">2. Проверяйте маркировку на упаковке</h3>
-                    <p className="text-muted-foreground">
-                      Класс эмиссии, содержание ЛОС, сертификаты должны быть указаны прямо на упаковке или этикетке.
-                    </p>
-                  </div>
-                  <div className="bg-accent/50 p-5 rounded-xl">
-                    <h3 className="font-semibold text-lg mb-2">3. Обращайте внимание на запах</h3>
-                    <p className="text-muted-foreground">
-                      Резкий химический запах — плохой признак. Экологичные материалы пахнут слабо или имеют натуральный аромат (дерево, воск).
-                    </p>
-                  </div>
-                  <div className="bg-accent/50 p-5 rounded-xl">
-                    <h3 className="font-semibold text-lg mb-2">4. Изучайте состав</h3>
-                    <p className="text-muted-foreground">
-                      Избегайте материалов с фталатами, формальдегидом, свинцом, стиролом. Чем проще и понятнее состав, тем лучше.
-                    </p>
-                  </div>
-                  <div className="bg-accent/50 p-5 rounded-xl">
-                    <h3 className="font-semibold text-lg mb-2">5. Читайте независимые отзывы</h3>
-                    <p className="text-muted-foreground">
-                      Ищите реальные отзывы покупателей, особенно от аллергиков и семей с детьми — они наиболее чувствительны к некачественным материалам.
-                    </p>
-                  </div>
-                </div>
+                <h2 className="text-3xl font-bold mb-6">Как проверить экологичность материалов</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  <strong>1. Запрашивайте сертификаты.</strong> У продавца должны быть паспорта безопасности, сертификаты соответствия, протоколы испытаний. Не стесняйтесь их просить!
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  <strong>2. Проверяйте маркировку на упаковке.</strong> Класс эмиссии, содержание ЛОС, сертификаты должны быть указаны прямо на упаковке или этикетке.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  <strong>3. Обращайте внимание на запах.</strong> Резкий химический запах — плохой признак. Экологичные материалы пахнут слабо или имеют натуральный аромат (дерево, воск).
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  <strong>4. Изучайте состав.</strong> Избегайте материалов с фталатами, формальдегидом, свинцом, стиролом. Чем проще и понятнее состав, тем лучше.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  <strong>5. Читайте независимые отзывы.</strong> Ищите реальные отзывы покупателей, особенно от аллергиков и семей с детьми — они наиболее чувствительны к некачественным материалам.
+                </p>
               </section>
 
               <section>
-                <h2 className="text-3xl font-bold mb-4">Стоит ли переплачивать за экоматериалы</h2>
+                <h2 className="text-3xl font-bold mb-6">Стоит ли переплачивать за экоматериалы</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   Экологичные материалы действительно дороже обычных на 15-40%. Но эта разница окупается:
                 </p>
-                <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl space-y-3 text-muted-foreground">
-                  <p><strong>Здоровье:</strong> меньше аллергий, головных болей, проблем с дыхательными путями. Особенно важно для детей и беременных.</p>
-                  <p><strong>Долговечность:</strong> качественные материалы служат дольше. Массив дерева — 30-50 лет, натуральные краски не выцветают 10-15 лет.</p>
-                  <p><strong>Комфорт:</strong> натуральные материалы лучше регулируют влажность и температуру, создают здоровый микроклимат.</p>
-                  <p><strong>Стоимость квартиры:</strong> эко-ремонт повышает ценность недвижимости, это становится конкурентным преимуществом при продаже.</p>
-                </div>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  <strong>Здоровье:</strong> меньше аллергий, головных болей, проблем с дыхательными путями. Особенно важно для детей и беременных.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  <strong>Долговечность:</strong> качественные материалы служат дольше. Массив дерева служит 30-50 лет, натуральные краски не выцветают 10-15 лет.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  <strong>Комфорт:</strong> натуральные материалы лучше регулируют влажность и температуру, создают здоровый микроклимат в квартире.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  <strong>Стоимость квартиры:</strong> эко-ремонт повышает ценность недвижимости, это становится конкурентным преимуществом при продаже.
+                </p>
               </section>
 
-              <section className="bg-primary/5 p-8 rounded-2xl">
-                <h2 className="text-3xl font-bold mb-4">Наши рекомендации</h2>
-                <div className="space-y-4 text-muted-foreground">
-                  <p>
-                    В SPB-DSRemont мы работаем только с проверенными экологичными материалами. Каждый материал в нашем каталоге имеет необходимые сертификаты и прошел независимые испытания.
-                  </p>
-                  <p>
-                    Мы поможем вам подобрать оптимальное сочетание экологичности и бюджета, объясним разницу между материалами и покажем все сертификаты. У нас есть демо-образцы всех материалов — вы сможете увидеть и потрогать их перед выбором.
-                  </p>
-                  <p className="font-semibold text-foreground">
-                    Бесплатная консультация по подбору экоматериалов — звоните или оставляйте заявку!
-                  </p>
-                </div>
+              <section>
+                <h2 className="text-3xl font-bold mb-6">Наши рекомендации</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  В SPB-DSRemont мы работаем только с проверенными экологичными материалами. Каждый материал в нашем каталоге имеет необходимые сертификаты и прошел независимые испытания.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  Мы поможем вам подобрать оптимальное сочетание экологичности и бюджета, объясним разницу между материалами и покажем все сертификаты. У нас есть демо-образцы всех материалов — вы сможете увидеть и потрогать их перед выбором.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  Бесплатная консультация по подбору экоматериалов — звоните или оставляйте заявку!
+                </p>
               </section>
 
-              <div className="text-center pt-12 border-t">
+              <div className="text-center pt-12">
                 <h3 className="text-2xl font-bold mb-4">Нужна консультация по экологичным материалам?</h3>
                 <p className="text-muted-foreground mb-6">
                   Наши эксперты помогут выбрать безопасные материалы для вашего ремонта
