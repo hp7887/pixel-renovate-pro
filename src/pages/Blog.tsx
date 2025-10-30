@@ -16,6 +16,9 @@ import blogBathroomRenovation from "@/assets/blog-bathroom-renovation.jpg";
 import blogDesignTrends from "@/assets/blog-design-trends.jpg";
 import blogLightingDesign from "@/assets/blog-lighting-design-new.jpg";
 import blogBalconyRenovation from "@/assets/blog-balcony-renovation.jpg";
+import blogChildrenRoomHero from "@/assets/blog-children-room-hero.jpg";
+import blogSoundproofingHero from "@/assets/blog-soundproofing-hero.jpg";
+import blogColorSchemesHero from "@/assets/blog-color-schemes-hero.jpg";
 
 const articles = [
   {
@@ -23,7 +26,7 @@ const articles = [
     slug: "dizayn-detskoy-komnaty",
     title: "Дизайн и ремонт детской комнаты: полное руководство",
     excerpt: "Создаем безопасное и функциональное пространство для ребенка: выбор материалов, зонирование, мебель, освещение. Стоимость от 8500₽/м² в СПб.",
-    image: require("@/assets/blog-children-room-hero.jpg"),
+    image: blogChildrenRoomHero,
     date: "1 марта 2025",
     readTime: "14 мин"
   },
@@ -32,7 +35,7 @@ const articles = [
     slug: "zvukoizolyaciya-kvartiry",
     title: "Звукоизоляция квартиры: эффективная защита от шума",
     excerpt: "Профессиональная звукоизоляция стен, потолка, пола. Современные материалы, снижение шума до 65 дБ. Цены от 2500₽/м² в СПб.",
-    image: require("@/assets/blog-soundproofing-hero.jpg"),
+    image: blogSoundproofingHero,
     date: "28 февраля 2025",
     readTime: "16 мин"
   },
@@ -41,7 +44,7 @@ const articles = [
     slug: "cvetovye-resheniya-v-interere",
     title: "Цветовые решения в интерьере: как выбрать идеальную палитру",
     excerpt: "Психология цвета, актуальные тренды 2025, правило 60-30-10, сочетание оттенков. Дизайн-проект от 3500₽/м² в СПб.",
-    image: require("@/assets/blog-color-schemes-hero.jpg"),
+    image: blogColorSchemesHero,
     date: "25 февраля 2025",
     readTime: "13 мин"
   },

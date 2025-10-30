@@ -25,6 +25,9 @@ import SmartHome from "./pages/Blog/SmartHome";
 import KitchenRenovation from "./pages/Blog/KitchenRenovation";
 import LightingDesign from "./pages/Blog/LightingDesign";
 import BalconyRenovation from "./pages/Blog/BalconyRenovation";
+import ChildrenRoomDesign from "./pages/Blog/ChildrenRoomDesign";
+import Soundproofing from "./pages/Blog/Soundproofing";
+import ColorSchemes from "./pages/Blog/ColorSchemes";
 import CosmeticRepair from "./pages/Services/CosmeticRepair";
 import MajorRepair from "./pages/Services/MajorRepair";
 import TurnkeyRepair from "./pages/Services/TurnkeyRepair";
@@ -67,6 +70,9 @@ const App = () => (
           <Route path="/blog/remont-kuhni" element={<KitchenRenovation />} />
           <Route path="/blog/osveshchenie-v-kvartire" element={<LightingDesign />} />
           <Route path="/blog/remont-balkona" element={<BalconyRenovation />} />
+          <Route path="/blog/dizayn-detskoy-komnaty" element={<ChildrenRoomDesign />} />
+          <Route path="/blog/zvukoizolyaciya-kvartiry" element={<Soundproofing />} />
+          <Route path="/blog/cvetovye-resheniya-v-interere" element={<ColorSchemes />} />
           <Route path="/services/cosmetic-repair" element={<CosmeticRepair />} />
           <Route path="/services/major-repair" element={<MajorRepair />} />
           <Route path="/services/turnkey-repair" element={<TurnkeyRepair />} />
