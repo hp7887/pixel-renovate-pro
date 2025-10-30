@@ -6,15 +6,45 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import LazyImage from "@/components/LazyImage";
 import blogSmartHome from "@/assets/blog-smart-home.jpg";
+import blogSmartControl from "@/assets/blog-smart-control.jpg";
+import blogSmartDevices from "@/assets/blog-smart-devices.jpg";
+import blogSmartSecurity from "@/assets/blog-smart-security.jpg";
 
 const SmartHome = () => {
   return (
     <main className="min-h-screen bg-white">
       <Helmet>
-        <title>Умный дом: с чего начать и как не переплатить в 2025 году | SPB-DSRemont</title>
-        <meta name="description" content="Полное руководство по внедрению системы умный дом: умное освещение, климат-контроль, безопасность, автоматизация. Обзор лучших систем, цены, советы по экономии." />
-        <meta name="keywords" content="умный дом, smart home, умное освещение, климат контроль, домашняя автоматизация, система умный дом" />
+        <title>Умный дом: полное руководство 2025 — с чего начать, цены, экономия до 30% | SPB-DSRemont</title>
+        <meta name="description" content="Внедрение умного дома в СПб: умное освещение экономит 30% электроэнергии, климат-контроль снижает затраты на 25%. Обзор систем Яндекс, Xiaomi, Aqara. Цены от 30000₽, монтаж под ключ." />
+        <meta name="keywords" content="умный дом санкт петербург, smart home спб, умное освещение, климат контроль квартира, домашняя автоматизация, система умный дом цена, установка умного дома" />
         <link rel="canonical" href="https://spb-dsremont.ru/blog/umnyy-dom" />
+        <meta property="og:title" content="Умный дом 2025: полное руководство по внедрению и экономии" />
+        <meta property="og:description" content="Внедрение системы умный дом с экономией до 30% на электроэнергии. Обзор систем, цены от 30000₽, профессиональный монтаж в СПб" />
+        <meta property="og:image" content="https://spb-dsremont.ru/blog-smart-home.jpg" />
+        <meta property="og:type" content="article" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Умный дом: с чего начать и как не переплатить в 2025 году",
+            "description": "Полное руководство по внедрению системы умный дом: умное освещение, климат-контроль, безопасность, автоматизация",
+            "image": "https://spb-dsremont.ru/blog-smart-home.jpg",
+            "datePublished": "2025-02-05",
+            "dateModified": "2025-02-05",
+            "author": {
+              "@type": "Organization",
+              "name": "SPB-DSRemont"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "SPB-DSRemont",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://spb-dsremont.ru/logo.png"
+              }
+            }
+          })}
+        </script>
       </Helmet>
       
       <Header />
@@ -57,8 +87,8 @@ const SmartHome = () => {
               </p>
 
               <LazyImage
-                src={blogSmartHome}
-                alt="Система умного дома в интерьере"
+                src={blogSmartControl}
+                alt="Управление умным домом через планшет — интерфейс системы автоматизации"
                 className="w-full h-[350px] object-cover rounded-lg my-8"
               />
 
@@ -76,8 +106,8 @@ const SmartHome = () => {
               </p>
 
               <LazyImage
-                src={blogSmartHome}
-                alt="Управление умным домом через приложение"
+                src={blogSmartDevices}
+                alt="Умные устройства в современной квартире: освещение, датчики, автоматизация"
                 className="w-full h-[350px] object-cover rounded-lg my-8"
               />
 
@@ -113,6 +143,12 @@ const SmartHome = () => {
               <p className="mb-6">
                 Премиум уровень от 250000 рублей — полная автоматизация с мультирум, управлением шторами, умным замком. Включает всё предыдущее плюс умный замок за 15000 рублей, электрокарнизы с моторами 3 штуки за 30000 рублей, мультирум аудиосистема за 50000 рублей, дополнительные датчики и устройства за 20000 рублей, профессиональная настройка и интеграция за 30000 рублей.
               </p>
+
+              <LazyImage
+                src={blogSmartSecurity}
+                alt="Система безопасности и климат-контроля умного дома: термостат и датчики"
+                className="w-full h-[350px] object-cover rounded-lg my-8"
+              />
 
               <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
                 Частые ошибки при внедрении
