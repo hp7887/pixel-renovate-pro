@@ -6,8 +6,8 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import LazyImage from "@/components/LazyImage";
 import blogBudgetPlanning from "@/assets/blog-budget-planning.jpg";
-import blogBudgetMaterials from "@/assets/blog-budget-materials.jpg";
-import blogBudgetSpreadsheet from "@/assets/blog-budget-spreadsheet.jpg";
+import blogBudgetMaterialsNew from "@/assets/blog-budget-materials-new.jpg";
+import blogBudgetFurniture from "@/assets/blog-budget-furniture.jpg";
 
 const RenovationBudget = () => {
   return (
@@ -60,8 +60,8 @@ const RenovationBudget = () => {
               </p>
 
               <LazyImage
-                src={blogBudgetMaterials}
-                alt="Калькулятор и смета расходов на ремонт — планирование бюджета на материалы"
+                src={blogBudgetMaterialsNew}
+                alt="Образцы строительных и отделочных материалов для ремонта квартиры"
                 className="w-full h-[400px] object-cover rounded-lg my-8"
               />
               
@@ -99,8 +99,8 @@ const RenovationBudget = () => {
               </p>
 
               <LazyImage
-                src={blogBudgetSpreadsheet}
-                alt="Детальная смета ремонта на ноутбуке — таблица с расчетом бюджета по категориям"
+                src={blogBudgetFurniture}
+                alt="Современная кухня с встроенной мебелью и дизайнерскими аксессуарами"
                 className="w-full h-[400px] object-cover rounded-lg my-8"
               />
               
