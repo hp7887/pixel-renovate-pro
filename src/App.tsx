@@ -28,6 +28,8 @@ import BalconyRenovation from "./pages/Blog/BalconyRenovation";
 import ChildrenRoomDesign from "./pages/Blog/ChildrenRoomDesign";
 import Soundproofing from "./pages/Blog/Soundproofing";
 import ColorSchemes from "./pages/Blog/ColorSchemes";
+import ApartmentReplanning from "./pages/Blog/ApartmentReplanning";
+import ChoosingContractor from "./pages/Blog/ChoosingContractor";
 import CosmeticRepair from "./pages/Services/CosmeticRepair";
 import MajorRepair from "./pages/Services/MajorRepair";
 import TurnkeyRepair from "./pages/Services/TurnkeyRepair";
@@ -73,6 +75,8 @@ const App = () => (
           <Route path="/blog/dizayn-detskoy-komnaty" element={<ChildrenRoomDesign />} />
           <Route path="/blog/zvukoizolyaciya-kvartiry" element={<Soundproofing />} />
           <Route path="/blog/cvetovye-resheniya-v-interere" element={<ColorSchemes />} />
+          <Route path="/blog/pereplanirovka-kvartiry" element={<ApartmentReplanning />} />
+          <Route path="/blog/kak-vybrat-podryadchika" element={<ChoosingContractor />} />
           <Route path="/services/cosmetic-repair" element={<CosmeticRepair />} />
           <Route path="/services/major-repair" element={<MajorRepair />} />
           <Route path="/services/turnkey-repair" element={<TurnkeyRepair />} />

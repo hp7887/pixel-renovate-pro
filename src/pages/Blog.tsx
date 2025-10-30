@@ -19,10 +19,30 @@ import blogBalconyRenovation from "@/assets/blog-balcony-renovation.jpg";
 import blogChildrenRoomHero from "@/assets/blog-children-room-hero.jpg";
 import blogSoundproofingHero from "@/assets/blog-soundproofing-hero.jpg";
 import blogColorSchemesHero from "@/assets/blog-color-schemes-hero.jpg";
+import blogReplanningBlueprint from "@/assets/blog-replanning-blueprint.jpg";
+import blogContractorMeeting from "@/assets/blog-contractor-meeting.jpg";
 
 const articles = [
   {
     id: 1,
+    slug: "pereplanirovka-kvartiry",
+    title: "Перепланировка квартиры: что можно, что нельзя, как согласовать",
+    excerpt: "Полный гид по перепланировке в СПб: законные изменения, запрещенные действия, согласование в Жилинспекции. Проект от 25000₽.",
+    image: blogReplanningBlueprint,
+    date: "10 марта 2025",
+    readTime: "18 мин"
+  },
+  {
+    id: 2,
+    slug: "kak-vybrat-podryadchika",
+    title: "Как выбрать подрядчика для ремонта: чек-лист и защита от мошенников",
+    excerpt: "15-пунктовый чек-лист проверки подрядчика, красные флаги мошенничества, что должно быть в договоре. Защитите себя от некачественного ремонта.",
+    image: blogContractorMeeting,
+    date: "12 марта 2025",
+    readTime: "17 мин"
+  },
+  {
+    id: 3,
     slug: "dizayn-detskoy-komnaty",
     title: "Дизайн и ремонт детской комнаты: полное руководство",
     excerpt: "Создаем безопасное и функциональное пространство для ребенка: выбор материалов, зонирование, мебель, освещение. Стоимость от 8500₽/м² в СПб.",
