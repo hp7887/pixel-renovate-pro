@@ -1,322 +1,196 @@
 import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import LazyImage from "@/components/LazyImage";
 import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
+import LazyImage from "@/components/LazyImage";
 import blogOfficeWorkspace from "@/assets/blog-office-workspace.jpg";
+import blogOfficeRenovation from "@/assets/blog-office-renovation.jpg";
+import blogOfficeSetup from "@/assets/blog-office-setup.jpg";
 
 const OfficeRenovation = () => {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-white">
       <Helmet>
         <title>Ремонт офиса в квартире: создание продуктивного рабочего пространства | SPB-DSRemont</title>
         <meta name="description" content="Профессиональный гид по ремонту домашнего офиса: планировка, освещение, звукоизоляция, мебель. Создайте комфортное и продуктивное рабочее пространство дома." />
         <meta name="keywords" content="ремонт домашнего офиса, обустройство кабинета, рабочее место дома, дизайн офиса в квартире, эргономика рабочего места" />
         <link rel="canonical" href="https://spb-dsremont.ru/blog/remont-domashnego-ofisa" />
-        
-        <meta property="og:title" content="Ремонт офиса в квартире: создание продуктивного рабочего пространства" />
-        <meta property="og:description" content="Профессиональный гид по ремонту домашнего офиса: планировка, освещение, звукоизоляция, мебель. Создайте комфортное и продуктивное рабочее пространство дома." />
-        <meta property="og:url" content="https://spb-dsremont.ru/blog/remont-domashnego-ofisa" />
-        <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://spb-dsremont.ru/og-image.jpg" />
-        
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Ремонт офиса в квартире: создание продуктивного рабочего пространства" />
-        <meta name="twitter:description" content="Профессиональный гид по ремонту домашнего офиса: планировка, освещение, звукоизоляция, мебель." />
-        <meta name="twitter:image" content="https://spb-dsremont.ru/og-image.jpg" />
       </Helmet>
       
       <Header />
       
-      <article className="py-16 md:py-24">
+      <article className="py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="mb-8">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                Ремонт домашнего офиса: как создать продуктивное рабочее пространство
-              </h1>
-              
-              <div className="flex items-center gap-4 text-gray-600 mb-8">
-                <span>25 февраля 2025</span>
-                <span>•</span>
-                <span>14 минут чтения</span>
-              </div>
-              
-              <div className="relative h-64 md:h-96 rounded-xl overflow-hidden mb-8">
-                <LazyImage
-                  src={blogOfficeWorkspace}
-                  alt="Современный домашний офис после ремонта"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+          <div className="max-w-3xl mx-auto">
+            <Link to="/blog" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 mb-8">
+              <ArrowLeft className="w-4 h-4" />
+              Вернуться к статьям
+            </Link>
+            
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Ремонт домашнего офиса: как создать продуктивное рабочее пространство
+            </h1>
+
+            <div className="text-gray-500 text-sm mb-8">
+              Обновлено: 25 февраля 2025
             </div>
             
-            <div className="prose prose-lg max-w-none">
-              <p className="text-xl text-gray-700 leading-relaxed mb-6">
+            <LazyImage
+              src={blogOfficeWorkspace}
+              alt="Современный домашний офис после ремонта в СПБ"
+              className="w-full h-[400px] object-cover rounded-lg mb-8"
+            />
+            
+            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+              <p className="text-lg mb-6">
                 С развитием удаленной работы создание комфортного и функционального домашнего офиса стало актуальным как никогда. Правильно спланированный ремонт рабочего пространства не только повышает продуктивность, но и помогает сохранить здоровье при многочасовой работе за компьютером.
               </p>
 
-              <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Выбор помещения и планировка</h2>
-              
-              <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Оптимальное расположение офиса</h3>
-              <p className="text-gray-700 leading-relaxed mb-6">
-                Идеально выделить отдельную комнату для офиса, но если такой возможности нет, можно организовать рабочее место в:
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Выбор помещения и планировка
+              </h2>
+              <p className="mb-4">
+                Идеально выделить отдельную комнату для офиса, но если такой возможности нет, можно организовать рабочее место в спальне при соблюдении четкого зонирования, в гостиной при наличии ниши или возможности установить перегородку, на балконе после качественного утепления и отделки, или в кладовой если позволяют размеры и есть окно.
               </p>
-              <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                <li><strong>Спальне</strong> — подойдет при соблюдении четкого зонирования</li>
-                <li><strong>Гостиной</strong> — возможно при наличии ниши или возможности установить перегородку</li>
-                <li><strong>На балконе</strong> — после качественного утепления и отделки</li>
-                <li><strong>В кладовой</strong> — если позволяют размеры и есть окно</li>
-              </ul>
-
-              <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Минимальные требования к пространству</h3>
-              <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                <li>Площадь рабочей зоны — минимум 4-5 кв.м</li>
-                <li>Расстояние от глаз до монитора — 50-70 см</li>
-                <li>Глубина стола — не менее 60 см, оптимально 80 см</li>
-                <li>Пространство для кресла — около 1 м от стола</li>
-                <li>Место для хранения документов и оборудования</li>
-              </ul>
-
-              <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Освещение — ключ к продуктивности</h2>
-              
-              <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Естественный свет</h3>
-              <p className="text-gray-700 leading-relaxed mb-6">
-                Рабочий стол лучше расположить перпендикулярно окну, чтобы свет падал слева (для правшей) или справа (для левшей). Это предотвращает блики на экране и обеспечивает равномерное освещение рабочей поверхности.
+              <p className="mb-6">
+                Минимальная площадь рабочей зоны — 4-5 квадратных метров. Расстояние от глаз до монитора должно быть 50-70 см. Глубина стола не менее 60 см, оптимально 80 см. Пространство для кресла — около 1 метра от стола. Не забудьте про место для хранения документов и оборудования.
               </p>
 
-              <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Искусственное освещение</h3>
-              <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                <li><strong>Общее освещение</strong> — потолочные светильники мощностью 150-200 Вт</li>
-                <li><strong>Рабочее освещение</strong> — настольная лампа с регулировкой яркости</li>
-                <li><strong>Акцентное освещение</strong> — подсветка полок, стеллажей</li>
-                <li><strong>Температура света</strong> — 4000-5000K (нейтральный белый)</li>
-              </ul>
+              <LazyImage
+                src={blogOfficeRenovation}
+                alt="Процесс ремонта домашнего офиса"
+                className="w-full h-[350px] object-cover rounded-lg my-8"
+              />
 
-              <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Звукоизоляция и акустика</h2>
-              
-              <p className="text-gray-700 leading-relaxed mb-6">
-                Для концентрации на работе важно минимизировать посторонние шумы:
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Освещение — ключ к продуктивности
+              </h2>
+              <p className="mb-4">
+                Естественный свет критически важен. Рабочий стол лучше расположить перпендикулярно окну, чтобы свет падал слева для правшей или справа для левшей. Это предотвращает блики на экране и обеспечивает равномерное освещение рабочей поверхности.
               </p>
-              <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                <li><strong>Акустические панели</strong> на стенах и потолке</li>
-                <li><strong>Плотные шторы</strong> или жалюзи на окнах</li>
-                <li><strong>Звукоизоляция дверей</strong> — уплотнители, порожки</li>
-                <li><strong>Ковровое покрытие</strong> или толстый ковер для поглощения звука</li>
-                <li><strong>Мягкая мебель</strong> — помогает улучшить акустику помещения</li>
-              </ul>
-
-              <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Отделочные материалы</h2>
-              
-              <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Стены</h3>
-              <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                <li><strong>Краска</strong> — матовая, в спокойных тонах (серый, бежевый, светло-зеленый)</li>
-                <li><strong>Обои</strong> — однотонные или с ненавязчивым геометрическим рисунком</li>
-                <li><strong>Декоративная штукатурка</strong> — создает глубину и текстуру</li>
-                <li><strong>Деревянные панели</strong> — для акцентной стены</li>
-              </ul>
-
-              <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Пол</h3>
-              <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                <li><strong>Ламинат</strong> — практичный и долговечный</li>
-                <li><strong>Паркетная доска</strong> — создает теплую атмосферу</li>
-                <li><strong>Ковролин</strong> — улучшает звукоизоляцию</li>
-                <li><strong>Наливной пол</strong> — современное решение</li>
-              </ul>
-
-              <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Электрика и коммуникации</h2>
-              
-              <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Розетки и выключатели</h3>
-              <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                <li>Минимум 4-6 розеток в рабочей зоне</li>
-                <li>USB-розетки для зарядки гаджетов</li>
-                <li>Розетки с заземлением для компьютерной техники</li>
-                <li>Сетевые фильтры и стабилизаторы напряжения</li>
-                <li>Скрытая прокладка кабелей или кабель-каналы</li>
-              </ul>
-
-              <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Интернет-соединение</h3>
-              <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                <li>Проводное подключение — минимум 100 Мбит/с</li>
-                <li>Точка доступа Wi-Fi в рабочей зоне</li>
-                <li>Резервный канал связи (мобильный интернет)</li>
-              </ul>
-
-              <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Эргономика и мебель</h2>
-              
-              <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Рабочий стол</h3>
-              <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                <li>Высота стола — 72-75 см (или регулируемая)</li>
-                <li>Ширина — минимум 120 см, оптимально 140-160 см</li>
-                <li>Возможность регулировки высоты (стол-трансформер)</li>
-                <li>Кабель-менеджмент для проводов</li>
-              </ul>
-
-              <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Кресло</h3>
-              <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                <li>Регулировка высоты сиденья</li>
-                <li>Поясничная поддержка</li>
-                <li>Регулируемые подлокотники</li>
-                <li>Качественные ролики для вашего типа покрытия</li>
-                <li>Дышащая обивка</li>
-              </ul>
-
-              <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Климат и вентиляция</h2>
-              
-              <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                <li><strong>Температура</strong> — 20-22°C оптимальная для работы</li>
-                <li><strong>Влажность</strong> — 40-60% (используйте увлажнитель при необходимости)</li>
-                <li><strong>Вентиляция</strong> — приточно-вытяжная система или регулярное проветривание</li>
-                <li><strong>Кондиционер</strong> — с функцией очистки воздуха</li>
-                <li><strong>Растения</strong> — улучшают качество воздуха</li>
-              </ul>
-
-              <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Цветовая гамма и психология</h2>
-              
-              <p className="text-gray-700 leading-relaxed mb-6">
-                Цвета влияют на настроение и производительность:
+              <p className="mb-6">
+                Искусственное освещение должно быть многоуровневым. Общее освещение — потолочные светильники мощностью 150-200 Вт. Рабочее освещение — настольная лампа с регулировкой яркости. Акцентное освещение подсвечивает полки и стеллажи. Оптимальная температура света 4000-5000K — нейтральный белый, который не напрягает глаза.
               </p>
-              <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                <li><strong>Синий</strong> — способствует концентрации и спокойствию</li>
-                <li><strong>Зеленый</strong> — снижает усталость глаз, расслабляет</li>
-                <li><strong>Серый</strong> — нейтральный фон, не отвлекает</li>
-                <li><strong>Бежевый</strong> — создает теплую атмосферу</li>
-                <li><strong>Белый</strong> — визуально расширяет пространство</li>
-                <li><strong>Акценты</strong> — оранжевый или желтый стимулируют креативность</li>
-              </ul>
 
-              <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Системы хранения</h2>
-              
-              <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                <li><strong>Открытые полки</strong> — для часто используемых предметов</li>
-                <li><strong>Закрытые шкафы</strong> — для документов и оргтехники</li>
-                <li><strong>Выдвижные ящики</strong> — для канцелярии и мелочей</li>
-                <li><strong>Вертикальное хранение</strong> — экономит место</li>
-                <li><strong>Органайзеры</strong> — для рабочего стола</li>
-              </ul>
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Звукоизоляция и акустика
+              </h2>
+              <p className="mb-4">
+                Для концентрации на работе важно минимизировать посторонние шумы. Установите акустические панели на стенах и потолке. Плотные шторы или жалюзи на окнах помогут приглушить уличный шум. Звукоизоляция дверей с уплотнителями и порожками обязательна.
+              </p>
+              <p className="mb-6">
+                Ковровое покрытие или толстый ковер поглощают звук. Мягкая мебель тоже улучшает акустику помещения. Если бюджет позволяет, можно сделать дополнительную звукоизоляцию стен минеральной ватой или специальными плитами.
+              </p>
 
-              <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Технологии умного офиса</h2>
-              
-              <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                <li><strong>Умное освещение</strong> — автоматическая регулировка яркости</li>
-                <li><strong>Климат-контроль</strong> — управление температурой</li>
-                <li><strong>Умные розетки</strong> — контроль энергопотребления</li>
-                <li><strong>Датчики присутствия</strong> — автоматическое включение света</li>
-                <li><strong>Система управления</strong> — единая панель управления всеми устройствами</li>
-              </ul>
+              <LazyImage
+                src={blogOfficeSetup}
+                alt="Готовый домашний офис с правильной эргономикой"
+                className="w-full h-[350px] object-cover rounded-lg my-8"
+              />
 
-              <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Этапы ремонта домашнего офиса</h2>
-              
-              <div className="bg-gray-50 rounded-lg p-6 mb-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">1. Подготовительный этап (1-2 дня)</h3>
-                <ul className="list-disc pl-6 text-gray-700 space-y-2">
-                  <li>Освобождение помещения</li>
-                  <li>Замеры и составление плана</li>
-                  <li>Закупка материалов</li>
-                </ul>
-              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Отделочные материалы
+              </h2>
+              <p className="mb-4">
+                Для стен подойдет матовая краска в спокойных тонах — серый, бежевый, светло-зеленый. Однотонные обои или с ненавязчивым геометрическим рисунком тоже хороший вариант. Декоративная штукатурка создает глубину и текстуру. Деревянные панели отлично подходят для акцентной стены.
+              </p>
+              <p className="mb-6">
+                Для пола выбирайте практичные материалы. Ламинат практичен и долговечен. Паркетная доска создает теплую атмосферу. Ковролин улучшает звукоизоляцию. Наливной пол — современное решение, но дороже остальных вариантов.
+              </p>
 
-              <div className="bg-gray-50 rounded-lg p-6 mb-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">2. Черновые работы (3-5 дней)</h3>
-                <ul className="list-disc pl-6 text-gray-700 space-y-2">
-                  <li>Демонтаж старых покрытий</li>
-                  <li>Прокладка электрики и интернет-кабелей</li>
-                  <li>Звукоизоляция стен</li>
-                  <li>Выравнивание поверхностей</li>
-                </ul>
-              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Электрика и коммуникации
+              </h2>
+              <p className="mb-4">
+                В рабочей зоне нужно минимум 4-6 розеток. USB-розетки удобны для зарядки гаджетов. Все розетки для компьютерной техники должны быть с заземлением. Используйте сетевые фильтры и стабилизаторы напряжения для защиты оборудования. Кабели прокладывайте скрыто или используйте кабель-каналы.
+              </p>
+              <p className="mb-6">
+                Интернет-соединение обязательно проводное, минимум 100 Мбит в секунду. Установите точку доступа Wi-Fi в рабочей зоне для мобильных устройств. Желательно иметь резервный канал связи через мобильный интернет на случай проблем с основным.
+              </p>
 
-              <div className="bg-gray-50 rounded-lg p-6 mb-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">3. Чистовая отделка (5-7 дней)</h3>
-                <ul className="list-disc pl-6 text-gray-700 space-y-2">
-                  <li>Укладка напольного покрытия</li>
-                  <li>Покраска стен или поклейка обоев</li>
-                  <li>Установка розеток и выключателей</li>
-                  <li>Монтаж освещения</li>
-                </ul>
-              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Эргономика и мебель
+              </h2>
+              <p className="mb-4">
+                Рабочий стол — основа комфорта. Высота должна быть 72-75 см или регулироваться. Ширина минимум 120 см, оптимально 140-160 см. Столы-трансформеры с возможностью работы стоя становятся всё популярнее. Предусмотрите кабель-менеджмент для проводов.
+              </p>
+              <p className="mb-6">
+                Кресло выбирайте с регулировкой высоты сиденья, поясничной поддержкой, регулируемыми подлокотниками. Ролики должны подходить для вашего типа покрытия. Обивка должна быть дышащей, особенно если работаете много часов подряд.
+              </p>
 
-              <div className="bg-gray-50 rounded-lg p-6 mb-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">4. Финальный этап (2-3 дня)</h3>
-                <ul className="list-disc pl-6 text-gray-700 space-y-2">
-                  <li>Установка мебели</li>
-                  <li>Подключение техники</li>
-                  <li>Организация систем хранения</li>
-                  <li>Декорирование пространства</li>
-                </ul>
-              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Климат и вентиляция
+              </h2>
+              <p className="mb-4">
+                Оптимальная температура для работы — 20-22 градуса. Влажность должна быть 40-60%, используйте увлажнитель при необходимости. Вентиляция — приточно-вытяжная система или регулярное проветривание обязательны.
+              </p>
+              <p className="mb-6">
+                Кондиционер с функцией очистки воздуха поддержит комфортный микроклимат. Растения улучшают качество воздуха и создают более приятную атмосферу. Особенно полезны сансевиерия, спатифиллум и хлорофитум.
+              </p>
 
-              <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Бюджет на ремонт</h2>
-              
-              <div className="bg-blue-50 rounded-lg p-6 mb-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Эконом-вариант (от 80 000 ₽)</h3>
-                <ul className="list-disc pl-6 text-gray-700 space-y-2">
-                  <li>Покраска стен</li>
-                  <li>Ламинат 32 класса</li>
-                  <li>Базовая электрика</li>
-                  <li>Простая мебель</li>
-                </ul>
-              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Цветовая гамма и психология
+              </h2>
+              <p className="mb-4">
+                Цвета влияют на настроение и производительность. Синий способствует концентрации и спокойствию. Зеленый снижает усталость глаз и расслабляет. Серый — нейтральный фон, не отвлекает. Бежевый создает теплую атмосферу.
+              </p>
+              <p className="mb-6">
+                Белый визуально расширяет пространство, но может быть холодным. Акценты оранжевого или желтого цвета стимулируют креативность. Избегайте слишком ярких и агрессивных цветов — они утомляют при длительной работе.
+              </p>
 
-              <div className="bg-blue-50 rounded-lg p-6 mb-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Стандарт (от 150 000 ₽)</h3>
-                <ul className="list-disc pl-6 text-gray-700 space-y-2">
-                  <li>Качественные обои или краска</li>
-                  <li>Ламинат 33 класса или паркетная доска</li>
-                  <li>Звукоизоляция</li>
-                  <li>Эргономичная мебель</li>
-                  <li>Многоуровневое освещение</li>
-                </ul>
-              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Системы хранения
+              </h2>
+              <p className="mb-4">
+                Организация хранения критична для продуктивности. Открытые полки подходят для часто используемых предметов. Закрытые шкафы скрывают документы и оргтехнику. Выдвижные ящики удобны для канцелярии и мелочей.
+              </p>
+              <p className="mb-6">
+                Вертикальное хранение экономит место. Используйте высоту помещения максимально. Органайзеры для рабочего стола помогают поддерживать порядок. Система хранения должна быть продумана до начала ремонта.
+              </p>
 
-              <div className="bg-blue-50 rounded-lg p-6 mb-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Премиум (от 300 000 ₽)</h3>
-                <ul className="list-disc pl-6 text-gray-700 space-y-2">
-                  <li>Дизайнерская отделка</li>
-                  <li>Паркет или инженерная доска</li>
-                  <li>Профессиональная звукоизоляция</li>
-                  <li>Мебель на заказ</li>
-                  <li>Умные системы управления</li>
-                  <li>Климат-контроль</li>
-                </ul>
-              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Сроки и бюджет
+              </h2>
+              <p className="mb-4">
+                Подготовительный этап с замерами и закупкой материалов занимает 1-2 дня. Черновые работы включая демонтаж, прокладку электрики и интернет-кабелей, звукоизоляцию и выравнивание поверхностей — 3-5 дней. Чистовая отделка с укладкой напольного покрытия, покраской стен или поклейкой обоев — 5-7 дней.
+              </p>
+              <p className="mb-6">
+                Бюджет ремонта домашнего офиса площадью 10 квадратных метров составляет 80000-150000 рублей для эконом-варианта, 180000-300000 рублей для стандартного ремонта и от 350000 рублей для премиум-класса с дорогими материалами и мебелью.
+              </p>
 
-              <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Типичные ошибки при ремонте офиса</h2>
-              
-              <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                <li><strong>Недостаток розеток</strong> — планируйте с запасом</li>
-                <li><strong>Плохое освещение</strong> — экономия на свете снижает продуктивность</li>
-                <li><strong>Неэргономичная мебель</strong> — приводит к проблемам со здоровьем</li>
-                <li><strong>Отсутствие звукоизоляции</strong> — мешает концентрации</li>
-                <li><strong>Неправильная цветовая гамма</strong> — влияет на настроение</li>
-                <li><strong>Недостаток хранения</strong> — создает беспорядок</li>
-              </ul>
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Выводы и рекомендации
+              </h2>
+              <p className="mb-4">
+                Ремонт домашнего офиса — инвестиция в вашу продуктивность и здоровье. Не экономьте на освещении и эргономичной мебели. Продумайте звукоизоляцию для концентрации. Выбирайте спокойные цвета и качественные материалы.
+              </p>
+              <p className="mb-6">
+                Обеспечьте достаточное количество розеток и хорошее интернет-соединение. Системы хранения планируйте заранее. Если бюджет позволяет, установите климат-контроль. Команда SPB-DSRemont поможет создать идеальное рабочее пространство с учетом всех ваших требований.
+              </p>
 
-              <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-8 my-12">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Заключение</h2>
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  Качественный ремонт домашнего офиса — это инвестиция в вашу продуктивность и здоровье. Правильно организованное рабочее пространство повышает эффективность работы, снижает усталость и создает комфортные условия для профессиональной деятельности.
-                </p>
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  Не экономьте на эргономике, освещении и звукоизоляции — эти элементы напрямую влияют на качество вашей работы и самочувствие. Создайте пространство, в котором вам будет приятно и удобно работать каждый день.
-                </p>
-              </div>
-
-              <div className="bg-primary/5 rounded-xl p-8 text-center mt-12">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Готовы создать идеальный домашний офис?
+              <div className="bg-gray-50 border-l-4 border-primary p-6 rounded-r-lg my-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Закажите ремонт домашнего офиса
                 </h3>
-                <p className="text-gray-700 mb-6">
-                  Наши специалисты помогут спроектировать и реализовать функциональное рабочее пространство с учетом всех требований эргономики и ваших индивидуальных потребностей.
+                <p className="mb-4">
+                  Создадим продуктивное и комфортное рабочее пространство. Продумаем эргономику, освещение, звукоизоляцию. Гарантия качества и фиксированная цена.
                 </p>
-                <Button 
+                <Button
                   size="lg"
-                  onClick={() => window.dispatchEvent(new CustomEvent('openContactDialog'))}
-                  className="text-lg px-8"
+                  onClick={() =>
+                    window.dispatchEvent(new CustomEvent("openContactDialog"))
+                  }
+                  className="w-full md:w-auto"
                 >
-                  Заказать консультацию
+                  Получить бесплатную консультацию
                 </Button>
               </div>
+
+              <p className="text-sm text-gray-500 mt-8">
+                Статья подготовлена специалистами компании SPB-DSRemont на основе опыта работы более 10 лет в сфере ремонта и отделки помещений в Санкт-Петербурге.
+              </p>
             </div>
           </div>
         </div>

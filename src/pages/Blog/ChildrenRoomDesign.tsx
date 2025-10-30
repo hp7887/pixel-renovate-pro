@@ -3,9 +3,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Check } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import LazyImage from "@/components/LazyImage";
 import blogChildrenRoom from "@/assets/blog-children-room.jpg";
+import blogChildrenInterior from "@/assets/blog-children-interior.jpg";
+import blogChildrenFurniture from "@/assets/blog-children-furniture.jpg";
 
 const ChildrenRoomDesign = () => {
   return (
@@ -15,349 +17,149 @@ const ChildrenRoomDesign = () => {
         <meta name="description" content="Как создать безопасную и функциональную детскую комнату: зонирование, выбор материалов, цветовая гамма, мебель и освещение. Экспертные советы по ремонту детской в СПб." />
         <meta name="keywords" content="ремонт детской комнаты, дизайн детской, детская комната интерьер, зонирование детской, безопасные материалы для детской" />
         <link rel="canonical" href="https://spb-dsremont.ru/blog/dizayn-detskoy-komnaty" />
-        <meta property="og:title" content="Дизайн и ремонт детской комнаты: идеи для комфортного пространства" />
-        <meta property="og:description" content="Экспертные советы по созданию безопасной и функциональной детской комнаты: зонирование, выбор материалов и мебели." />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://spb-dsremont.ru/blog/dizayn-detskoy-komnaty" />
-        <meta property="og:image" content="https://spb-dsremont.ru/og-image.jpg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Дизайн и ремонт детской комнаты" />
-        <meta name="twitter:description" content="Экспертные советы по созданию безопасной и функциональной детской комнаты" />
-        <meta name="twitter:image" content="https://spb-dsremont.ru/og-image.jpg" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            "headline": "Дизайн и ремонт детской комнаты: идеи для комфортного пространства",
-            "description": "Как создать безопасную и функциональную детскую комнату: зонирование, выбор материалов, цветовая гамма, мебель и освещение.",
-            "image": "https://spb-dsremont.ru/og-image.jpg",
-            "datePublished": "2025-01-15",
-            "dateModified": "2025-01-15",
-            "author": {
-              "@type": "Organization",
-              "name": "SPB-DSRemont"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "SPB-DSRemont",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://spb-dsremont.ru/og-image.jpg"
-              }
-            }
-          })}
-        </script>
       </Helmet>
 
       <Header />
 
-      <article className="pt-24 pb-16">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <Link to="/blog" className="inline-flex items-center text-primary hover:text-primary/80 mb-8 transition-colors">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Вернуться к статьям
-          </Link>
+      <article className="py-12 md:py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <Link to="/blog" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 mb-8">
+              <ArrowLeft className="w-4 h-4" />
+              Вернуться к статьям
+            </Link>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Дизайн и ремонт детской комнаты: создаем идеальное пространство для ребенка
-          </h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Дизайн и ремонт детской комнаты: создаем идеальное пространство для ребенка
+            </h1>
 
-          <div className="flex items-center gap-4 text-gray-600 mb-8">
-            <time dateTime="2025-01-15">15 января 2025</time>
-            <span>•</span>
-            <span>8 минут чтения</span>
-          </div>
+            <div className="text-gray-500 text-sm mb-8">
+              Обновлено: 15 января 2025
+            </div>
 
-          <LazyImage
-            src={blogChildrenRoom}
-            alt="Дизайн детской комнаты с функциональными зонами"
-            className="w-full h-[400px] md:h-[500px] object-cover rounded-2xl mb-12"
-          />
+            <LazyImage
+              src={blogChildrenRoom}
+              alt="Дизайн детской комнаты с функциональными зонами"
+              className="w-full h-[400px] object-cover rounded-lg mb-8"
+            />
 
-          <div className="prose prose-lg max-w-none">
-            <p className="lead text-xl text-gray-700 mb-8">
-              Детская комната — это особое пространство, где ребенок проводит большую часть времени: играет, учится, отдыхает и развивается. Правильно спроектированный интерьер детской комнаты влияет на комфорт, безопасность и даже развитие малыша. В этой статье мы рассмотрим ключевые аспекты ремонта и дизайна детской комнаты.
-            </p>
-
-            <section className="mb-10">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Зонирование детской комнаты</h2>
-              <p className="text-gray-700 mb-6">
-                Грамотное зонирование помогает организовать пространство максимально функционально. Основные зоны в детской комнате:
+            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+              <p className="text-lg mb-6">
+                Детская комната — это особое пространство, где ребенок проводит большую часть времени: играет, учится, отдыхает и развивается. Правильно спроектированный интерьер детской комнаты влияет на комфорт, безопасность и даже развитие малыша. В этой статье рассмотрим ключевые аспекты ремонта и дизайна детской комнаты.
               </p>
 
-              <div className="grid md:grid-cols-2 gap-4 mb-6">
-                <div className="bg-gradient-to-br from-cyan-50 to-blue-50 p-6 rounded-xl">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
-                    <Check className="w-5 h-5 text-cyan-600" />
-                    Зона сна
-                  </h3>
-                  <p className="text-gray-700">
-                    Удобная кровать с ортопедическим матрасом, приглушенное освещение, спокойные тона. Располагайте подальше от окна и входной двери для спокойного отдыха.
-                  </p>
-                </div>
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Зонирование детской комнаты
+              </h2>
+              <p className="mb-4">
+                Грамотное зонирование помогает организовать пространство максимально функционально. Основные зоны в детской комнате — сон, учеба, игра и хранение. Зона сна должна располагаться подальше от окна и входной двери для спокойного отдыха. Выбирайте удобную кровать с ортопедическим матрасом, приглушенное освещение и спокойные тона.
+              </p>
+              <p className="mb-6">
+                Зона учебы требует письменного стола с правильным освещением, желательно у окна. Стул должен быть с регулировкой высоты. Разместите полки для книг и учебных материалов в доступности. Игровая зона нуждается в мягком ковре или игровом коврике, открытых полках для игрушек и месте для творчества. Система хранения должна быть доступна ребенку, чтобы он мог самостоятельно убирать вещи.
+              </p>
 
-                <div className="bg-gradient-to-br from-cyan-50 to-blue-50 p-6 rounded-xl">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
-                    <Check className="w-5 h-5 text-cyan-600" />
-                    Зона учебы
-                  </h3>
-                  <p className="text-gray-700">
-                    Письменный стол с правильным освещением (желательно у окна), удобный стул с регулировкой высоты, полки для книг и учебных материалов.
-                  </p>
-                </div>
+              <LazyImage
+                src={blogChildrenInterior}
+                alt="Интерьер детской комнаты с зонированием"
+                className="w-full h-[350px] object-cover rounded-lg my-8"
+              />
 
-                <div className="bg-gradient-to-br from-cyan-50 to-blue-50 p-6 rounded-xl">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
-                    <Check className="w-5 h-5 text-cyan-600" />
-                    Игровая зона
-                  </h3>
-                  <p className="text-gray-700">
-                    Мягкий ковер или игровой коврик, открытые полки для игрушек, место для творчества. Используйте яркие акценты и безопасную мебель.
-                  </p>
-                </div>
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Выбор материалов для детской
+              </h2>
+              <p className="mb-4">
+                Все материалы для детской комнаты должны иметь сертификаты безопасности и быть экологически чистыми. Для пола подойдет пробковое покрытие — оно экологично, тепло, мягко при падениях и обеспечивает звукоизоляцию. Ламинат класса E0-E1 практичен, легко моется и имеет доступную цену. Натуральное дерево экологично и долговечно, но требует ухода.
+              </p>
+              <p className="mb-6">
+                Для стен лучше выбирать водоэмульсионную краску — её легко перекрасить, она моется и безопасна. Бумажные обои экологичны, дышат и недорогие, их можно менять по мере роста ребенка. Флизелиновые обои под покраску практичны и позволяют менять цвет. Избегайте виниловых обоев — они не пропускают воздух.
+              </p>
 
-                <div className="bg-gradient-to-br from-cyan-50 to-blue-50 p-6 rounded-xl">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
-                    <Check className="w-5 h-5 text-cyan-600" />
-                    Зона хранения
-                  </h3>
-                  <p className="text-gray-700">
-                    Шкафы, комоды, ящики для игрушек. Системы хранения должны быть доступны ребенку, чтобы он мог самостоятельно убирать вещи.
-                  </p>
-                </div>
-              </div>
-            </section>
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Цветовая гамма для детской
+              </h2>
+              <p className="mb-4">
+                Цвет влияет на настроение и эмоциональное состояние ребенка. При выборе палитры учитывайте возраст и темперамент. Для малышей до 3 лет подойдут пастельные, мягкие оттенки — нежно-голубой, персиковый, светло-желтый, мятный. Избегайте ярких кричащих цветов.
+              </p>
+              <p className="mb-4">
+                Для дошкольников 3-7 лет можно использовать яркие акценты на нейтральном фоне — белый плюс яркие детали. Подойдут тематические элементы с героями мультфильмов или животными. Для школьников 7-12 лет выбирайте спокойные тона для учебной зоны — серый, бежевый, зеленый, а яркие оставьте для игровой.
+              </p>
+              <p className="mb-6">
+                Для подростков от 12 лет нужна более взрослая палитра и стильные комбинации. Дайте подростку выбрать цвет самостоятельно — это важно для самовыражения. Синие оттенки способствуют концентрации, зеленый снижает усталость глаз, а желтые или оранжевые акценты стимулируют креативность.
+              </p>
 
-            <section className="mb-10">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Выбор материалов: безопасность превыше всего</h2>
-              
-              <div className="bg-amber-50 border-l-4 border-amber-500 p-6 mb-6 rounded-r-xl">
-                <p className="text-gray-800 font-semibold mb-2">⚠️ Важно!</p>
-                <p className="text-gray-700">
-                  Все материалы для детской комнаты должны иметь сертификаты безопасности и быть экологически чистыми.
+              <LazyImage
+                src={blogChildrenFurniture}
+                alt="Безопасная мебель для детской комнаты"
+                className="w-full h-[350px] object-cover rounded-lg my-8"
+              />
+
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Мебель для детской комнаты
+              </h2>
+              <p className="mb-4">
+                Безопасность мебели — главный критерий. Выбирайте конструкции со скругленными углами и без острых деталей. Мебель должна быть устойчивой и не опрокидываться. Материалы должны быть сертифицированными, без токсичных веществ. Фурнитура должна быть качественной, без мелких съемных деталей.
+              </p>
+              <p className="mb-6">
+                Функциональность не менее важна. Трансформируемая мебель растет вместе с ребенком. Встроенные системы хранения экономят пространство. Модульная мебель позволяет перекомпоновывать пространство. Многофункциональные решения вроде кровати-чердака с рабочей зоной внизу отлично подходят для небольших комнат.
+              </p>
+
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Освещение в детской
+              </h2>
+              <p className="mb-4">
+                Правильное освещение критично для здоровья глаз и комфорта ребенка. Общее освещение — потолочная люстра с мягким рассеянным светом. Избегайте слишком ярких ламп, свет должен быть комфортным. Рабочее освещение — настольная лампа с регулировкой высоты и направления. Мощность 40-60 Вт, теплый белый свет 3000-4000K.
+              </p>
+              <p className="mb-4">
+                Ночное освещение необходимо для безопасности передвижения ночью. Используйте небольшой ночник с мягким светом или светодиодную ленту вдоль пола. Декоративное освещение создает атмосферу — гирлянды, светящиеся фигурки, проектор звездного неба.
+              </p>
+              <p className="mb-6">
+                Все светильники должны быть с защитой от перегрева. Розетки размещайте на высоте недоступной для маленьких детей или используйте заглушки. Выключатели лучше делать на удобной для ребенка высоте — около 90 см от пола.
+              </p>
+
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Частые ошибки при ремонте детской
+              </h2>
+              <p className="mb-4">
+                Слишком яркие цвета перевозбуждают нервную систему ребенка. Лучше выбрать спокойную базу с яркими акцентами, которые легко заменить. Мебель не по возрасту — частая проблема. Покупайте мебель с запасом на рост или трансформируемые модели.
+              </p>
+              <p className="mb-4">
+                Недостаток систем хранения приводит к постоянному беспорядку. Планируйте достаточно шкафов, полок и ящиков с самого начала. Скользкий пол опасен для детей — выбирайте покрытия с нескользящей поверхностью или используйте ковры.
+              </p>
+              <p className="mb-6">
+                Отсутствие возможности перестановки делает комнату скучной. Модульная мебель и нейтральная база позволяют менять интерьер по мере взросления ребенка. Недостаточное освещение вредит зрению — продумайте многоуровневую систему освещения для разных зон.
+              </p>
+
+              <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+                Выводы и рекомендации
+              </h2>
+              <p className="mb-4">
+                Ремонт детской комнаты требует особого внимания к деталям. Главные приоритеты — безопасность, экологичность и функциональность. Не гонитесь за модными трендами, которые быстро надоедят ребенку. Выбирайте нейтральную базу, которую легко обновить акцентами.
+              </p>
+              <p className="mb-6">
+                Обязательно учитывайте мнение ребенка, если он достаточно взрослый для этого. Его комната должна отражать его интересы и характер. Продумайте возможность трансформации пространства по мере взросления. Качественные материалы и мебель окупятся долгим сроком службы и здоровьем ребенка.
+              </p>
+
+              <div className="bg-gray-50 border-l-4 border-primary p-6 rounded-r-lg my-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Закажите ремонт детской комнаты
+                </h3>
+                <p className="mb-4">
+                  Создадим безопасное и уютное пространство для вашего ребенка. Подберем экологичные материалы, продумаем эргономику и функциональность. Гарантия качества и фиксированная цена.
                 </p>
+                <Button
+                  size="lg"
+                  onClick={() =>
+                    window.dispatchEvent(new CustomEvent("openContactDialog"))
+                  }
+                  className="w-full md:w-auto"
+                >
+                  Получить бесплатную консультацию
+                </Button>
               </div>
 
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Напольное покрытие</h3>
-              <ul className="space-y-3 mb-6">
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-cyan-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <strong>Пробковое покрытие</strong> — экологично, тепло, мягко при падениях, звукоизоляция
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-cyan-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <strong>Ламинат класса E0-E1</strong> — практично, легко моется, доступная цена
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-cyan-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <strong>Натуральное дерево</strong> — экологично, красиво, долговечно (требует ухода)
-                  </div>
-                </li>
-              </ul>
-
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Стены</h3>
-              <ul className="space-y-3 mb-6">
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-cyan-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <strong>Водоэмульсионная краска</strong> — легко перекрасить, моется, безопасна
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-cyan-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <strong>Бумажные обои</strong> — экологичны, дышат, недорогие (меняются по мере роста ребенка)
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-cyan-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <strong>Флизелиновые обои под покраску</strong> — практично, можно менять цвет
-                  </div>
-                </li>
-              </ul>
-            </section>
-
-            <section className="mb-10">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Цветовая гамма для детской</h2>
-              <p className="text-gray-700 mb-6">
-                Цвет влияет на настроение и эмоциональное состояние ребенка. При выборе палитры учитывайте возраст и темперамент:
+              <p className="text-sm text-gray-500 mt-8">
+                Статья подготовлена специалистами компании SPB-DSRemont на основе опыта работы более 10 лет в сфере ремонта и отделки помещений в Санкт-Петербурге.
               </p>
-
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div className="bg-white border-2 border-gray-200 p-6 rounded-xl">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">Для малышей (0-3 года)</h3>
-                  <p className="text-gray-700">
-                    Пастельные, мягкие оттенки: нежно-голубой, персиковый, светло-желтый, мятный. Избегайте ярких кричащих цветов.
-                  </p>
-                </div>
-
-                <div className="bg-white border-2 border-gray-200 p-6 rounded-xl">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">Для дошкольников (3-7 лет)</h3>
-                  <p className="text-gray-700">
-                    Яркие акценты на нейтральном фоне: белый + яркие детали. Можно использовать тематические элементы (герои мультфильмов, животные).
-                  </p>
-                </div>
-
-                <div className="bg-white border-2 border-gray-200 p-6 rounded-xl">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">Для школьников (7-12 лет)</h3>
-                  <p className="text-gray-700">
-                    Спокойные тона для учебной зоны (серый, бежевый, зеленый), яркие для игровой. Советуйтесь с ребенком о предпочтениях.
-                  </p>
-                </div>
-
-                <div className="bg-white border-2 border-gray-200 p-6 rounded-xl">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">Для подростков (12+ лет)</h3>
-                  <p className="text-gray-700">
-                    Более взрослая палитра, стильные комбинации. Дайте подростку выбрать цвет самостоятельно — это важно для самовыражения.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            <section className="mb-10">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Мебель для детской комнаты</h2>
-              
-              <div className="space-y-4 mb-6">
-                <div className="bg-gradient-to-br from-cyan-50 to-blue-50 p-6 rounded-xl">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">Безопасность</h3>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>✓ Скругленные углы и отсутствие острых деталей</li>
-                    <li>✓ Устойчивая конструкция (мебель не должна опрокидываться)</li>
-                    <li>✓ Сертифицированные материалы без токсичных веществ</li>
-                    <li>✓ Качественная фурнитура без мелких съемных деталей</li>
-                  </ul>
-                </div>
-
-                <div className="bg-gradient-to-br from-cyan-50 to-blue-50 p-6 rounded-xl">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">Функциональность</h3>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>✓ Трансформируемая мебель, растущая вместе с ребенком</li>
-                    <li>✓ Встроенные системы хранения для экономии пространства</li>
-                    <li>✓ Модульная мебель, которую можно перекомпоновать</li>
-                    <li>✓ Многофункциональные решения (кровать-чердак с рабочей зоной)</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            <section className="mb-10">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Освещение в детской</h2>
-              <p className="text-gray-700 mb-6">
-                Правильное освещение критично для здоровья глаз и комфорта ребенка:
-              </p>
-
-              <div className="space-y-4">
-                <div className="flex gap-4 items-start">
-                  <div className="bg-cyan-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 font-bold">
-                    1
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">Общее освещение</h3>
-                    <p className="text-gray-700">
-                      Потолочная люстра с мягким рассеянным светом. Избегайте слишком ярких ламп — свет должен быть комфортным.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4 items-start">
-                  <div className="bg-cyan-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 font-bold">
-                    2
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">Рабочее освещение</h3>
-                    <p className="text-gray-700">
-                      Настольная лампа с регулируемой высотой и направлением света. Мощность 40-60 Вт, теплый белый свет (3000-4000K).
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4 items-start">
-                  <div className="bg-cyan-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 font-bold">
-                    3
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">Ночник</h3>
-                    <p className="text-gray-700">
-                      Мягкий приглушенный свет для комфортного засыпания. Лучше выбирать модели с датчиком движения или сенсорным управлением.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4 items-start">
-                  <div className="bg-cyan-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 font-bold">
-                    4
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">Декоративное освещение</h3>
-                    <p className="text-gray-700">
-                      Светодиодные гирлянды, световые панели, подсветка полок — создают уютную атмосферу и радуют ребенка.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section className="mb-10">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Распространенные ошибки при ремонте детской</h2>
-              
-              <div className="space-y-4">
-                <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-xl">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">❌ Слишком яркие или темные цвета</h3>
-                  <p className="text-gray-700">
-                    Агрессивные оттенки перевозбуждают, темные угнетают. Выбирайте сбалансированную палитру.
-                  </p>
-                </div>
-
-                <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-xl">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">❌ Недостаточно места для хранения</h3>
-                  <p className="text-gray-700">
-                    Планируйте системы хранения с запасом — у детей вещей становится все больше.
-                  </p>
-                </div>
-
-                <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-xl">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">❌ Игнорирование мнения ребенка</h3>
-                  <p className="text-gray-700">
-                    Даже маленькие дети имеют свои предпочтения. Учитывайте их интересы при оформлении.
-                  </p>
-                </div>
-
-                <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-xl">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">❌ Отсутствие возможности трансформации</h3>
-                  <p className="text-gray-700">
-                    Дети быстро растут. Планируйте интерьер так, чтобы его легко можно было адаптировать.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            <section className="bg-gradient-to-br from-cyan-50 to-blue-50 p-8 rounded-2xl">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Заключение</h2>
-              <p className="text-gray-700 mb-6">
-                Ремонт детской комнаты — это ответственный процесс, требующий внимания к деталям. Правильное зонирование, безопасные материалы, продуманное освещение и функциональная мебель создадут комфортное пространство, где ребенок будет расти, развиваться и чувствовать себя счастливым.
-              </p>
-              <p className="text-gray-700">
-                Профессиональный подход к ремонту детской — гарантия безопасности и комфорта вашего ребенка. Доверьте эту задачу специалистам!
-              </p>
-            </section>
-
-            <div className="text-center pt-12">
-              <p className="text-xl text-gray-700 mb-6">
-                Нужна помощь в создании идеальной детской комнаты?
-              </p>
-              <Button
-                size="lg"
-                onClick={() => window.dispatchEvent(new CustomEvent('openContactDialog'))}
-                className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-lg px-10 py-6"
-              >
-                Получить бесплатную консультацию
-              </Button>
             </div>
           </div>
         </div>
