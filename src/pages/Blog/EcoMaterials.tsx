@@ -6,7 +6,7 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import LazyImage from "@/components/LazyImage";
 import blogEcoMaterialsNatural from "@/assets/blog-eco-materials-natural.jpg";
-import blogEcoCertificates from "@/assets/blog-eco-certificates.jpg";
+import blogEcoMaterialsSamples from "@/assets/blog-eco-materials-samples.jpg";
 import blogEcoHealthyHome from "@/assets/blog-eco-healthy-home.jpg";
 
 const EcoMaterials = () => {
@@ -93,8 +93,8 @@ const EcoMaterials = () => {
               </section>
 
               <LazyImage
-                src={blogEcoCertificates}
-                alt="Сертификаты экологической безопасности материалов: EcoLabel, FSC, E0"
+                src={blogEcoMaterialsSamples}
+                alt="Образцы экологичных материалов для ремонта: дерево, пробка, натуральные краски"
                 className="w-full h-[400px] object-cover rounded-2xl my-8"
               />
 
