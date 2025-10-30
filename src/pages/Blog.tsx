@@ -20,6 +20,33 @@ import blogBalconyRenovation from "@/assets/blog-balcony-renovation.jpg";
 const articles = [
   {
     id: 1,
+    slug: "dizayn-detskoy-komnaty",
+    title: "Дизайн и ремонт детской комнаты: полное руководство",
+    excerpt: "Создаем безопасное и функциональное пространство для ребенка: выбор материалов, зонирование, мебель, освещение. Стоимость от 8500₽/м² в СПб.",
+    image: require("@/assets/blog-children-room-hero.jpg"),
+    date: "1 марта 2025",
+    readTime: "14 мин"
+  },
+  {
+    id: 2,
+    slug: "zvukoizolyaciya-kvartiry",
+    title: "Звукоизоляция квартиры: эффективная защита от шума",
+    excerpt: "Профессиональная звукоизоляция стен, потолка, пола. Современные материалы, снижение шума до 65 дБ. Цены от 2500₽/м² в СПб.",
+    image: require("@/assets/blog-soundproofing-hero.jpg"),
+    date: "28 февраля 2025",
+    readTime: "16 мин"
+  },
+  {
+    id: 3,
+    slug: "cvetovye-resheniya-v-interere",
+    title: "Цветовые решения в интерьере: как выбрать идеальную палитру",
+    excerpt: "Психология цвета, актуальные тренды 2025, правило 60-30-10, сочетание оттенков. Дизайн-проект от 3500₽/м² в СПб.",
+    image: require("@/assets/blog-color-schemes-hero.jpg"),
+    date: "25 февраля 2025",
+    readTime: "13 мин"
+  },
+  {
+    id: 4,
     slug: "remont-balkona",
     title: "Ремонт и утепление балкона: превращаем в уютное пространство",
     excerpt: "Балкон может стать полноценной комнатой, кабинетом или зоной отдыха. Рассказываем, как правильно провести ремонт и утепление балкона с максимальной пользой.",
