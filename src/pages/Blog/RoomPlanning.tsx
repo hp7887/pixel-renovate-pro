@@ -6,8 +6,6 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import LazyImage from "@/components/LazyImage";
 import blogRoomPlanning from "@/assets/blog-room-planning.jpg";
-import blogPlanningBlueprint from "@/assets/blog-planning-blueprint.jpg";
-import blogPlanningZones from "@/assets/blog-planning-zones.jpg";
 import blogPlanningMultifunctional from "@/assets/blog-planning-multifunctional.jpg";
 import blogKitchenErgonomics from "@/assets/blog-kitchen-ergonomics.jpg";
 import blogPodiumZoning from "@/assets/blog-podium-zoning.jpg";
@@ -94,12 +92,6 @@ const RoomPlanning = () => {
                  className="w-full h-[400px] object-cover rounded-lg my-8"
                />
 
-               <LazyImage
-                 src={blogPlanningBlueprint}
-                 alt="3D визуализация планировки квартиры на планшете с расстановкой мебели"
-                 className="w-full h-[350px] object-cover rounded-lg my-8"
-               />
-
               <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
                 Зонирование пространства
               </h2>
@@ -114,12 +106,6 @@ const RoomPlanning = () => {
                  src={blogPodiumZoning}
                  alt="Подиум для зонирования спальной зоны в студии — приподнятая платформа"
                  className="w-full h-[400px] object-cover rounded-lg my-8"
-               />
-
-               <LazyImage
-                 src={blogPlanningZones}
-                 alt="Зонирование гостиной с функциональными зонами и эргономичной расстановкой мебели"
-                 className="w-full h-[350px] object-cover rounded-lg my-8"
                />
 
               <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
