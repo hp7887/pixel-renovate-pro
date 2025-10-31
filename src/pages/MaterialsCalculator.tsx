@@ -15,6 +15,8 @@ import selectionImage from "@/assets/materials-selection-process.jpg";
 import costImage from "@/assets/materials-cost-calculation.jpg";
 import LazyImage from "@/components/LazyImage";
 
+type CalculatorMode = "materials" | "services";
+
 type WorkType = {
   id: string;
   name: string;
@@ -23,20 +25,31 @@ type WorkType = {
   formula: (area: number, thickness?: number) => {
     bags?: number;
     totalWeight?: number;
+    packages?: number;
     amount: number;
     unit: string;
     cost: number;
   };
 };
 
+type ServiceType = {
+  id: string;
+  name: string;
+  description: string;
+  pricePerUnit: number;
+  unit: string;
+};
+
 const MaterialsCalculator = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [mode, setMode] = useState<CalculatorMode>("materials");
   const [selectedWork, setSelectedWork] = useState<string>("");
   const [area, setArea] = useState<number>(20);
   const [thickness, setThickness] = useState<number>(10);
   const [result, setResult] = useState<{
     bags?: number;
     totalWeight?: number;
+    packages?: number;
     amount: string;
     cost: number;
   } | null>(null);
@@ -124,45 +137,108 @@ const MaterialsCalculator = () => {
       }),
     },
     {
-      id: "wallpaper",
-      name: "Поклейка обоев",
-      description: "Оклейка стен обоями",
+      id: "laminate",
+      name: "Ламинат",
+      description: "Укладка ламината с подложкой",
       hasThickness: false,
-      formula: (area) => ({
-        amount: Math.ceil(area * 1.1), // +10% на подгонку рисунка
-        unit: "м²",
-        cost: Math.ceil(area * 1.1) * 450,
-      }),
+      formula: (area) => {
+        const packages = Math.ceil(area / 10); // 10м² в пачке подложки
+        return {
+          packages,
+          amount: Math.ceil(area * 1.1),
+          unit: "м² ламината + " + packages + " пачек подложки",
+          cost: Math.ceil(area * 1.1) * 1200 + packages * 800,
+        };
+      },
+    },
+  ];
+
+  const serviceTypes: ServiceType[] = [
+    {
+      id: "plastering_service",
+      name: "Штукатурка стен",
+      description: "Машинная штукатурка стен",
+      pricePerUnit: 600,
+      unit: "м²",
     },
     {
-      id: "flooring",
-      name: "Напольное покрытие",
-      description: "Ламинат, линолеум, паркетная доска",
-      hasThickness: false,
-      formula: (area) => ({
-        amount: Math.ceil(area * 1.1), // +10% запас
-        unit: "м²",
-        cost: Math.ceil(area * 1.1) * 1200,
-      }),
+      id: "screed_service",
+      name: "Стяжка пола",
+      description: "Полусухая стяжка пола",
+      pricePerUnit: 550,
+      unit: "м²",
+    },
+    {
+      id: "tiling_service",
+      name: "Укладка кафеля",
+      description: "Укладка керамической плитки на стены/пол",
+      pricePerUnit: 1500,
+      unit: "м²",
+    },
+    {
+      id: "laminate_service",
+      name: "Укладка ламината",
+      description: "Укладка ламината с подложкой",
+      pricePerUnit: 400,
+      unit: "м²",
+    },
+    {
+      id: "ceiling_service",
+      name: "Натяжные потолки",
+      description: "Монтаж натяжных потолков",
+      pricePerUnit: 450,
+      unit: "м²",
+    },
+    {
+      id: "painting_service",
+      name: "Покраска стен",
+      description: "Окраска стен в 2 слоя",
+      pricePerUnit: 350,
+      unit: "м²",
+    },
+    {
+      id: "putty_service",
+      name: "Шпаклевка стен",
+      description: "Финишная шпаклевка стен под покраску",
+      pricePerUnit: 400,
+      unit: "м²",
     },
   ];
 
   const handleCalculate = () => {
     if (!selectedWork || area <= 0) return;
 
-    const work = workTypes.find((w) => w.id === selectedWork);
-    if (!work) return;
+    if (mode === "materials") {
+      const work = workTypes.find((w) => w.id === selectedWork);
+      if (!work) return;
 
-    const calculationResult = work.formula(area, thickness);
-    setResult({
-      bags: calculationResult.bags,
-      totalWeight: calculationResult.totalWeight,
-      amount: `${calculationResult.amount} ${calculationResult.unit}`,
-      cost: calculationResult.cost,
-    });
+      const calculationResult = work.formula(area, thickness);
+      setResult({
+        bags: calculationResult.bags,
+        totalWeight: calculationResult.totalWeight,
+        packages: calculationResult.packages,
+        amount: `${calculationResult.amount} ${calculationResult.unit}`,
+        cost: calculationResult.cost,
+      });
+    } else {
+      const service = serviceTypes.find((s) => s.id === selectedWork);
+      if (!service) return;
+
+      const cost = area * service.pricePerUnit;
+      setResult({
+        amount: `${area} ${service.unit}`,
+        cost,
+      });
+    }
   };
 
-  const selectedWorkData = workTypes.find((w) => w.id === selectedWork);
+  const selectedWorkData = mode === "materials" 
+    ? workTypes.find((w) => w.id === selectedWork)
+    : null;
+  
+  const selectedServiceData = mode === "services"
+    ? serviceTypes.find((s) => s.id === selectedWork)
+    : null;
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat("ru-RU").format(price) + " ₽";
@@ -221,29 +297,63 @@ const MaterialsCalculator = () => {
                   <CardContent className="p-6 md:p-8">
                     <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
                       <Calculator className="w-6 h-6 text-primary" />
-                      Расчет материалов
+                      {mode === "materials" ? "Расчет материалов" : "Прайс на работы"}
                     </h2>
 
                     <div className="space-y-6">
                       <div>
+                        <Label htmlFor="mode" className="text-base font-medium mb-2 block">
+                          Что рассчитываем?
+                        </Label>
+                        <Select 
+                          value={mode} 
+                          onValueChange={(value: CalculatorMode) => {
+                            setMode(value);
+                            setSelectedWork("");
+                            setResult(null);
+                          }}
+                        >
+                          <SelectTrigger id="mode" className="w-full">
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="materials">Материалы</SelectItem>
+                            <SelectItem value="services">Работы</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      <div>
                         <Label htmlFor="work-type" className="text-base font-medium mb-2 block">
-                          Выберите вид работ
+                          {mode === "materials" ? "Выберите материал" : "Выберите работу"}
                         </Label>
                         <Select value={selectedWork} onValueChange={setSelectedWork}>
                           <SelectTrigger id="work-type" className="w-full">
-                            <SelectValue placeholder="Выберите работу..." />
+                            <SelectValue placeholder={mode === "materials" ? "Выберите материал..." : "Выберите работу..."} />
                           </SelectTrigger>
                           <SelectContent>
-                            {workTypes.map((work) => (
-                              <SelectItem key={work.id} value={work.id}>
-                                {work.name}
-                              </SelectItem>
-                            ))}
+                            {mode === "materials" 
+                              ? workTypes.map((work) => (
+                                  <SelectItem key={work.id} value={work.id}>
+                                    {work.name}
+                                  </SelectItem>
+                                ))
+                              : serviceTypes.map((service) => (
+                                  <SelectItem key={service.id} value={service.id}>
+                                    {service.name}
+                                  </SelectItem>
+                                ))
+                            }
                           </SelectContent>
                         </Select>
                         {selectedWorkData && (
                           <p className="text-sm text-muted-foreground mt-2">
                             {selectedWorkData.description}
+                          </p>
+                        )}
+                        {selectedServiceData && (
+                          <p className="text-sm text-muted-foreground mt-2">
+                            {selectedServiceData.description} • {selectedServiceData.pricePerUnit} ₽/{selectedServiceData.unit}
                           </p>
                         )}
                       </div>
@@ -307,9 +417,11 @@ const MaterialsCalculator = () => {
                         <div className="p-6 bg-background rounded-lg border-2">
                           <div className="flex justify-between items-start mb-4">
                             <div>
-                              <p className="text-sm text-muted-foreground mb-1">Работа</p>
+                              <p className="text-sm text-muted-foreground mb-1">
+                                {mode === "materials" ? "Материал" : "Работа"}
+                              </p>
                               <p className="text-lg font-semibold text-foreground">
-                                {selectedWorkData?.name}
+                                {mode === "materials" ? selectedWorkData?.name : selectedServiceData?.name}
                               </p>
                             </div>
                           </div>
@@ -348,9 +460,19 @@ const MaterialsCalculator = () => {
                                 </span>
                               </div>
                             )}
+                            {result.packages && (
+                              <div className="flex justify-between items-center">
+                                <span className="text-base font-medium text-muted-foreground">
+                                  Подложка:
+                                </span>
+                                <span className="text-xl font-bold text-foreground">
+                                  {result.packages} пачек
+                                </span>
+                              </div>
+                            )}
                             <div className="flex justify-between items-center">
                               <span className="text-base font-medium text-muted-foreground">
-                                Необходимо материала:
+                                {mode === "materials" ? "Необходимо материала:" : "Объем работ:"}
                               </span>
                               <span className="text-xl font-bold text-foreground">
                                 {result.amount}
@@ -358,7 +480,7 @@ const MaterialsCalculator = () => {
                             </div>
                             <div className="flex justify-between items-center pt-3 border-t">
                               <span className="text-base font-medium text-muted-foreground">
-                                Примерная стоимость:
+                                {mode === "materials" ? "Примерная стоимость материалов:" : "Стоимость работ:"}
                               </span>
                               <span className="text-2xl font-bold text-primary">
                                 {formatPrice(result.cost)}
@@ -367,7 +489,7 @@ const MaterialsCalculator = () => {
                           </div>
 
                           <p className="text-sm text-muted-foreground mt-4">
-                            * Цены указаны ориентировочно для рынка СПб без учета доставки
+                            * Цены указаны ориентировочно для рынка СПб {mode === "materials" ? "без учета доставки" : ""}
                           </p>
                         </div>
 
