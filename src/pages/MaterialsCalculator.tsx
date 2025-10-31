@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Slider } from "@/components/ui/slider";
 import { Calculator, Ruler } from "lucide-react";
 import ContactDialog from "@/components/ContactDialog";
 import heroImage from "@/assets/materials-calculator-hero.jpg";
@@ -19,7 +20,13 @@ type WorkType = {
   name: string;
   description: string;
   hasThickness: boolean;
-  formula: (area: number, thickness?: number) => { amount: number; unit: string; cost: number };
+  formula: (area: number, thickness?: number) => {
+    bags?: number;
+    totalWeight?: number;
+    amount: number;
+    unit: string;
+    cost: number;
+  };
 };
 
 const MaterialsCalculator = () => {
@@ -27,7 +34,12 @@ const MaterialsCalculator = () => {
   const [selectedWork, setSelectedWork] = useState<string>("");
   const [area, setArea] = useState<number>(20);
   const [thickness, setThickness] = useState<number>(10);
-  const [result, setResult] = useState<{ amount: string; cost: number } | null>(null);
+  const [result, setResult] = useState<{
+    bags?: number;
+    totalWeight?: number;
+    amount: string;
+    cost: number;
+  } | null>(null);
 
   const workTypes: WorkType[] = [
     {
@@ -35,22 +47,32 @@ const MaterialsCalculator = () => {
       name: "Штукатурка стен",
       description: "Выравнивание стен штукатуркой",
       hasThickness: true,
-      formula: (area, thickness = 10) => ({
-        amount: Math.ceil((area * thickness * 1.4) / 30), // 1.4 кг на 1м² при толщине 1мм
-        unit: "мешков по 30кг",
-        cost: Math.ceil((area * thickness * 1.4) / 30) * 750,
-      }),
+      formula: (area, thickness = 10) => {
+        const bags = Math.ceil((area * thickness * 1.4) / 30); // 1.4 кг на 1м² при толщине 1мм
+        return {
+          bags,
+          totalWeight: bags * 30,
+          amount: bags,
+          unit: "мешков по 30кг",
+          cost: bags * 750,
+        };
+      },
     },
     {
       id: "putty",
       name: "Шпаклевка стен",
       description: "Финишное выравнивание под покраску/обои",
       hasThickness: true,
-      formula: (area, thickness = 2) => ({
-        amount: Math.ceil((area * thickness * 1.2) / 20), // 1.2 кг на 1м² при толщине 1мм
-        unit: "мешков по 20кг",
-        cost: Math.ceil((area * thickness * 1.2) / 20) * 700,
-      }),
+      formula: (area, thickness = 2) => {
+        const bags = Math.ceil((area * thickness * 1.2) / 20); // 1.2 кг на 1м² при толщине 1мм
+        return {
+          bags,
+          totalWeight: bags * 20,
+          amount: bags,
+          unit: "мешков по 20кг",
+          cost: bags * 700,
+        };
+      },
     },
     {
       id: "painting",
@@ -79,11 +101,16 @@ const MaterialsCalculator = () => {
       name: "Стяжка пола",
       description: "Выравнивание пола цементно-песчаной стяжкой",
       hasThickness: true,
-      formula: (area, thickness = 50) => ({
-        amount: Math.ceil((area * thickness * 18) / 50000), // 18 кг на 1м² при толщине 1мм
-        unit: "мешков по 50кг",
-        cost: Math.ceil((area * thickness * 18) / 50000) * 750,
-      }),
+      formula: (area, thickness = 50) => {
+        const bags = Math.ceil((area * thickness * 18) / 1000); // 18 кг на 1м² при толщине 1мм
+        return {
+          bags,
+          totalWeight: bags * 50,
+          amount: bags,
+          unit: "мешков готовой смеси по 50кг",
+          cost: bags * 450,
+        };
+      },
     },
     {
       id: "tiling",
@@ -128,6 +155,8 @@ const MaterialsCalculator = () => {
 
     const calculationResult = work.formula(area, thickness);
     setResult({
+      bags: calculationResult.bags,
+      totalWeight: calculationResult.totalWeight,
       amount: `${calculationResult.amount} ${calculationResult.unit}`,
       cost: calculationResult.cost,
     });
@@ -222,16 +251,16 @@ const MaterialsCalculator = () => {
                       {selectedWork && (
                         <>
                           <div>
-                            <Label htmlFor="area" className="text-base font-medium mb-2 block">
-                              Площадь (м²)
+                            <Label htmlFor="area" className="text-base font-medium mb-4 block">
+                              Площадь: {area} м²
                             </Label>
-                            <Input
+                            <Slider
                               id="area"
-                              type="number"
-                              min="1"
-                              value={area}
-                              onChange={(e) => setArea(parseFloat(e.target.value) || 0)}
-                              placeholder="Введите площадь"
+                              min={1}
+                              max={200}
+                              step={1}
+                              value={[area]}
+                              onValueChange={(value) => setArea(value[0])}
                               className="w-full"
                             />
                           </div>
@@ -299,6 +328,26 @@ const MaterialsCalculator = () => {
                           </div>
 
                           <div className="border-t-2 pt-4 space-y-3">
+                            {result.bags && (
+                              <div className="flex justify-between items-center">
+                                <span className="text-base font-medium text-muted-foreground">
+                                  Количество мешков:
+                                </span>
+                                <span className="text-xl font-bold text-foreground">
+                                  {result.bags} шт.
+                                </span>
+                              </div>
+                            )}
+                            {result.totalWeight && (
+                              <div className="flex justify-between items-center">
+                                <span className="text-base font-medium text-muted-foreground">
+                                  Общий вес:
+                                </span>
+                                <span className="text-xl font-bold text-foreground">
+                                  {result.totalWeight} кг
+                                </span>
+                              </div>
+                            )}
                             <div className="flex justify-between items-center">
                               <span className="text-base font-medium text-muted-foreground">
                                 Необходимо материала:
@@ -307,7 +356,7 @@ const MaterialsCalculator = () => {
                                 {result.amount}
                               </span>
                             </div>
-                            <div className="flex justify-between items-center">
+                            <div className="flex justify-between items-center pt-3 border-t">
                               <span className="text-base font-medium text-muted-foreground">
                                 Примерная стоимость:
                               </span>
