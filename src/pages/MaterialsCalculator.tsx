@@ -5,9 +5,9 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { Calculator, Ruler, CheckSquare } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Calculator, Ruler } from "lucide-react";
 import ContactDialog from "@/components/ContactDialog";
 import heroImage from "@/assets/materials-calculator-hero.jpg";
 import selectionImage from "@/assets/materials-selection-process.jpg";
@@ -18,136 +18,122 @@ type WorkType = {
   id: string;
   name: string;
   description: string;
+  hasThickness: boolean;
   formula: (area: number, thickness?: number) => { amount: number; unit: string; cost: number };
 };
 
 const MaterialsCalculator = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
-  const [selectedWorks, setSelectedWorks] = useState<string[]>([]);
-  const [workParams, setWorkParams] = useState<Record<string, { area: number; thickness?: number }>>({});
+  const [selectedWork, setSelectedWork] = useState<string>("");
+  const [area, setArea] = useState<number>(20);
+  const [thickness, setThickness] = useState<number>(10);
+  const [result, setResult] = useState<{ amount: string; cost: number } | null>(null);
 
   const workTypes: WorkType[] = [
     {
       id: "plastering",
       name: "Штукатурка стен",
       description: "Выравнивание стен штукатуркой",
+      hasThickness: true,
       formula: (area, thickness = 10) => ({
-        amount: (area * thickness * 1.4) / 1000, // 1.4 кг на 1м² при толщине 1мм
+        amount: Math.ceil((area * thickness * 1.4) / 30), // 1.4 кг на 1м² при толщине 1мм
         unit: "мешков по 30кг",
-        cost: Math.round((area * thickness * 1.4 * 25) / 1000),
+        cost: Math.ceil((area * thickness * 1.4) / 30) * 750,
       }),
     },
     {
       id: "putty",
       name: "Шпаклевка стен",
       description: "Финишное выравнивание под покраску/обои",
+      hasThickness: true,
       formula: (area, thickness = 2) => ({
-        amount: (area * thickness * 1.2) / 1000, // 1.2 кг на 1м² при толщине 1мм
+        amount: Math.ceil((area * thickness * 1.2) / 20), // 1.2 кг на 1м² при толщине 1мм
         unit: "мешков по 20кг",
-        cost: Math.round((area * thickness * 1.2 * 35) / 1000),
+        cost: Math.ceil((area * thickness * 1.2) / 20) * 700,
       }),
     },
     {
       id: "painting",
       name: "Покраска стен",
       description: "Окраска стен водоэмульсионной краской (2 слоя)",
+      hasThickness: false,
       formula: (area) => ({
-        amount: area * 0.3, // 0.3 л на м² в 2 слоя
-        unit: "литров",
-        cost: Math.round(area * 0.3 * 350),
+        amount: Math.ceil((area * 0.3) / 10), // 0.3 л на м² в 2 слоя
+        unit: "банок по 10л",
+        cost: Math.ceil((area * 0.3) / 10) * 3500,
       }),
     },
     {
       id: "priming",
       name: "Грунтовка стен",
       description: "Грунтование поверхности перед покраской/обоями",
+      hasThickness: false,
       formula: (area) => ({
-        amount: area * 0.2, // 0.2 л на м²
-        unit: "литров",
-        cost: Math.round(area * 0.2 * 200),
+        amount: Math.ceil((area * 0.2) / 10), // 0.2 л на м²
+        unit: "канистр по 10л",
+        cost: Math.ceil((area * 0.2) / 10) * 2000,
       }),
     },
     {
       id: "screed",
       name: "Стяжка пола",
       description: "Выравнивание пола цементно-песчаной стяжкой",
+      hasThickness: true,
       formula: (area, thickness = 50) => ({
-        amount: (area * thickness * 18) / 1000, // 18 кг на 1м² при толщине 1мм
+        amount: Math.ceil((area * thickness * 18) / 50000), // 18 кг на 1м² при толщине 1мм
         unit: "мешков по 50кг",
-        cost: Math.round((area * thickness * 18 * 15) / 1000),
+        cost: Math.ceil((area * thickness * 18) / 50000) * 750,
       }),
     },
     {
       id: "tiling",
       name: "Укладка плитки",
       description: "Облицовка стен/пола керамической плиткой",
+      hasThickness: false,
       formula: (area) => ({
-        amount: area * 1.15, // +15% на подрезку
+        amount: Math.ceil(area * 1.15), // +15% на подрезку
         unit: "м²",
-        cost: Math.round(area * 1.15 * 1800),
+        cost: Math.ceil(area * 1.15) * 1800,
       }),
     },
     {
       id: "wallpaper",
       name: "Поклейка обоев",
       description: "Оклейка стен обоями",
+      hasThickness: false,
       formula: (area) => ({
-        amount: area * 1.1, // +10% на подгонку рисунка
+        amount: Math.ceil(area * 1.1), // +10% на подгонку рисунка
         unit: "м²",
-        cost: Math.round(area * 1.1 * 450),
+        cost: Math.ceil(area * 1.1) * 450,
       }),
     },
     {
       id: "flooring",
       name: "Напольное покрытие",
       description: "Ламинат, линолеум, паркетная доска",
+      hasThickness: false,
       formula: (area) => ({
-        amount: area * 1.1, // +10% запас
+        amount: Math.ceil(area * 1.1), // +10% запас
         unit: "м²",
-        cost: Math.round(area * 1.1 * 1200),
+        cost: Math.ceil(area * 1.1) * 1200,
       }),
     },
   ];
 
-  const handleWorkToggle = (workId: string) => {
-    setSelectedWorks((prev) =>
-      prev.includes(workId) ? prev.filter((id) => id !== workId) : [...prev, workId]
-    );
-    if (!workParams[workId]) {
-      setWorkParams((prev) => ({ ...prev, [workId]: { area: 20, thickness: 10 } }));
-    }
-  };
+  const handleCalculate = () => {
+    if (!selectedWork || area <= 0) return;
 
-  const updateWorkParam = (workId: string, param: "area" | "thickness", value: number) => {
-    setWorkParams((prev) => ({
-      ...prev,
-      [workId]: { ...prev[workId], [param]: value },
-    }));
-  };
+    const work = workTypes.find((w) => w.id === selectedWork);
+    if (!work) return;
 
-  const calculateResults = () => {
-    const results: Array<{ name: string; amount: string; cost: number }> = [];
-    let totalCost = 0;
-
-    selectedWorks.forEach((workId) => {
-      const work = workTypes.find((w) => w.id === workId);
-      if (!work) return;
-
-      const params = workParams[workId] || { area: 20, thickness: 10 };
-      const result = work.formula(params.area, params.thickness);
-      
-      totalCost += result.cost;
-      results.push({
-        name: work.name,
-        amount: `${result.amount.toFixed(1)} ${result.unit}`,
-        cost: result.cost,
-      });
+    const calculationResult = work.formula(area, thickness);
+    setResult({
+      amount: `${calculationResult.amount} ${calculationResult.unit}`,
+      cost: calculationResult.cost,
     });
-
-    return { results, totalCost };
   };
 
-  const { results, totalCost } = calculateResults();
+  const selectedWorkData = workTypes.find((w) => w.id === selectedWork);
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat("ru-RU").format(price) + " ₽";
@@ -201,135 +187,148 @@ const MaterialsCalculator = () => {
           {/* Calculator Section */}
           <section className="py-12 bg-muted/30">
             <div className="container mx-auto px-4">
-              <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-10">
-                  <h2 className="text-3xl font-bold text-foreground mb-3 flex items-center justify-center gap-2">
-                    <CheckSquare className="w-8 h-8 text-primary" />
-                    Выберите виды работ
-                  </h2>
-                  <p className="text-muted-foreground">
-                    Отметьте необходимые работы и укажите параметры для каждой
-                  </p>
-                </div>
+              <div className="max-w-3xl mx-auto">
+                <Card className="border-2">
+                  <CardContent className="p-6 md:p-8">
+                    <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+                      <Calculator className="w-6 h-6 text-primary" />
+                      Расчет материалов
+                    </h2>
 
-                <div className="grid lg:grid-cols-2 gap-6 mb-8">
-                  {workTypes.map((work) => (
-                    <Card key={work.id} className="border-2 hover:border-primary/50 transition-colors">
-                      <CardContent className="p-6">
-                        <div className="flex items-start gap-3 mb-4">
-                          <Checkbox
-                            id={work.id}
-                            checked={selectedWorks.includes(work.id)}
-                            onCheckedChange={() => handleWorkToggle(work.id)}
-                            className="mt-1"
-                          />
-                          <div className="flex-1">
-                            <Label htmlFor={work.id} className="text-lg font-semibold cursor-pointer">
-                              {work.name}
+                    <div className="space-y-6">
+                      <div>
+                        <Label htmlFor="work-type" className="text-base font-medium mb-2 block">
+                          Выберите вид работ
+                        </Label>
+                        <Select value={selectedWork} onValueChange={setSelectedWork}>
+                          <SelectTrigger id="work-type" className="w-full">
+                            <SelectValue placeholder="Выберите работу..." />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {workTypes.map((work) => (
+                              <SelectItem key={work.id} value={work.id}>
+                                {work.name}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        {selectedWorkData && (
+                          <p className="text-sm text-muted-foreground mt-2">
+                            {selectedWorkData.description}
+                          </p>
+                        )}
+                      </div>
+
+                      {selectedWork && (
+                        <>
+                          <div>
+                            <Label htmlFor="area" className="text-base font-medium mb-2 block">
+                              Площадь (м²)
                             </Label>
-                            <p className="text-sm text-muted-foreground mt-1">{work.description}</p>
+                            <Input
+                              id="area"
+                              type="number"
+                              min="1"
+                              value={area}
+                              onChange={(e) => setArea(parseFloat(e.target.value) || 0)}
+                              placeholder="Введите площадь"
+                              className="w-full"
+                            />
                           </div>
-                        </div>
 
-                        {selectedWorks.includes(work.id) && (
-                          <div className="mt-4 space-y-4 pl-7 border-l-2 border-primary/30">
+                          {selectedWorkData?.hasThickness && (
                             <div>
-                              <Label htmlFor={`${work.id}-area`} className="text-sm font-medium mb-2 block">
-                                Площадь (м²)
+                              <Label htmlFor="thickness" className="text-base font-medium mb-2 block">
+                                Толщина слоя (мм)
                               </Label>
                               <Input
-                                id={`${work.id}-area`}
+                                id="thickness"
                                 type="number"
                                 min="1"
-                                value={workParams[work.id]?.area || 20}
-                                onChange={(e) =>
-                                  updateWorkParam(work.id, "area", parseFloat(e.target.value) || 0)
-                                }
+                                value={thickness}
+                                onChange={(e) => setThickness(parseFloat(e.target.value) || 0)}
+                                placeholder="Введите толщину"
                                 className="w-full"
                               />
                             </div>
+                          )}
 
-                            {["plastering", "putty", "screed"].includes(work.id) && (
-                              <div>
-                                <Label htmlFor={`${work.id}-thickness`} className="text-sm font-medium mb-2 block">
-                                  Толщина слоя (мм)
-                                </Label>
-                                <Input
-                                  id={`${work.id}-thickness`}
-                                  type="number"
-                                  min="1"
-                                  value={workParams[work.id]?.thickness || 10}
-                                  onChange={(e) =>
-                                    updateWorkParam(work.id, "thickness", parseFloat(e.target.value) || 0)
-                                  }
-                                  className="w-full"
-                                />
+                          <Button
+                            className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-6 text-lg"
+                            onClick={handleCalculate}
+                          >
+                            <Calculator className="w-5 h-5 mr-2" />
+                            Рассчитать
+                          </Button>
+                        </>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {result && (
+                  <Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-background mt-6">
+                    <CardContent className="p-6 md:p-8">
+                      <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+                        <Ruler className="w-6 h-6 text-primary" />
+                        Результат расчета
+                      </h3>
+
+                      <div className="space-y-6">
+                        <div className="p-6 bg-background rounded-lg border-2">
+                          <div className="flex justify-between items-start mb-4">
+                            <div>
+                              <p className="text-sm text-muted-foreground mb-1">Работа</p>
+                              <p className="text-lg font-semibold text-foreground">
+                                {selectedWorkData?.name}
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="grid md:grid-cols-2 gap-4 mb-4">
+                            <div className="p-4 bg-muted/50 rounded-lg">
+                              <p className="text-sm text-muted-foreground mb-1">Площадь</p>
+                              <p className="text-xl font-bold text-foreground">{area} м²</p>
+                            </div>
+                            {selectedWorkData?.hasThickness && (
+                              <div className="p-4 bg-muted/50 rounded-lg">
+                                <p className="text-sm text-muted-foreground mb-1">Толщина слоя</p>
+                                <p className="text-xl font-bold text-foreground">{thickness} мм</p>
                               </div>
                             )}
                           </div>
-                        )}
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
 
-                {selectedWorks.length > 0 ? (
-                  <Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-background">
-                    <CardContent className="p-6 md:p-8">
-                      <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
-                        <Ruler className="w-6 h-6 text-primary" />
-                        Результаты расчета
-                      </h2>
-
-                      <div className="space-y-3 mb-6">
-                        {results.map((item, index) => (
-                          <div
-                            key={index}
-                            className="flex justify-between items-center p-4 bg-background rounded-lg border hover:border-primary/50 transition-colors"
-                          >
-                            <div>
-                              <p className="font-medium text-foreground">{item.name}</p>
-                              <p className="text-sm text-muted-foreground">{item.amount}</p>
+                          <div className="border-t-2 pt-4 space-y-3">
+                            <div className="flex justify-between items-center">
+                              <span className="text-base font-medium text-muted-foreground">
+                                Необходимо материала:
+                              </span>
+                              <span className="text-xl font-bold text-foreground">
+                                {result.amount}
+                              </span>
                             </div>
-                            <span className="font-bold text-primary text-lg">
-                              {formatPrice(item.cost)}
-                            </span>
+                            <div className="flex justify-between items-center">
+                              <span className="text-base font-medium text-muted-foreground">
+                                Примерная стоимость:
+                              </span>
+                              <span className="text-2xl font-bold text-primary">
+                                {formatPrice(result.cost)}
+                              </span>
+                            </div>
                           </div>
-                        ))}
-                      </div>
 
-                      <div className="border-t-2 pt-6 mb-6">
-                        <div className="flex justify-between items-center">
-                          <span className="text-xl font-bold text-foreground">
-                            Итого материалов:
-                          </span>
-                          <span className="text-3xl font-bold text-primary">
-                            {formatPrice(totalCost)}
-                          </span>
+                          <p className="text-sm text-muted-foreground mt-4">
+                            * Цены указаны ориентировочно для рынка СПб без учета доставки
+                          </p>
                         </div>
-                        <p className="text-sm text-muted-foreground mt-2">
-                          * Цены указаны без учета доставки и работ по монтажу
-                        </p>
-                      </div>
 
-                      <Button
-                        className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-6 text-lg"
-                        onClick={() => setIsContactOpen(true)}
-                      >
-                        Получить точный расчет от специалиста
-                      </Button>
-                    </CardContent>
-                  </Card>
-                ) : (
-                  <Card className="border-2 border-dashed">
-                    <CardContent className="p-12 text-center">
-                      <Calculator className="w-16 h-16 text-muted-foreground/50 mx-auto mb-4" />
-                      <h3 className="text-xl font-semibold text-foreground mb-2">
-                        Выберите виды работ
-                      </h3>
-                      <p className="text-muted-foreground">
-                        Отметьте нужные работы выше, чтобы увидеть расчет материалов и стоимости
-                      </p>
+                        <Button
+                          className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-6 text-lg"
+                          onClick={() => setIsContactOpen(true)}
+                        >
+                          Заказать расчет у специалиста
+                        </Button>
+                      </div>
                     </CardContent>
                   </Card>
                 )}
