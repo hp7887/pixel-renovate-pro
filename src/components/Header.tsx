@@ -30,6 +30,7 @@ const Header = () => {
             <Link to="/portfolio" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">ПОРТФОЛИО</Link>
             <Link to="/about" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">О НАС</Link>
             <Link to="/reviews" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">ОТЗЫВЫ</Link>
+            <Link to="/materials-calculator" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">КАЛЬКУЛЯТОР</Link>
             <Link to="/guarantees" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">ГАРАНТИИ</Link>
             <Link to="/contacts" className="text-gray-800 hover:text-primary font-medium transition-colors text-sm xl:text-base px-2 py-1">КОНТАКТЫ</Link>
           </nav>
@@ -122,6 +123,13 @@ const Header = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 ОТЗЫВЫ
+              </Link>
+              <Link 
+                to="/materials-calculator" 
+                className="text-gray-800 hover:text-primary font-medium transition-colors text-sm px-2 py-2 hover:bg-gray-50 rounded"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                КАЛЬКУЛЯТОР
               </Link>
               <Link 
                 to="/guarantees" 

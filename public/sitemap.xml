@@ -19,6 +19,12 @@
   <url><loc>https://spb-dsremont.ru/blog/kak-vybrat-materialy-dlya-remonta</loc><priority>0.7</priority></url>
   <url><loc>https://spb-dsremont.ru/blog/oshibki-pri-remonte-vannoy</loc><priority>0.7</priority></url>
   <url><loc>https://spb-dsremont.ru/blog/trendy-dizayna-interera-2025</loc><priority>0.7</priority></url>
+  <url><loc>https://spb-dsremont.ru/blog/dizayn-detskoy-komnaty</loc><priority>0.7</priority></url>
+  <url><loc>https://spb-dsremont.ru/blog/zvukoizolyaciya-kvartiry</loc><priority>0.7</priority></url>
+  <url><loc>https://spb-dsremont.ru/blog/cvetovye-resheniya-v-interere</loc><priority>0.7</priority></url>
+  <url><loc>https://spb-dsremont.ru/blog/pereplanirovka-kvartiry</loc><priority>0.7</priority></url>
+  <url><loc>https://spb-dsremont.ru/blog/kak-vybrat-podryadchika</loc><priority>0.7</priority></url>
+  <url><loc>https://spb-dsremont.ru/materials-calculator</loc><priority>0.8</priority></url>
   <url><loc>https://spb-dsremont.ru/services/cosmetic-repair</loc><priority>0.9</priority></url>
   <url><loc>https://spb-dsremont.ru/services/major-repair</loc><priority>0.9</priority></url>
   <url><loc>https://spb-dsremont.ru/services/turnkey-repair</loc><priority>0.9</priority></url>
@@ -26,7 +32,8 @@
   <url><loc>https://spb-dsremont.ru/services/interior-design</loc><priority>0.9</priority></url>
   <url><loc>https://spb-dsremont.ru/services/bathroom-repair</loc><priority>0.9</priority></url>
   <url><loc>https://spb-dsremont.ru/services/electrical-work</loc><priority>0.8</priority></url>
-  <url><loc>https://spb-dsremont.ru/services/kitchen-repair</loc></url>
-  <url><loc>https://spb-dsremont.ru/privacy</loc></url>
-  <url><loc>https://spb-dsremont.ru/terms</loc></url>
+  <url><loc>https://spb-dsremont.ru/services/kitchen-repair</loc><priority>0.9</priority></url>
+  <url><loc>https://spb-dsremont.ru/partnership</loc><priority>0.6</priority></url>
+  <url><loc>https://spb-dsremont.ru/privacy</loc><priority>0.3</priority></url>
+  <url><loc>https://spb-dsremont.ru/terms</loc><priority>0.3</priority></url>
 </urlset>
