@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Slider } from "@/components/ui/slider";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, Building2, Home, Briefcase, ChevronLeft } from "lucide-react";
 import { formatPhoneNumber } from "@/lib/utils";
@@ -20,6 +21,8 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
   const [step, setStep] = useState(1);
   const [propertyType, setPropertyType] = useState("");
   const [area, setArea] = useState("");
+  const [repairType, setRepairType] = useState("");
+  const [budget, setBudget] = useState([100000]);
   const [startTime, setStartTime] = useState("");
   const [hasProject, setHasProject] = useState("");
   const [name, setName] = useState("");
@@ -33,6 +36,8 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
       setStep(1);
       setPropertyType("");
       setArea("");
+      setRepairType("");
+      setBudget([100000]);
       setStartTime("");
       setHasProject("");
       setName("");
@@ -67,6 +72,8 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
           phone,
           propertyType,
           area,
+          repairType,
+          budget: budget[0],
           startTime,
           hasProject,
           message
@@ -151,11 +158,12 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
               <DialogTitle className="text-2xl">
                 {step === 1 && "Тип помещения"}
                 {step === 2 && "Площадь ремонта"}
-                {step === 3 && "Детали проекта"}
-                {step === 4 && "Ваши контакты"}
+                {step === 3 && "Тип ремонта"}
+                {step === 4 && "Детали проекта"}
+                {step === 5 && "Ваши контакты"}
               </DialogTitle>
               <DialogDescription>
-                Шаг {step} из 4
+                Шаг {step} из 5
               </DialogDescription>
             </div>
           </div>
@@ -185,8 +193,48 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
           </div>
         )}
 
-        {/* Шаг 3: Срок и проект */}
+        {/* Шаг 3: Тип ремонта и бюджет */}
         {step === 3 && (
+          <div className="space-y-6 py-6">
+            <div className="space-y-3">
+              <Label>Какой тип ремонта планируете?</Label>
+              <div className="grid grid-cols-1 gap-3">
+                <ChoiceButton label="Дизайнерский ремонт" value="дизайнерский" state={repairType} setState={setRepairType} />
+                <ChoiceButton label="Косметический ремонт" value="косметический" state={repairType} setState={setRepairType} />
+                <ChoiceButton label="Капитальный ремонт" value="капитальный" state={repairType} setState={setRepairType} />
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <Label>Ориентировочный бюджет (необязательно)</Label>
+              <div className="space-y-4">
+                <Slider
+                  min={50000}
+                  max={5000000}
+                  step={5000}
+                  value={budget}
+                  onValueChange={setBudget}
+                  className="w-full"
+                />
+                <div className="text-center text-sm text-muted-foreground">
+                  {budget[0].toLocaleString('ru-RU')} ₽
+                </div>
+              </div>
+            </div>
+
+            <Button 
+              type="button" 
+              onClick={() => setStep(4)} 
+              className="w-full"
+              disabled={!repairType}
+            >
+              Далее
+            </Button>
+          </div>
+        )}
+
+        {/* Шаг 4: Срок и проект */}
+        {step === 4 && (
           <div className="space-y-6 py-6">
             <div className="space-y-3">
               <Label>Когда планируете начать ремонт?</Label>
@@ -208,7 +256,7 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
 
             <Button 
               type="button" 
-              onClick={() => setStep(4)} 
+              onClick={() => setStep(5)} 
               className="w-full"
               disabled={!startTime || !hasProject}
             >
@@ -217,8 +265,8 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
           </div>
         )}
 
-        {/* Шаг 4: Контактная информация */}
-        {step === 4 && (
+        {/* Шаг 5: Контактная информация */}
+        {step === 5 && (
           <form onSubmit={handleSubmit} className="space-y-4 py-6">
             <div className="space-y-2">
               <Label htmlFor="name">Ваше имя *</Label>
