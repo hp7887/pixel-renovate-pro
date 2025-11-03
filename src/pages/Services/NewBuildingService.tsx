@@ -19,8 +19,8 @@ const NewBuildingService = () => {
       
       <Header />
       
+      {/* Hero Section */}
       <section className="relative py-20 md:py-32">
-        {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${newBuildingImage})` }}
@@ -28,14 +28,23 @@ const NewBuildingService = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/40" />
         </div>
 
-        {/* Content */}
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Отделка <span className="text-accent">новостройки</span>
             </h1>
-            
-            <div className="space-y-6 text-lg md:text-xl text-white/90 mb-8">
+            <div className="flex items-center gap-4 text-white">
+              <div className="text-3xl font-bold text-accent">от 8 200 ₽/м²</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Content Section */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-6 text-lg md:text-xl text-foreground/90 mb-8">
               <p>
                 Комплексный ремонт новой квартиры без отделки или от предчистовой отделки до финиша, может включать закупку всех отделочных материалов.
               </p>
@@ -49,18 +58,13 @@ const NewBuildingService = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg"
-                className="bg-accent hover:bg-accent/90 text-primary font-semibold text-lg px-8"
-                onClick={() => setIsContactOpen(true)}
-              >
-                Отправить заявку
-              </Button>
-              <div className="flex items-center gap-4 text-white">
-                <div className="text-3xl font-bold text-accent">от 8 200 ₽/м²</div>
-              </div>
-            </div>
+            <Button 
+              size="lg"
+              className="bg-accent hover:bg-accent/90 text-white font-semibold text-lg px-8"
+              onClick={() => setIsContactOpen(true)}
+            >
+              Отправить заявку
+            </Button>
           </div>
         </div>
       </section>

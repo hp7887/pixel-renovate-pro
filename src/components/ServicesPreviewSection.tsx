@@ -68,7 +68,7 @@ const ServicesPreviewSection = () => {
                     
                     <Button 
                       variant="outline" 
-                      className="w-full bg-white/10 backdrop-blur-sm text-white border-white/30 group-hover:bg-accent group-hover:text-primary group-hover:border-accent transition-all"
+                      className="w-full bg-white/10 backdrop-blur-sm text-white border-white/30 group-hover:bg-accent group-hover:text-white group-hover:border-accent transition-all"
                     >
                       Подробнее
                     </Button>
