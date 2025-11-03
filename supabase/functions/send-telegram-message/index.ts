@@ -12,10 +12,10 @@ serve(async (req) => {
   }
 
   try {
-    const { name, phone, startTime, area, hasProject, message } = await req.json();
+    const { name, phone, propertyType, area, repairType, budget, startTime, hasProject, message } = await req.json();
     
     // Валидация обязательных полей
-    if (!name || !phone || !startTime || !area || !hasProject) {
+    if (!name || !phone || !propertyType || !area || !repairType || !startTime || !hasProject) {
       return new Response(
         JSON.stringify({ error: 'Все обязательные поля должны быть заполнены' }),
         { 
@@ -44,8 +44,10 @@ serve(async (req) => {
 
 👤 Имя: ${name}
 📱 Телефон: ${phone}
+🏠 Тип помещения: ${propertyType}
+📐 Площадь: ${area} м²
+🎨 Тип ремонта: ${repairType}${budget ? `\n💰 Бюджет: ${budget.toLocaleString('ru-RU')} ₽` : ''}
 📅 Начало ремонта: ${startTime}
-📐 Площадь: ${area}
 📋 Есть проект: ${hasProject}${message ? `\n💬 Комментарий: ${message}` : ''}`;
 
     console.log('Sending message to Telegram...');

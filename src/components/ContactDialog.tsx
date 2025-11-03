@@ -106,7 +106,7 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
       }}
       className="flex flex-col items-center gap-3 p-6 rounded-lg border-2 border-border hover:border-primary hover:bg-accent transition-all group"
     >
-      <Icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
+      <Icon className="w-8 h-8 text-foreground group-hover:scale-110 transition-transform" />
       <span className="font-medium">{label}</span>
     </button>
   );
