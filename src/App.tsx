@@ -41,6 +41,9 @@ import InteriorDesign from "./pages/Services/InteriorDesign";
 import BathroomRepair from "./pages/Services/BathroomRepair";
 import ElectricalWork from "./pages/Services/ElectricalWork";
 import KitchenRepair from "./pages/Services/KitchenRepair";
+import DesignService from "./pages/Services/DesignService";
+import NewBuildingService from "./pages/Services/NewBuildingService";
+import SecondaryService from "./pages/Services/SecondaryService";
 import MaterialsCalculator from "./pages/MaterialsCalculator";
 import Partnership from "./pages/Partnership";
 import ThankYou from "./pages/ThankYou";
@@ -93,6 +96,9 @@ const App = () => (
           <Route path="/services/bathroom-repair" element={<BathroomRepair />} />
           <Route path="/services/electrical-work" element={<ElectricalWork />} />
           <Route path="/services/kitchen-repair" element={<KitchenRepair />} />
+          <Route path="/services/design" element={<DesignService />} />
+          <Route path="/services/new-building" element={<NewBuildingService />} />
+          <Route path="/services/secondary" element={<SecondaryService />} />
           <Route path="/materials-calculator" element={<MaterialsCalculator />} />
           <Route path="/partnership" element={<Partnership />} />
           <Route path="/thank-you" element={<ThankYou />} />
