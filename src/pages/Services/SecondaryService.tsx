@@ -37,15 +37,6 @@ const SecondaryService = () => {
         </div>
       </section>
 
-      {/* Price Section */}
-      <section className="py-8 bg-background border-b">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center gap-4">
-            <div className="text-3xl font-bold text-accent">от 9 800 ₽/м²</div>
-          </div>
-        </div>
-      </section>
-
       {/* Content Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
