@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,6 +17,7 @@ interface ContactDialogProps {
 }
 
 const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("+7 ");
   const [message, setMessage] = useState("");
@@ -67,11 +69,6 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
         throw error;
       }
 
-      toast({
-        title: "Заявка успешно отправлена!",
-        description: "Наш менеджер свяжется с вами в ближайшее время",
-      });
-
       setName("");
       setPhone("+7 ");
       setMessage("");
@@ -79,6 +76,9 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
       setArea("");
       setHasProject("");
       onOpenChange(false);
+      
+      // Redirect to thank you page
+      navigate("/thank-you");
     } catch (error) {
       console.error('Ошибка отправки:', error);
       toast({
