@@ -34,9 +34,9 @@ const Index = () => {
       <ServicesPreviewSection />
       <WorkStepsSection />
       <BeforeAfterSection />
-      <CalculatorSection />
       <PersonalCabinetSection />
       <StatsSection />
+      <CalculatorSection />
       <DesignDetailsSection />
       <FAQSection />
       <Footer />
