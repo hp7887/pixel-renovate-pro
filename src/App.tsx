@@ -31,6 +31,7 @@ import ColorSchemes from "./pages/Blog/ColorSchemes";
 import ApartmentReplanning from "./pages/Blog/ApartmentReplanning";
 import ChoosingContractor from "./pages/Blog/ChoosingContractor";
 import RepairTimelines from "./pages/Blog/RepairTimelines";
+import OfficeRenovation from "./pages/Blog/OfficeRenovation";
 import OfficeRenovation2025 from "./pages/Blog/OfficeRenovation2025";
 import CosmeticRepair from "./pages/Services/CosmeticRepair";
 import MajorRepair from "./pages/Services/MajorRepair";
@@ -81,6 +82,7 @@ const App = () => (
           <Route path="/blog/pereplanirovka-kvartiry" element={<ApartmentReplanning />} />
           <Route path="/blog/kak-vybrat-podryadchika" element={<ChoosingContractor />} />
           <Route path="/blog/sroki-remonta-kvartiry" element={<RepairTimelines />} />
+          <Route path="/blog/remont-domashnego-ofisa" element={<OfficeRenovation />} />
           <Route path="/blog/remont-ofisnyh-pomeshcheniy" element={<OfficeRenovation2025 />} />
           <Route path="/services/cosmetic-repair" element={<CosmeticRepair />} />
           <Route path="/services/major-repair" element={<MajorRepair />} />

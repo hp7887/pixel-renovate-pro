@@ -14,7 +14,15 @@ const LightingDesign = () => {
     <main className="min-h-screen bg-white">
       <Helmet>
         <title>Освещение в квартире СПб 2025: проектирование света, расчет освещенности, умные системы | SPB-DSRemont</title>
-...
+        <meta
+          name="description"
+          content="Световой дизайн квартиры: 3 уровня освещения, расчет освещенности, температура света, умные системы. Проектирование освещения в Санкт-Петербурге. Консультация бесплатно."
+        />
+        <meta
+          name="keywords"
+          content="освещение квартиры, световой дизайн, проектирование света, расчет освещенности, умный свет СПб, многоуровневое освещение, LED подсветка, дизайн света"
+        />
+        <link rel="canonical" href="https://spb-dsremont.ru/blog/osveschenie-v-kvartire" />
       </Helmet>
       
       <Header />

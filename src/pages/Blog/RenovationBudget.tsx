@@ -14,7 +14,15 @@ const RenovationBudget = () => {
     <main className="min-h-screen bg-white">
       <Helmet>
         <title>Расчет бюджета ремонта квартиры СПб 2025: смета 3000-30000₽/м², экономия до 30%, планирование | SPB-DSRemont</title>
-...
+        <meta
+          name="description"
+          content="Планирование бюджета ремонта квартиры: смета для косметического, капитального и евроремонта, средние цены материалов и работ СПб 2025, способы экономии до 30%. Расчет стоимости."
+        />
+        <meta
+          name="keywords"
+          content="расчет бюджета ремонта, смета ремонта квартиры, стоимость ремонта СПб, цены на ремонт, планирование ремонта, как сэкономить на ремонте"
+        />
+        <link rel="canonical" href="https://spb-dsremont.ru/blog/raschet-byudzheta-na-remont" />
       </Helmet>
       
       <Header />

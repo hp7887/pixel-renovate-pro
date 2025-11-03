@@ -15,7 +15,15 @@ const RepairPitfalls = () => {
     <main className="min-h-screen bg-white">
       <Helmet>
         <title>Подводные камни ремонта квартиры СПб 2025: старая проводка, перепланировка, недобросовестные подрядчики | SPB-DSRemont</title>
-...
+        <meta
+          name="description"
+          content="Скрытые проблемы при ремонте: старая проводка, неровные стены, проблемы с трубами, юридические проблемы перепланировки, недобросовестные подрядчики. Как избежать перерасхода бюджета."
+        />
+        <meta
+          name="keywords"
+          content="подводные камни ремонта, проблемы ремонта, старая проводка, перепланировка, недобросовестные подрядчики, ремонт СПб"
+        />
+        <link rel="canonical" href="https://spb-dsremont.ru/blog/podvodnye-kamni-remonta" />
       </Helmet>
       
       <Header />
