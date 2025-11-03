@@ -6,7 +6,7 @@ import { useState } from "react";
 import ContactDialog from "@/components/ContactDialog";
 import SecondaryPricingSection from "@/components/SecondaryPricingSection";
 import WorkPhotosGallery from "@/components/WorkPhotosGallery";
-import secondaryImage from "@/assets/cosmetic-repair-hero-new.jpg";
+import secondaryImage from "@/assets/secondary-renovation-hero.jpg";
 
 const SecondaryService = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -48,8 +48,6 @@ const SecondaryService = () => {
           </div>
         </div>
       </section>
-
-      <SecondaryPricingSection />
 
       {/* Content Section */}
       <section className="py-20 md:py-32 bg-gradient-to-b from-background to-muted/30">
@@ -93,6 +91,8 @@ const SecondaryService = () => {
           </div>
         </div>
       </section>
+
+      <SecondaryPricingSection />
 
       <WorkPhotosGallery />
 

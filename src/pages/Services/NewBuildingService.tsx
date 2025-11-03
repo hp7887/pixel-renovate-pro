@@ -48,8 +48,6 @@ const NewBuildingService = () => {
         </div>
       </section>
 
-      <RepairTypesSection />
-
       {/* Content Section */}
       <section className="py-20 md:py-32 bg-gradient-to-b from-background to-muted/30">
         <div className="container mx-auto px-4">
@@ -92,6 +90,8 @@ const NewBuildingService = () => {
           </div>
         </div>
       </section>
+
+      <RepairTypesSection />
 
       <Footer />
       

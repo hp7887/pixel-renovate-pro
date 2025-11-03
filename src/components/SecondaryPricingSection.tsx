@@ -1,4 +1,4 @@
-import { Card } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { useState } from "react";
@@ -77,40 +77,44 @@ const SecondaryPricingSection = () => {
             <Card
               key={plan.name}
               className={cn(
-                "relative overflow-hidden transition-all hover:shadow-xl flex flex-col",
-                plan.popular && "border-2 border-accent"
+                "relative overflow-hidden transition-all hover:shadow-lg flex flex-col",
+                plan.popular && "border-2 border-accent shadow-xl"
               )}
             >
               {plan.popular && (
-                <div className="absolute top-4 right-4">
-                  <span className="bg-accent text-white px-3 py-1 rounded-full text-sm font-semibold">
-                    Популярный
-                  </span>
+                <div className="absolute top-4 right-4 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">
+                  Популярный
                 </div>
               )}
-              <div className="p-6 flex flex-col flex-1">
-                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                <div className="text-3xl font-bold text-accent mb-2">
-                  {plan.price}
+              <CardHeader>
+                <CardTitle className="text-2xl">{plan.name}</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 flex flex-col flex-1">
+                <div>
+                  <div className="text-4xl font-bold text-accent mb-2">
+                    {plan.price}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    Срок: {plan.duration}
+                  </div>
                 </div>
-                <div className="text-sm text-muted-foreground mb-6">
-                  {plan.duration}
-                </div>
-                <ul className="space-y-3 mb-6 flex-1">
+                
+                <ul className="space-y-3 flex-1">
                   {plan.features.map((feature, index) => (
                     <li key={index} className="flex items-start gap-2">
-                      <Check className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                      <span className="text-foreground/80">{feature}</span>
+                      <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">{feature}</span>
                     </li>
                   ))}
                 </ul>
-                <Button
-                  className="w-full bg-accent hover:bg-accent/90 text-white"
+                
+                <Button 
+                  className="w-full bg-accent hover:bg-accent/90 text-white mt-auto"
                   onClick={() => setIsContactOpen(true)}
                 >
                   Заказать
                 </Button>
-              </div>
+              </CardContent>
             </Card>
           ))}
         </div>
