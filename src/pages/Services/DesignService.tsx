@@ -4,6 +4,8 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import ContactDialog from "@/components/ContactDialog";
+import DesignPricingSection from "@/components/DesignPricingSection";
+import DesignProjectsGallery from "@/components/DesignProjectsGallery";
 import designImage from "@/assets/interior-design-hero.jpg";
 
 const DesignService = () => {
@@ -33,9 +35,15 @@ const DesignService = () => {
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Дизайн интерьера <span className="text-accent">квартир</span>
             </h1>
-            <div className="flex items-center gap-4 text-white">
-              <div className="text-3xl font-bold text-accent">от 1 500 ₽/м²</div>
-            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Price Section */}
+      <section className="py-8 bg-background border-b">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4">
+            <div className="text-3xl font-bold text-accent">от 1 500 ₽/м²</div>
           </div>
         </div>
       </section>
@@ -68,6 +76,10 @@ const DesignService = () => {
           </div>
         </div>
       </section>
+
+      <DesignPricingSection />
+      
+      <DesignProjectsGallery />
 
       <Footer />
       

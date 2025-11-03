@@ -33,9 +33,15 @@ const NewBuildingService = () => {
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Отделка <span className="text-accent">новостройки</span>
             </h1>
-            <div className="flex items-center gap-4 text-white">
-              <div className="text-3xl font-bold text-accent">от 8 200 ₽/м²</div>
-            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Price Section */}
+      <section className="py-8 bg-background border-b">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4">
+            <div className="text-3xl font-bold text-accent">от 8 200 ₽/м²</div>
           </div>
         </div>
       </section>
