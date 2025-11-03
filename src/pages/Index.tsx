@@ -36,8 +36,8 @@ const Index = () => {
       <BeforeAfterSection />
       <PersonalCabinetSection />
       <StatsSection />
-      <CalculatorSection />
       <DesignDetailsSection />
+      <CalculatorSection />
       <FAQSection />
       <Footer />
     </main>

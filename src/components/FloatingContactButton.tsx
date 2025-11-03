@@ -38,9 +38,15 @@ export const FloatingContactButton = () => {
       return;
     }
 
-    if (formType === "question" && !question.trim()) {
-      toast.error("Пожалуйста, напишите ваш вопрос");
-      return;
+    if (formType === "question") {
+      if (!question.trim()) {
+        toast.error("Пожалуйста, напишите ваш вопрос");
+        return;
+      }
+      if (phone.replace(/\D/g, "").length !== 11) {
+        toast.error("Пожалуйста, введите корректный номер телефона");
+        return;
+      }
     }
 
     setIsSubmitting(true);
@@ -108,7 +114,7 @@ export const FloatingContactButton = () => {
     <>
       <button
         onClick={openMenu}
-        className="fixed right-6 bottom-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-primary to-primary-glow shadow-elegant hover:shadow-glow transition-all duration-300 animate-slow-pulse hover:animate-none hover:scale-110"
+        className="fixed right-6 bottom-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-primary to-primary-glow shadow-elegant hover:shadow-glow transition-all duration-300 animate-subtle-glow hover:animate-none hover:scale-110"
         aria-label="Связаться с нами"
       >
         <MessageCircle className="h-6 w-6 text-white" />
@@ -168,9 +174,10 @@ export const FloatingContactButton = () => {
                 className="min-h-[120px]"
               />
               <Input
-                placeholder="Телефон (необязательно)"
+                placeholder="Телефон *"
                 value={phone}
                 onChange={handlePhoneChange}
+                required
               />
               <div className="flex gap-2">
                 <Button onClick={goBack} variant="outline" className="flex-1">
