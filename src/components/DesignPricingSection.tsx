@@ -68,7 +68,7 @@ const DesignPricingSection = () => {
             {plans.map((plan) => (
               <Card
                 key={plan.name}
-                className={`relative overflow-hidden transition-all hover:shadow-xl ${
+                className={`relative overflow-hidden transition-all hover:shadow-xl flex flex-col ${
                   plan.popular ? "border-accent border-2" : ""
                 }`}
               >
@@ -77,7 +77,7 @@ const DesignPricingSection = () => {
                     Популярный
                   </div>
                 )}
-                <CardContent className="p-6">
+                <CardContent className="p-6 flex flex-col flex-1">
                   <div className="flex items-center gap-2 mb-4">
                     <h3 className="text-2xl font-bold">{plan.name}</h3>
                     <HelpCircle className="w-4 h-4 text-muted-foreground" />
@@ -90,7 +90,7 @@ const DesignPricingSection = () => {
                     </div>
                   </div>
 
-                  <ul className="space-y-3 mb-8">
+                  <ul className="space-y-3 mb-8 flex-1">
                     {plan.features.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <Check className="w-5 h-5 text-accent shrink-0 mt-0.5" />

@@ -38,6 +38,8 @@ const NewBuildingService = () => {
         </div>
       </section>
 
+      <RepairTypesSection />
+
       {/* Content Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
@@ -66,8 +68,6 @@ const NewBuildingService = () => {
           </div>
         </div>
       </section>
-
-      <RepairTypesSection />
 
       <Footer />
       

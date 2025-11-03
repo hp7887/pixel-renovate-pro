@@ -4,6 +4,8 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import ContactDialog from "@/components/ContactDialog";
+import SecondaryPricingSection from "@/components/SecondaryPricingSection";
+import WorkPhotosGallery from "@/components/WorkPhotosGallery";
 import secondaryImage from "@/assets/cosmetic-repair-hero-new.jpg";
 
 const SecondaryService = () => {
@@ -37,6 +39,8 @@ const SecondaryService = () => {
         </div>
       </section>
 
+      <SecondaryPricingSection />
+
       {/* Content Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
@@ -65,6 +69,8 @@ const SecondaryService = () => {
           </div>
         </div>
       </section>
+
+      <WorkPhotosGallery />
 
       <Footer />
       
