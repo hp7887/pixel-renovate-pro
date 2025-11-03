@@ -33,10 +33,10 @@ const Index = () => {
       <HeroSection />
       <ServicesPreviewSection />
       <WorkStepsSection />
+      <DesignDetailsSection />
       <BeforeAfterSection />
       <PersonalCabinetSection />
       <StatsSection />
-      <DesignDetailsSection />
       <CalculatorSection />
       <FAQSection />
       <Footer />
