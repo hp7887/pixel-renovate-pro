@@ -206,7 +206,7 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
             </div>
 
             <div className="space-y-3">
-              <Label>Ориентировочный бюджет (необязательно)</Label>
+              <Label>Желаемый бюджет (необязательно)</Label>
               <div className="space-y-4">
                 <Slider
                   min={50000}
