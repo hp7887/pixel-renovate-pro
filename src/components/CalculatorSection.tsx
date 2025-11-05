@@ -236,20 +236,52 @@ const CalculatorSection = () => {
               {/* Результат расчета */}
               {calculatedPrice !== null && (
                 <div className="mt-8 space-y-6">
-                  <div className="p-6 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl border-2 border-primary/20 animate-fade-in">
-                    <div className="text-center">
-                      <p className="text-gray-600 text-lg mb-2">Предварительный расчет</p>
-                      <p className="text-4xl md:text-5xl font-bold text-primary mb-4">
-                        {formatPrice(calculatedPrice)} ₽
-                      </p>
-                      <p className="text-gray-600 text-sm mt-4 italic">
+                  <div className="relative overflow-hidden p-8 bg-gradient-to-br from-cyan-50 via-blue-50 to-indigo-50 rounded-2xl border-2 border-primary/30 shadow-lg animate-fade-in">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-cyan-200/30 to-blue-200/30 rounded-full blur-3xl -z-10"></div>
+                    <div className="relative z-10">
+                      <div className="text-center mb-6">
+                        <p className="text-gray-600 text-lg mb-3">Предварительный расчет</p>
+                        <p className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-6">
+                          {formatPrice(calculatedPrice)} ₽
+                        </p>
+                      </div>
+                      
+                      {/* Бесплатные услуги */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div className="flex items-center gap-3 p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-green-200 shadow-sm">
+                          <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center">
+                            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium text-gray-700">Замеры</p>
+                            <p className="text-base font-bold text-green-600 truncate">БЕСПЛАТНО</p>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center gap-3 p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-green-200 shadow-sm">
+                          <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center">
+                            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium text-gray-700">Смета</p>
+                            <p className="text-base font-bold text-green-600 truncate">БЕСПЛАТНО</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <p className="text-gray-600 text-sm text-center mb-6 italic px-4">
                         * Указанная сумма носит ориентировочный характер. Точная стоимость и детальная смета будут рассчитаны специалистом после выезда на объект и проведения профессиональных замеров.
                       </p>
+                      
                       <Button
                         onClick={() => {
                           window.dispatchEvent(new CustomEvent('openContactDialog'));
                         }}
-                        className="mt-6 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700"
+                        className="w-full md:w-auto mx-auto block bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 shadow-lg hover:shadow-xl transition-all duration-300"
                         size="lg"
                       >
                         Получить точный расчет
@@ -257,20 +289,21 @@ const CalculatorSection = () => {
                     </div>
                   </div>
                   
-                  <div className="p-6 bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl border-2 border-yellow-400/30 animate-fade-in">
-                    <div className="text-center">
-                      <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full mb-4">
-                        <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="relative overflow-hidden p-8 bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 rounded-2xl border-2 border-yellow-400/40 shadow-lg animate-fade-in">
+                    <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-yellow-200/30 to-orange-200/30 rounded-full blur-3xl -z-10"></div>
+                    <div className="relative z-10 text-center">
+                      <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl mb-4 shadow-lg">
+                        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
                         </svg>
                       </div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
                         🎁 Дизайн-проект в подарок!
                       </h3>
-                      <p className="text-gray-700 text-lg mb-3">
+                      <p className="text-gray-700 text-lg mb-3 max-w-2xl mx-auto">
                         При заказе ремонта от 50 м² — базовый дизайн-проект совершенно бесплатно
                       </p>
-                      <p className="text-gray-600 text-sm">
+                      <p className="text-gray-600 text-sm max-w-xl mx-auto">
                         Включает планировку и расстановку мебели (без визуализаций и подбора материалов)
                       </p>
                     </div>
