@@ -236,54 +236,80 @@ const CalculatorSection = () => {
               {/* Результат расчета */}
               {calculatedPrice !== null && (
                 <div className="mt-8 space-y-6">
-                  <div className="relative overflow-hidden p-8 bg-gradient-to-br from-cyan-50 via-blue-50 to-indigo-50 rounded-2xl border-2 border-primary/30 shadow-lg animate-fade-in">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-cyan-200/30 to-blue-200/30 rounded-full blur-3xl -z-10"></div>
-                    <div className="relative z-10">
-                      <div className="text-center mb-6">
-                        <p className="text-gray-600 text-lg mb-3">Предварительный расчет</p>
-                        <p className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-6">
-                          {formatPrice(calculatedPrice)} ₽
-                        </p>
+                  <div className="relative overflow-hidden bg-gradient-to-br from-white via-cyan-50/30 to-blue-50/30 rounded-3xl border-2 border-primary/20 shadow-2xl animate-fade-in">
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-cyan-300/20 to-blue-300/20 rounded-full blur-3xl"></div>
+                    <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-indigo-300/20 to-purple-300/20 rounded-full blur-3xl"></div>
+                    
+                    <div className="relative z-10 p-8 md:p-10">
+                      {/* Основная цена */}
+                      <div className="text-center mb-8">
+                        <div className="inline-block mb-4">
+                          <div className="flex items-center gap-2 text-sm font-medium text-gray-600 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-200">
+                            <Calculator className="w-4 h-4" />
+                            <span>Предварительная стоимость</span>
+                          </div>
+                        </div>
+                        <div className="relative inline-block">
+                          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 blur-2xl opacity-20 animate-pulse"></div>
+                          <p className="relative text-6xl md:text-7xl font-black bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent drop-shadow-sm">
+                            {formatPrice(calculatedPrice)} ₽
+                          </p>
+                        </div>
                       </div>
                       
-                      {/* Бесплатные услуги */}
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                        <div className="flex items-center gap-3 p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-green-200 shadow-sm">
-                          <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center">
-                            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                            </svg>
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium text-gray-700">Замеры</p>
-                            <p className="text-base font-bold text-green-600 truncate">БЕСПЛАТНО</p>
+                      {/* Бесплатные услуги - вертикальные карточки */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div className="relative group">
+                          <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-green-500 rounded-2xl opacity-0 group-hover:opacity-10 blur transition-opacity"></div>
+                          <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl border-2 border-emerald-200 p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                            <div className="flex flex-col items-center text-center space-y-4">
+                              <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-green-500 rounded-2xl flex items-center justify-center shadow-lg">
+                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                                </svg>
+                              </div>
+                              <div>
+                                <p className="text-lg font-semibold text-gray-700 mb-2">Замеры помещения</p>
+                                <p className="text-2xl font-black text-emerald-600">БЕСПЛАТНО</p>
+                              </div>
+                            </div>
                           </div>
                         </div>
                         
-                        <div className="flex items-center gap-3 p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-green-200 shadow-sm">
-                          <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center">
-                            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium text-gray-700">Смета</p>
-                            <p className="text-base font-bold text-green-600 truncate">БЕСПЛАТНО</p>
+                        <div className="relative group">
+                          <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-green-500 rounded-2xl opacity-0 group-hover:opacity-10 blur transition-opacity"></div>
+                          <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl border-2 border-emerald-200 p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                            <div className="flex flex-col items-center text-center space-y-4">
+                              <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-green-500 rounded-2xl flex items-center justify-center shadow-lg">
+                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                              </div>
+                              <div>
+                                <p className="text-lg font-semibold text-gray-700 mb-2">Расчет сметы</p>
+                                <p className="text-2xl font-black text-emerald-600">БЕСПЛАТНО</p>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
                       
-                      <p className="text-gray-600 text-sm text-center mb-6 italic px-4">
-                        * Указанная сумма носит ориентировочный характер. Точная стоимость и детальная смета будут рассчитаны специалистом после выезда на объект и проведения профессиональных замеров.
-                      </p>
+                      {/* Disclaimer */}
+                      <div className="bg-gradient-to-r from-gray-50 to-blue-50/50 rounded-2xl p-6 mb-6 border border-gray-200/50">
+                        <p className="text-gray-600 text-sm text-center leading-relaxed">
+                          <span className="font-semibold text-gray-700">Важно:</span> Указанная сумма носит ориентировочный характер. Точная стоимость и детальная смета будут рассчитаны специалистом после выезда на объект и проведения профессиональных замеров.
+                        </p>
+                      </div>
                       
+                      {/* CTA Button */}
                       <Button
                         onClick={() => {
                           window.dispatchEvent(new CustomEvent('openContactDialog'));
                         }}
-                        className="w-full md:w-auto mx-auto block bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 shadow-lg hover:shadow-xl transition-all duration-300"
+                        className="w-full h-14 text-lg font-semibold bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:from-cyan-600 hover:via-blue-700 hover:to-indigo-700 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02]"
                         size="lg"
                       >
+                        <Calculator className="w-5 h-5 mr-2" />
                         Получить точный расчет
                       </Button>
                     </div>
