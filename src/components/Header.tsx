@@ -50,7 +50,7 @@ const Header = () => {
                 size="sm" 
                 variant="outline"
                 className="p-2 border-primary text-primary hover:bg-primary hover:text-white h-9 w-9"
-                onClick={() => window.open('https://wa.me/79111110126', '_blank')}
+                onClick={() => window.open('https://wa.me/79111110126?text=Здравствуйте! Интересует ремонт квартиры', '_blank')}
               >
                 <MessageCircle className="w-4 h-4" />
               </Button>
@@ -151,7 +151,7 @@ const Header = () => {
                     variant="outline"
                     className="flex-1 border-primary text-primary hover:bg-primary hover:text-white"
                     onClick={() => {
-                      window.open('https://wa.me/79111110126', '_blank');
+                      window.open('https://wa.me/79111110126?text=Здравствуйте! Интересует ремонт квартиры', '_blank');
                       setIsMobileMenuOpen(false);
                     }}
                   >

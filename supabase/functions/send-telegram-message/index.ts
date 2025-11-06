@@ -27,6 +27,7 @@ serve(async (req) => {
 
     const TELEGRAM_BOT_TOKEN = Deno.env.get('TELEGRAM_BOT_TOKEN');
     const TELEGRAM_CHAT_ID = Deno.env.get('TELEGRAM_CHAT_ID');
+    const TELEGRAM_CHAT_ID_2 = Deno.env.get('TELEGRAM_CHAT_ID_2');
 
     if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
       console.error('Missing Telegram credentials');
@@ -52,27 +53,36 @@ serve(async (req) => {
 
     console.log('Sending message to Telegram...');
     
-    // Отправка в Telegram
-    const telegramResponse = await fetch(
-      `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: TELEGRAM_CHAT_ID,
-          text: messageText,
-        })
-      }
+    // Собираем все chat_id для отправки
+    const chatIds = [TELEGRAM_CHAT_ID];
+    if (TELEGRAM_CHAT_ID_2) {
+      chatIds.push(TELEGRAM_CHAT_ID_2);
+    }
+
+    // Отправка в Telegram на все чаты
+    const sendPromises = chatIds.map(chatId =>
+      fetch(
+        `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: messageText,
+          })
+        }
+      )
     );
 
-    const telegramData = await telegramResponse.json();
-
-    if (!telegramResponse.ok) {
-      console.error('Telegram API error:', telegramData);
+    const results = await Promise.allSettled(sendPromises);
+    
+    // Проверяем результаты
+    const failedSends = results.filter(r => r.status === 'rejected');
+    if (failedSends.length === results.length) {
+      console.error('All Telegram sends failed');
       return new Response(
         JSON.stringify({ 
           error: 'Ошибка отправки в Telegram',
-          details: telegramData 
         }),
         { 
           status: 500,
@@ -81,7 +91,7 @@ serve(async (req) => {
       );
     }
 
-    console.log('Message sent successfully to Telegram');
+    console.log(`Message sent successfully to ${results.length - failedSends.length} Telegram chat(s)`);
 
     return new Response(
       JSON.stringify({ success: true, message: 'Сообщение отправлено' }),

@@ -38,7 +38,10 @@ const CTASection = () => {
             </Card>
             
             {/* WhatsApp */}
-            <Card className="group hover:shadow-glow transition-smooth bg-white/10 backdrop-blur-sm border-white/20">
+            <Card 
+              className="group hover:shadow-glow transition-smooth bg-white/10 backdrop-blur-sm border-white/20 cursor-pointer"
+              onClick={() => window.open('https://wa.me/79111110126?text=Здравствуйте! Интересует ремонт квартиры', '_blank')}
+            >
               <CardContent className="p-6 text-center">
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-white/30 transition-smooth">
                   <MessageCircle className="h-6 w-6 text-white" />
@@ -86,7 +89,7 @@ const CTASection = () => {
               size="lg"
               variant="outline"
               className="border-white/20 text-white hover:bg-white/10 backdrop-blur-sm"
-              onClick={() => window.open('https://wa.me/79111110126', '_blank')}
+              onClick={() => window.open('https://wa.me/79111110126?text=Здравствуйте! Интересует ремонт квартиры', '_blank')}
             >
               <MessageCircle className="mr-2 h-5 w-5" />
               Написать в WhatsApp

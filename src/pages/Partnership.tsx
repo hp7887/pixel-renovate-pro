@@ -317,7 +317,7 @@ const Partnership = () => {
                     <div className="flex gap-3">
                       <Button
                         className="bg-green-500 hover:bg-green-600"
-                        onClick={() => window.open('https://wa.me/79111110126', '_blank')}
+                        onClick={() => window.open('https://wa.me/79111110126?text=Здравствуйте! Интересует партнерство', '_blank')}
                       >
                         WhatsApp
                       </Button>

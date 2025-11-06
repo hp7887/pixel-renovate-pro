@@ -158,7 +158,7 @@ const Contacts = () => {
             <Button 
               size="lg"
               className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-6 h-auto shadow-lg hover:shadow-xl transition-all duration-300 hover-scale"
-              onClick={() => window.open('https://wa.me/79111110126', '_blank')}
+              onClick={() => window.open('https://wa.me/79111110126?text=Здравствуйте! Интересует ремонт квартиры', '_blank')}
             >
               <MessageCircle className="mr-2 h-5 w-5" />
               WhatsApp
