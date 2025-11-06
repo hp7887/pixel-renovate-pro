@@ -8,257 +8,257 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
-import { Calculator, Ruler } from "lucide-react";
+import { Calculator, Ruler, Plus, Trash2, Home, CheckCircle2 } from "lucide-react";
 import ContactDialog from "@/components/ContactDialog";
 import heroImage from "@/assets/materials-calculator-hero.jpg";
 import selectionImage from "@/assets/materials-selection-process.jpg";
 import costImage from "@/assets/materials-cost-calculation.jpg";
 import LazyImage from "@/components/LazyImage";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Checkbox } from "@/components/ui/checkbox";
 
-type CalculatorMode = "materials" | "services";
+type RoomType = "living" | "bedroom" | "kitchen" | "bathroom" | "corridor" | "other";
 
-type WorkType = {
+type MaterialQuality = "economy" | "standard" | "premium";
+
+type SurfaceCondition = "new" | "good" | "needs_repair" | "major_repair";
+
+type Room = {
   id: string;
   name: string;
-  description: string;
-  hasThickness: boolean;
-  formula: (area: number, thickness?: number) => {
-    bags?: number;
-    totalWeight?: number;
-    packages?: number;
-    amount: number;
-    unit: string;
-    cost: number;
+  type: RoomType;
+  area: number;
+  height: number;
+  perimeter?: number;
+  selectedWorks: {
+    [key: string]: boolean;
   };
 };
 
-type ServiceType = {
+type WorkItem = {
   id: string;
   name: string;
-  description: string;
-  pricePerUnit: number;
+  category: "walls" | "floors" | "ceiling" | "other";
+  prices: {
+    economy: number;
+    standard: number;
+    premium: number;
+  };
   unit: string;
+  calculateArea: (room: Room) => number;
 };
 
 const MaterialsCalculator = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
-  const [mode, setMode] = useState<CalculatorMode>("materials");
-  const [selectedWork, setSelectedWork] = useState<string>("");
-  const [area, setArea] = useState<number>(20);
-  const [thickness, setThickness] = useState<number>(10);
-  const [result, setResult] = useState<{
-    bags?: number;
-    totalWeight?: number;
-    packages?: number;
-    amount: string;
-    cost: number;
-  } | null>(null);
+  
+  // Детальные параметры
+  const [propertyType, setPropertyType] = useState<string>("apartment");
+  const [surfaceCondition, setSurfaceCondition] = useState<SurfaceCondition>("good");
+  const [materialQuality, setMaterialQuality] = useState<MaterialQuality>("standard");
+  const [rooms, setRooms] = useState<Room[]>([
+    {
+      id: "1",
+      name: "Гостиная",
+      type: "living",
+      area: 20,
+      height: 2.7,
+      perimeter: 18,
+      selectedWorks: {}
+    }
+  ]);
 
-  const workTypes: WorkType[] = [
+  const roomTypes: { value: RoomType; label: string }[] = [
+    { value: "living", label: "Гостиная" },
+    { value: "bedroom", label: "Спальня" },
+    { value: "kitchen", label: "Кухня" },
+    { value: "bathroom", label: "Ванная/санузел" },
+    { value: "corridor", label: "Коридор" },
+    { value: "other", label: "Другое" },
+  ];
+
+  const workItems: WorkItem[] = [
     {
-      id: "plastering",
+      id: "plaster_walls",
       name: "Штукатурка стен",
-      description: "Выравнивание стен штукатуркой",
-      hasThickness: true,
-      formula: (area, thickness = 10) => {
-        const bags = Math.ceil((area * thickness * 1.4) / 30); // 1.4 кг на 1м² при толщине 1мм
-        return {
-          bags,
-          totalWeight: bags * 30,
-          amount: bags,
-          unit: "мешков по 30кг",
-          cost: bags * 750,
-        };
-      },
+      category: "walls",
+      prices: { economy: 400, standard: 600, premium: 900 },
+      unit: "м²",
+      calculateArea: (room) => (room.perimeter || room.area * 0.4) * room.height,
     },
     {
-      id: "putty",
+      id: "putty_walls",
       name: "Шпаклевка стен",
-      description: "Финишное выравнивание под покраску/обои",
-      hasThickness: true,
-      formula: (area, thickness = 2) => {
-        const bags = Math.ceil((area * thickness * 1.2) / 20); // 1.2 кг на 1м² при толщине 1мм
-        return {
-          bags,
-          totalWeight: bags * 20,
-          amount: bags,
-          unit: "мешков по 20кг",
-          cost: bags * 700,
-        };
-      },
+      category: "walls",
+      prices: { economy: 250, standard: 400, premium: 600 },
+      unit: "м²",
+      calculateArea: (room) => (room.perimeter || room.area * 0.4) * room.height,
     },
     {
-      id: "painting",
+      id: "paint_walls",
       name: "Покраска стен",
-      description: "Окраска стен водоэмульсионной краской (2 слоя)",
-      hasThickness: false,
-      formula: (area) => ({
-        amount: Math.ceil((area * 0.3) / 10), // 0.3 л на м² в 2 слоя
-        unit: "банок по 10л",
-        cost: Math.ceil((area * 0.3) / 10) * 3500,
-      }),
+      category: "walls",
+      prices: { economy: 200, standard: 350, premium: 550 },
+      unit: "м²",
+      calculateArea: (room) => (room.perimeter || room.area * 0.4) * room.height,
     },
     {
-      id: "priming",
-      name: "Грунтовка стен",
-      description: "Грунтование поверхности перед покраской/обоями",
-      hasThickness: false,
-      formula: (area) => ({
-        amount: Math.ceil((area * 0.2) / 10), // 0.2 л на м²
-        unit: "канистр по 10л",
-        cost: Math.ceil((area * 0.2) / 10) * 2000,
-      }),
+      id: "wallpaper",
+      name: "Поклейка обоев",
+      category: "walls",
+      prices: { economy: 300, standard: 450, premium: 700 },
+      unit: "м²",
+      calculateArea: (room) => (room.perimeter || room.area * 0.4) * room.height,
     },
     {
-      id: "screed",
+      id: "floor_screed",
       name: "Стяжка пола",
-      description: "Выравнивание пола цементно-песчаной стяжкой",
-      hasThickness: true,
-      formula: (area, thickness = 50) => {
-        const bags = Math.ceil((area * thickness * 18) / 1000); // 18 кг на 1м² при толщине 1мм
-        return {
-          bags,
-          totalWeight: bags * 50,
-          amount: bags,
-          unit: "мешков готовой смеси по 50кг",
-          cost: bags * 450,
-        };
-      },
-    },
-    {
-      id: "tiling",
-      name: "Укладка плитки",
-      description: "Облицовка стен/пола керамической плиткой",
-      hasThickness: false,
-      formula: (area) => ({
-        amount: Math.ceil(area * 1.15), // +15% на подрезку
-        unit: "м²",
-        cost: Math.ceil(area * 1.15) * 1800,
-      }),
+      category: "floors",
+      prices: { economy: 400, standard: 550, premium: 750 },
+      unit: "м²",
+      calculateArea: (room) => room.area,
     },
     {
       id: "laminate",
-      name: "Ламинат",
-      description: "Укладка ламината с подложкой",
-      hasThickness: false,
-      formula: (area) => {
-        const packages = Math.ceil(area / 10); // 10м² в пачке подложки
-        return {
-          packages,
-          amount: Math.ceil(area * 1.1),
-          unit: "м² ламината + " + packages + " пачек подложки",
-          cost: Math.ceil(area * 1.1) * 1200 + packages * 800,
-        };
-      },
-    },
-  ];
-
-  const serviceTypes: ServiceType[] = [
-    {
-      id: "plastering_service",
-      name: "Штукатурка стен",
-      description: "Машинная штукатурка стен",
-      pricePerUnit: 600,
-      unit: "м²",
-    },
-    {
-      id: "screed_service",
-      name: "Стяжка пола",
-      description: "Полусухая стяжка пола",
-      pricePerUnit: 550,
-      unit: "м²",
-    },
-    {
-      id: "tiling_service",
-      name: "Укладка кафеля",
-      description: "Укладка керамической плитки на стены/пол",
-      pricePerUnit: 1500,
-      unit: "м²",
-    },
-    {
-      id: "laminate_service",
       name: "Укладка ламината",
-      description: "Укладка ламината с подложкой",
-      pricePerUnit: 400,
+      category: "floors",
+      prices: { economy: 300, standard: 400, premium: 600 },
       unit: "м²",
+      calculateArea: (room) => room.area,
     },
     {
-      id: "ceiling_service",
-      name: "Натяжные потолки",
-      description: "Монтаж натяжных потолков",
-      pricePerUnit: 450,
+      id: "tiles_floor",
+      name: "Укладка плитки на пол",
+      category: "floors",
+      prices: { economy: 1200, standard: 1500, premium: 2000 },
       unit: "м²",
+      calculateArea: (room) => room.area,
     },
     {
-      id: "painting_service",
-      name: "Покраска стен",
-      description: "Окраска стен в 2 слоя",
-      pricePerUnit: 350,
+      id: "ceiling_paint",
+      name: "Покраска потолка",
+      category: "ceiling",
+      prices: { economy: 250, standard: 400, premium: 600 },
       unit: "м²",
+      calculateArea: (room) => room.area,
     },
     {
-      id: "putty_service",
-      name: "Шпаклевка стен",
-      description: "Финишная шпаклевка стен под покраску",
-      pricePerUnit: 400,
+      id: "stretch_ceiling",
+      name: "Натяжной потолок",
+      category: "ceiling",
+      prices: { economy: 350, standard: 450, premium: 700 },
       unit: "м²",
+      calculateArea: (room) => room.area,
+    },
+    {
+      id: "electrical",
+      name: "Электромонтажные работы",
+      category: "other",
+      prices: { economy: 800, standard: 1200, premium: 1800 },
+      unit: "точка",
+      calculateArea: (room) => Math.ceil(room.area / 5), // примерно 1 точка на 5м²
+    },
+    {
+      id: "plumbing",
+      name: "Сантехнические работы",
+      category: "other",
+      prices: { economy: 1500, standard: 2500, premium: 4000 },
+      unit: "точка",
+      calculateArea: (room) => room.type === "bathroom" || room.type === "kitchen" ? 1 : 0,
     },
   ];
 
-  const handleCalculate = () => {
-    if (!selectedWork || area <= 0) return;
-
-    if (mode === "materials") {
-      const work = workTypes.find((w) => w.id === selectedWork);
-      if (!work) return;
-
-      const calculationResult = work.formula(area, thickness);
-      setResult({
-        bags: calculationResult.bags,
-        totalWeight: calculationResult.totalWeight,
-        packages: calculationResult.packages,
-        amount: `${calculationResult.amount} ${calculationResult.unit}`,
-        cost: calculationResult.cost,
-      });
-    } else {
-      const service = serviceTypes.find((s) => s.id === selectedWork);
-      if (!service) return;
-
-      const cost = area * service.pricePerUnit;
-      setResult({
-        amount: `${area} ${service.unit}`,
-        cost,
-      });
-    }
+  const addRoom = () => {
+    const newRoom: Room = {
+      id: Date.now().toString(),
+      name: `Комната ${rooms.length + 1}`,
+      type: "other",
+      area: 15,
+      height: 2.7,
+      perimeter: 16,
+      selectedWorks: {}
+    };
+    setRooms([...rooms, newRoom]);
   };
 
-  const selectedWorkData = mode === "materials" 
-    ? workTypes.find((w) => w.id === selectedWork)
-    : null;
-  
-  const selectedServiceData = mode === "services"
-    ? serviceTypes.find((s) => s.id === selectedWork)
-    : null;
+  const removeRoom = (id: string) => {
+    setRooms(rooms.filter(room => room.id !== id));
+  };
+
+  const updateRoom = (id: string, updates: Partial<Room>) => {
+    setRooms(rooms.map(room => 
+      room.id === id ? { ...room, ...updates } : room
+    ));
+  };
+
+  const toggleWork = (roomId: string, workId: string) => {
+    setRooms(rooms.map(room => {
+      if (room.id === roomId) {
+        return {
+          ...room,
+          selectedWorks: {
+            ...room.selectedWorks,
+            [workId]: !room.selectedWorks[workId]
+          }
+        };
+      }
+      return room;
+    }));
+  };
+
+  const calculateTotal = () => {
+    let total = 0;
+    const breakdown: { room: string; work: string; area: number; cost: number }[] = [];
+
+    rooms.forEach(room => {
+      workItems.forEach(work => {
+        if (room.selectedWorks[work.id]) {
+          const area = work.calculateArea(room);
+          const price = work.prices[materialQuality];
+          const cost = area * price;
+          
+          // Коэффициент на состояние поверхностей
+          let conditionMultiplier = 1;
+          if (surfaceCondition === "needs_repair") conditionMultiplier = 1.15;
+          if (surfaceCondition === "major_repair") conditionMultiplier = 1.3;
+          
+          const finalCost = cost * conditionMultiplier;
+          total += finalCost;
+          
+          breakdown.push({
+            room: room.name,
+            work: work.name,
+            area: Math.ceil(area * 10) / 10,
+            cost: Math.round(finalCost)
+          });
+        }
+      });
+    });
+
+    return { total: Math.round(total), breakdown };
+  };
+
+  const { total, breakdown } = calculateTotal();
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat("ru-RU").format(price) + " ₽";
   };
 
+  const groupedWorks = {
+    walls: workItems.filter(w => w.category === "walls"),
+    floors: workItems.filter(w => w.category === "floors"),
+    ceiling: workItems.filter(w => w.category === "ceiling"),
+    other: workItems.filter(w => w.category === "other"),
+  };
+
   return (
     <>
       <Helmet>
-        <title>Калькулятор Материалов для Ремонта Квартиры | Расчет Стоимости Материалов СПб</title>
+        <title>Калькулятор Ремонта Квартиры с Детальным Расчетом | SPB-DSRemont</title>
         <meta 
           name="description" 
-          content="Онлайн калькулятор материалов для ремонта квартиры в СПб. Рассчитайте количество краски, обоев, штукатурки, плитки и других материалов. Точные нормы расхода и средние цены 2024." 
+          content="Подробный калькулятор ремонта квартиры в СПб. Рассчитайте стоимость по комнатам, выберите качество материалов и виды работ. Точная смета с разбивкой по помещениям." 
         />
-        <meta name="keywords" content="калькулятор материалов для ремонта, расчет материалов квартиры, сколько нужно краски, расход штукатурки, калькулятор обоев, расчет плитки, стоимость материалов ремонта спб" />
         <link rel="canonical" href="https://spb-dsremont.ru/materials-calculator" />
-        
-        <meta property="og:title" content="Калькулятор Материалов для Ремонта Квартиры в СПб" />
-        <meta property="og:description" content="Рассчитайте количество и стоимость материалов для ремонта: краска, обои, штукатурка, плитка. Средние нормы расхода и актуальные цены." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://spb-dsremont.ru/materials-calculator" />
       </Helmet>
 
       <div className="min-h-screen bg-background">
@@ -270,7 +270,7 @@ const MaterialsCalculator = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-black/40 z-10" />
             <LazyImage
               src={heroImage}
-              alt="Калькулятор материалов для ремонта"
+              alt="Детальный калькулятор ремонта"
               className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="relative z-20 container mx-auto px-4 py-20 md:py-28">
@@ -279,11 +279,11 @@ const MaterialsCalculator = () => {
                   <Calculator className="w-8 h-8" />
                 </div>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                  Калькулятор Материалов для Ремонта
+                  Калькулятор Ремонта с Детальным Расчетом
                 </h1>
                 <p className="text-lg text-white/90 max-w-2xl mx-auto">
-                  Точный расчет количества и стоимости материалов для каждого вида работ. 
-                  Выберите нужные работы и получите подробную смету.
+                  Рассчитайте стоимость ремонта по комнатам, выберите качество материалов и виды работ. 
+                  Получите подробную смету с учетом всех параметров.
                 </p>
               </div>
             </div>
@@ -292,214 +292,297 @@ const MaterialsCalculator = () => {
           {/* Calculator Section */}
           <section className="py-12 bg-muted/30">
             <div className="container mx-auto px-4">
-              <div className="max-w-3xl mx-auto">
-                <Card className="border-2">
-                  <CardContent className="p-6 md:p-8">
-                    <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
-                      <Calculator className="w-6 h-6 text-primary" />
-                      {mode === "materials" ? "Расчет материалов" : "Прайс на работы"}
+              <div className="max-w-6xl mx-auto">
+                
+                {/* Общие параметры */}
+                <Card className="mb-6 border-2">
+                  <CardContent className="p-6">
+                    <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                      <Home className="w-6 h-6 text-primary" />
+                      Общие параметры проекта
                     </h2>
-
-                    <div className="space-y-6">
+                    
+                    <div className="grid md:grid-cols-3 gap-6">
                       <div>
-                        <Label htmlFor="mode" className="text-base font-medium mb-2 block">
-                          Что рассчитываем?
+                        <Label className="text-base font-medium mb-2 block">
+                          Тип помещения
                         </Label>
-                        <Select 
-                          value={mode} 
-                          onValueChange={(value: CalculatorMode) => {
-                            setMode(value);
-                            setSelectedWork("");
-                            setResult(null);
-                          }}
-                        >
-                          <SelectTrigger id="mode" className="w-full">
+                        <Select value={propertyType} onValueChange={setPropertyType}>
+                          <SelectTrigger>
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="materials">Материалы</SelectItem>
-                            <SelectItem value="services">Работы</SelectItem>
+                            <SelectItem value="apartment">Квартира</SelectItem>
+                            <SelectItem value="house">Частный дом</SelectItem>
+                            <SelectItem value="office">Офис</SelectItem>
+                            <SelectItem value="commercial">Коммерческое</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
 
                       <div>
-                        <Label htmlFor="work-type" className="text-base font-medium mb-2 block">
-                          {mode === "materials" ? "Выберите материал" : "Выберите работу"}
+                        <Label className="text-base font-medium mb-2 block">
+                          Состояние поверхностей
                         </Label>
-                        <Select value={selectedWork} onValueChange={setSelectedWork}>
-                          <SelectTrigger id="work-type" className="w-full">
-                            <SelectValue placeholder={mode === "materials" ? "Выберите материал..." : "Выберите работу..."} />
+                        <Select 
+                          value={surfaceCondition} 
+                          onValueChange={(v) => setSurfaceCondition(v as SurfaceCondition)}
+                        >
+                          <SelectTrigger>
+                            <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
-                            {mode === "materials" 
-                              ? workTypes.map((work) => (
-                                  <SelectItem key={work.id} value={work.id}>
-                                    {work.name}
-                                  </SelectItem>
-                                ))
-                              : serviceTypes.map((service) => (
-                                  <SelectItem key={service.id} value={service.id}>
-                                    {service.name}
-                                  </SelectItem>
-                                ))
-                            }
+                            <SelectItem value="new">Новостройка (идеально)</SelectItem>
+                            <SelectItem value="good">Хорошее состояние</SelectItem>
+                            <SelectItem value="needs_repair">Требует ремонта (+15%)</SelectItem>
+                            <SelectItem value="major_repair">Капитальный ремонт (+30%)</SelectItem>
                           </SelectContent>
                         </Select>
-                        {selectedWorkData && (
-                          <p className="text-sm text-muted-foreground mt-2">
-                            {selectedWorkData.description}
-                          </p>
-                        )}
-                        {selectedServiceData && (
-                          <p className="text-sm text-muted-foreground mt-2">
-                            {selectedServiceData.description} • {selectedServiceData.pricePerUnit} ₽/{selectedServiceData.unit}
-                          </p>
-                        )}
                       </div>
 
-                      {selectedWork && (
-                        <>
-                          <div>
-                            <Label htmlFor="area" className="text-base font-medium mb-4 block">
-                              Площадь: {area} м²
-                            </Label>
-                            <Slider
-                              id="area"
-                              min={1}
-                              max={200}
-                              step={1}
-                              value={[area]}
-                              onValueChange={(value) => setArea(value[0])}
-                              className="w-full"
-                            />
-                          </div>
-
-                          {selectedWorkData?.hasThickness && (
-                            <div>
-                              <Label htmlFor="thickness" className="text-base font-medium mb-2 block">
-                                Толщина слоя (мм)
-                              </Label>
-                              <Input
-                                id="thickness"
-                                type="number"
-                                min="1"
-                                value={thickness}
-                                onChange={(e) => setThickness(parseFloat(e.target.value) || 0)}
-                                placeholder="Введите толщину"
-                                className="w-full"
-                              />
-                            </div>
-                          )}
-
-                          <Button
-                            className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-6 text-lg"
-                            onClick={handleCalculate}
-                          >
-                            <Calculator className="w-5 h-5 mr-2" />
-                            Рассчитать
-                          </Button>
-                        </>
-                      )}
+                      <div>
+                        <Label className="text-base font-medium mb-2 block">
+                          Качество материалов
+                        </Label>
+                        <Select 
+                          value={materialQuality} 
+                          onValueChange={(v) => setMaterialQuality(v as MaterialQuality)}
+                        >
+                          <SelectTrigger>
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="economy">Эконом класс</SelectItem>
+                            <SelectItem value="standard">Стандарт</SelectItem>
+                            <SelectItem value="premium">Премиум</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
 
-                {result && (
-                  <Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-background mt-6">
-                    <CardContent className="p-6 md:p-8">
-                      <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
-                        <Ruler className="w-6 h-6 text-primary" />
-                        Результат расчета
-                      </h3>
-
-                      <div className="space-y-6">
-                        <div className="p-6 bg-background rounded-lg border-2">
-                          <div className="flex justify-between items-start mb-4">
-                            <div>
-                              <p className="text-sm text-muted-foreground mb-1">
-                                {mode === "materials" ? "Материал" : "Работа"}
-                              </p>
-                              <p className="text-lg font-semibold text-foreground">
-                                {mode === "materials" ? selectedWorkData?.name : selectedServiceData?.name}
-                              </p>
+                {/* Комнаты */}
+                <div className="space-y-6">
+                  {rooms.map((room, index) => (
+                    <Card key={room.id} className="border-2">
+                      <CardContent className="p-6">
+                        <div className="flex items-center justify-between mb-6">
+                          <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                              <span className="text-lg font-bold text-primary">{index + 1}</span>
                             </div>
+                            <Input
+                              value={room.name}
+                              onChange={(e) => updateRoom(room.id, { name: e.target.value })}
+                              className="max-w-[200px] font-semibold text-lg"
+                            />
                           </div>
-
-                          <div className="grid md:grid-cols-2 gap-4 mb-4">
-                            <div className="p-4 bg-muted/50 rounded-lg">
-                              <p className="text-sm text-muted-foreground mb-1">Площадь</p>
-                              <p className="text-xl font-bold text-foreground">{area} м²</p>
-                            </div>
-                            {selectedWorkData?.hasThickness && (
-                              <div className="p-4 bg-muted/50 rounded-lg">
-                                <p className="text-sm text-muted-foreground mb-1">Толщина слоя</p>
-                                <p className="text-xl font-bold text-foreground">{thickness} мм</p>
-                              </div>
-                            )}
-                          </div>
-
-                          <div className="border-t-2 pt-4 space-y-3">
-                            {result.bags && (
-                              <div className="flex justify-between items-center">
-                                <span className="text-base font-medium text-muted-foreground">
-                                  Количество мешков:
-                                </span>
-                                <span className="text-xl font-bold text-foreground">
-                                  {result.bags} шт.
-                                </span>
-                              </div>
-                            )}
-                            {result.totalWeight && (
-                              <div className="flex justify-between items-center">
-                                <span className="text-base font-medium text-muted-foreground">
-                                  Общий вес:
-                                </span>
-                                <span className="text-xl font-bold text-foreground">
-                                  {result.totalWeight} кг
-                                </span>
-                              </div>
-                            )}
-                            {result.packages && (
-                              <div className="flex justify-between items-center">
-                                <span className="text-base font-medium text-muted-foreground">
-                                  Подложка:
-                                </span>
-                                <span className="text-xl font-bold text-foreground">
-                                  {result.packages} пачек
-                                </span>
-                              </div>
-                            )}
-                            <div className="flex justify-between items-center">
-                              <span className="text-base font-medium text-muted-foreground">
-                                {mode === "materials" ? "Необходимо материала:" : "Объем работ:"}
-                              </span>
-                              <span className="text-xl font-bold text-foreground">
-                                {result.amount}
-                              </span>
-                            </div>
-                            <div className="flex justify-between items-center pt-3 border-t">
-                              <span className="text-base font-medium text-muted-foreground">
-                                {mode === "materials" ? "Примерная стоимость материалов:" : "Стоимость работ:"}
-                              </span>
-                              <span className="text-2xl font-bold text-primary">
-                                {formatPrice(result.cost)}
-                              </span>
-                            </div>
-                          </div>
-
-                          <p className="text-sm text-muted-foreground mt-4">
-                            * Цены указаны ориентировочно для рынка СПб {mode === "materials" ? "без учета доставки" : ""}
-                          </p>
+                          {rooms.length > 1 && (
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => removeRoom(room.id)}
+                              className="text-destructive hover:text-destructive hover:bg-destructive/10"
+                            >
+                              <Trash2 className="w-4 h-4 mr-2" />
+                              Удалить
+                            </Button>
+                          )}
                         </div>
 
-                        <Button
-                          className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-6 text-lg"
-                          onClick={() => setIsContactOpen(true)}
-                        >
-                          Заказать расчет у специалиста
-                        </Button>
+                        <div className="grid md:grid-cols-4 gap-4 mb-6">
+                          <div>
+                            <Label className="text-sm font-medium mb-2 block">
+                              Тип помещения
+                            </Label>
+                            <Select 
+                              value={room.type} 
+                              onValueChange={(v) => updateRoom(room.id, { type: v as RoomType })}
+                            >
+                              <SelectTrigger>
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {roomTypes.map((type) => (
+                                  <SelectItem key={type.value} value={type.value}>
+                                    {type.label}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+
+                          <div>
+                            <Label className="text-sm font-medium mb-2 block">
+                              Площадь (м²)
+                            </Label>
+                            <Input
+                              type="number"
+                              value={room.area}
+                              onChange={(e) => updateRoom(room.id, { area: parseFloat(e.target.value) || 0 })}
+                              min="1"
+                              step="0.1"
+                            />
+                          </div>
+
+                          <div>
+                            <Label className="text-sm font-medium mb-2 block">
+                              Высота (м)
+                            </Label>
+                            <Input
+                              type="number"
+                              value={room.height}
+                              onChange={(e) => updateRoom(room.id, { height: parseFloat(e.target.value) || 0 })}
+                              min="2"
+                              max="5"
+                              step="0.1"
+                            />
+                          </div>
+
+                          <div>
+                            <Label className="text-sm font-medium mb-2 block">
+                              Периметр (м)
+                            </Label>
+                            <Input
+                              type="number"
+                              value={room.perimeter || Math.round(room.area * 0.4 * 10) / 10}
+                              onChange={(e) => updateRoom(room.id, { perimeter: parseFloat(e.target.value) || undefined })}
+                              min="1"
+                              step="0.1"
+                              placeholder="Авто"
+                            />
+                          </div>
+                        </div>
+
+                        <div>
+                          <h3 className="font-semibold mb-4">Выберите виды работ:</h3>
+                          
+                          <Tabs defaultValue="walls" className="w-full">
+                            <TabsList className="grid w-full grid-cols-4">
+                              <TabsTrigger value="walls">Стены</TabsTrigger>
+                              <TabsTrigger value="floors">Полы</TabsTrigger>
+                              <TabsTrigger value="ceiling">Потолок</TabsTrigger>
+                              <TabsTrigger value="other">Прочее</TabsTrigger>
+                            </TabsList>
+
+                            {Object.entries(groupedWorks).map(([category, works]) => (
+                              <TabsContent key={category} value={category} className="space-y-3 mt-4">
+                                {works.map((work) => (
+                                  <div 
+                                    key={work.id}
+                                    className="flex items-center justify-between p-3 rounded-lg border hover:bg-muted/50 transition-colors"
+                                  >
+                                    <div className="flex items-center gap-3">
+                                      <Checkbox
+                                        id={`${room.id}-${work.id}`}
+                                        checked={room.selectedWorks[work.id] || false}
+                                        onCheckedChange={() => toggleWork(room.id, work.id)}
+                                      />
+                                      <Label
+                                        htmlFor={`${room.id}-${work.id}`}
+                                        className="text-sm font-medium cursor-pointer"
+                                      >
+                                        {work.name}
+                                      </Label>
+                                    </div>
+                                    <span className="text-sm text-muted-foreground">
+                                      {formatPrice(work.prices[materialQuality])}/{work.unit}
+                                    </span>
+                                  </div>
+                                ))}
+                              </TabsContent>
+                            ))}
+                          </Tabs>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+
+                  <Button
+                    onClick={addRoom}
+                    variant="outline"
+                    className="w-full border-2 border-dashed border-primary text-primary hover:bg-primary/5"
+                  >
+                    <Plus className="w-5 h-5 mr-2" />
+                    Добавить помещение
+                  </Button>
+                </div>
+
+                {/* Итоговая смета */}
+                {breakdown.length > 0 && (
+                  <Card className="mt-6 border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-background">
+                    <CardContent className="p-6 md:p-8">
+                      <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                        <Calculator className="w-6 h-6 text-primary" />
+                        Детальная смета
+                      </h2>
+
+                      <div className="space-y-4 mb-6">
+                        {breakdown.map((item, index) => (
+                          <div 
+                            key={index}
+                            className="p-4 bg-background rounded-lg border flex items-center justify-between"
+                          >
+                            <div>
+                              <p className="font-medium text-foreground">{item.room}</p>
+                              <p className="text-sm text-muted-foreground">
+                                {item.work} • {item.area} м²
+                              </p>
+                            </div>
+                            <div className="text-right">
+                              <p className="font-bold text-lg">{formatPrice(item.cost)}</p>
+                            </div>
+                          </div>
+                        ))}
                       </div>
+
+                      <div className="border-t-2 pt-6">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-lg font-medium text-muted-foreground">
+                            Коэффициент состояния:
+                          </span>
+                          <span className="text-lg font-medium">
+                            {surfaceCondition === "new" && "×1.0"}
+                            {surfaceCondition === "good" && "×1.0"}
+                            {surfaceCondition === "needs_repair" && "×1.15"}
+                            {surfaceCondition === "major_repair" && "×1.3"}
+                          </span>
+                        </div>
+                        
+                        <div className="flex items-center justify-between p-6 bg-primary/10 rounded-lg">
+                          <span className="text-xl font-bold text-foreground">
+                            Итоговая стоимость:
+                          </span>
+                          <span className="text-3xl font-bold text-primary">
+                            {formatPrice(total)}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-950/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                        <div className="flex gap-2 mb-2">
+                          <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                          <div>
+                            <p className="font-semibold text-blue-900 dark:text-blue-100 mb-1">
+                              Что включено в расчет:
+                            </p>
+                            <ul className="text-sm text-blue-800 dark:text-blue-200 space-y-1">
+                              <li>• Работа мастеров по всем выбранным видам</li>
+                              <li>• Материалы выбранного качества</li>
+                              <li>• Коэффициент на состояние поверхностей</li>
+                              <li>• Расход материалов с учетом технологии</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                      <Button
+                        onClick={() => setIsContactOpen(true)}
+                        className="w-full mt-6 bg-primary hover:bg-primary/90 text-white font-semibold py-6 text-lg"
+                      >
+                        Получить точную смету от специалиста
+                      </Button>
                     </CardContent>
                   </Card>
                 )}
@@ -512,155 +595,78 @@ const MaterialsCalculator = () => {
             <div className="container mx-auto px-4">
               <div className="max-w-5xl mx-auto">
                 <h2 className="text-3xl font-bold text-foreground mb-8 text-center">
-                  Как правильно рассчитать материалы для ремонта
+                  Преимущества детального калькулятора
                 </h2>
 
-                <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
+                <div className="grid md:grid-cols-3 gap-6 mb-12">
+                  <Card>
+                    <CardContent className="p-6 text-center">
+                      <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                        <Calculator className="w-8 h-8 text-primary" />
+                      </div>
+                      <h3 className="font-bold text-lg mb-2">Точный расчет</h3>
+                      <p className="text-foreground/80 text-sm">
+                        Учет всех параметров каждого помещения и типа работ для максимальной точности
+                      </p>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardContent className="p-6 text-center">
+                      <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                        <Home className="w-8 h-8 text-primary" />
+                      </div>
+                      <h3 className="font-bold text-lg mb-2">По комнатам</h3>
+                      <p className="text-foreground/80 text-sm">
+                        Отдельный расчет для каждой комнаты с учетом её особенностей и назначения
+                      </p>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardContent className="p-6 text-center">
+                      <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                        <Ruler className="w-8 h-8 text-primary" />
+                      </div>
+                      <h3 className="font-bold text-lg mb-2">Гибкие настройки</h3>
+                      <p className="text-foreground/80 text-sm">
+                        Выбор качества материалов, учет состояния поверхностей и других факторов
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-8 items-center">
                   <div>
                     <LazyImage
                       src={selectionImage}
-                      alt="Выбор материалов для ремонта"
+                      alt="Детальный расчет ремонта"
                       className="rounded-lg shadow-lg w-full"
                     />
                   </div>
                   <div className="space-y-4">
                     <h3 className="text-2xl font-bold text-foreground">
-                      Зачем нужен калькулятор материалов?
+                      Как пользоваться калькулятором?
                     </h3>
-                    <p className="text-foreground/80 leading-relaxed">
-                      Правильный расчет материалов для ремонта позволяет избежать лишних расходов и необходимости 
-                      докупать материалы в процессе работы. Наш калькулятор учитывает средние нормы расхода, 
-                      рекомендованные производителями, и добавляет необходимый запас на подрезку и возможный брак.
-                    </p>
-                    <p className="text-foreground/80 leading-relaxed">
-                      Выбирайте только те виды работ, которые планируете выполнить, указывайте точные размеры 
-                      помещений и получайте детальный расчет с разбивкой по каждому виду материалов.
-                    </p>
+                    <ol className="space-y-3 text-foreground/80">
+                      <li className="flex gap-3">
+                        <span className="font-bold text-primary flex-shrink-0">1.</span>
+                        <span>Укажите общие параметры: тип помещения, состояние и качество материалов</span>
+                      </li>
+                      <li className="flex gap-3">
+                        <span className="font-bold text-primary flex-shrink-0">2.</span>
+                        <span>Добавьте все комнаты с их площадью, высотой и периметром</span>
+                      </li>
+                      <li className="flex gap-3">
+                        <span className="font-bold text-primary flex-shrink-0">3.</span>
+                        <span>Выберите нужные виды работ для каждого помещения</span>
+                      </li>
+                      <li className="flex gap-3">
+                        <span className="font-bold text-primary flex-shrink-0">4.</span>
+                        <span>Получите подробную смету с разбивкой по комнатам и работам</span>
+                      </li>
+                    </ol>
                   </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
-                  <div className="space-y-4 order-2 md:order-1">
-                    <h3 className="text-2xl font-bold text-foreground">
-                      Средние нормы расхода материалов
-                    </h3>
-                    <div className="bg-primary/5 p-6 rounded-lg">
-                      <div className="space-y-3 text-foreground/80">
-                        <p><strong>Краска для стен:</strong> 0,25-0,3 л на м² в два слоя</p>
-                        <p><strong>Грунтовка:</strong> 0,15-0,2 л на м²</p>
-                        <p><strong>Штукатурка:</strong> 14 кг на м² при слое 10 мм</p>
-                        <p><strong>Шпаклевка:</strong> 1,2 кг на м² при слое 1 мм</p>
-                        <p><strong>Стяжка пола:</strong> 18 кг на м² при слое 10 мм</p>
-                        <p><strong>Обои:</strong> 1,1 м² с учетом подгонки рисунка</p>
-                        <p><strong>Плитка:</strong> 1,15 м² с учетом подрезки</p>
-                        <p><strong>Ламинат/линолеум:</strong> 1,1 м² с запасом</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="order-1 md:order-2">
-                    <LazyImage
-                      src={costImage}
-                      alt="Расчет стоимости материалов"
-                      className="rounded-lg shadow-lg w-full"
-                    />
-                  </div>
-                </div>
-
-                <div className="bg-background p-8 rounded-lg shadow-md">
-                  <h3 className="text-2xl font-bold text-foreground mb-6">
-                    Факторы, влияющие на расход материалов
-                  </h3>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <ul className="space-y-4 text-foreground/80">
-                      <li className="flex gap-3">
-                        <span className="text-primary font-bold">•</span>
-                        <span>
-                          <strong>Состояние поверхностей:</strong> Неровные стены требуют больше штукатурки и шпаклевки
-                        </span>
-                      </li>
-                      <li className="flex gap-3">
-                        <span className="text-primary font-bold">•</span>
-                        <span>
-                          <strong>Качество материалов:</strong> Дорогие материалы обычно имеют лучшую укрывистость
-                        </span>
-                      </li>
-                      <li className="flex gap-3">
-                        <span className="text-primary font-bold">•</span>
-                        <span>
-                          <strong>Сложность помещения:</strong> Много углов и ниш увеличивают расход на 10-15%
-                        </span>
-                      </li>
-                    </ul>
-                    <ul className="space-y-4 text-foreground/80">
-                      <li className="flex gap-3">
-                        <span className="text-primary font-bold">•</span>
-                        <span>
-                          <strong>Квалификация мастеров:</strong> Опытные мастера расходуют меньше материалов
-                        </span>
-                      </li>
-                      <li className="flex gap-3">
-                        <span className="text-primary font-bold">•</span>
-                        <span>
-                          <strong>Тип помещения:</strong> Ванные и кухни требуют специальных влагостойких материалов
-                        </span>
-                      </li>
-                      <li className="flex gap-3">
-                        <span className="text-primary font-bold">•</span>
-                        <span>
-                          <strong>Толщина слоя:</strong> От толщины нанесения зависит расход смесей для выравнивания
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Tips Section */}
-          <section className="py-12">
-            <div className="container mx-auto px-4">
-              <div className="max-w-4xl mx-auto">
-                <h2 className="text-3xl font-bold text-foreground mb-8 text-center">
-                  Советы по выбору и покупке материалов
-                </h2>
-
-                <div className="grid md:grid-cols-3 gap-6">
-                  <Card>
-                    <CardContent className="p-6">
-                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                        <span className="text-2xl font-bold text-primary">1</span>
-                      </div>
-                      <h3 className="font-bold text-lg mb-3">Запас 10-15%</h3>
-                      <p className="text-foreground/80 text-sm">
-                        Всегда покупайте материалы с запасом на подрезку, брак и возможные ошибки в расчетах
-                      </p>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardContent className="p-6">
-                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                        <span className="text-2xl font-bold text-primary">2</span>
-                      </div>
-                      <h3 className="font-bold text-lg mb-3">Одна партия</h3>
-                      <p className="text-foreground/80 text-sm">
-                        Покупайте материалы из одной партии, чтобы избежать различий в оттенках и текстуре
-                      </p>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardContent className="p-6">
-                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                        <span className="text-2xl font-bold text-primary">3</span>
-                      </div>
-                      <h3 className="font-bold text-lg mb-3">Сезонность</h3>
-                      <p className="text-foreground/80 text-sm">
-                        Закупайте материалы в межсезонье — цены могут быть на 15-20% ниже пиковых периодов
-                      </p>
-                    </CardContent>
-                  </Card>
                 </div>
               </div>
             </div>
@@ -671,11 +677,11 @@ const MaterialsCalculator = () => {
             <div className="container mx-auto px-4">
               <div className="max-w-3xl mx-auto text-center">
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                  Нужен точный расчет материалов?
+                  Нужна профессиональная смета?
                 </h2>
                 <p className="text-lg text-muted-foreground mb-8">
-                  Наши специалисты выедут на объект, произведут замеры и составят подробную смету 
-                  с учетом всех особенностей вашего помещения
+                  Наши специалисты выедут на объект, произведут точные замеры и составят детальную смету 
+                  с учетом всех особенностей вашего помещения. Бесплатный выезд и консультация.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button 
@@ -683,7 +689,7 @@ const MaterialsCalculator = () => {
                     className="bg-primary hover:bg-primary/90 text-white font-semibold"
                     onClick={() => setIsContactOpen(true)}
                   >
-                    Получить точный расчет
+                    Заказать профессиональный расчет
                   </Button>
                   <Button 
                     size="lg"
