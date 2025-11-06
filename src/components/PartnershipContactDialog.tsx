@@ -51,22 +51,37 @@ const PartnershipContactDialog = ({ open, onOpenChange }: PartnershipContactDial
         body: {
           name,
           phone,
+          propertyType: "Партнёрство",
+          area: "0",
+          repairType: "Партнёрство",
+          startTime: "Не указано",
+          hasProject: "Нет",
           message: `Заявка на партнёрство\nПрофессия: ${profession}`
         }
       });
 
       if (error) {
         console.error('Error invoking function:', error);
-        throw error;
+        toast({
+          title: "Ошибка отправки",
+          description: "Не удалось отправить заявку. Попробуйте позже.",
+          variant: "destructive",
+        });
+        return;
       }
+
+      // Показываем подтверждение
+      const responseData = data as { message?: string; sentTo?: number; total?: number };
+      toast({
+        title: "✅ Заявка отправлена!",
+        description: responseData?.message || "Мы свяжемся с вами в ближайшее время",
+      });
 
       setName("");
       setPhone("+7 ");
       setProfession("");
       onOpenChange(false);
-      
-      // Redirect to thank you page
-      navigate("/thank-you");
+      navigate('/thank-you');
     } catch (error) {
       console.error('Ошибка отправки:', error);
       toast({

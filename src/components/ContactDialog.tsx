@@ -82,11 +82,23 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
 
       if (error) {
         console.error('Error invoking function:', error);
-        throw error;
+        toast({
+          title: "Ошибка отправки",
+          description: "Не удалось отправить заявку. Попробуйте позже или позвоните нам.",
+          variant: "destructive",
+        });
+        return;
       }
 
+      // Показываем подтверждение с информацией о доставке
+      const responseData = data as { message?: string; sentTo?: number; total?: number };
+      toast({
+        title: "✅ Заявка отправлена!",
+        description: responseData?.message || "Мы свяжемся с вами в ближайшее время",
+      });
+
       onOpenChange(false);
-      navigate("/thank-you");
+      navigate('/thank-you');
     } catch (error) {
       console.error('Ошибка отправки:', error);
       toast({

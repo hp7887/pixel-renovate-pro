@@ -74,11 +74,22 @@ export const FloatingContactButton = () => {
             message: question
           };
 
-      const { error } = await supabase.functions.invoke("send-telegram-message", {
+      const { data, error } = await supabase.functions.invoke("send-telegram-message", {
         body: messageData,
       });
 
-      if (error) throw error;
+      if (error) {
+        toast.error("Ошибка отправки", {
+          description: "Не удалось отправить сообщение. Попробуйте позже."
+        });
+        throw error;
+      }
+
+      // Показываем подтверждение
+      const responseData = data as { message?: string; sentTo?: number; total?: number };
+      toast.success("✅ Сообщение отправлено!", {
+        description: responseData?.message || "Мы ответим вам в ближайшее время"
+      });
 
       setIsOpen(false);
       setFormType(null);

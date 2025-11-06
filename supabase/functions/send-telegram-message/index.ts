@@ -57,10 +57,13 @@ serve(async (req) => {
     const chatIds = [TELEGRAM_CHAT_ID];
     if (TELEGRAM_CHAT_ID_2) {
       chatIds.push(TELEGRAM_CHAT_ID_2);
+      console.log(`Sending to 2 chats: primary + ${TELEGRAM_CHAT_ID_2}`);
+    } else {
+      console.log('TELEGRAM_CHAT_ID_2 not set, sending only to primary chat');
     }
 
     // Отправка в Telegram на все чаты
-    const sendPromises = chatIds.map(chatId =>
+    const sendPromises = chatIds.map((chatId, index) =>
       fetch(
         `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
         {
@@ -71,18 +74,38 @@ serve(async (req) => {
             text: messageText,
           })
         }
-      )
+      ).then(async (response) => {
+        const data = await response.json();
+        console.log(`Chat ${index + 1} (${chatId}): ${response.ok ? 'SUCCESS' : 'FAILED'}`, data);
+        return { response, data, chatId };
+      })
     );
 
     const results = await Promise.allSettled(sendPromises);
     
-    // Проверяем результаты
-    const failedSends = results.filter(r => r.status === 'rejected');
-    if (failedSends.length === results.length) {
-      console.error('All Telegram sends failed');
+    // Проверяем результаты и собираем информацию
+    let successCount = 0;
+    let failureDetails: string[] = [];
+    
+    results.forEach((result, index) => {
+      if (result.status === 'fulfilled' && result.value.response.ok) {
+        successCount++;
+      } else {
+        const chatId = chatIds[index];
+        const error = result.status === 'rejected' 
+          ? result.reason 
+          : result.value.data.description || 'Unknown error';
+        failureDetails.push(`Chat ${chatId}: ${error}`);
+        console.error(`Failed to send to chat ${chatId}:`, error);
+      }
+    });
+    
+    if (successCount === 0) {
+      console.error('All Telegram sends failed:', failureDetails);
       return new Response(
         JSON.stringify({ 
           error: 'Ошибка отправки в Telegram',
+          details: failureDetails
         }),
         { 
           status: 500,
@@ -91,10 +114,19 @@ serve(async (req) => {
       );
     }
 
-    console.log(`Message sent successfully to ${results.length - failedSends.length} Telegram chat(s)`);
+    const statusMessage = successCount === chatIds.length 
+      ? `Заявка успешно отправлена на ${successCount} ${successCount === 1 ? 'контакт' : 'контакта'}! ✅`
+      : `Отправлено на ${successCount} из ${chatIds.length} контактов. ${failureDetails.join('; ')}`;
+    
+    console.log(`Message sent to ${successCount}/${chatIds.length} Telegram chat(s)`);
 
     return new Response(
-      JSON.stringify({ success: true, message: 'Сообщение отправлено' }),
+      JSON.stringify({ 
+        success: true, 
+        message: statusMessage,
+        sentTo: successCount,
+        total: chatIds.length
+      }),
       {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       }
