@@ -25,6 +25,59 @@ const BedroomDesign = () => {
         <meta name="description" content="Полное руководство по дизайну и ремонту спальни в СПб: планировка, выбор цветов, освещение, материалы. Создайте комфортное пространство для сна. Цены от 6500₽/м²." />
         <meta name="keywords" content="дизайн спальни, ремонт спальни спб, планировка спальни, освещение спальни, интерьер спальни, спальня под ключ" />
         <link rel="canonical" href="https://spb-dsremont.ru/blog/dizayn-spalni" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Дизайн и ремонт спальни: создаем идеальное место для отдыха",
+            "description": "Полное руководство по дизайну и ремонту спальни в СПб: планировка, выбор цветов, освещение, материалы. Создайте комфортное пространство для сна. Цены от 6500₽/м².",
+            "image": "https://spb-dsremont.ru/og-image.jpg",
+            "author": {
+              "@type": "Organization",
+              "name": "SPB-DSRemont"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "SPB-DSRemont",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://spb-dsremont.ru/logo.png"
+              }
+            },
+            "datePublished": "2025-03-18",
+            "dateModified": "2025-03-18",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://spb-dsremont.ru/blog/dizayn-spalni"
+            }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://spb-dsremont.ru"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Блог",
+                "item": "https://spb-dsremont.ru/blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Дизайн спальни",
+                "item": "https://spb-dsremont.ru/blog/dizayn-spalni"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       
       <Header />

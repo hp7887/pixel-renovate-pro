@@ -25,6 +25,59 @@ const WindowsGuide = () => {
         <meta name="description" content="Полный гид по окнам: выбор стеклопакетов, профилей ПВХ и алюминия, установка по ГОСТу, утепление, отделка откосов. Монтаж окон от 4500₽ в СПб 2025." />
         <meta name="keywords" content="пластиковые окна спб, установка окон, откосы на окна, утепление окон, замена окон санкт петербург, стеклопакеты" />
         <link rel="canonical" href="https://spb-dsremont.ru/blog/okna-v-kvartire" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Окна в квартире: выбор, установка, утепление и отделка откосов",
+            "description": "Полный гид по окнам: выбор стеклопакетов, профилей ПВХ и алюминия, установка по ГОСТу, утепление, отделка откосов. Монтаж окон от 4500₽ в СПб 2025.",
+            "image": "https://spb-dsremont.ru/og-image.jpg",
+            "author": {
+              "@type": "Organization",
+              "name": "SPB-DSRemont"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "SPB-DSRemont",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://spb-dsremont.ru/logo.png"
+              }
+            },
+            "datePublished": "2025-03-22",
+            "dateModified": "2025-03-22",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://spb-dsremont.ru/blog/okna-v-kvartire"
+            }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://spb-dsremont.ru"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Блог",
+                "item": "https://spb-dsremont.ru/blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Окна в квартире",
+                "item": "https://spb-dsremont.ru/blog/okna-v-kvartire"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       
       <Header />

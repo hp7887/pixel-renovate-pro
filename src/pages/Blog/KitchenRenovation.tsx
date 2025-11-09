@@ -25,6 +25,59 @@ const KitchenRenovation = () => {
         <meta name="description" content="Полное руководство по ремонту кухни: планировка, выбор материалов, последовательность работ, типичные ошибки. Профессиональные советы по созданию функциональной и красивой кухни." />
         <meta name="keywords" content="ремонт кухни, кухня под ключ, планировка кухни, рабочий треугольник, фартук для кухни, кухонный гарнитур" />
         <link rel="canonical" href="https://spb-dsremont.ru/blog/remont-kuhni" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Ремонт кухни: пошаговое руководство от планировки до финиша",
+            "description": "Полное руководство по ремонту кухни: планировка, выбор материалов, последовательность работ, типичные ошибки. Профессиональные советы по созданию функциональной и красивой кухни.",
+            "image": "https://spb-dsremont.ru/og-image.jpg",
+            "author": {
+              "@type": "Organization",
+              "name": "SPB-DSRemont"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "SPB-DSRemont",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://spb-dsremont.ru/logo.png"
+              }
+            },
+            "datePublished": "2025-02-10",
+            "dateModified": "2025-02-10",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://spb-dsremont.ru/blog/remont-kuhni"
+            }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://spb-dsremont.ru"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Блог",
+                "item": "https://spb-dsremont.ru/blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Ремонт кухни",
+                "item": "https://spb-dsremont.ru/blog/remont-kuhni"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       
       <Header />

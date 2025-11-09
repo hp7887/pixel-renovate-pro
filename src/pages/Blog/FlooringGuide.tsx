@@ -25,6 +25,59 @@ const FlooringGuide = () => {
         <meta name="description" content="Все о напольных покрытиях: ламинат, паркет, плитка, линолеум, наливные полы. Сравнение характеристик, цены, технология укладки. Укладка от 450₽/м² в СПб." />
         <meta name="keywords" content="напольные покрытия, укладка ламината, паркетная доска, керамогранит, наливной пол, выбор пола для квартиры" />
         <link rel="canonical" href="https://spb-dsremont.ru/blog/napolnye-pokrytiya" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Напольные покрытия: полное руководство по выбору и укладке",
+            "description": "Все о напольных покрытиях: ламинат, паркет, плитка, линолеум, наливные полы. Сравнение характеристик, цены, технология укладки. Укладка от 450₽/м² в СПб.",
+            "image": "https://spb-dsremont.ru/og-image.jpg",
+            "author": {
+              "@type": "Organization",
+              "name": "SPB-DSRemont"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "SPB-DSRemont",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://spb-dsremont.ru/logo.png"
+              }
+            },
+            "datePublished": "2025-03-20",
+            "dateModified": "2025-03-20",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://spb-dsremont.ru/blog/napolnye-pokrytiya"
+            }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://spb-dsremont.ru"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Блог",
+                "item": "https://spb-dsremont.ru/blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Напольные покрытия",
+                "item": "https://spb-dsremont.ru/blog/napolnye-pokrytiya"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       
       <Header />
