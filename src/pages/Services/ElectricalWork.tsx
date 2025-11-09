@@ -32,20 +32,47 @@ const ElectricalWork = () => {
             "@context": "https://schema.org",
             "@type": "Service",
             "serviceType": "Электромонтажные работы",
+            "name": "Электромонтажные работы под ключ в Санкт-Петербурге",
+            "description": "Профессиональные электромонтажные работы в СПб: полная замена электропроводки, установка электрощитов, монтаж розеток и выключателей, подключение техники. Опытные электрики, гарантия качества.",
             "provider": {
               "@type": "LocalBusiness",
               "name": "SPB-DSRemont",
+              "telephone": "+78122099885",
+              "email": "digitalstroy@inbox.ru",
               "address": {
                 "@type": "PostalAddress",
+                "streetAddress": "Кузнецовская улица, 52к8Ж",
                 "addressLocality": "Санкт-Петербург",
                 "addressCountry": "RU"
-              },
-              "telephone": "+7 812 209-98-85"
+              }
             },
-            "areaServed": "Санкт-Петербург",
-            "offers": {
-              "@type": "Offer",
-              "priceRange": "2500-5000 ₽/м²"
+            "areaServed": {
+              "@type": "City",
+              "name": "Санкт-Петербург"
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Электромонтажные работы",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Замена электропроводки"
+                  },
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "2500",
+                    "priceCurrency": "RUB",
+                    "unitText": "за квадратный метр"
+                  }
+                }
+              ]
+            },
+            "serviceOutput": "Полностью обновленная электрическая система",
+            "hoursAvailable": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
             }
           })}
         </script>

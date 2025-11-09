@@ -30,25 +30,65 @@ const BathroomRepair = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "serviceType": "Ремонт ванной комнаты под ключ",
+            "serviceType": "Ремонт ванной комнаты",
+            "name": "Ремонт ванной комнаты и санузла под ключ в Санкт-Петербурге",
+            "description": "Профессиональный ремонт ванной комнаты в СПб: укладка плитки, замена сантехники, гидроизоляция, отделка под ключ. Гарантия 1 год, фиксированные цены.",
             "provider": {
               "@type": "LocalBusiness",
               "name": "SPB-DSRemont",
+              "telephone": "+78122099885",
+              "email": "digitalstroy@inbox.ru",
               "address": {
                 "@type": "PostalAddress",
+                "streetAddress": "Кузнецовская улица, 52к8Ж",
                 "addressLocality": "Санкт-Петербург",
                 "addressCountry": "RU"
               }
             },
-            "areaServed": "Санкт-Петербург",
+            "areaServed": {
+              "@type": "City",
+              "name": "Санкт-Петербург"
+            },
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
-              "name": "Варианты ремонта",
+              "name": "Ремонт ванной комнаты - пакеты услуг",
               "itemListElement": [
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Эконом", "offers": { "@type": "Offer", "price": "45000", "priceCurrency": "RUB" } } },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Стандарт", "offers": { "@type": "Offer", "price": "75000", "priceCurrency": "RUB" } } },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Премиум", "offers": { "@type": "Offer", "price": "120000", "priceCurrency": "RUB" } } }
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Эконом - ремонт ванной"
+                  },
+                  "price": "45000",
+                  "priceCurrency": "RUB",
+                  "description": "Базовый ремонт ванной комнаты"
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Стандарт - ремонт ванной"
+                  },
+                  "price": "75000",
+                  "priceCurrency": "RUB",
+                  "description": "Стандартный ремонт с качественными материалами"
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Премиум - ремонт ванной"
+                  },
+                  "price": "120000",
+                  "priceCurrency": "RUB",
+                  "description": "Премиальный ремонт с элитными материалами"
+                }
               ]
+            },
+            "serviceOutput": "Полностью обновленная ванная комната",
+            "hoursAvailable": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
             }
           })}
         </script>

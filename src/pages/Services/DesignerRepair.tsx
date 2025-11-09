@@ -29,27 +29,57 @@ const DesignerRepair = () => {
             "@context": "https://schema.org",
             "@type": "Service",
             "serviceType": "Дизайнерский ремонт квартир",
+            "name": "Дизайнерский ремонт квартир в Санкт-Петербурге",
+            "description": "Эксклюзивный дизайнерский ремонт квартир в СПб: авторский дизайн-проект, премиум материалы, элитная отделка. Создаем уникальные интерьеры под ваш стиль жизни.",
             "provider": {
               "@type": "LocalBusiness",
               "name": "SPB-DSRemont",
+              "telephone": "+78122099885",
+              "email": "digitalstroy@inbox.ru",
               "address": {
                 "@type": "PostalAddress",
+                "streetAddress": "Кузнецовская улица, 52к8Ж",
                 "addressLocality": "Санкт-Петербург",
                 "addressCountry": "RU"
-              },
-              "telephone": "+7 812 209-98-85"
-            },
-            "areaServed": "Санкт-Петербург",
-            "offers": {
-              "@type": "Offer",
-              "price": "15000",
-              "priceCurrency": "RUB",
-              "priceSpecification": {
-                "@type": "UnitPriceSpecification",
-                "price": "15000",
-                "priceCurrency": "RUB",
-                "unitCode": "MTK"
               }
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Санкт-Петербург"
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Дизайнерский ремонт квартир",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Дизайнерский ремонт квартиры"
+                  },
+                  "price": "15000",
+                  "priceCurrency": "RUB",
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "15000",
+                    "priceCurrency": "RUB",
+                    "unitText": "за квадратный метр"
+                  },
+                  "availableAtOrFrom": {
+                    "@type": "Place",
+                    "address": {
+                      "@type": "PostalAddress",
+                      "addressLocality": "Санкт-Петербург",
+                      "addressCountry": "RU"
+                    }
+                  }
+                }
+              ]
+            },
+            "serviceOutput": "Эксклюзивный авторский интерьер",
+            "hoursAvailable": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
             }
           })}
         </script>

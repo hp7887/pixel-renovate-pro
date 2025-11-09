@@ -28,28 +28,58 @@ const MajorRepair = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "serviceType": "Капитальный ремонт квартир под ключ",
+            "serviceType": "Капитальный ремонт квартир",
+            "name": "Капитальный ремонт квартир под ключ в Санкт-Петербурге",
+            "description": "Капитальный ремонт квартир в СПб: полная замена инженерных систем, перепланировка, демонтаж, черновая и чистовая отделка. Профессиональный ремонт с гарантией 1 год.",
             "provider": {
               "@type": "LocalBusiness",
               "name": "SPB-DSRemont",
+              "telephone": "+78122099885",
+              "email": "digitalstroy@inbox.ru",
               "address": {
                 "@type": "PostalAddress",
+                "streetAddress": "Кузнецовская улица, 52к8Ж",
                 "addressLocality": "Санкт-Петербург",
                 "addressCountry": "RU"
-              },
-              "telephone": "+7 812 209-98-85"
-            },
-            "areaServed": "Санкт-Петербург",
-            "offers": {
-              "@type": "Offer",
-              "price": "8000",
-              "priceCurrency": "RUB",
-              "priceSpecification": {
-                "@type": "UnitPriceSpecification",
-                "price": "8000",
-                "priceCurrency": "RUB",
-                "unitCode": "MTK"
               }
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Санкт-Петербург"
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Капитальный ремонт квартир",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Капитальный ремонт квартиры"
+                  },
+                  "price": "8000",
+                  "priceCurrency": "RUB",
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "8000",
+                    "priceCurrency": "RUB",
+                    "unitText": "за квадратный метр"
+                  },
+                  "availableAtOrFrom": {
+                    "@type": "Place",
+                    "address": {
+                      "@type": "PostalAddress",
+                      "addressLocality": "Санкт-Петербург",
+                      "addressCountry": "RU"
+                    }
+                  }
+                }
+              ]
+            },
+            "serviceOutput": "Полностью отремонтированная квартира",
+            "hoursAvailable": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
             }
           })}
         </script>

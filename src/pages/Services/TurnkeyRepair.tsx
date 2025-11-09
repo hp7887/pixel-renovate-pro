@@ -29,27 +29,57 @@ const TurnkeyRepair = () => {
             "@context": "https://schema.org",
             "@type": "Service",
             "serviceType": "Ремонт квартир под ключ",
+            "name": "Ремонт квартир под ключ в Санкт-Петербурге",
+            "description": "Полный цикл ремонта квартир под ключ в СПб: от замеров до финальной уборки. Комплексный подход, фиксированная цена, гарантия качества, точные сроки выполнения работ.",
             "provider": {
               "@type": "LocalBusiness",
               "name": "SPB-DSRemont",
+              "telephone": "+78122099885",
+              "email": "digitalstroy@inbox.ru",
               "address": {
                 "@type": "PostalAddress",
+                "streetAddress": "Кузнецовская улица, 52к8Ж",
                 "addressLocality": "Санкт-Петербург",
                 "addressCountry": "RU"
-              },
-              "telephone": "+7 812 209-98-85"
-            },
-            "areaServed": "Санкт-Петербург",
-            "offers": {
-              "@type": "Offer",
-              "price": "6000",
-              "priceCurrency": "RUB",
-              "priceSpecification": {
-                "@type": "UnitPriceSpecification",
-                "price": "6000",
-                "priceCurrency": "RUB",
-                "unitCode": "MTK"
               }
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Санкт-Петербург"
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Ремонт квартир под ключ",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Ремонт квартиры под ключ"
+                  },
+                  "price": "7000",
+                  "priceCurrency": "RUB",
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "7000",
+                    "priceCurrency": "RUB",
+                    "unitText": "за квадратный метр"
+                  },
+                  "availableAtOrFrom": {
+                    "@type": "Place",
+                    "address": {
+                      "@type": "PostalAddress",
+                      "addressLocality": "Санкт-Петербург",
+                      "addressCountry": "RU"
+                    }
+                  }
+                }
+              ]
+            },
+            "serviceOutput": "Готовая к проживанию квартира",
+            "hoursAvailable": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
             }
           })}
         </script>

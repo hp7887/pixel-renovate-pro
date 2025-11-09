@@ -30,24 +30,67 @@ const InteriorDesign = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "serviceType": "Дизайн интерьера квартир под ключ",
+            "serviceType": "Дизайн интерьера квартир",
+            "name": "Дизайн интерьера квартир под ключ в Санкт-Петербурге",
+            "description": "Профессиональный дизайн интерьера в СПб: полный дизайн-проект с 3D-визуализацией, планировка, подбор материалов, авторский надзор. Дизайн-проект в подарок при заказе ремонта от 50 м².",
             "provider": {
               "@type": "LocalBusiness",
               "name": "SPB-DSRemont",
+              "telephone": "+78122099885",
+              "email": "digitalstroy@inbox.ru",
               "address": {
                 "@type": "PostalAddress",
+                "streetAddress": "Кузнецовская улица, 52к8Ж",
                 "addressLocality": "Санкт-Петербург",
                 "addressCountry": "RU"
               }
             },
-            "areaServed": "Санкт-Петербург",
+            "areaServed": {
+              "@type": "City",
+              "name": "Санкт-Петербург"
+            },
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
-              "name": "Варианты дизайна",
+              "name": "Дизайн-проекты интерьера",
               "itemListElement": [
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Стандартный", "offers": { "@type": "Offer", "price": "2500", "priceCurrency": "RUB", "unitCode": "MTK" } } },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Расширенный", "offers": { "@type": "Offer", "price": "3500", "priceCurrency": "RUB", "unitCode": "MTK" } } }
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Стандартный дизайн-проект"
+                  },
+                  "price": "2500",
+                  "priceCurrency": "RUB",
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "2500",
+                    "priceCurrency": "RUB",
+                    "unitText": "за квадратный метр"
+                  },
+                  "description": "Планировка, 3D-визуализация, подбор материалов"
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Расширенный дизайн-проект"
+                  },
+                  "price": "3500",
+                  "priceCurrency": "RUB",
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "3500",
+                    "priceCurrency": "RUB",
+                    "unitText": "за квадратный метр"
+                  },
+                  "description": "Полный пакет + авторский надзор"
+                }
               ]
+            },
+            "serviceOutput": "Полный дизайн-проект интерьера с визуализацией",
+            "hoursAvailable": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
             }
           })}
         </script>

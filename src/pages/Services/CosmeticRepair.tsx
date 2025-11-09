@@ -30,27 +30,58 @@ const CosmeticRepair = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "serviceType": "Косметический ремонт квартир под ключ",
+            "serviceType": "Косметический ремонт квартир",
+            "name": "Косметический ремонт квартир под ключ в Санкт-Петербурге",
+            "description": "Косметический ремонт квартир в СПб: покраска стен, поклейка обоев, замена напольных покрытий, косметический ремонт потолков. Быстро, качественно и недорого с гарантией.",
             "provider": {
               "@type": "LocalBusiness",
               "name": "SPB-DSRemont",
+              "telephone": "+78122099885",
+              "email": "digitalstroy@inbox.ru",
               "address": {
                 "@type": "PostalAddress",
+                "streetAddress": "Кузнецовская улица, 52к8Ж",
                 "addressLocality": "Санкт-Петербург",
                 "addressCountry": "RU"
               }
             },
-            "areaServed": "Санкт-Петербург",
-            "offers": {
-              "@type": "Offer",
-              "price": "6000",
-              "priceCurrency": "RUB",
-              "priceSpecification": {
-                "@type": "UnitPriceSpecification",
-                "price": "6000",
-                "priceCurrency": "RUB",
-                "unitCode": "MTK"
-              }
+            "areaServed": {
+              "@type": "City",
+              "name": "Санкт-Петербург"
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Косметический ремонт квартир",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Косметический ремонт квартиры"
+                  },
+                  "price": "6000",
+                  "priceCurrency": "RUB",
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "6000",
+                    "priceCurrency": "RUB",
+                    "unitText": "за квадратный метр"
+                  },
+                  "availableAtOrFrom": {
+                    "@type": "Place",
+                    "address": {
+                      "@type": "PostalAddress",
+                      "addressLocality": "Санкт-Петербург",
+                      "addressCountry": "RU"
+                    }
+                  }
+                }
+              ]
+            },
+            "serviceOutput": "Обновленный интерьер квартиры",
+            "hoursAvailable": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
             }
           })}
         </script>

@@ -33,34 +33,63 @@ const KitchenRepair = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "serviceType": "Ремонт кухни под ключ",
+            "serviceType": "Ремонт кухни",
+            "name": "Ремонт кухни под ключ в Санкт-Петербурге",
+            "description": "Профессиональный ремонт кухни в СПб под ключ: планировка, укладка плитки, установка кухонного гарнитура, замена коммуникаций, электрика. Цены от 15000₽/м². Гарантия 1 год.",
             "provider": {
               "@type": "LocalBusiness",
               "name": "SPB-DSRemont",
+              "telephone": "+78122099885",
+              "email": "digitalstroy@inbox.ru",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Кузнецовская улица, 52к8Ж",
                 "addressLocality": "Санкт-Петербург",
                 "addressCountry": "RU"
-              },
-              "telephone": "+78122099885"
-            },
-            "areaServed": "Санкт-Петербург",
-            "offers": {
-              "@type": "Offer",
-              "price": "15000",
-              "priceCurrency": "RUB",
-              "priceSpecification": {
-                "@type": "UnitPriceSpecification",
-                "price": "15000",
-                "priceCurrency": "RUB",
-                "unitText": "за квадратный метр"
               }
             },
+            "areaServed": {
+              "@type": "City",
+              "name": "Санкт-Петербург"
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Ремонт кухни под ключ",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Ремонт кухни под ключ"
+                  },
+                  "price": "15000",
+                  "priceCurrency": "RUB",
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "15000",
+                    "priceCurrency": "RUB",
+                    "unitText": "за квадратный метр"
+                  },
+                  "availableAtOrFrom": {
+                    "@type": "Place",
+                    "address": {
+                      "@type": "PostalAddress",
+                      "addressLocality": "Санкт-Петербург",
+                      "addressCountry": "RU"
+                    }
+                  }
+                }
+              ]
+            },
+            "serviceOutput": "Полностью готовая к использованию кухня",
             "aggregateRating": {
               "@type": "AggregateRating",
               "ratingValue": "4.9",
               "reviewCount": "87"
+            },
+            "hoursAvailable": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
             }
           })}
         </script>
