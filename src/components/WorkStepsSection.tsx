@@ -5,7 +5,7 @@ import { FileText, Ruler, Calculator, Users, Palette, FileCheck, CheckCircle, Ha
 import { useEffect, useRef, useState } from "react";
 import workCalculation from "@/assets/work-calculation-new.jpg";
 import workDesign from "@/assets/work-design.jpg";
-import workRenovation from "@/assets/work-renovation-new.jpg";
+import workRenovation from "@/assets/work-renovation-updated.jpg";
 
 const workStages = [
   {
