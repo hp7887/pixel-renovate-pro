@@ -34,6 +34,9 @@ import ChoosingContractor from "./pages/Blog/ChoosingContractor";
 import RepairTimelines from "./pages/Blog/RepairTimelines";
 import OfficeRenovation from "./pages/Blog/OfficeRenovation";
 import OfficeRenovation2025 from "./pages/Blog/OfficeRenovation2025";
+import BedroomDesign from "./pages/Blog/BedroomDesign";
+import FlooringGuide from "./pages/Blog/FlooringGuide";
+import WindowsGuide from "./pages/Blog/WindowsGuide";
 import CosmeticRepair from "./pages/Services/CosmeticRepair";
 import MajorRepair from "./pages/Services/MajorRepair";
 import TurnkeyRepair from "./pages/Services/TurnkeyRepair";
@@ -90,6 +93,9 @@ const App = () => (
           <Route path="/blog/sroki-remonta-kvartiry" element={<RepairTimelines />} />
           <Route path="/blog/remont-domashnego-ofisa" element={<OfficeRenovation />} />
           <Route path="/blog/remont-ofisnyh-pomeshcheniy" element={<OfficeRenovation2025 />} />
+          <Route path="/blog/dizayn-spalni" element={<BedroomDesign />} />
+          <Route path="/blog/napolnye-pokrytiya" element={<FlooringGuide />} />
+          <Route path="/blog/okna-v-kvartire" element={<WindowsGuide />} />
           <Route path="/services/cosmetic-repair" element={<CosmeticRepair />} />
           <Route path="/services/major-repair" element={<MajorRepair />} />
           <Route path="/services/turnkey-repair" element={<TurnkeyRepair />} />
