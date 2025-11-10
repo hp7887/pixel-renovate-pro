@@ -259,6 +259,27 @@ const MaterialsCalculator = () => {
           content="Подробный калькулятор ремонта квартиры в СПб. Рассчитайте стоимость по комнатам, выберите качество материалов и виды работ. Точная смета с разбивкой по помещениям." 
         />
         <link rel="canonical" href="https://spb-dsremont.ru/materials-calculator" />
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://spb-dsremont.ru"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Калькулятор материалов",
+                "item": "https://spb-dsremont.ru/materials-calculator"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
 
       <div className="min-h-screen bg-background">

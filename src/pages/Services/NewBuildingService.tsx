@@ -16,6 +16,33 @@ const NewBuildingService = () => {
         <title>Отделка новостройки под ключ | SPB-DSRemont</title>
         <meta name="description" content="Комплексная отделка новостройки от черновой до чистовой отделки. Подбор материалов, качественные работы от 8 200 ₽/м²." />
         <link rel="canonical" href="https://spb-dsremont.ru/services/new-building" />
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://spb-dsremont.ru"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Услуги",
+                "item": "https://spb-dsremont.ru/#services"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Отделка новостройки",
+                "item": "https://spb-dsremont.ru/services/new-building"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       
       <Header />

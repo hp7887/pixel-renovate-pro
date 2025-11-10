@@ -79,6 +79,26 @@ const Contacts = () => {
             }
           })}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://spb-dsremont.ru"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Контакты",
+                "item": "https://spb-dsremont.ru/contacts"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <Header />
       

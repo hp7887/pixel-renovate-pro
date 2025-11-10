@@ -233,6 +233,27 @@ const Blog = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Статьи о ремонте квартир - Советы и рекомендации | SPB-DSRemont" />
         <meta name="twitter:description" content="Полезные статьи о ремонте квартир в Санкт-Петербурге: советы по выбору материалов, дизайну интерьера, распространенные ошибки и актуальные тренды 2025 года." />
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://spb-dsremont.ru"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Блог",
+                "item": "https://spb-dsremont.ru/blog"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       
       <Header />

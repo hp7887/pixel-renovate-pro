@@ -25,6 +25,33 @@ const BathroomRepair = () => {
         <meta name="twitter:title" content="Ремонт ванной комнаты под ключ в СПб | SPB-DSRemont" />
         <meta name="twitter:description" content="Ремонт ванной комнаты и санузла в Санкт-Петербурге: укладка плитки, замена сантехники, гидроизоляция. Гарантия 1 год, фиксированные цены." />
         <meta name="twitter:image" content={bathroomRepairHero} />
+        {/* Добавлено для SEO: BreadcrumbList Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://spb-dsremont.ru"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Услуги",
+                "item": "https://spb-dsremont.ru/#services"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Ремонт ванной комнаты",
+                "item": "https://spb-dsremont.ru/services/bathroom-repair"
+              }
+            ]
+          })}
+        </script>
         {/* Добавлено для SEO: Schema.org JSON-LD */}
         <script type="application/ld+json">
           {JSON.stringify({

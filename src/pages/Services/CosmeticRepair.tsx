@@ -25,6 +25,33 @@ const CosmeticRepair = () => {
         <meta name="twitter:title" content="Косметический ремонт квартир в СПб под ключ | SPB-DSRemont" />
         <meta name="twitter:description" content="Косметический ремонт квартир в Санкт-Петербурге: быстро, качественно и недорого. Покраска стен, поклейка обоев, замена напольных покрытий. Гарантия качества." />
         <meta name="twitter:image" content="https://spb-dsremont.ru/og-image.jpg" />
+        {/* Добавлено для SEO: BreadcrumbList Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://spb-dsremont.ru"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Услуги",
+                "item": "https://spb-dsremont.ru/#services"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Косметический ремонт",
+                "item": "https://spb-dsremont.ru/services/cosmetic-repair"
+              }
+            ]
+          })}
+        </script>
         {/* Добавлено для SEO: Schema.org JSON-LD */}
         <script type="application/ld+json">
           {JSON.stringify({

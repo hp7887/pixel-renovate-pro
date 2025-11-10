@@ -28,6 +28,32 @@ const BedroomDesign = () => {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://spb-dsremont.ru"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Блог",
+                "item": "https://spb-dsremont.ru/blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Дизайн спальни",
+                "item": "https://spb-dsremont.ru/blog/dizayn-spalni"
+              }
+            ]
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Дизайн и ремонт спальни: создаем идеальное место для отдыха",
             "description": "Полное руководство по дизайну и ремонту спальни в СПб: планировка, выбор цветов, освещение, материалы. Создайте комфортное пространство для сна. Цены от 6500₽/м².",

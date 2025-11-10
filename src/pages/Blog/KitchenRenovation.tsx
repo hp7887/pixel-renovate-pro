@@ -28,6 +28,32 @@ const KitchenRenovation = () => {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://spb-dsremont.ru"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Блог",
+                "item": "https://spb-dsremont.ru/blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Ремонт кухни",
+                "item": "https://spb-dsremont.ru/blog/remont-kuhni"
+              }
+            ]
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
             "@type": "Article",
             "headline": "Ремонт кухни: пошаговое руководство от планировки до финиша",
             "description": "Полное руководство по ремонту кухни: планировка, выбор материалов, последовательность работ, типичные ошибки. Профессиональные советы по созданию функциональной и красивой кухни.",

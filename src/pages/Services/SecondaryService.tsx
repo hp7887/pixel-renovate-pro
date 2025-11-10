@@ -17,6 +17,33 @@ const SecondaryService = () => {
         <title>Ремонт вторички под ключ | SPB-DSRemont</title>
         <meta name="description" content="Капитальный ремонт квартир вторичного жилья. Замена коммуникаций, электрики, полная отделка от 9 800 ₽/м²." />
         <link rel="canonical" href="https://spb-dsremont.ru/services/secondary" />
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://spb-dsremont.ru"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Услуги",
+                "item": "https://spb-dsremont.ru/#services"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Ремонт вторички",
+                "item": "https://spb-dsremont.ru/services/secondary"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       
       <Header />

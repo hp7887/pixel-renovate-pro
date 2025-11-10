@@ -27,6 +27,32 @@ const TurnkeyRepair = () => {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://spb-dsremont.ru"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Услуги",
+                "item": "https://spb-dsremont.ru/#services"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Ремонт под ключ",
+                "item": "https://spb-dsremont.ru/services/turnkey-repair"
+              }
+            ]
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
             "@type": "Service",
             "serviceType": "Ремонт квартир под ключ",
             "name": "Ремонт квартир под ключ в Санкт-Петербурге",

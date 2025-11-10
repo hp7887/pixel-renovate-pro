@@ -28,6 +28,34 @@ const KitchenRepair = () => {
         <meta name="twitter:description" content="Профессиональный ремонт кухни в Санкт-Петербурге под ключ. Укладка плитки, установка кухонного гарнитура, замена коммуникаций. Цены от 15 000 ₽/м². Гарантия 1 год." />
         <meta name="twitter:image" content={projectKitchen} />
         
+        {/* BreadcrumbList Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://spb-dsremont.ru"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Услуги",
+                "item": "https://spb-dsremont.ru/#services"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Ремонт кухни",
+                "item": "https://spb-dsremont.ru/services/kitchen-repair"
+              }
+            ]
+          })}
+        </script>
+        
         {/* Schema.org JSON-LD */}
         <script type="application/ld+json">
           {JSON.stringify({

@@ -94,6 +94,27 @@ const Partnership = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://spb-dsremont.ru/partnership" />
         <meta property="og:image" content="https://spb-dsremont.ru/og-image.jpg" />
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://spb-dsremont.ru"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Партнерство",
+                "item": "https://spb-dsremont.ru/partnership"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
 
       <Header />
