@@ -13,6 +13,21 @@ const LazyImage = ({ src, alt, className = "", placeholder = "data:image/svg+xml
   const [isLoaded, setIsLoaded] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
+  // Генерируем WebP путь если браузер поддерживает
+  const getWebPPath = (originalSrc: string) => {
+    // Проверяем поддержку WebP
+    if (typeof window === 'undefined') return originalSrc;
+    
+    const isWebPSupported = document.createElement('canvas')
+      .toDataURL('image/webp')
+      .indexOf('data:image/webp') === 0;
+    
+    if (!isWebPSupported) return originalSrc;
+    
+    // Заменяем расширение на .webp
+    return originalSrc.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+  };
+
   useEffect(() => {
     if (!imgRef.current) return;
 
@@ -36,20 +51,28 @@ const LazyImage = ({ src, alt, className = "", placeholder = "data:image/svg+xml
   }, [src]);
 
   return (
-    <img
-      ref={imgRef}
-      src={imageSrc}
-      alt={alt}
-      className={`transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${className}`}
-      onLoad={() => setIsLoaded(true)}
-      onError={() => {
-        if (fallbackSrc) {
-          setImageSrc(fallbackSrc);
-          setIsLoaded(true);
-        }
-      }}
-      loading="lazy"
-    />
+    <picture>
+      {/* WebP версия для браузеров с поддержкой */}
+      <source 
+        srcSet={imageSrc !== placeholder ? getWebPPath(imageSrc) : undefined} 
+        type="image/webp" 
+      />
+      {/* Оригинальный формат как fallback */}
+      <img
+        ref={imgRef}
+        src={imageSrc}
+        alt={alt}
+        className={`transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${className}`}
+        onLoad={() => setIsLoaded(true)}
+        onError={() => {
+          if (fallbackSrc) {
+            setImageSrc(fallbackSrc);
+            setIsLoaded(true);
+          }
+        }}
+        loading="lazy"
+      />
+    </picture>
   );
 };
 
