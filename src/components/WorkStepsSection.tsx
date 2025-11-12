@@ -3,7 +3,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { FileText, Ruler, Calculator, Users, Palette, FileCheck, CheckCircle, Hammer, Home, ArrowRight, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import LazyImage from "@/components/LazyImage";
 import workCalculation from "@/assets/work-calculation-new.jpg";
 import workDesign from "@/assets/work-design.jpg";
 import workRenovation from "@/assets/work-renovation-updated.jpg";
@@ -204,7 +203,7 @@ const WorkStepsSection = () => {
                     visibleStages[stageIndex] ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
                   }`}>
                     <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
-                    <LazyImage
+                    <img 
                       src={stageIndex === 0 ? workCalculation : 
                            stageIndex === 1 ? workDesign : 
                            workRenovation}

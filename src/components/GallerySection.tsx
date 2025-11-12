@@ -2,9 +2,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import LazyImage from "@/components/LazyImage";
-import project1 from "@/assets/project-modern-1.jpg";
-import project2 from "@/assets/project-scandinavian-living.jpg";
-import project3 from "@/assets/project-bedroom-3.jpg";
+import project1 from "@/assets/project-1.jpg";
+import project2 from "@/assets/project-2.jpg";
+import project3 from "@/assets/project-3.jpg";
 
 const projects = [
   {

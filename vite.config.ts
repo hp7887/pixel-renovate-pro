@@ -14,13 +14,15 @@ export default defineConfig(({ mode }) => ({
     react(), 
     mode === "development" && componentTagger(),
     imagetools({
-      defaultDirectives: (url) => {
+      // Настройки по умолчанию для автоматической генерации WebP
+      defaultDirectives: () => {
+        // Генерируем WebP версии для всех изображений
         return new URLSearchParams({
-          format: 'webp;jpg',
+          format: 'webp;jpg;png', // Генерируем WebP + оригинал
           quality: '85',
-          as: 'picture'
+          as: 'picture', // Генерируем picture элемент
         });
-      }
+      },
     })
   ].filter(Boolean),
   resolve: {
@@ -28,9 +30,10 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/",
+  // 🔹 ВАЖНО для GitHub Pages:
+  base: "/",   // так как у тебя КАСТОМНЫЙ ДОМЕН spb-dsremont.ru
   build: {
-    outDir: "dist",
-    emptyOutDir: true,
+    outDir: "dist", // стандартный каталог для билда
+    emptyOutDir: true, // очищает dist перед новым билдом
   },
 }));
