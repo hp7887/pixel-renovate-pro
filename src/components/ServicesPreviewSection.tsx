@@ -1,14 +1,13 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
-import { useState, memo } from "react";
+import { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
-import LazyImage from "@/components/LazyImage";
 import interiorDesignImage from "@/assets/interior-design-hero.jpg";
 import newBuildingImage from "@/assets/major-repair-hero-new.jpg";
 import secondaryImage from "@/assets/cosmetic-repair-hero-new.jpg";
 
-const ServicesPreviewSection = memo(() => {
+const ServicesPreviewSection = () => {
   const isMobile = useIsMobile();
   const navigate = useNavigate();
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
@@ -60,12 +59,10 @@ const ServicesPreviewSection = memo(() => {
               <div key={index} onClick={() => handleCardClick(index, service.link)}>
                 <Card className={`group relative overflow-hidden rounded-2xl border-0 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer h-[400px] md:h-[500px]`}>
                   {/* Background Image */}
-                  <div className={`absolute inset-0 transition-all duration-500 ${isExpanded ? 'opacity-0' : ''}`}>
-                    <LazyImage 
-                      src={service.image} 
-                      alt={service.title}
-                      className="w-full h-full object-cover"
-                    />
+                  <div 
+                    className={`absolute inset-0 bg-cover bg-center transition-all duration-500 ${isExpanded ? 'opacity-0' : ''}`}
+                    style={{ backgroundImage: `url(${service.image})` }}
+                  >
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30" />
                   </div>
 
@@ -105,12 +102,10 @@ const ServicesPreviewSection = memo(() => {
               <Link key={index} to={service.link}>
                 <Card className="group relative overflow-hidden rounded-2xl border-0 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer h-[400px] md:h-[500px]">
                   {/* Background Image */}
-                  <div className="absolute inset-0 transition-all duration-500 group-hover:opacity-0">
-                    <LazyImage 
-                      src={service.image} 
-                      alt={service.title}
-                      className="w-full h-full object-cover"
-                    />
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center transition-all duration-500 group-hover:opacity-0"
+                    style={{ backgroundImage: `url(${service.image})` }}
+                  >
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30" />
                   </div>
 
@@ -151,8 +146,6 @@ const ServicesPreviewSection = memo(() => {
       </div>
     </section>
   );
-});
-
-ServicesPreviewSection.displayName = 'ServicesPreviewSection';
+};
 
 export default ServicesPreviewSection;

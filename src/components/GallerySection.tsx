@@ -1,7 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, ArrowRight } from "lucide-react";
-import LazyImage from "@/components/LazyImage";
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
@@ -61,7 +60,7 @@ const GallerySection = () => {
               <CardContent className="p-0">
                 {/* Project image */}
                 <div className="relative overflow-hidden">
-                  <LazyImage 
+                  <img 
                     src={project.image} 
                     alt={project.title}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-smooth"
